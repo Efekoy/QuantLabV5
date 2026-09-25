@@ -1,0 +1,23 @@
+{
+ "stage": "DISCOVERY",
+ "registry_sha256": "8ba89bc09a91b3f61290c654384ca951a92add841a99a5bfb14f3e2009e4c81c",
+ "freezes": {
+  "discovery": null,
+  "validation": null,
+  "final_cohort": null,
+  "audit_1_report": null,
+  "audit_2_report": null
+ },
+ "final_cohort_freeze_utc": null,
+ "history": [
+  {
+   "stage": "BOOTSTRAP",
+   "entered_utc": "2026-09-25T15:31:23.530744+00:00"
+  },
+  {
+   "stage": "DISCOVERY",
+   "entered_utc": "2026-09-25T15:31:39.686746+00:00"
+  }
+ ],
+ "state_hash": "876e525f1a04f3619a80d9f0c4ce9827720730e8200a6f7aa8f144bc847f1c98"
+}

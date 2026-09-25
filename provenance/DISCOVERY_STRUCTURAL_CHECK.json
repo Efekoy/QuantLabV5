@@ -1,0 +1,173 @@
+{
+ "created_utc": "2026-09-25T15:31:45.811273+00:00",
+ "stage": "DISCOVERY",
+ "partition": "DISCOVERY",
+ "note": "structural counts only; no price or volume statistics",
+ "instruments": {
+  "NQ": {
+   "rows": 2776632,
+   "sessions": 2198,
+   "ledger_seq": 5,
+   "data_sha256": "db0027420c9116f817b1db26d584c58681c160cdd61a73f77679fff6e02fa956",
+   "columns_present": [
+    "close",
+    "duplicate_timestamp",
+    "high",
+    "instrument_id",
+    "low",
+    "open",
+    "publisher_id",
+    "roll_boundary",
+    "roll_session",
+    "rtype",
+    "source_duplicate_count",
+    "symbol",
+    "ts_event",
+    "volume"
+   ],
+   "missing_canonical_columns": [],
+   "dtypes": {
+    "ts_event": "datetime64[ns, UTC]",
+    "open": "float64",
+    "high": "float64",
+    "low": "float64",
+    "close": "float64",
+    "volume": "int64",
+    "symbol": "str",
+    "instrument_id": "int64",
+    "rtype": "int16",
+    "publisher_id": "int16",
+    "roll_session": "str",
+    "roll_boundary": "bool",
+    "duplicate_timestamp": "bool",
+    "source_duplicate_count": "int32"
+   },
+   "dtype_mismatches": {},
+   "timestamps": {
+    "tz": "UTC",
+    "strictly_increasing": true,
+    "minute_aligned": true
+   },
+   "volume": {
+    "column_present": true,
+    "dtype": "int64",
+    "integer_dtype": true,
+    "rows": 2776632,
+    "unparseable": 0,
+    "missing": 0,
+    "missing_fraction": 0.0,
+    "negative": 0,
+    "non_integral": 0,
+    "zero_volume_rows": 0,
+    "passes": true
+   },
+   "rolls": {
+    "derived_rolls": 35,
+    "flagged_rolls": 35,
+    "flag_matches_derived": true,
+    "rolls_only_at_session_start": true
+   },
+   "source_duplicate_timestamp_rows": 0,
+   "null_counts_by_column": {
+    "ts_event": 0,
+    "open": 0,
+    "high": 0,
+    "low": 0,
+    "close": 0,
+    "volume": 0,
+    "symbol": 0,
+    "instrument_id": 0,
+    "rtype": 0,
+    "publisher_id": 0,
+    "roll_session": 0,
+    "roll_boundary": 0,
+    "duplicate_timestamp": 0,
+    "source_duplicate_count": 0
+   }
+  },
+  "ES": {
+   "rows": 2945493,
+   "sessions": 2198,
+   "ledger_seq": 6,
+   "data_sha256": "a78c976eb085d295ff429ced1e87be6d8d3230b8719448917743d333bd26b672",
+   "columns_present": [
+    "close",
+    "duplicate_timestamp",
+    "high",
+    "instrument_id",
+    "low",
+    "open",
+    "publisher_id",
+    "roll_boundary",
+    "roll_session",
+    "rtype",
+    "source_duplicate_count",
+    "symbol",
+    "ts_event",
+    "volume"
+   ],
+   "missing_canonical_columns": [],
+   "dtypes": {
+    "ts_event": "datetime64[ns, UTC]",
+    "open": "float64",
+    "high": "float64",
+    "low": "float64",
+    "close": "float64",
+    "volume": "int64",
+    "symbol": "str",
+    "instrument_id": "int64",
+    "rtype": "int16",
+    "publisher_id": "int16",
+    "roll_session": "str",
+    "roll_boundary": "bool",
+    "duplicate_timestamp": "bool",
+    "source_duplicate_count": "int32"
+   },
+   "dtype_mismatches": {},
+   "timestamps": {
+    "tz": "UTC",
+    "strictly_increasing": true,
+    "minute_aligned": true
+   },
+   "volume": {
+    "column_present": true,
+    "dtype": "int64",
+    "integer_dtype": true,
+    "rows": 2945493,
+    "unparseable": 0,
+    "missing": 0,
+    "missing_fraction": 0.0,
+    "negative": 0,
+    "non_integral": 0,
+    "zero_volume_rows": 0,
+    "passes": true
+   },
+   "rolls": {
+    "derived_rolls": 35,
+    "flagged_rolls": 35,
+    "flag_matches_derived": true,
+    "rolls_only_at_session_start": true
+   },
+   "source_duplicate_timestamp_rows": 0,
+   "null_counts_by_column": {
+    "ts_event": 0,
+    "open": 0,
+    "high": 0,
+    "low": 0,
+    "close": 0,
+    "volume": 0,
+    "symbol": 0,
+    "instrument_id": 0,
+    "rtype": 0,
+    "publisher_id": 0,
+    "roll_session": 0,
+    "roll_boundary": 0,
+    "duplicate_timestamp": 0,
+    "source_duplicate_count": 0
+   }
+  }
+ },
+ "nq_es_schema_consistent": true,
+ "nq_es_schema_problems": [],
+ "volume_checks_pass": true
+}

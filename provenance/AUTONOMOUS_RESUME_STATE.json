@@ -1,0 +1,15 @@
+{
+ "completed": [
+  "V5_BOOTSTRAP_PARTITIONS"
+ ],
+ "last_git_commit": "6bb9997bf08456258436075d7cdf9ec4b74eb242",
+ "next_action": "bootstrap freeze; then STOP and wait for the user's next prompt (no catalog, no discovery)",
+ "outputs": {
+  "config/partitions.json": "0aa62734f94aead898905b6f30a49508b8b2d3a10b427c69f61aa53667244a17",
+  "provenance/DISCOVERY_STRUCTURAL_CHECK.json": "652ee04347482aa6adaed870a27e8a40b515a04f62f95ab1e11fb4d6c434b2ab",
+  "provenance/ISOLATION_CHECK_Administrator.json": "182c22d06c3d8440e45bded03bf61188a441e5a3f3e8983e8c2e4a7939584f43",
+  "provenance/SOURCE_DATA.json": "7fbe1663a680e4c94e724ed2976cc3a9aa82bc00cab717bf7957e828c07976c8"
+ },
+ "stage": "DISCOVERY",
+ "updated_utc": "2026-09-25T15:32:15.272409+00:00"
+}
