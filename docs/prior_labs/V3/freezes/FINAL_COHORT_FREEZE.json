@@ -1,0 +1,3057 @@
+{
+ "candidates": [
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "both",
+   "entry_conditions": {
+    "down_event": "the 30-minute move first falls below -2.0 sigma units with path efficiency x sqrt(n) >= 2.4",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=both",
+    "up_event": "the 30-minute move first exceeds +2.0 sigma units with path efficiency x sqrt(n) >= 2.4"
+   },
+   "entry_id": "Eac20f7491875358c",
+   "family": "v3_h20_extreme_move_path",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "STOP_TIME_eod",
+    "kind": "stop_time",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "hold": "eod"
+    },
+    "trail": null
+   },
+   "parameters": {
+    "cls": "high",
+    "mode": "continuation",
+    "n": 30,
+    "pe_hi": 2.4,
+    "pe_lo": 1.7,
+    "z": 2.0
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "both",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h20_extreme_move_path",
+    "family_version": "3.0",
+    "hypothesis": "H20",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.5
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "STOP_TIME_eod",
+      "kind": "stop_time",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "hold": "eod"
+      },
+      "trail": null
+     }
+    },
+    "params": {
+     "cls": "high",
+     "mode": "continuation",
+     "n": 30,
+     "pe_hi": 2.4,
+     "pe_lo": 1.7,
+     "z": 2.0
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.5
+   },
+   "strategy_id": "Cdf2b568ee1f8a182",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "both",
+   "entry_conditions": {
+    "down_event": "at 10:30 at least 4 of the 5 trend-day criteria hold and the close is below the RTH open",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=both",
+    "up_event": "at 10:30 at least 4 of the 5 trend-day criteria hold and the close is above the RTH open"
+   },
+   "entry_id": "E5f9b5de1609e4a84",
+   "family": "v3_h45_early_trend_day",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "RR_2R",
+    "kind": "rr",
+    "legs": [
+     [
+      1.0,
+      2.0
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "target_R": 2
+    },
+    "trail": null
+   },
+   "parameters": {
+    "cut": "10:30",
+    "k": 4,
+    "mode": "continuation"
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "both",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h45_early_trend_day",
+    "family_version": "3.0",
+    "hypothesis": "H45",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.5
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "RR_2R",
+      "kind": "rr",
+      "legs": [
+       [
+        1.0,
+        2.0
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "target_R": 2
+      },
+      "trail": null
+     }
+    },
+    "params": {
+     "cut": "10:30",
+     "k": 4,
+     "mode": "continuation"
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.5
+   },
+   "strategy_id": "Ca55086023a82dafa",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "short",
+   "entry_conditions": {
+    "down_event": "at 15:00 the close is >= 0.4 x D below the RTH open",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=short",
+    "up_event": "at 15:00 the close is >= 0.4 x D above the RTH open"
+   },
+   "entry_id": "E1e8cca75fbcc2e93",
+   "family": "v3_h09_last_hour_trend",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "RR_1R",
+    "kind": "rr",
+    "legs": [
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "target_R": 1
+    },
+    "trail": null
+   },
+   "parameters": {
+    "cl": null,
+    "cut": "15:00",
+    "e": null,
+    "m": 0.4,
+    "mode": "continuation"
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "short",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h09_last_hour_trend",
+    "family_version": "3.0",
+    "hypothesis": "H09",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "cap_atr": 3.0,
+      "floor_atr": 0.5,
+      "method": "struct"
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "RR_1R",
+      "kind": "rr",
+      "legs": [
+       [
+        1.0,
+        1.0
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "target_R": 1
+      },
+      "trail": null
+     }
+    },
+    "params": {
+     "cl": null,
+     "cut": "15:00",
+     "e": null,
+     "m": 0.4,
+     "mode": "continuation"
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "cap_atr": 3.0,
+    "floor_atr": 0.5,
+    "method": "struct"
+   },
+   "strategy_id": "Ce5e284855c7e4be1",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "long",
+   "entry_conditions": {
+    "down_event": "at 09:30+15min, the RTH open gapped >= 0.25D below the previous RTH close and the close is >= 0.05D below the RTH open",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=long",
+    "up_event": "at 09:30+15min, the RTH open gapped >= 0.25D above the previous RTH close and the close is >= 0.05D above the RTH open"
+   },
+   "entry_id": "E8f8a54882d6f9ad0",
+   "family": "v3_h47_overnight_same_dir_open",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "P25_1R_RUN",
+    "kind": "partial",
+    "legs": [
+     [
+      0.25,
+      1.0
+     ],
+     [
+      0.75,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {},
+    "trail": null
+   },
+   "parameters": {
+    "g": 0.25,
+    "mode": "continuation",
+    "open": "same",
+    "w": 15
+   },
+   "spec": {
+    "complexity": 1,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "long",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h47_overnight_same_dir_open",
+    "family_version": "3.0",
+    "hypothesis": "H47",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "P25_1R_RUN",
+      "kind": "partial",
+      "legs": [
+       [
+        0.25,
+        1.0
+       ],
+       [
+        0.75,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {},
+      "trail": null
+     }
+    },
+    "params": {
+     "g": 0.25,
+     "mode": "continuation",
+     "open": "same",
+     "w": 15
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "Cfa444b4386db8d33",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "long",
+   "entry_conditions": {
+    "down_event": "the 30-minute move first falls below -1.0 sigma units while 15-minute realised vol >= 3.0x its same-time-of-day norm",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=long",
+    "up_event": "the 30-minute move first exceeds +1.0 sigma units while 15-minute realised vol >= 3.0x its same-time-of-day norm"
+   },
+   "entry_id": "E3c403b62015526f1",
+   "family": "v3_h05_vol_shock_momentum",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "TRAIL_ATR_1.5_ACT0R",
+    "kind": "trail_atr",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "act_R": 0.0,
+     "dist": 1.5
+    },
+    "trail": {
+     "act_R": 0.0,
+     "param": 1.5,
+     "type": "atr_high"
+    }
+   },
+   "parameters": {
+    "mode": "continuation",
+    "n": 30,
+    "v": 3.0,
+    "z": 1.0
+   },
+   "spec": {
+    "complexity": 1,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "long",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h05_vol_shock_momentum",
+    "family_version": "3.0",
+    "hypothesis": "H05",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "TRAIL_ATR_1.5_ACT0R",
+      "kind": "trail_atr",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "act_R": 0.0,
+       "dist": 1.5
+      },
+      "trail": {
+       "act_R": 0.0,
+       "param": 1.5,
+       "type": "atr_high"
+      }
+     }
+    },
+    "params": {
+     "mode": "continuation",
+     "n": 30,
+     "v": 3.0,
+     "z": 1.0
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C1a82f05b6fe1e264",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "both",
+   "entry_conditions": {
+    "down_event": "the close breaks below the previous 60-bar low; the previous 60 bars' realised vol was <= 0.6x its time-of-day norm; the 5-minute move >= 1.0 sigma units",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=both",
+    "up_event": "the close breaks above the previous 60-bar high; the previous 60 bars' realised vol was <= 0.6x its time-of-day norm; the 5-minute move >= 1.0 sigma units"
+   },
+   "entry_id": "Efc242ab81ddb80b3",
+   "family": "v3_h06_compression_expansion",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "STOP_TIME_eod",
+    "kind": "stop_time",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "hold": "eod"
+    },
+    "trail": null
+   },
+   "parameters": {
+    "N": 60,
+    "cth": 0.6,
+    "mode": "continuation",
+    "strong": 1.0
+   },
+   "spec": {
+    "complexity": 2,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "both",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h06_compression_expansion",
+    "family_version": "3.0",
+    "hypothesis": "H06",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "STOP_TIME_eod",
+      "kind": "stop_time",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "hold": "eod"
+      },
+      "trail": null
+     }
+    },
+    "params": {
+     "N": 60,
+     "cth": 0.6,
+     "mode": "continuation",
+     "strong": 1.0
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C2839e22b29c0cb17",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "both",
+   "entry_conditions": {
+    "down_event": "at 09:30+30min the close is >= 0.3 x D below the RTH open",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=both",
+    "up_event": "at 09:30+30min the close is >= 0.3 x D above the RTH open"
+   },
+   "entry_id": "E77b28de6ea6228c0",
+   "family": "v3_h07_opening_drive",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "TRAIL_ATR_3_ACT0R",
+    "kind": "trail_atr",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "act_R": 0.0,
+     "dist": 3.0
+    },
+    "trail": {
+     "act_R": 0.0,
+     "param": 3.0,
+     "type": "atr_high"
+    }
+   },
+   "parameters": {
+    "e": null,
+    "m": 0.3,
+    "mode": "continuation",
+    "w": 30
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "both",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h07_opening_drive",
+    "family_version": "3.0",
+    "hypothesis": "H07",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "TRAIL_ATR_3_ACT0R",
+      "kind": "trail_atr",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "act_R": 0.0,
+       "dist": 3.0
+      },
+      "trail": {
+       "act_R": 0.0,
+       "param": 3.0,
+       "type": "atr_high"
+      }
+     }
+    },
+    "params": {
+     "e": null,
+     "m": 0.3,
+     "mode": "continuation",
+     "w": 30
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C915ea812fd5945a5",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "long",
+   "entry_conditions": {
+    "down_event": "at 10:30 the close is >= 0.5 x D below the RTH open",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=long",
+    "up_event": "at 10:30 the close is >= 0.5 x D above the RTH open"
+   },
+   "entry_id": "E399f249084bb7f7a",
+   "family": "v3_h08_morning_trend",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "P25_1R_RUN",
+    "kind": "partial",
+    "legs": [
+     [
+      0.25,
+      1.0
+     ],
+     [
+      0.75,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {},
+    "trail": null
+   },
+   "parameters": {
+    "cl": null,
+    "cut": "10:30",
+    "e": null,
+    "m": 0.5,
+    "mode": "continuation"
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "long",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h08_morning_trend",
+    "family_version": "3.0",
+    "hypothesis": "H08",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "P25_1R_RUN",
+      "kind": "partial",
+      "legs": [
+       [
+        0.25,
+        1.0
+       ],
+       [
+        0.75,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {},
+      "trail": null
+     }
+    },
+    "params": {
+     "cl": null,
+     "cut": "10:30",
+     "e": null,
+     "m": 0.5,
+     "mode": "continuation"
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C046be57651136b5c",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "short",
+   "entry_conditions": {
+    "down_event": "at 10:30 the close is >= 0.5 x D below the RTH open",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=short",
+    "up_event": "at 10:30 the close is >= 0.5 x D above the RTH open"
+   },
+   "entry_id": "E3d74c7ed91bc4192",
+   "family": "v3_h08_morning_trend",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "STOP_TIME_eod",
+    "kind": "stop_time",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "hold": "eod"
+    },
+    "trail": null
+   },
+   "parameters": {
+    "cl": null,
+    "cut": "10:30",
+    "e": null,
+    "m": 0.5,
+    "mode": "continuation"
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "short",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h08_morning_trend",
+    "family_version": "3.0",
+    "hypothesis": "H08",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "cap_atr": 3.0,
+      "floor_atr": 0.5,
+      "method": "struct"
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "STOP_TIME_eod",
+      "kind": "stop_time",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "hold": "eod"
+      },
+      "trail": null
+     }
+    },
+    "params": {
+     "cl": null,
+     "cut": "10:30",
+     "e": null,
+     "m": 0.5,
+     "mode": "continuation"
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "cap_atr": 3.0,
+    "floor_atr": 0.5,
+    "method": "struct"
+   },
+   "strategy_id": "Ceef182c53f2e1673",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "long",
+   "entry_conditions": {
+    "down_event": "at 11:00 the close is >= 0.3 x D below the RTH open",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=long",
+    "up_event": "at 11:00 the close is >= 0.3 x D above the RTH open"
+   },
+   "entry_id": "E772968010bf2f620",
+   "family": "v3_h08_morning_trend",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "P25_1R_RUN",
+    "kind": "partial",
+    "legs": [
+     [
+      0.25,
+      1.0
+     ],
+     [
+      0.75,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {},
+    "trail": null
+   },
+   "parameters": {
+    "cl": null,
+    "cut": "11:00",
+    "e": null,
+    "m": 0.3,
+    "mode": "continuation"
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "long",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h08_morning_trend",
+    "family_version": "3.0",
+    "hypothesis": "H08",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "P25_1R_RUN",
+      "kind": "partial",
+      "legs": [
+       [
+        0.25,
+        1.0
+       ],
+       [
+        0.75,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {},
+      "trail": null
+     }
+    },
+    "params": {
+     "cl": null,
+     "cut": "11:00",
+     "e": null,
+     "m": 0.3,
+     "mode": "continuation"
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "Cf048ad80a1bd7603",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "long",
+   "entry_conditions": {
+    "down_event": "at 09:30+30min the close is >= 0.3 x D below the RTH open with path efficiency since the open >= 0.4",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=long",
+    "up_event": "at 09:30+30min the close is >= 0.3 x D above the RTH open with path efficiency since the open >= 0.4"
+   },
+   "entry_id": "Ee6eda02a5dfb202c",
+   "family": "v3_h07_opening_drive",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "TRAIL_ATR_2_ACT0R",
+    "kind": "trail_atr",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "act_R": 0.0,
+     "dist": 2.0
+    },
+    "trail": {
+     "act_R": 0.0,
+     "param": 2.0,
+     "type": "atr_high"
+    }
+   },
+   "parameters": {
+    "e": 0.4,
+    "m": 0.3,
+    "mode": "continuation",
+    "w": 30
+   },
+   "spec": {
+    "complexity": 1,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "long",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h07_opening_drive",
+    "family_version": "3.0",
+    "hypothesis": "H07",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "TRAIL_ATR_2_ACT0R",
+      "kind": "trail_atr",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "act_R": 0.0,
+       "dist": 2.0
+      },
+      "trail": {
+       "act_R": 0.0,
+       "param": 2.0,
+       "type": "atr_high"
+      }
+     }
+    },
+    "params": {
+     "e": 0.4,
+     "m": 0.3,
+     "mode": "continuation",
+     "w": 30
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C5fbf4cc530f79d84",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "both",
+   "entry_conditions": {
+    "down_event": "the 15-minute move first falls below -1.0 sigma units with the 5-minute return autocorrelation (last 24) >= 0.25",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=both",
+    "up_event": "the 15-minute move first exceeds +1.0 sigma units with the 5-minute return autocorrelation (last 24) >= 0.25"
+   },
+   "entry_id": "E4de4e4fa7bbaa856",
+   "family": "v3_h43_pos_autocorr_momentum",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "STOP_TIME_eod",
+    "kind": "stop_time",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "hold": "eod"
+    },
+    "trail": null
+   },
+   "parameters": {
+    "a": 0.25,
+    "mode": "continuation",
+    "z": 1.0
+   },
+   "spec": {
+    "complexity": 1,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "both",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h43_pos_autocorr_momentum",
+    "family_version": "3.0",
+    "hypothesis": "H43",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "STOP_TIME_eod",
+      "kind": "stop_time",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "hold": "eod"
+      },
+      "trail": null
+     }
+    },
+    "params": {
+     "a": 0.25,
+     "mode": "continuation",
+     "z": 1.0
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C16cd8e3c605af462",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "short",
+   "entry_conditions": {
+    "down_event": "the RTH open gapped >= 0.25D down and at 09:30+30min the close is >= 0.1D above the RTH open",
+    "mode": "reversal",
+    "rule": "reversal: SELL on up-event, BUY on down-event; direction=short",
+    "up_event": "the RTH open gapped >= 0.25D up and at 09:30+30min the close is >= 0.1D below the RTH open"
+   },
+   "entry_id": "E773dc82fe80dba1d",
+   "family": "v3_h48_overnight_opening_rejection",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "P25_1R_RUN",
+    "kind": "partial",
+    "legs": [
+     [
+      0.25,
+      1.0
+     ],
+     [
+      0.75,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {},
+    "trail": null
+   },
+   "parameters": {
+    "g": 0.25,
+    "mode": "reversal",
+    "o": 0.1,
+    "w": 30
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "short",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h48_overnight_opening_rejection",
+    "family_version": "3.0",
+    "hypothesis": "H48",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "P25_1R_RUN",
+      "kind": "partial",
+      "legs": [
+       [
+        0.25,
+        1.0
+       ],
+       [
+        0.75,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {},
+      "trail": null
+     }
+    },
+    "params": {
+     "g": 0.25,
+     "mode": "reversal",
+     "o": 0.1,
+     "w": 30
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C936c5aa985ba50fd",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "both",
+   "entry_conditions": {
+    "down_event": "30-minute NQ/ES correlation <= 0.5 and NQ's 30-minute beta residual <= -2.0 sigma",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=both",
+    "up_event": "30-minute NQ/ES correlation <= 0.5 and NQ's 30-minute beta residual >= +2.0 sigma"
+   },
+   "entry_id": "E65fa371677e903e3",
+   "family": "v3_h25_corr_breakdown",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "STOP_TIME_eod",
+    "kind": "stop_time",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "hold": "eod"
+    },
+    "trail": null
+   },
+   "parameters": {
+    "cth": 0.5,
+    "mode": "continuation",
+    "rz": 2.0
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "both",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h25_corr_breakdown",
+    "family_version": "3.0",
+    "hypothesis": "H25",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "STOP_TIME_eod",
+      "kind": "stop_time",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "hold": "eod"
+      },
+      "trail": null
+     }
+    },
+    "other_instrument": "ES",
+    "params": {
+     "cth": 0.5,
+     "mode": "continuation",
+     "rz": 2.0
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C431e7e54dbc7b968",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "short",
+   "entry_conditions": {
+    "down_event": "the 15-minute move first falls below -1.0 sigma units with variance ratio VR(5) over the last 120 minutes >= 1.4",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=short",
+    "up_event": "the 15-minute move first exceeds +1.0 sigma units with variance ratio VR(5) over the last 120 minutes >= 1.4"
+   },
+   "entry_id": "Eac09feec3a109f22",
+   "family": "v3_h41_vr_trending",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "STOP_TIME_eod",
+    "kind": "stop_time",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "hold": "eod"
+    },
+    "trail": null
+   },
+   "parameters": {
+    "L": 120,
+    "mode": "continuation",
+    "vr": 1.4,
+    "z": 1.0
+   },
+   "spec": {
+    "complexity": 1,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "short",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h41_vr_trending",
+    "family_version": "3.0",
+    "hypothesis": "H41",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "cap_atr": 3.0,
+      "floor_atr": 0.5,
+      "method": "struct"
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "STOP_TIME_eod",
+      "kind": "stop_time",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "hold": "eod"
+      },
+      "trail": null
+     }
+    },
+    "params": {
+     "L": 120,
+     "mode": "continuation",
+     "vr": 1.4,
+     "z": 1.0
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "cap_atr": 3.0,
+    "floor_atr": 0.5,
+    "method": "struct"
+   },
+   "strategy_id": "Ce2bc1c0f03390096",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "short",
+   "entry_conditions": {
+    "down_event": "at 11:30 the close is >= 0.4D below the RTH open with efficiency >= 0.1; entry at 13:30",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=short",
+    "up_event": "at 11:30 the close is >= 0.4D above the RTH open with efficiency >= 0.1; entry at 13:30"
+   },
+   "entry_id": "E78d7ce9ffa79e3da",
+   "family": "v3_h50_trend_lunch_pm",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": 0.5,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "BE_0.5R_Tnone",
+    "kind": "be",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "be_R": 0.5,
+     "target_R": "none"
+    },
+    "trail": null
+   },
+   "parameters": {
+    "cons": null,
+    "m": 0.4,
+    "mode": "continuation",
+    "trig": null
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "short",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h50_trend_lunch_pm",
+    "family_version": "3.0",
+    "hypothesis": "H50",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": 0.5,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "BE_0.5R_Tnone",
+      "kind": "be",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "be_R": 0.5,
+       "target_R": "none"
+      },
+      "trail": null
+     }
+    },
+    "params": {
+     "cons": null,
+     "m": 0.4,
+     "mode": "continuation",
+     "trig": null
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C87a31838e567ad3c",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "long",
+   "entry_conditions": {
+    "down_event": "at 09:30+15min, the RTH open gapped >= 0.5D below the previous RTH close",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=long",
+    "up_event": "at 09:30+15min, the RTH open gapped >= 0.5D above the previous RTH close"
+   },
+   "entry_id": "E799143c6016f25c9",
+   "family": "v3_h47_overnight_same_dir_open",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "P25_1R_RUN",
+    "kind": "partial",
+    "legs": [
+     [
+      0.25,
+      1.0
+     ],
+     [
+      0.75,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {},
+    "trail": null
+   },
+   "parameters": {
+    "g": 0.5,
+    "mode": "continuation",
+    "open": null,
+    "w": 15
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "long",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h47_overnight_same_dir_open",
+    "family_version": "3.0",
+    "hypothesis": "H47",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "P25_1R_RUN",
+      "kind": "partial",
+      "legs": [
+       [
+        0.25,
+        1.0
+       ],
+       [
+        0.75,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {},
+      "trail": null
+     }
+    },
+    "params": {
+     "g": 0.5,
+     "mode": "continuation",
+     "open": null,
+     "w": 15
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C82ee16a85ecc3f4d",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "long",
+   "entry_conditions": {
+    "down_event": "the close breaks below the previous 60-bar low; the previous 60 bars' realised vol was <= 0.6x its time-of-day norm",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=long",
+    "up_event": "the close breaks above the previous 60-bar high; the previous 60 bars' realised vol was <= 0.6x its time-of-day norm"
+   },
+   "entry_id": "E866a4380cd32ac16",
+   "family": "v3_h06_compression_expansion",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "STOP_TIME_eod",
+    "kind": "stop_time",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "hold": "eod"
+    },
+    "trail": null
+   },
+   "parameters": {
+    "N": 60,
+    "cth": 0.6,
+    "mode": "continuation",
+    "strong": null
+   },
+   "spec": {
+    "complexity": 1,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "long",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h06_compression_expansion",
+    "family_version": "3.0",
+    "hypothesis": "H06",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.5
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "STOP_TIME_eod",
+      "kind": "stop_time",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "hold": "eod"
+      },
+      "trail": null
+     }
+    },
+    "params": {
+     "N": 60,
+     "cth": 0.6,
+     "mode": "continuation",
+     "strong": null
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.5
+   },
+   "strategy_id": "C39c52e02a3c54412",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "both",
+   "entry_conditions": {
+    "down_event": "the 15-minute move first falls below -1.5 sigma units with variance ratio VR(5) over the last 120 minutes >= 1.2",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=both",
+    "up_event": "the 15-minute move first exceeds +1.5 sigma units with variance ratio VR(5) over the last 120 minutes >= 1.2"
+   },
+   "entry_id": "E73ad53ae9e456d1a",
+   "family": "v3_h41_vr_trending",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "STOP_TIME_eod",
+    "kind": "stop_time",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "hold": "eod"
+    },
+    "trail": null
+   },
+   "parameters": {
+    "L": 120,
+    "mode": "continuation",
+    "vr": 1.2,
+    "z": 1.5
+   },
+   "spec": {
+    "complexity": 1,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "both",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h41_vr_trending",
+    "family_version": "3.0",
+    "hypothesis": "H41",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "STOP_TIME_eod",
+      "kind": "stop_time",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "hold": "eod"
+      },
+      "trail": null
+     }
+    },
+    "params": {
+     "L": 120,
+     "mode": "continuation",
+     "vr": 1.2,
+     "z": 1.5
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C91756637ca7282e7",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "both",
+   "entry_conditions": {
+    "down_event": "the 30-minute move first falls below -1.5 sigma units while 15-minute realised vol >= 3.0x its same-time-of-day norm",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=both",
+    "up_event": "the 30-minute move first exceeds +1.5 sigma units while 15-minute realised vol >= 3.0x its same-time-of-day norm"
+   },
+   "entry_id": "E3fb1ab28fe1b5706",
+   "family": "v3_h05_vol_shock_momentum",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "RR_2R",
+    "kind": "rr",
+    "legs": [
+     [
+      1.0,
+      2.0
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "target_R": 2
+    },
+    "trail": null
+   },
+   "parameters": {
+    "mode": "continuation",
+    "n": 30,
+    "v": 3.0,
+    "z": 1.5
+   },
+   "spec": {
+    "complexity": 1,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "both",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h05_vol_shock_momentum",
+    "family_version": "3.0",
+    "hypothesis": "H05",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.5
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "RR_2R",
+      "kind": "rr",
+      "legs": [
+       [
+        1.0,
+        2.0
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "target_R": 2
+      },
+      "trail": null
+     }
+    },
+    "params": {
+     "mode": "continuation",
+     "n": 30,
+     "v": 3.0,
+     "z": 1.5
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.5
+   },
+   "strategy_id": "Cd165e089c8a180ec",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "short",
+   "entry_conditions": {
+    "down_event": "30-minute NQ/ES correlation <= 0.65 and NQ's 30-minute beta residual <= -2.0 sigma",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=short",
+    "up_event": "30-minute NQ/ES correlation <= 0.65 and NQ's 30-minute beta residual >= +2.0 sigma"
+   },
+   "entry_id": "E7cd08682905f49b9",
+   "family": "v3_h25_corr_breakdown",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "P25_1R_RUN",
+    "kind": "partial",
+    "legs": [
+     [
+      0.25,
+      1.0
+     ],
+     [
+      0.75,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {},
+    "trail": null
+   },
+   "parameters": {
+    "cth": 0.65,
+    "mode": "continuation",
+    "rz": 2.0
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "short",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h25_corr_breakdown",
+    "family_version": "3.0",
+    "hypothesis": "H25",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "P25_1R_RUN",
+      "kind": "partial",
+      "legs": [
+       [
+        0.25,
+        1.0
+       ],
+       [
+        0.75,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {},
+      "trail": null
+     }
+    },
+    "other_instrument": "ES",
+    "params": {
+     "cth": 0.65,
+     "mode": "continuation",
+     "rz": 2.0
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C2845a074bb5a5501",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "long",
+   "entry_conditions": {
+    "down_event": "at 09:30+5min, the RTH open gapped >= 0.25D below the previous RTH close and the close is >= 0.05D below the RTH open",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=long",
+    "up_event": "at 09:30+5min, the RTH open gapped >= 0.25D above the previous RTH close and the close is >= 0.05D above the RTH open"
+   },
+   "entry_id": "E6c105c4e2791afc3",
+   "family": "v3_h47_overnight_same_dir_open",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "TRAIL_ATR_3_ACT0R",
+    "kind": "trail_atr",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "act_R": 0.0,
+     "dist": 3.0
+    },
+    "trail": {
+     "act_R": 0.0,
+     "param": 3.0,
+     "type": "atr_high"
+    }
+   },
+   "parameters": {
+    "g": 0.25,
+    "mode": "continuation",
+    "open": "same",
+    "w": 5
+   },
+   "spec": {
+    "complexity": 1,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "long",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h47_overnight_same_dir_open",
+    "family_version": "3.0",
+    "hypothesis": "H47",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "TRAIL_ATR_3_ACT0R",
+      "kind": "trail_atr",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "act_R": 0.0,
+       "dist": 3.0
+      },
+      "trail": {
+       "act_R": 0.0,
+       "param": 3.0,
+       "type": "atr_high"
+      }
+     }
+    },
+    "params": {
+     "g": 0.25,
+     "mode": "continuation",
+     "open": "same",
+     "w": 5
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C62eeef3eabed9056",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "both",
+   "entry_conditions": {
+    "down_event": "at 09:30+15min, the RTH open gapped >= 0.25D below the previous RTH close",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=both",
+    "up_event": "at 09:30+15min, the RTH open gapped >= 0.25D above the previous RTH close"
+   },
+   "entry_id": "E4bd6fe6f46812237",
+   "family": "v3_h47_overnight_same_dir_open",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "TRAIL_ATR_3_ACT0R",
+    "kind": "trail_atr",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "act_R": 0.0,
+     "dist": 3.0
+    },
+    "trail": {
+     "act_R": 0.0,
+     "param": 3.0,
+     "type": "atr_high"
+    }
+   },
+   "parameters": {
+    "g": 0.25,
+    "mode": "continuation",
+    "open": null,
+    "w": 15
+   },
+   "spec": {
+    "complexity": 0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "both",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h47_overnight_same_dir_open",
+    "family_version": "3.0",
+    "hypothesis": "H47",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "TRAIL_ATR_3_ACT0R",
+      "kind": "trail_atr",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "act_R": 0.0,
+       "dist": 3.0
+      },
+      "trail": {
+       "act_R": 0.0,
+       "param": 3.0,
+       "type": "atr_high"
+      }
+     }
+    },
+    "params": {
+     "g": 0.25,
+     "mode": "continuation",
+     "open": null,
+     "w": 15
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "Cfcc0e08cf3dce32c",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "both",
+   "entry_conditions": {
+    "down_event": "the 30-minute move first falls below -2.0 sigma units with 390-minute NQ/ES correlation <= 0.75",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=both",
+    "up_event": "the 30-minute move first exceeds +2.0 sigma units with 390-minute NQ/ES correlation <= 0.75"
+   },
+   "entry_id": "E05e864695a0246d1",
+   "family": "v3_x3_corr_regime_momentum",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "STOP_TIME_eod",
+    "kind": "stop_time",
+    "legs": [
+     [
+      1.0,
+      null
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "hold": "eod"
+    },
+    "trail": null
+   },
+   "parameters": {
+    "mode": "continuation",
+    "reg": "low",
+    "z": 2.0
+   },
+   "spec": {
+    "complexity": 1,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "both",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_x3_corr_regime_momentum",
+    "family_version": "3.0",
+    "hypothesis": "X3",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "STOP_TIME_eod",
+      "kind": "stop_time",
+      "legs": [
+       [
+        1.0,
+        null
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "hold": "eod"
+      },
+      "trail": null
+     }
+    },
+    "other_instrument": "ES",
+    "params": {
+     "mode": "continuation",
+     "reg": "low",
+     "z": 2.0
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C77d755b168515944",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  },
+  {
+   "costs": {
+    "baseline_round_trip_usd": 14.0,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04"
+   },
+   "direction": "short",
+   "entry_conditions": {
+    "down_event": "at 09:30+30min the close is >= 0.3 x D below the RTH open with path efficiency since the open >= 0.4",
+    "mode": "continuation",
+    "rule": "continuation: BUY on up-event, SELL on down-event; direction=short",
+    "up_event": "at 09:30+30min the close is >= 0.3 x D above the RTH open with path efficiency since the open >= 0.4"
+   },
+   "entry_id": "E7f54b4b7c677e591",
+   "family": "v3_h07_opening_drive",
+   "instrument": "NQ",
+   "management": {
+    "abs_target": null,
+    "be_R": null,
+    "be_after_leg": null,
+    "exit_opp": false,
+    "hold": "eod",
+    "id": "RR_2R",
+    "kind": "rr",
+    "legs": [
+     [
+      1.0,
+      2.0
+     ]
+    ],
+    "needs_stop": true,
+    "params": {
+     "target_R": 2
+    },
+    "trail": null
+   },
+   "parameters": {
+    "e": 0.4,
+    "m": 0.3,
+    "mode": "continuation",
+    "w": 30
+   },
+   "spec": {
+    "complexity": 1,
+    "cost_version": "costs_v2_approved_2026-09-21#a27ed5df0c04",
+    "direction": "short",
+    "engine_version": "2",
+    "execution": {
+     "ambiguity_policy": "pessimistic",
+     "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+     "entry": "market order at the open of the next bar (same session and contract)",
+     "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+     "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+     "position": "one position at a time, no pyramiding",
+     "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+     "session_end": "flat at the close of the last bar before the window's flat time",
+     "signal_timing": "condition evaluated at bar close",
+     "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+     "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+     "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens",
+     "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+     "target_trade_through_ticks": 1,
+     "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+     "trailing": "recomputed at each bar close, applies from the next bar, only tightens"
+    },
+    "family": "v3_h07_opening_drive",
+    "family_version": "3.0",
+    "hypothesis": "H07",
+    "instrument": "NQ",
+    "management": {
+     "stop": {
+      "method": "atr",
+      "mult": 1.0
+     },
+     "template": {
+      "abs_target": null,
+      "be_R": null,
+      "be_after_leg": null,
+      "exit_opp": false,
+      "hold": "eod",
+      "id": "RR_2R",
+      "kind": "rr",
+      "legs": [
+       [
+        1.0,
+        2.0
+       ]
+      ],
+      "needs_stop": true,
+      "params": {
+       "target_R": 2
+      },
+      "trail": null
+     }
+    },
+    "params": {
+     "e": 0.4,
+     "m": 0.3,
+     "mode": "continuation",
+     "w": 30
+    },
+    "sessions_hash": "fffc52681f6b3e5a",
+    "tick_size": 0.25,
+    "tier": 3,
+    "window": "rth"
+   },
+   "stop": {
+    "method": "atr",
+    "mult": 1.0
+   },
+   "strategy_id": "C18117db2aa81a2bf",
+   "trading_window": {
+    "entry_end": "15:30",
+    "entry_start": "09:30",
+    "flat_at": "16:00",
+    "name": "rth"
+   }
+  }
+ ],
+ "confirmation_data_sha256": {
+  "ES": "fb2f788f2672337b2e820d281238c28c9e2b75625fbb036cc0b78179bce90cef",
+  "NQ": "bf55e231b08eeb0245c95bedbb3a978d314327e4dc2f26aed30b2fad1e42a320"
+ },
+ "confirmation_period": {
+  "first_session": "2019-01-01",
+  "last_session": "2022-12-31"
+ },
+ "content_sha256": "305383b2025ecaa18e5bf724d0a1d29f849cd0349b9159ebbbab365df99296a5",
+ "discovery_freeze_sha256": "0343a974953d53dc026fd1f7ef5c124c8985213b132fba5df4f8a986fc85b2c9",
+ "freeze_type": "FINAL_COHORT_FREEZE",
+ "frozen_utc": "2026-09-22T23:21:51.429326+00:00",
+ "hashes": {
+  "behaviour_code_sha256": "a05d4436e1e81e4e1905ab84aa24570a006bf461abf852b2e12e5c73084927c7",
+  "config_sha256": {
+   "costs": "a27ed5df0c04611fce85e81a2380963f9d63d955a88081a4c12b6e543c98624a",
+   "management": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+   "partitions": "1161208105e16d4d782b2014c5282a9f3b64a5969f867756722323b9f42831a9",
+   "research": "f7392ef3e19a82fe071e16ec9ac9552e81270b4bc4b02f4a5618534a0a70caa8",
+   "search_space": "49243942ec9edf81a346603bf7779e51c0cc0eaf6ba1394f19d65e5dc8478b2d",
+   "sessions": "fffc52681f6b3e5a2222f073aaaaa73a0ccfecdcc555c7ba7a2907b5447c5460"
+  },
+  "git": {
+   "commit": null,
+   "dirty": false
+  },
+  "strategy_registry_sha256": "950a256470df4cdfdfeb98625be522f43d4a4b7ca948beae9fb7077a9f60e4c9"
+ },
+ "ledger_at_freeze": {
+  "data_reads": 44,
+  "latest_bar_read_utc": "2022-12-30 21:59:00+00:00",
+  "partitions_ever_read": [
+   "CONFIRMATION",
+   "DISCOVERY"
+  ]
+ },
+ "n_candidates": 25,
+ "note": "{\"selected\": [\"Cdf2b568ee1f8a182\", \"Ca55086023a82dafa\", \"Ce5e284855c7e4be1\", \"Cfa444b4386db8d33\", \"C1a82f05b6fe1e264\", \"C2839e22b29c0cb17\", \"C915ea812fd5945a5\", \"C046be57651136b5c\", \"Ceef182c53f2e1673\", \"Cf048ad80a1bd7603\", \"C5fbf4cc530f79d84\", \"C16cd8e3c605af462\", \"C936c5aa985ba50fd\", \"C431e7e54dbc7b968\", \"Ce2bc1c0f03390096\", \"C87a31838e567ad3c\", \"C82ee16a85ecc3f4d\", \"C39c52e02a3c54412\", \"C91756637ca7282e7\", \"Cd165e089c8a180ec\", \"C2845a074bb5a5501\", \"C62eeef3eabed9056\", \"Cfcc0e08cf3dce32c\", \"C77d755b168515944\", \"C18117db2aa81a2bf\"], \"details\": {\"Cdf2b568ee1f8a182\": {\"confirmation_tier\": \"STRONG\", \"behaviour_cluster\": 43, \"behaviour_tier\": \"STRONG\", \"behaviour_size\": 191, \"behaviour_breadth_entries\": 41, \"selection_reason\": \"eligible; first selection\", \"confirmation\": {\"trades\": 1045.0, \"net\": 149075.0, \"stress\": 136535.0, \"pf\": 1.2570427027977695, \"win_rate\": 0.40382775119617226, \"avg_trade\": 142.6555023923445, \"sd_trade\": 1802.802067084769, \"t_stat\": 2.557988722372097, \"mdd\": 25869.0, \"lls\": 10.0, \"years_pos\": 3.0, \"mgmt_support\": 0.6153846153846154, \"param_support\": 1.0, \"p_zero\": 0.0392156862745098, \"p_drift\": 0.0196078431372549, \"p_null\": 0.0392156862745098, \"p_familywise_bucket\": 0.1188118811881188}}, \"Ca55086023a82dafa\": {\"confirmation_tier\": \"STRONG\", \"behaviour_cluster\": 34, \"behaviour_tier\": \"STRONG\", \"behaviour_size\": 64, \"behaviour_breadth_entries\": 10, \"selection_reason\": \"eligible; max corr with earlier selections 0.31\", \"confirmation\": {\"trades\": 327.0, \"net\": 62622.0, \"stress\": 58698.0, \"pf\": 1.3470401117231747, \"win_rate\": 0.4525993883792049, \"avg_trade\": 191.5045871559633, \"sd_trade\": 1537.5843452779832, \"t_stat\": 2.2522371040063294, \"mdd\": 21314.0, \"lls\": 10.0, \"years_pos\": 3.0, \"mgmt_support\": 0.5384615384615384, \"param_support\": 0.5, \"p_zero\": 0.0196078431372549, \"p_drift\": 0.0392156862745098, \"p_null\": 0.0392156862745098, \"p_familywise_bucket\": 0.36633663366336633}}, \"Ce5e284855c7e4be1\": {\"confirmation_tier\": \"STRONG\", \"behaviour_cluster\": 23, \"behaviour_tier\": \"STRONG\", \"behaviour_size\": 70, \"behaviour_breadth_entries\": 8, \"selection_reason\": \"eligible; max corr with earlier selections 0.18\", \"confirmation\": {\"trades\": 225.0, \"net\": 30300.0, \"stress\": 27600.0, \"pf\": 1.4871382636655948, \"win_rate\": 0.5333333333333333, \"avg_trade\": 134.66666666666666, \"sd_trade\": 959.304644930751, \"t_stat\": 2.105691878668863, \"mdd\": 7731.0, \"lls\": 7.0, \"years_pos\": 3.0, \"mgmt_support\": 0.7692307692307693, \"param_support\": 1.0, \"p_zero\": 0.0196078431372549, \"p_drift\": 0.0392156862745098, \"p_null\": 0.0392156862745098, \"p_familywise_bucket\": 0.693069306930693}}, \"Cfa444b4386db8d33\": {\"confirmation_tier\": \"STRONG\", \"behaviour_cluster\": 11, \"behaviour_tier\": \"STRONG\", \"behaviour_size\": 24, \"behaviour_breadth_entries\": 3, \"selection_reason\": \"eligible; max corr with earlier selections 0.11\", \"confirmation\": {\"trades\": 137.0, \"net\": 24859.5, \"stress\": 23215.5, \"pf\": 1.7708491604521, \"win_rate\": 0.2846715328467153, \"avg_trade\": 181.45620437956205, \"sd_trade\": 966.3067134342668, \"t_stat\": 2.1979464591037017, \"mdd\": 5027.25, \"lls\": 9.0, \"years_pos\": 4.0, \"mgmt_support\": 0.5384615384615384, \"param_support\": 0.5, \"p_zero\": 0.0196078431372549, \"p_drift\": 0.0196078431372549, \"p_null\": 0.0196078431372549, \"p_familywise_bucket\": 0.6435643564356436}}, \"C1a82f05b6fe1e264\": {\"confirmation_tier\": \"STRONG\", \"behaviour_cluster\": 25, \"behaviour_tier\": \"STRONG\", \"behaviour_size\": 22, \"behaviour_breadth_entries\": 3, \"selection_reason\": \"eligible; max corr with earlier selections 0.19\", \"confirmation\": {\"trades\": 128.0, \"net\": 50223.0, \"stress\": 48687.0, \"pf\": 2.1881757316236485, \"win_rate\": 0.40625, \"avg_trade\": 392.3671875, \"sd_trade\": 1796.7072589456338, \"t_stat\": 2.47070186967827, \"mdd\": 8136.0, \"lls\": 9.0, \"years_pos\": 3.0, \"mgmt_support\": 0.6153846153846154, \"param_support\": 0.5, \"p_zero\": 0.0196078431372549, \"p_drift\": 0.0196078431372549, \"p_null\": 0.0196078431372549, \"p_familywise_bucket\": 0.42574257425742573}}, \"C2839e22b29c0cb17\": {\"confirmation_tier\": \"STRONG\", \"behaviour_cluster\": 3, \"behaviour_tier\": \"STRONG\", \"behaviour_size\": 13, \"behaviour_breadth_entries\": 1, \"selection_reason\": \"eligible; max corr with earlier selections 0.13\", \"confirmation\": {\"trades\": 531.0, \"net\": 61006.0, \"stress\": 54634.0, \"pf\": 1.432998324958124, \"win_rate\": 0.3352165725047081, \"avg_trade\": 114.88888888888889, \"sd_trade\": 1025.5877233065269, \"t_stat\": 2.5813831824773614, \"mdd\": 9376.0, \"lls\": 17.0, \"years_pos\": 4.0, \"mgmt_support\": 0.7692307692307693, \"param_support\": 0.5, \"p_zero\": 0.0196078431372549, \"p_drift\": 0.0196078431372549, \"p_null\": 0.0196078431372549, \"p_familywise_bucket\": 0.15841584158415842}}, \"C915ea812fd5945a5\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 19, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 65, \"behaviour_breadth_entries\": 11, \"selection_reason\": \"eligible; max corr with earlier selections 0.42\", \"confirmation\": {\"trades\": 304.0, \"net\": 53864.0, \"stress\": 50216.0, \"pf\": 1.4332027762809738, \"win_rate\": 0.3223684210526316, \"avg_trade\": 177.18421052631578, \"sd_trade\": 1532.6612176859942, \"t_stat\": 2.0156524068412303, \"mdd\": 10833.0, \"lls\": 9.0, \"years_pos\": 4.0, \"mgmt_support\": 0.46153846153846156, \"param_support\": 0.5, \"p_zero\": 0.058823529411764705, \"p_drift\": 0.0196078431372549, \"p_null\": 0.058823529411764705, \"p_familywise_bucket\": 0.5445544554455446}}, \"C046be57651136b5c\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 35, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 25, \"behaviour_breadth_entries\": 8, \"selection_reason\": \"eligible; max corr with earlier selections 0.38\", \"confirmation\": {\"trades\": 84.0, \"net\": 14970.25, \"stress\": 13962.25, \"pf\": 1.5467885384517048, \"win_rate\": 0.4166666666666667, \"avg_trade\": 178.2172619047619, \"sd_trade\": 1350.7786876173789, \"t_stat\": 1.2092196898174303, \"mdd\": 6696.25, \"lls\": 6.0, \"years_pos\": 2.0, \"mgmt_support\": 0.38461538461538464, \"param_support\": 1.0, \"p_zero\": 0.11764705882352941, \"p_drift\": 0.11764705882352941, \"p_null\": 0.11764705882352941, \"p_familywise_bucket\": 0.9900990099009901}}, \"Ceef182c53f2e1673\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 32, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 19, \"behaviour_breadth_entries\": 8, \"selection_reason\": \"eligible; max corr with earlier selections 0.43\", \"confirmation\": {\"trades\": 86.0, \"net\": 39216.0, \"stress\": 38184.0, \"pf\": 1.7349600809625547, \"win_rate\": 0.5116279069767442, \"avg_trade\": 456.0, \"sd_trade\": 2239.6943068720993, \"t_stat\": 1.888101434633655, \"mdd\": 10079.0, \"lls\": 8.0, \"years_pos\": 2.0, \"mgmt_support\": 0.23076923076923078, \"param_support\": 1.0, \"p_zero\": 0.058823529411764705, \"p_drift\": 0.058823529411764705, \"p_null\": 0.058823529411764705, \"p_familywise_bucket\": 0.7326732673267327}}, \"Cf048ad80a1bd7603\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 27, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 51, \"behaviour_breadth_entries\": 6, \"selection_reason\": \"eligible; max corr with earlier selections 0.47\", \"confirmation\": {\"trades\": 242.0, \"net\": 22090.75, \"stress\": 19186.75, \"pf\": 1.2362230194671529, \"win_rate\": 0.3760330578512397, \"avg_trade\": 91.2840909090909, \"sd_trade\": 1256.2519598568556, \"t_stat\": 1.1303840620313876, \"mdd\": 10697.75, \"lls\": 9.0, \"years_pos\": 3.0, \"mgmt_support\": 0.7692307692307693, \"param_support\": 1.0, \"p_zero\": 0.0784313725490196, \"p_drift\": 0.058823529411764705, \"p_null\": 0.0784313725490196, \"p_familywise_bucket\": 1.0}}, \"C5fbf4cc530f79d84\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 18, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 35, \"behaviour_breadth_entries\": 6, \"selection_reason\": \"eligible; max corr with earlier selections 0.28\", \"confirmation\": {\"trades\": 70.0, \"net\": 16305.0, \"stress\": 15465.0, \"pf\": 1.8941105505593332, \"win_rate\": 0.44285714285714284, \"avg_trade\": 232.92857142857142, \"sd_trade\": 952.8482447025403, \"t_stat\": 2.045257739996268, \"mdd\": 4265.0, \"lls\": 7.0, \"years_pos\": 3.0, \"mgmt_support\": 0.07692307692307693, \"param_support\": 1.0, \"p_zero\": 0.0196078431372549, \"p_drift\": 0.0196078431372549, \"p_null\": 0.0196078431372549, \"p_familywise_bucket\": 0.6138613861386139}}, \"C16cd8e3c605af462\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 41, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 17, \"behaviour_breadth_entries\": 4, \"selection_reason\": \"eligible; max corr with earlier selections 0.38\", \"confirmation\": {\"trades\": 970.0, \"net\": 156625.0, \"stress\": 144985.0, \"pf\": 1.3880304528033574, \"win_rate\": 0.30515463917525776, \"avg_trade\": 161.46907216494844, \"sd_trade\": 1537.15158538854, \"t_stat\": 3.2715873444938266, \"mdd\": 28955.0, \"lls\": 19.0, \"years_pos\": 3.0, \"mgmt_support\": 0.46153846153846156, \"param_support\": 0.5, \"p_zero\": 0.0196078431372549, \"p_drift\": 0.0196078431372549, \"p_null\": 0.0196078431372549, \"p_familywise_bucket\": 0.019801980198019802}}, \"C936c5aa985ba50fd\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 16, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 12, \"behaviour_breadth_entries\": 3, \"selection_reason\": \"eligible; max corr with earlier selections 0.35\", \"confirmation\": {\"trades\": 107.0, \"net\": 22253.25, \"stress\": 20969.25, \"pf\": 1.6776470050854166, \"win_rate\": 0.2897196261682243, \"avg_trade\": 207.97429906542055, \"sd_trade\": 1378.2621684119765, \"t_stat\": 1.5608807430042548, \"mdd\": 5760.25, \"lls\": 8.0, \"years_pos\": 2.0, \"mgmt_support\": 0.26666666666666666, \"param_support\": 0.3333333333333333, \"p_zero\": 0.0784313725490196, \"p_drift\": 0.0392156862745098, \"p_null\": 0.0784313725490196, \"p_familywise_bucket\": 0.9900990099009901}}, \"C431e7e54dbc7b968\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 15, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 11, \"behaviour_breadth_entries\": 3, \"selection_reason\": \"eligible; max corr with earlier selections 0.15\", \"confirmation\": {\"trades\": 234.0, \"net\": 20014.0, \"stress\": 17206.0, \"pf\": 1.3412272177041242, \"win_rate\": 0.1794871794871795, \"avg_trade\": 85.52991452991454, \"sd_trade\": 1040.2496363701518, \"t_stat\": 1.2577328208613954, \"mdd\": 8713.0, \"lls\": 17.0, \"years_pos\": 3.0, \"mgmt_support\": 0.3076923076923077, \"param_support\": 0.5, \"p_zero\": 0.0392156862745098, \"p_drift\": 0.058823529411764705, \"p_null\": 0.058823529411764705, \"p_familywise_bucket\": 1.0}}, \"Ce2bc1c0f03390096\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 36, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 5, \"behaviour_breadth_entries\": 3, \"selection_reason\": \"eligible; max corr with earlier selections 0.27\", \"confirmation\": {\"trades\": 359.0, \"net\": 48399.0, \"stress\": 44091.0, \"pf\": 1.2336795144773245, \"win_rate\": 0.35097493036211697, \"avg_trade\": 134.81615598885793, \"sd_trade\": 1886.506645535305, \"t_stat\": 1.3540379132377747, \"mdd\": 15936.0, \"lls\": 10.0, \"years_pos\": 3.0, \"mgmt_support\": 0.23076923076923078, \"param_support\": 1.0, \"p_zero\": 0.09803921568627451, \"p_drift\": 0.0392156862745098, \"p_null\": 0.09803921568627451, \"p_familywise_bucket\": 0.9504950495049505}}, \"C87a31838e567ad3c\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 22, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 3, \"behaviour_breadth_entries\": 3, \"selection_reason\": \"eligible; max corr with earlier selections 0.29\", \"confirmation\": {\"trades\": 164.0, \"net\": 15239.0, \"stress\": 13271.0, \"pf\": 1.3834000050318263, \"win_rate\": 0.18902439024390244, \"avg_trade\": 92.92073170731707, \"sd_trade\": 1057.7198533432738, \"t_stat\": 1.1250294441850104, \"mdd\": 7992.0, \"lls\": 13.0, \"years_pos\": 3.0, \"mgmt_support\": 0.0, \"param_support\": 1.0, \"p_zero\": 0.0392156862745098, \"p_drift\": 0.058823529411764705, \"p_null\": 0.058823529411764705, \"p_familywise_bucket\": 1.0}}, \"C82ee16a85ecc3f4d\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 8, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 20, \"behaviour_breadth_entries\": 2, \"selection_reason\": \"eligible; max corr with earlier selections 0.33\", \"confirmation\": {\"trades\": 153.0, \"net\": 17705.5, \"stress\": 15869.5, \"pf\": 1.4267568121286622, \"win_rate\": 0.2222222222222222, \"avg_trade\": 115.72222222222223, \"sd_trade\": 1067.9940503463922, \"t_stat\": 1.340274167160392, \"mdd\": 6351.0, \"lls\": 17.0, \"years_pos\": 3.0, \"mgmt_support\": 0.3076923076923077, \"param_support\": 0.5, \"p_zero\": 0.0392156862745098, \"p_drift\": 0.058823529411764705, \"p_null\": 0.058823529411764705, \"p_familywise_bucket\": 1.0}}, \"C39c52e02a3c54412\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 2, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 19, \"behaviour_breadth_entries\": 2, \"selection_reason\": \"eligible; max corr with earlier selections 0.45\", \"confirmation\": {\"trades\": 435.0, \"net\": 60290.0, \"stress\": 55070.0, \"pf\": 1.479309933616886, \"win_rate\": 0.45977011494252873, \"avg_trade\": 138.5977011494253, \"sd_trade\": 1036.963802475512, \"t_stat\": 2.787642382264973, \"mdd\": 10414.0, \"lls\": 9.0, \"years_pos\": 4.0, \"mgmt_support\": 0.3076923076923077, \"param_support\": 0.0, \"p_zero\": 0.0196078431372549, \"p_drift\": 0.0196078431372549, \"p_null\": 0.0196078431372549, \"p_familywise_bucket\": 0.09900990099009901}}, \"C91756637ca7282e7\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 40, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 13, \"behaviour_breadth_entries\": 2, \"selection_reason\": \"eligible; max corr with earlier selections 0.49\", \"confirmation\": {\"trades\": 1207.0, \"net\": 99842.0, \"stress\": 85358.0, \"pf\": 1.1825074900787305, \"win_rate\": 0.29328914664457334, \"avg_trade\": 82.71913835956919, \"sd_trade\": 1496.8987586634394, \"t_stat\": 1.9198496050255514, \"mdd\": 48427.0, \"lls\": 40.0, \"years_pos\": 3.0, \"mgmt_support\": 0.38461538461538464, \"param_support\": 1.0, \"p_zero\": 0.0392156862745098, \"p_drift\": 0.0392156862745098, \"p_null\": 0.0392156862745098, \"p_familywise_bucket\": 0.3465346534653465}}, \"Cd165e089c8a180ec\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 26, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 8, \"behaviour_breadth_entries\": 2, \"selection_reason\": \"eligible; max corr with earlier selections 0.36\", \"confirmation\": {\"trades\": 242.0, \"net\": 57932.0, \"stress\": 55028.0, \"pf\": 1.3932632322094074, \"win_rate\": 0.4256198347107438, \"avg_trade\": 239.38842975206612, \"sd_trade\": 1949.0086547942994, \"t_stat\": 1.9107200961759276, \"mdd\": 18903.0, \"lls\": 10.0, \"years_pos\": 4.0, \"mgmt_support\": 0.5384615384615384, \"param_support\": 0.3333333333333333, \"p_zero\": 0.0784313725490196, \"p_drift\": 0.0196078431372549, \"p_null\": 0.0784313725490196, \"p_familywise_bucket\": 0.8613861386138614}}, \"C2845a074bb5a5501\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 14, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 7, \"behaviour_breadth_entries\": 2, \"selection_reason\": \"eligible; max corr with earlier selections 0.42\", \"confirmation\": {\"trades\": 255.0, \"net\": 57108.75, \"stress\": 54048.75, \"pf\": 1.9937530179970506, \"win_rate\": 0.21176470588235294, \"avg_trade\": 223.9558823529412, \"sd_trade\": 1254.524094235118, \"t_stat\": 2.85071340182698, \"mdd\": 6058.5, \"lls\": 14.0, \"years_pos\": 4.0, \"mgmt_support\": 0.15384615384615385, \"param_support\": 1.0, \"p_zero\": 0.0196078431372549, \"p_drift\": 0.0196078431372549, \"p_null\": 0.0196078431372549, \"p_familywise_bucket\": 0.09900990099009901}}, \"C62eeef3eabed9056\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 10, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 6, \"behaviour_breadth_entries\": 2, \"selection_reason\": \"eligible; max corr with earlier selections 0.44\", \"confirmation\": {\"trades\": 118.0, \"net\": 26413.0, \"stress\": 24997.0, \"pf\": 1.9809113529171463, \"win_rate\": 0.3389830508474576, \"avg_trade\": 223.83898305084745, \"sd_trade\": 1070.738917081472, \"t_stat\": 2.2708745329650037, \"mdd\": 3497.0, \"lls\": 8.0, \"years_pos\": 3.0, \"mgmt_support\": 0.23076923076923078, \"param_support\": 1.0, \"p_zero\": 0.0196078431372549, \"p_drift\": 0.0196078431372549, \"p_null\": 0.0196078431372549, \"p_familywise_bucket\": 0.5742574257425742}}, \"Cfcc0e08cf3dce32c\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 7, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 5, \"behaviour_breadth_entries\": 2, \"selection_reason\": \"eligible; max corr with earlier selections 0.48\", \"confirmation\": {\"trades\": 588.0, \"net\": 50133.0, \"stress\": 43077.0, \"pf\": 1.248629963746733, \"win_rate\": 0.25510204081632654, \"avg_trade\": 85.26020408163265, \"sd_trade\": 1260.8039086482283, \"t_stat\": 1.6397871710912806, \"mdd\": 19521.0, \"lls\": 16.0, \"years_pos\": 3.0, \"mgmt_support\": 0.23076923076923078, \"param_support\": 0.5, \"p_zero\": 0.0196078431372549, \"p_drift\": 0.0196078431372549, \"p_null\": 0.0196078431372549, \"p_familywise_bucket\": 0.801980198019802}}, \"C77d755b168515944\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 13, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 4, \"behaviour_breadth_entries\": 2, \"selection_reason\": \"eligible; max corr with earlier selections 0.24\", \"confirmation\": {\"trades\": 154.0, \"net\": 19119.0, \"stress\": 17271.0, \"pf\": 1.3640812751128293, \"win_rate\": 0.2727272727272727, \"avg_trade\": 124.14935064935065, \"sd_trade\": 1359.2909473359189, \"t_stat\": 1.1334239574975895, \"mdd\": 7803.0, \"lls\": 16.0, \"years_pos\": 3.0, \"mgmt_support\": 0.38461538461538464, \"param_support\": 0.0, \"p_zero\": 0.0784313725490196, \"p_drift\": 0.09803921568627451, \"p_null\": 0.09803921568627451, \"p_familywise_bucket\": 1.0}}, \"C18117db2aa81a2bf\": {\"confirmation_tier\": \"PROMISING\", \"behaviour_cluster\": 20, \"behaviour_tier\": \"PROMISING\", \"behaviour_size\": 2, \"behaviour_breadth_entries\": 2, \"selection_reason\": \"eligible; max corr with earlier selections 0.32\", \"confirmation\": {\"trades\": 37.0, \"net\": 7492.0, \"stress\": 7048.0, \"pf\": 1.7474062250598563, \"win_rate\": 0.43243243243243246, \"avg_trade\": 202.48648648648648, \"sd_trade\": 873.5781025192889, \"t_stat\": 1.4099222603448225, \"mdd\": 3338.0, \"lls\": 5.0, \"years_pos\": 2.0, \"mgmt_support\": 0.07692307692307693, \"param_support\": 0.6666666666666666, \"p_zero\": 0.09803921568627451, \"p_drift\": 0.0392156862745098, \"p_null\": 0.09803921568627451, \"p_familywise_bucket\": 0.9702970297029703}}}, \"confirmation_results_sha256\": \"3575df453f86c8417a8d50742b256a22f4415f07a2cff4c063ddcb8746fac854\", \"evidence_sha256\": \"7c327a46debc3a49b2b08534b269dd4a535aa805cb77d6563ab54842d9fe5c11\", \"behaviours_sha256\": \"b02bfdbd765508900d1ca22aa03577fcd85e32ed050a2254d5a70f759c83b2cf\", \"preregistration_sha256\": \"3ac5ab19454bdfdecce70ec0dc5b6fddf39bb8a0bdfee8ded8d7b1402082a900\"}",
+ "project": "QuantLabV3",
+ "rule": "After this freeze NO parameter, entry, exit, stop, target, filter or strategy may change based on 2023+ results. Members are byte-identical copies of discovery-freeze specs.",
+ "selection_rule": "V3 preregistered selection (V3_CONFIRMATION_PREREGISTRATION.json): behaviours = average-linkage clusters (1-rho, rho>=0.50) of STRONG/PROMISING PRIMARY candidates on confirmation daily P&L; eligible = >=1 STRONG member or >=2 distinct entry rules; representative = medoid of the simplest (fewest conditions) members (STRONG members first); greedy in order STRONG, breadth, size, id; accept if rho < 0.50 with all earlier."
+}

@@ -1,0 +1,52 @@
+{
+ "mode": "audit2026",
+ "period": "SEALED_2026",
+ "stage": "SEALED_2026_AUDIT",
+ "cohort": {
+  "strategies": 25,
+  "trades": 1222,
+  "combined_net": 100099.5,
+  "combined_gross": 117207.5,
+  "combined_stress": 85435.5,
+  "combined_pf_pooled_trades": 1.0869791894081235,
+  "max_dd_daily_equity": 86882.75,
+  "worst_day": -24553.0,
+  "worst_week": -36752.5,
+  "months": 8,
+  "positive_months": 5,
+  "max_pairwise_corr": 0.8718731499876743,
+  "median_pairwise_corr": 0.07544264996695703,
+  "max_simultaneous_positions": 13,
+  "by_family": {
+   "H05": 19763.0,
+   "H06": 30325.0,
+   "H07": -11373.0,
+   "H08": -2810.5,
+   "H09": 8294.0,
+   "H20": -52593.0,
+   "H25": 22267.25,
+   "H41": 54538.0,
+   "H43": -2630.0,
+   "H45": -8290.0,
+   "H47": 49071.75,
+   "H48": -863.0,
+   "H50": -5600.0,
+   "X3": 0.0
+  },
+  "by_direction": {
+   "both": 38603.0,
+   "long": 62422.25,
+   "short": -925.75
+  },
+  "null_p_combined_net": 0.25742574257425743,
+  "null_combined_net_mean": -4494.255,
+  "null_combined_net_p95": 356089.02499999997
+ },
+ "classification_counts": {
+  "WEAKER_THAN_EXPECTED": 10,
+  "INCONCLUSIVE": 9,
+  "SUPPORTED": 4,
+  "FAILED": 2
+ },
+ "final_cohort_freeze_sha256": "f5666dac728aa2539b2f8223309012914d71923ab71f3363e9e035344ace8f03"
+}

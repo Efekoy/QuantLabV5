@@ -1,0 +1,13 @@
+# Market data never enters git (hashes are recorded in config/partitions.json + provenance/)
+data/**/*.parquet
+*.parquet
+*.csv
+__pycache__/
+*.pyc
+*.nbi
+*.nbc
+ledgers/*.lock
+ledgers/*.tmp
+results/**
+!results/.gitkeep
+.pytest_cache/

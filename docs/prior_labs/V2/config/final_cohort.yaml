@@ -1,0 +1,66 @@
+# QuantLabV2 -- FINAL COHORT reproduction experiment (identical to research.yaml except experiment name). Re-reads ONLY already-opened data; own ledger.
+#
+#   DISCOVERY SHOULD DISCOVER.  UNSEEN DATA SHOULD REJECT.
+#
+# Everything that decides what is "profitable" is written here, in the open.
+# There are no hidden promotion rules anywhere else in the code.
+
+experiment: final_cohort  # SEPARATE experiment: results/final_cohort/ (reproduction of the selected cohort only)
+official: true            # required ONLY so the split guard lets it read years ALREADY opened by the official run (own ledger)
+
+instruments: [NQ, ES]     # separate candidate universes
+
+discovery:
+  start: 2010-06-07       # first bar in the NQ and ES files
+  end: 2020-12-31
+
+# Sequential unseen stages. Each stage only receives the survivors of the one before.
+validation_sequence: [2021, 2022, 2023, 2024]
+final_validation: [2025]
+forward: [2026]
+
+# Hard wall. No discovery, smoke, dev or diagnostic command may load a bar
+# belonging to a session after this date. Only `quantlab validate --year Y`,
+# issued in sequence, may cross it -- one year at a time.
+sealed_after: 2020-12-31
+
+# Indicators need history. A validation year may read this many calendar days
+# of EARLIER data for warm-up. It never reads later data.
+warmup_calendar_days: 30
+
+# The one and only promotion rule, applied identically at every stage.
+# Zero trades is never profitable.
+promotion_rule:
+  metric: baseline_net_pnl
+  condition: "> 0"
+
+cost_scenario_for_promotion: baseline
+
+search_space: config/search_space.yaml
+management: config/management.yaml     # stops, targets, BE, trails, partials, runners, stages
+
+# Stop/target touched inside the same 1-minute bar: order is unknowable.
+# pessimistic = assume the stop filled first. This is the official baseline.
+ambiguity_policy: pessimistic
+
+# A profit target only fills when a bar trades this many ticks BEYOND it (a touch is not a fill).
+target_trade_through_ticks: 1
+
+compute:
+  workers: auto           # "auto" = memory-aware (see README); or an integer
+  memory_per_worker_mb: 1800
+  reserve_memory_mb: 2000
+  feature_cache_mb: 400   # per process
+  store_trades: none         # none | profitable. Official run: metrics + yearly tables stored; trades regenerated on demand
+
+# Descriptive warning labels. These NEVER reject anything. They are attached to
+# frozen candidates so you can see at a glance what kind of result it is.
+warnings:
+  low_sample_trades: 30
+  high_drawdown_ratio: 1.0          # max drawdown larger than total net profit
+  pnl_concentrated_top_pct: 0.01    # without the best 1% of trades, net <= 0
+  long_loss_streak: 15
+  very_high_turnover_per_year: 2000
+  recent_decay_years: 3             # last N years of the period net <= 0
+  parameter_cliff_pct_profitable: 0.34
+  side_dependence_share: 1.0        # 'both' strategy where one side's P&L >= 100% of the total

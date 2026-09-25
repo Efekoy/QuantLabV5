@@ -1,0 +1,16 @@
+{
+ "erratum": "2026 audit null p-value for strategy C77d755b168515944 (X3)",
+ "bug": "s7_holdout.py computed the empirical null p-value with the real t-stat replaced by +inf when it was undefined (0 or 1 trades), giving p = 1/101 = 0.0099 instead of p = 1.",
+ "affected": {
+  "results/audit2026/strategy_results.csv": {
+   "C77d755b168515944": {
+    "reported_p_null": 0.0099,
+    "correct_p_null": 1.0,
+    "trades": 0
+   }
+  }
+ },
+ "holdout_affected": false,
+ "note": "The sealed files are left unchanged (their hashes are in the ledger). The classification of the strategy (INCONCLUSIVE: 0 trades) and every other number are unaffected. Fixed in research/s7_holdout.py with regression test tests/test_v3_evidence.py::test_regression_undefined_t_gives_p_one.",
+ "sealed_file_sha256": "8d4d6108cdc7d09b338f3a49026505ecbaa2a14c155e8cf2d94ddcdc6d732b0c"
+}

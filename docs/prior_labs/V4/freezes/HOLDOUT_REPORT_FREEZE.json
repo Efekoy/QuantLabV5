@@ -1,0 +1,27 @@
+{
+ "body_sha256": "470eda93ea19e834f4d122a716989ef897cc609ccb87fd1d55658d7df3d572d4",
+ "created_utc": "2026-09-25T05:21:21.528219+00:00",
+ "files": {
+  "V4_HISTORICAL_HOLDOUT_REPORT.md": "d149d96d5bd7b1b832b3ae0d06f6a72b91bc28a5d6c20886e7388a330a84bf3d",
+  "results/holdout/EVALUATION.json": "1f699dbd836cea39743ae5c3e3a687b12bc1bd77aed58d83a521f6f22be1fe99"
+ },
+ "git_commit": "d27042c33a0f65592d9ebb7446873a32906c29e4",
+ "kind": "HOLDOUT_REPORT_FREEZE",
+ "ledger_anchor": {
+  "record_hash": "bb361a68114159d60851005b964f7664e3d80e3b0e14d9fd6a143867122ed47f",
+  "seq": 620
+ },
+ "sections": {
+  "classes": {
+   "Q4-14478681d690cde198df1979": "SUPPORTED",
+   "Q4-40aae8a2c827fb779e4dd7b9": "SUPPORTED",
+   "Q4-60857891da97d59c25f0f86c": "INCONCLUSIVE",
+   "Q4-9757cb9ee92c11b68d2ad60b": "INCONCLUSIVE",
+   "Q4-c790712e4f51f6f4268b0033": "FAILED"
+  },
+  "cohort_net_pts": 5885.850000000001,
+  "cohort_pass": true,
+  "cohort_t": 1.5187983160731056,
+  "report": "V4_HISTORICAL_HOLDOUT_REPORT.md"
+ }
+}

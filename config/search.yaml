@@ -1,0 +1,17 @@
+# Search infrastructure settings (NOT a strategy grammar -- none exists yet).
+
+version: search_v5_2026-09-25
+# (Ported from QuantLabV4; V5 changes: ID prefix Q5 and namespace quantlab5, so V5 IDs never equal V2/V3/V4 IDs.)
+
+candidate_id:
+  prefix: "Q5"            # IDs look like Q5-<24 hex>
+  hex_chars: 24           # 96 bits of SHA-256: collision probability negligible at 1e9 specs
+  namespace: quantlab5    # mixed into every ID so V5 IDs can never equal V2/V3/V4 IDs
+
+enumeration:
+  default_seed: 20260923
+  order: lexicographic    # lexicographic | seeded_permutation
+  chunk_size: 100000      # candidates per shard when enumerating in parallel
+
+# The V5 strategy grammar/catalog will be written in a later, separate step (not at bootstrap).
+grammar: null

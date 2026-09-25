@@ -1,0 +1,21 @@
+# Physical locations. Research code never uses these directly: it asks load_view for
+# a LOGICAL partition, and load_view resolves the path from config/partitions.json.
+# (Ported from QuantLabV4 config/paths.yaml; V5 vault.)
+
+vault: 'C:\QuantLabV5_Vault'          # sealed partitions + LIVE_FORWARD inbox (outside the project tree)
+discovery_dir: data/discovery          # relative to the project root (git-ignored)
+
+# Original full-history source files (the same verified files V4 used; never modified).
+# Readable ONLY by the privileged bootstrap partitioner. load_view refuses them by path and
+# by hash, whatever the registry says.
+raw_sources:
+  NQ: 'C:\Users\Administrator\Desktop\Quant\data\NQ\nq_continuous_front_1m.parquet'
+  ES: 'C:\Users\Administrator\Desktop\Quant\data\ES\es_continuous_front_1m.parquet'
+
+# Earlier labs' data stores. V5 research never reads them (static test + load_view refusal).
+prior_lab_data:
+  - 'C:\QuantLabV4_Vault'
+  - 'C:\QuantLabV3_Vault'
+  - 'C:\Users\Administrator\Desktop\QuantLabV4\data'
+  - 'C:\Users\Administrator\Desktop\QuantLabV3\data'
+  - 'C:\Users\Administrator\Desktop\QuantLabV2\data'

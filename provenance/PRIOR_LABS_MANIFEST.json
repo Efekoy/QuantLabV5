@@ -1,0 +1,888 @@
+{
+ "collected_utc": "2026-09-25T15:15:57.937131+00:00",
+ "purpose": "reference only; never a V5 input",
+ "labs": {
+  "V2": {
+   "root": "C:\\Users\\Administrator\\Desktop\\QuantLabV2",
+   "git_head": "7fbf2255f7039423235b3fee0914d5ae1cccd88f",
+   "files": [
+    {
+     "source": "README.md",
+     "source_sha256": "0908278dc8e54c5e9864b702f769062f03b384d70e3db6f7a1a56f4da88cb207",
+     "destination": "docs/prior_labs/V2/README.md",
+     "destination_sha256": "0908278dc8e54c5e9864b702f769062f03b384d70e3db6f7a1a56f4da88cb207",
+     "bytes": 24352,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "BUILD_REPORT.md",
+     "source_sha256": "17c80d4e01eaf3dd798be83286fb6385675ac8e40eb00c4edee5feb8bb319997",
+     "destination": "docs/prior_labs/V2/BUILD_REPORT.md",
+     "destination_sha256": "17c80d4e01eaf3dd798be83286fb6385675ac8e40eb00c4edee5feb8bb319997",
+     "bytes": 16359,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "STRATEGY_CATALOG.md",
+     "source_sha256": "b2099f31c1a1eb920ab2a20e1a69c5ca0d8b65dc845be41251c8144a38c7974b",
+     "destination": "docs/prior_labs/V2/STRATEGY_CATALOG.md",
+     "destination_sha256": "b2099f31c1a1eb920ab2a20e1a69c5ca0d8b65dc845be41251c8144a38c7974b",
+     "bytes": 17039,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "NEXT_COMMANDS.md",
+     "source_sha256": "c41c5ac663134d80e1be45fed3d7fde88f87c1e2106eaa054693187f53020b0f",
+     "destination": "docs/prior_labs/V2/NEXT_COMMANDS.md",
+     "destination_sha256": "c41c5ac663134d80e1be45fed3d7fde88f87c1e2106eaa054693187f53020b0f",
+     "bytes": 6577,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "config/search_space.yaml",
+     "source_sha256": "a1eb2e4adec54330dbddd3ba93bd2caa37c72a2c17fbdb468f8696178ad65173",
+     "destination": "docs/prior_labs/V2/config/search_space.yaml",
+     "destination_sha256": "a1eb2e4adec54330dbddd3ba93bd2caa37c72a2c17fbdb468f8696178ad65173",
+     "bytes": 5527,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "config/research.yaml",
+     "source_sha256": "6f71b79391b6536e2a6698672fbe6d161e385eb0e68625c69136efe926833750",
+     "destination": "docs/prior_labs/V2/config/research.yaml",
+     "destination_sha256": "6f71b79391b6536e2a6698672fbe6d161e385eb0e68625c69136efe926833750",
+     "bytes": 2676,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "config/final_cohort.yaml",
+     "source_sha256": "53af58f79250ae6f3d8f2cbbc3d98a840e11875f88ad8aef069522e0bc2cf00d",
+     "destination": "docs/prior_labs/V2/config/final_cohort.yaml",
+     "destination_sha256": "53af58f79250ae6f3d8f2cbbc3d98a840e11875f88ad8aef069522e0bc2cf00d",
+     "bytes": 2898,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "config/null_funnel.yaml",
+     "source_sha256": "bf3562b9a1b8aa405880cc3ce6012a527c53428c0f81746bccc7649633fff548",
+     "destination": "docs/prior_labs/V2/config/null_funnel.yaml",
+     "destination_sha256": "bf3562b9a1b8aa405880cc3ce6012a527c53428c0f81746bccc7649633fff548",
+     "bytes": 2871,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/README.md",
+     "source_sha256": "ab966beb02e7c91552b71ee2d82d82a71204773148187923592665413d93a1cc",
+     "destination": "docs/prior_labs/V2/results/README.md",
+     "destination_sha256": "ab966beb02e7c91552b71ee2d82d82a71204773148187923592665413d93a1cc",
+     "bytes": 1126,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/archive/OFFICIAL_EXPERIMENT_2026-09-22/MASTER_RESEARCH_RECORD.md",
+     "source_sha256": "eb8bf9a379130ba5a0a29f7d7bb6ea8c8f83bd91a8e1f1318fc16798b6ed6cb1",
+     "destination": "docs/prior_labs/V2/results/archive/OFFICIAL_EXPERIMENT_2026-09-22/MASTER_RESEARCH_RECORD.md",
+     "destination_sha256": "eb8bf9a379130ba5a0a29f7d7bb6ea8c8f83bd91a8e1f1318fc16798b6ed6cb1",
+     "bytes": 33886,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/archive/OFFICIAL_EXPERIMENT_2026-09-22/VERIFIED_FACTS.json",
+     "source_sha256": "7144225acf66645afde29b224fc5e2fbd2e71c6b3cf4c5fc6e74ddc17e8a281f",
+     "destination": "docs/prior_labs/V2/results/archive/OFFICIAL_EXPERIMENT_2026-09-22/VERIFIED_FACTS.json",
+     "destination_sha256": "7144225acf66645afde29b224fc5e2fbd2e71c6b3cf4c5fc6e74ddc17e8a281f",
+     "bytes": 1153,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/edge_isolation/EDGE_ISOLATION_REPORT.md",
+     "source_sha256": "5ccfd4fba6b32be73343badcf5da835a961ef1c363bbbe1bdca1ffb884f4db9f",
+     "destination": "docs/prior_labs/V2/results/edge_isolation/EDGE_ISOLATION_REPORT.md",
+     "destination_sha256": "5ccfd4fba6b32be73343badcf5da835a961ef1c363bbbe1bdca1ffb884f4db9f",
+     "bytes": 52965,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/edge_isolation/INTERPRETATION.md",
+     "source_sha256": "dd4d01753650d081feab8c4a76238feb511992ea57767d9a31474e09cccffe86",
+     "destination": "docs/prior_labs/V2/results/edge_isolation/INTERPRETATION.md",
+     "destination_sha256": "dd4d01753650d081feab8c4a76238feb511992ea57767d9a31474e09cccffe86",
+     "bytes": 6243,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/edge_isolation/CLUSTERING_PREREGISTRATION.md",
+     "source_sha256": "cf2d08497692b4f7bb230c026261b47c1ad95f4845fa5e011d5d8b1a9096a62c",
+     "destination": "docs/prior_labs/V2/results/edge_isolation/CLUSTERING_PREREGISTRATION.md",
+     "destination_sha256": "cf2d08497692b4f7bb230c026261b47c1ad95f4845fa5e011d5d8b1a9096a62c",
+     "bytes": 4780,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/edge_isolation/CLUSTER_EVIDENCE_PREREGISTRATION.md",
+     "source_sha256": "008982cc703992afdc6f3109193fe3abd15ee6422856b38f2b8bf0b28176b57d",
+     "destination": "docs/prior_labs/V2/results/edge_isolation/CLUSTER_EVIDENCE_PREREGISTRATION.md",
+     "destination_sha256": "008982cc703992afdc6f3109193fe3abd15ee6422856b38f2b8bf0b28176b57d",
+     "bytes": 4409,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/edge_isolation/PROPOSED_FINAL_SELECTION_RULE.md",
+     "source_sha256": "c74000f922a197c025123915ecba1f556077c6fa704cf903bd999784484b3209",
+     "destination": "docs/prior_labs/V2/results/edge_isolation/PROPOSED_FINAL_SELECTION_RULE.md",
+     "destination_sha256": "c74000f922a197c025123915ecba1f556077c6fa704cf903bd999784484b3209",
+     "bytes": 5555,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/final_cohort/FINAL_COHORT_REPORT.md",
+     "source_sha256": "75f6e7849d1835f9ee6c1bba3171c9a4bdf0b8ed6e199e46076bbba3faa501e0",
+     "destination": "docs/prior_labs/V2/results/final_cohort/FINAL_COHORT_REPORT.md",
+     "destination_sha256": "75f6e7849d1835f9ee6c1bba3171c9a4bdf0b8ed6e199e46076bbba3faa501e0",
+     "bytes": 20193,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/final_cohort/FINAL_FORWARD_COHORT.md",
+     "source_sha256": "324e532d0d2b9792603d26942c8687e12d8332c5a3f6a3f67f0758cadc9316b0",
+     "destination": "docs/prior_labs/V2/results/final_cohort/FINAL_FORWARD_COHORT.md",
+     "destination_sha256": "324e532d0d2b9792603d26942c8687e12d8332c5a3f6a3f67f0758cadc9316b0",
+     "bytes": 14242,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/final_cohort/RULE_CARDS.md",
+     "source_sha256": "9b3ceda2b115fcc5530275926847611513341016c3bea3a9cb8cf8aa5ccf111d",
+     "destination": "docs/prior_labs/V2/results/final_cohort/RULE_CARDS.md",
+     "destination_sha256": "9b3ceda2b115fcc5530275926847611513341016c3bea3a9cb8cf8aa5ccf111d",
+     "bytes": 10346,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/final_cohort/SELECTION_AUDIT.md",
+     "source_sha256": "83b85e622d4968db9de12312ed4a2fedb986aad050b9a608ef713c5563285ea2",
+     "destination": "docs/prior_labs/V2/results/final_cohort/SELECTION_AUDIT.md",
+     "destination_sha256": "83b85e622d4968db9de12312ed4a2fedb986aad050b9a608ef713c5563285ea2",
+     "bytes": 7800,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/final_cohort/forward/FORWARD_PROTOCOL.md",
+     "source_sha256": "fa8f6608d2e3ec8602a9b282bb26fbaa1ce1b91edaf44dc17ad2d969649476b1",
+     "destination": "docs/prior_labs/V2/results/final_cohort/forward/FORWARD_PROTOCOL.md",
+     "destination_sha256": "fa8f6608d2e3ec8602a9b282bb26fbaa1ce1b91edaf44dc17ad2d969649476b1",
+     "bytes": 3272,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/final_cohort/forward/FORWARD_REPORT.md",
+     "source_sha256": "361eee83a35ee541a0c65514e7f34ec758589c6cba456e4c41a8552674a8e8f4",
+     "destination": "docs/prior_labs/V2/results/final_cohort/forward/FORWARD_REPORT.md",
+     "destination_sha256": "361eee83a35ee541a0c65514e7f34ec758589c6cba456e4c41a8552674a8e8f4",
+     "bytes": 1002,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/main/reports/DISCOVERY_REPORT.md",
+     "source_sha256": "b05594def16f48ddf4098c511b6d479425afc9fe2bae99871a25f90e879e59e1",
+     "destination": "docs/prior_labs/V2/results/main/reports/DISCOVERY_REPORT.md",
+     "destination_sha256": "b05594def16f48ddf4098c511b6d479425afc9fe2bae99871a25f90e879e59e1",
+     "bytes": 61304,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "results/null_funnel/config/CLASSIFICATION_RULE.md",
+     "source_sha256": "67b71e3157afebc56fc77ae68a6d7b5ce3b9c15990909f4e70ea05edf681caa5",
+     "destination": "docs/prior_labs/V2/results/null_funnel/config/CLASSIFICATION_RULE.md",
+     "destination_sha256": "67b71e3157afebc56fc77ae68a6d7b5ce3b9c15990909f4e70ea05edf681caa5",
+     "bytes": 2377,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/report/QuantLabV2_Research_Record.pdf",
+     "source_sha256": "322bbb4c1abf97a90e18bdb888f3ec91dac7eb80b6bab51989dbbbc82d2b0766",
+     "destination": "docs/prior_labs/V2/results/report/QuantLabV2_Research_Record.pdf",
+     "destination_sha256": "322bbb4c1abf97a90e18bdb888f3ec91dac7eb80b6bab51989dbbbc82d2b0766",
+     "bytes": 862352,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    }
+   ]
+  },
+  "V3": {
+   "root": "C:\\Users\\Administrator\\Desktop\\QuantLabV3",
+   "git_head": "cee42fef1a908498b0d8c5f78536107145a77f1e",
+   "files": [
+    {
+     "source": "README.md",
+     "source_sha256": "0fbb5c5008986107e228f1b578f1dc21d9ff103ae1ccb460ac7d935c8b0065e3",
+     "destination": "docs/prior_labs/V3/README.md",
+     "destination_sha256": "0fbb5c5008986107e228f1b578f1dc21d9ff103ae1ccb460ac7d935c8b0065e3",
+     "bytes": 3191,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V3_BOOTSTRAP_REPORT.md",
+     "source_sha256": "09e597add51cbd7c5713179e1f5e1c5fc1d35acff40044b2ad66df03e56a9ed3",
+     "destination": "docs/prior_labs/V3/V3_BOOTSTRAP_REPORT.md",
+     "destination_sha256": "09e597add51cbd7c5713179e1f5e1c5fc1d35acff40044b2ad66df03e56a9ed3",
+     "bytes": 8345,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "config/search_space.yaml",
+     "source_sha256": "a4834eb6ced4702927a0b86f903747e5644ee28a22f354625a9824ff2db590d2",
+     "destination": "docs/prior_labs/V3/config/search_space.yaml",
+     "destination_sha256": "a4834eb6ced4702927a0b86f903747e5644ee28a22f354625a9824ff2db590d2",
+     "bytes": 7072,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "config/research.yaml",
+     "source_sha256": "1fa6d095a18e7b0565da39da11f09eb596c0a08d9f3f923aa1bd4a2ad656acbc",
+     "destination": "docs/prior_labs/V3/config/research.yaml",
+     "destination_sha256": "1fa6d095a18e7b0565da39da11f09eb596c0a08d9f3f923aa1bd4a2ad656acbc",
+     "bytes": 1661,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "preregistration/README.md",
+     "source_sha256": "5fd7e8ceae5a0053bdd1c20af56fb8128405aef738851749a0ca20c7d93d44d2",
+     "destination": "docs/prior_labs/V3/preregistration/README.md",
+     "destination_sha256": "5fd7e8ceae5a0053bdd1c20af56fb8128405aef738851749a0ca20c7d93d44d2",
+     "bytes": 639,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "preregistration/V3_DISCOVERY_PREREGISTRATION.md",
+     "source_sha256": "826d5863a80d0bd55ebcf5d4cb8abc2cc6ee56e16b19c9eec370bbc3a1cb4957",
+     "destination": "docs/prior_labs/V3/preregistration/V3_DISCOVERY_PREREGISTRATION.md",
+     "destination_sha256": "826d5863a80d0bd55ebcf5d4cb8abc2cc6ee56e16b19c9eec370bbc3a1cb4957",
+     "bytes": 22368,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "preregistration/V3_DISCOVERY_PREREGISTRATION.json",
+     "source_sha256": "d0ffd14e159609af5edee39f78aa54870f99b7e534f578a5ae104995af833b37",
+     "destination": "docs/prior_labs/V3/preregistration/V3_DISCOVERY_PREREGISTRATION.json",
+     "destination_sha256": "d0ffd14e159609af5edee39f78aa54870f99b7e534f578a5ae104995af833b37",
+     "bytes": 85165,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "preregistration/V3_CONFIRMATION_PREREGISTRATION.md",
+     "source_sha256": "832c7f3bb9696161f535f2099e0b5fe25dde54141a4f8475b256c3834a672e61",
+     "destination": "docs/prior_labs/V3/preregistration/V3_CONFIRMATION_PREREGISTRATION.md",
+     "destination_sha256": "832c7f3bb9696161f535f2099e0b5fe25dde54141a4f8475b256c3834a672e61",
+     "bytes": 7925,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "preregistration/V3_CONFIRMATION_PREREGISTRATION.json",
+     "source_sha256": "3ac5ab19454bdfdecce70ec0dc5b6fddf39bb8a0bdfee8ded8d7b1402082a900",
+     "destination": "docs/prior_labs/V3/preregistration/V3_CONFIRMATION_PREREGISTRATION.json",
+     "destination_sha256": "3ac5ab19454bdfdecce70ec0dc5b6fddf39bb8a0bdfee8ded8d7b1402082a900",
+     "bytes": 8206,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "strategies/README.md",
+     "source_sha256": "ad191998befb7b4d3562d6c8cf9ac65fcb637b80e143342bf4dbe32449435f1a",
+     "destination": "docs/prior_labs/V3/strategies/README.md",
+     "destination_sha256": "ad191998befb7b4d3562d6c8cf9ac65fcb637b80e143342bf4dbe32449435f1a",
+     "bytes": 384,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "core/quantlab3/strategies/families/v3_catalog.py",
+     "source_sha256": "797a03060c6429ab95400c8eecc4c238b69fdc124582eec31bc5a974388a211a",
+     "destination": "docs/prior_labs/V3/core/quantlab3/strategies/families/v3_catalog.py.txt",
+     "destination_sha256": "797a03060c6429ab95400c8eecc4c238b69fdc124582eec31bc5a974388a211a",
+     "bytes": 67030,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "core/quantlab3/strategies/families/v3_common.py",
+     "source_sha256": "9d35eaefbc53bfaf2324ce1b9a28e3aea81ef5ac53682221a028271d97a064f2",
+     "destination": "docs/prior_labs/V3/core/quantlab3/strategies/families/v3_common.py.txt",
+     "destination_sha256": "9d35eaefbc53bfaf2324ce1b9a28e3aea81ef5ac53682221a028271d97a064f2",
+     "bytes": 14450,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "freezes/README.md",
+     "source_sha256": "eb96d3711820e46c7241104f823c192872a140e5b608c35c0286231e570ea36c",
+     "destination": "docs/prior_labs/V3/freezes/README.md",
+     "destination_sha256": "eb96d3711820e46c7241104f823c192872a140e5b608c35c0286231e570ea36c",
+     "bytes": 351,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "freezes/DISCOVERY_FREEZE.json",
+     "source_sha256": "0343a974953d53dc026fd1f7ef5c124c8985213b132fba5df4f8a986fc85b2c9",
+     "destination": "docs/prior_labs/V3/freezes/DISCOVERY_FREEZE.json.gz",
+     "destination_sha256": "0b9e7117bd3214b040a1da6bd9dc6d0f3af90b40343b788d1fc7bc3e029fd718",
+     "bytes": 54132439,
+     "gzipped": true,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "freezes/DISCOVERY_CANDIDATE_LABELS.json",
+     "source_sha256": "f6b33ebc7b8de06a9491e0708f35710629c2279ca531ca13eb9df9607eef6ed1",
+     "destination": "docs/prior_labs/V3/freezes/DISCOVERY_CANDIDATE_LABELS.json.gz",
+     "destination_sha256": "c7aaada616f39bca63f5b74bffa98b571ba1ba66c99371f3aa1f977f9d2cc733",
+     "bytes": 3141792,
+     "gzipped": true,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "freezes/FINAL_COHORT_FREEZE.json",
+     "source_sha256": "f5666dac728aa2539b2f8223309012914d71923ab71f3363e9e035344ace8f03",
+     "destination": "docs/prior_labs/V3/freezes/FINAL_COHORT_FREEZE.json",
+     "destination_sha256": "f5666dac728aa2539b2f8223309012914d71923ab71f3363e9e035344ace8f03",
+     "bytes": 123744,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "freezes/V3_RESEARCH_FREEZE.json",
+     "source_sha256": "6eeef28db0ceb03be0c34b9087a0b978901c1aceac8b65a3efa5baacb03d8760",
+     "destination": "docs/prior_labs/V3/freezes/V3_RESEARCH_FREEZE.json",
+     "destination_sha256": "6eeef28db0ceb03be0c34b9087a0b978901c1aceac8b65a3efa5baacb03d8760",
+     "bytes": 4702,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "forward/FORWARD_PROTOCOL.md",
+     "source_sha256": "290c07b885e64e4f9e9c388d17184fd873729d4a9599f5ed8c7f382792633fb7",
+     "destination": "docs/prior_labs/V3/forward/FORWARD_PROTOCOL.md",
+     "destination_sha256": "290c07b885e64e4f9e9c388d17184fd873729d4a9599f5ed8c7f382792633fb7",
+     "bytes": 1943,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/README.md",
+     "source_sha256": "8677671e33268f39037931e424cd5da694d7023ec6f388589fa9d9aee0efaf39",
+     "destination": "docs/prior_labs/V3/results/README.md",
+     "destination_sha256": "8677671e33268f39037931e424cd5da694d7023ec6f388589fa9d9aee0efaf39",
+     "bytes": 120,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "results/V3_MASTER_RESEARCH_RECORD.md",
+     "source_sha256": "67a50d6c37fd4c57dd36e650193dbdde3edaf82402a94b7516a415e7ae31fa19",
+     "destination": "docs/prior_labs/V3/results/V3_MASTER_RESEARCH_RECORD.md",
+     "destination_sha256": "67a50d6c37fd4c57dd36e650193dbdde3edaf82402a94b7516a415e7ae31fa19",
+     "bytes": 91193,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "results/holdout/REPORT.json",
+     "source_sha256": "b790776e3464017eddbc9149eb6bda36e03f2c5aa46d7288bac43d6302bcdaad",
+     "destination": "docs/prior_labs/V3/results/holdout/REPORT.json",
+     "destination_sha256": "b790776e3464017eddbc9149eb6bda36e03f2c5aa46d7288bac43d6302bcdaad",
+     "bytes": 1285,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "results/audit2026/REPORT.json",
+     "source_sha256": "818908c6488061b0a74b485b399ea9cb9268accd403baebed087e6e543c64fbd",
+     "destination": "docs/prior_labs/V3/results/audit2026/REPORT.json",
+     "destination_sha256": "818908c6488061b0a74b485b399ea9cb9268accd403baebed087e6e543c64fbd",
+     "bytes": 1292,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "results/audit2026/ERRATUM_2026-09-22.json",
+     "source_sha256": "5bce10005f968c647a1eecdd7472103fde4f8961362046e666761359af727448",
+     "destination": "docs/prior_labs/V3/results/audit2026/ERRATUM_2026-09-22.json",
+     "destination_sha256": "5bce10005f968c647a1eecdd7472103fde4f8961362046e666761359af727448",
+     "bytes": 869,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "results/confirmation/FINAL_SELECTION.json",
+     "source_sha256": "dd8bc3ea3529e940623fba560c3e9053ec17c2212b3c3d17499d9fbf9ff20683",
+     "destination": "docs/prior_labs/V3/results/confirmation/FINAL_SELECTION.json",
+     "destination_sha256": "dd8bc3ea3529e940623fba560c3e9053ec17c2212b3c3d17499d9fbf9ff20683",
+     "bytes": 21560,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "reports/H06_Compression_to_Expansion_Research_Report.pdf",
+     "source_sha256": "a89382bef76905190c3a335e4677c4467cccb002de1252d114eb1aef2b795793",
+     "destination": "docs/prior_labs/V3/reports/H06_Compression_to_Expansion_Research_Report.pdf",
+     "destination_sha256": "a89382bef76905190c3a335e4677c4467cccb002de1252d114eb1aef2b795793",
+     "bytes": 1925110,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "reports/H20_Extreme_Move_Path_Research_Report.pdf",
+     "source_sha256": "f7b0db14aeefdf4b09b6c465ec962d3a183c9fae96073173e527fe06d10b1bb4",
+     "destination": "docs/prior_labs/V3/reports/H20_Extreme_Move_Path_Research_Report.pdf",
+     "destination_sha256": "f7b0db14aeefdf4b09b6c465ec962d3a183c9fae96073173e527fe06d10b1bb4",
+     "bytes": 1067143,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "reports/H25_Correlation_Breakdown_Short_Research_Report.pdf",
+     "source_sha256": "894904923fe44361c2b6440c72addef5edbe54fd603c2d1a49ca076b28d1e828",
+     "destination": "docs/prior_labs/V3/reports/H25_Correlation_Breakdown_Short_Research_Report.pdf",
+     "destination_sha256": "894904923fe44361c2b6440c72addef5edbe54fd603c2d1a49ca076b28d1e828",
+     "bytes": 1413740,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "reports/H41_Fixed_Risk_MNQ_vs_Fixed_Contracts.pdf",
+     "source_sha256": "d138dd5ba8a80370161eb84f15b2d59a22de18525a1972bff857dc04d67df0b8",
+     "destination": "docs/prior_labs/V3/reports/H41_Fixed_Risk_MNQ_vs_Fixed_Contracts.pdf",
+     "destination_sha256": "d138dd5ba8a80370161eb84f15b2d59a22de18525a1972bff857dc04d67df0b8",
+     "bytes": 379130,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "reports/H41_Variance_Ratio_Trending_Momentum_Research_Report.pdf",
+     "source_sha256": "c042b39ae722f262904dc1071a678ac8cc83d16e9ce104c4549518dde4eb5ea3",
+     "destination": "docs/prior_labs/V3/reports/H41_Variance_Ratio_Trending_Momentum_Research_Report.pdf",
+     "destination_sha256": "c042b39ae722f262904dc1071a678ac8cc83d16e9ce104c4549518dde4eb5ea3",
+     "bytes": 1349360,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "reports/H43_Autocorrelation_Momentum_Research_Report.pdf",
+     "source_sha256": "8cd12cb54e7b19c67fdc75e370e3df32d782d34cbb0aa81c40c03b291fe624ae",
+     "destination": "docs/prior_labs/V3/reports/H43_Autocorrelation_Momentum_Research_Report.pdf",
+     "destination_sha256": "8cd12cb54e7b19c67fdc75e370e3df32d782d34cbb0aa81c40c03b291fe624ae",
+     "bytes": 1476352,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "reports/H47_Gap_and_Go_Long_Research_Report.pdf",
+     "source_sha256": "30ad09cd3743fcf3b652554a736c3feed5dcafad2eaa5dc5f20da641d6475bb6",
+     "destination": "docs/prior_labs/V3/reports/H47_Gap_and_Go_Long_Research_Report.pdf",
+     "destination_sha256": "30ad09cd3743fcf3b652554a736c3feed5dcafad2eaa5dc5f20da641d6475bb6",
+     "bytes": 1400587,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "reports/MNQ_Evaluation_Portfolio_Report.pdf",
+     "source_sha256": "15e02bf41cec6e60c56f8de173531725680971c53c7f53c0f020260b3ba42d00",
+     "destination": "docs/prior_labs/V3/reports/MNQ_Evaluation_Portfolio_Report.pdf",
+     "destination_sha256": "15e02bf41cec6e60c56f8de173531725680971c53c7f53c0f020260b3ba42d00",
+     "bytes": 1823766,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    }
+   ]
+  },
+  "V4": {
+   "root": "C:\\Users\\Administrator\\Desktop\\QuantLabV4",
+   "git_head": "f491c796b85920c538ea05e18a2b9644d638ac24",
+   "files": [
+    {
+     "source": "V4_2026_FORWARD_REPORT.md",
+     "source_sha256": "3f6a18103a0ee374275adc88e8cb0b64444653d990f6d4104cdfe6b459894ffa",
+     "destination": "docs/prior_labs/V4/V4_2026_FORWARD_REPORT.md",
+     "destination_sha256": "3f6a18103a0ee374275adc88e8cb0b64444653d990f6d4104cdfe6b459894ffa",
+     "bytes": 4056,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_BOOTSTRAP_REPORT.md",
+     "source_sha256": "b5c8103760dcbdfd06b33938d048935b92df02a78fa47498a32ce3371b89be25",
+     "destination": "docs/prior_labs/V4/V4_BOOTSTRAP_REPORT.md",
+     "destination_sha256": "b5c8103760dcbdfd06b33938d048935b92df02a78fa47498a32ce3371b89be25",
+     "bytes": 8876,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_CLUSTER_REPORT.md",
+     "source_sha256": "2b233b9753e7050acfbbbad8161318b63ba3c4c31be6b1be57a1503975ef0100",
+     "destination": "docs/prior_labs/V4/V4_CLUSTER_REPORT.md",
+     "destination_sha256": "2b233b9753e7050acfbbbad8161318b63ba3c4c31be6b1be57a1503975ef0100",
+     "bytes": 15222,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_DATA_AUDIT.md",
+     "source_sha256": "e4c0721a13fd3cd5982484928f25fd8525da79a4a937496a8e426c2af3cbaaad",
+     "destination": "docs/prior_labs/V4/V4_DATA_AUDIT.md",
+     "destination_sha256": "e4c0721a13fd3cd5982484928f25fd8525da79a4a937496a8e426c2af3cbaaad",
+     "bytes": 5222,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_DISCOVERY_NULL_REPORT.md",
+     "source_sha256": "139697728f7488811d598e584ccd2d0fe831270623d3d68294b15c5b2d4380cb",
+     "destination": "docs/prior_labs/V4/V4_DISCOVERY_NULL_REPORT.md",
+     "destination_sha256": "139697728f7488811d598e584ccd2d0fe831270623d3d68294b15c5b2d4380cb",
+     "bytes": 3829,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_DISCOVERY_REPORT.md",
+     "source_sha256": "1e90172f5d531d717f64d8683781421b863d1297ed1ccb418363fc117cf3cbd0",
+     "destination": "docs/prior_labs/V4/V4_DISCOVERY_REPORT.md",
+     "destination_sha256": "1e90172f5d531d717f64d8683781421b863d1297ed1ccb418363fc117cf3cbd0",
+     "bytes": 2866,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_FEATURE_CATALOG.md",
+     "source_sha256": "45472ca9322cb937ddbbea688e6f9f2d6847d3ae576ce46d9765b78db936dc25",
+     "destination": "docs/prior_labs/V4/V4_FEATURE_CATALOG.md",
+     "destination_sha256": "45472ca9322cb937ddbbea688e6f9f2d6847d3ae576ce46d9765b78db936dc25",
+     "bytes": 28216,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_FINAL_SELECTION_REPORT.md",
+     "source_sha256": "c2b4e0dca265d6672265add6aef949014e6dbd13494003af8e71fd4b3ee4e36f",
+     "destination": "docs/prior_labs/V4/V4_FINAL_SELECTION_REPORT.md",
+     "destination_sha256": "c2b4e0dca265d6672265add6aef949014e6dbd13494003af8e71fd4b3ee4e36f",
+     "bytes": 2093,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_HISTORICAL_HOLDOUT_REPORT.md",
+     "source_sha256": "d149d96d5bd7b1b832b3ae0d06f6a72b91bc28a5d6c20886e7388a330a84bf3d",
+     "destination": "docs/prior_labs/V4/V4_HISTORICAL_HOLDOUT_REPORT.md",
+     "destination_sha256": "d149d96d5bd7b1b832b3ae0d06f6a72b91bc28a5d6c20886e7388a330a84bf3d",
+     "bytes": 5445,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_LIVE_FORWARD_PROTOCOL.md",
+     "source_sha256": "7c3e98d2c302c30d6708eb23577a4b969c70c29837f7c60fe41eb8386012c0e7",
+     "destination": "docs/prior_labs/V4/V4_LIVE_FORWARD_PROTOCOL.md",
+     "destination_sha256": "7c3e98d2c302c30d6708eb23577a4b969c70c29837f7c60fe41eb8386012c0e7",
+     "bytes": 1869,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_LIVE_FORWARD_STATUS.md",
+     "source_sha256": "4f883ad907559e241eaefb30f355df85d76df11a601f1d1a1674b67c1e1b66d6",
+     "destination": "docs/prior_labs/V4/V4_LIVE_FORWARD_STATUS.md",
+     "destination_sha256": "4f883ad907559e241eaefb30f355df85d76df11a601f1d1a1674b67c1e1b66d6",
+     "bytes": 824,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_MASTER_RESEARCH_RECORD.md",
+     "source_sha256": "81123a4973814f0507d84a12a6ac31b114dacea61d378ae85918688d8ebe8cf6",
+     "destination": "docs/prior_labs/V4/V4_MASTER_RESEARCH_RECORD.md",
+     "destination_sha256": "81123a4973814f0507d84a12a6ac31b114dacea61d378ae85918688d8ebe8cf6",
+     "bytes": 16692,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_NULL_PERFORMANCE_PROFILE.md",
+     "source_sha256": "5b9a796eeb264cb8709c07471806a47ff63fdbb931c1997641896caabd477430",
+     "destination": "docs/prior_labs/V4/V4_NULL_PERFORMANCE_PROFILE.md",
+     "destination_sha256": "5b9a796eeb264cb8709c07471806a47ff63fdbb931c1997641896caabd477430",
+     "bytes": 6920,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_NULL_VALIDATION_ADDENDUM.md",
+     "source_sha256": "6b3607c17fd95c509969463116710e12a198eb536c41efb0155e030461948a89",
+     "destination": "docs/prior_labs/V4/V4_NULL_VALIDATION_ADDENDUM.md",
+     "destination_sha256": "6b3607c17fd95c509969463116710e12a198eb536c41efb0155e030461948a89",
+     "bytes": 995,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_NULL_VALIDATION_REPORT.md",
+     "source_sha256": "441bfb239f19494e9b7dc7e340b989c574ef388218c0632d698729bf1a6c77ce",
+     "destination": "docs/prior_labs/V4/V4_NULL_VALIDATION_REPORT.md",
+     "destination_sha256": "441bfb239f19494e9b7dc7e340b989c574ef388218c0632d698729bf1a6c77ce",
+     "bytes": 3806,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_POSTHOC_ALL_VALIDATION_SURVIVORS.md",
+     "source_sha256": "13664ae3759744d8fad8f44d731177d51d374a7937222f6f7636211520908826",
+     "destination": "docs/prior_labs/V4/V4_POSTHOC_ALL_VALIDATION_SURVIVORS.md",
+     "destination_sha256": "13664ae3759744d8fad8f44d731177d51d374a7937222f6f7636211520908826",
+     "bytes": 49498,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "V4_POSTHOC_NULL_SURVIVOR_EXTENSION.md",
+     "source_sha256": "84df5253959efca908afd5184cb002a79e0375b22c7064cb2da9509d79fd2829",
+     "destination": "docs/prior_labs/V4/V4_POSTHOC_NULL_SURVIVOR_EXTENSION.md",
+     "destination_sha256": "84df5253959efca908afd5184cb002a79e0375b22c7064cb2da9509d79fd2829",
+     "bytes": 3372,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "V4_POSTHOC_RISK_BUDGET_REPORT.md",
+     "source_sha256": "08d56bb8dac776e0c955852481f66078fdcba7c3048a37b31c0957cbc2cd7c29",
+     "destination": "docs/prior_labs/V4/V4_POSTHOC_RISK_BUDGET_REPORT.md",
+     "destination_sha256": "08d56bb8dac776e0c955852481f66078fdcba7c3048a37b31c0957cbc2cd7c29",
+     "bytes": 3895,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "V4_POSTHOC_RISK_CAP_DIAGNOSTIC.md",
+     "source_sha256": "e83682266449bd63485068ef923ebd5744dc04e0f0487bb12ad78b617859aeb4",
+     "destination": "docs/prior_labs/V4/V4_POSTHOC_RISK_CAP_DIAGNOSTIC.md",
+     "destination_sha256": "e83682266449bd63485068ef923ebd5744dc04e0f0487bb12ad78b617859aeb4",
+     "bytes": 5278,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "V4_PROP_RESEARCH_REPORT.md",
+     "source_sha256": "d75efc718747139cf158c18e8bcd1922213ceea10f2159c2897490c65d7f96e2",
+     "destination": "docs/prior_labs/V4/V4_PROP_RESEARCH_REPORT.md",
+     "destination_sha256": "d75efc718747139cf158c18e8bcd1922213ceea10f2159c2897490c65d7f96e2",
+     "bytes": 2980,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_REPORT_INDEX.md",
+     "source_sha256": "34b7bc4f633e04d7efda9d6d81786042ed1e63d88d31a0cd8e5ca9ba1e0b8cac",
+     "destination": "docs/prior_labs/V4/V4_REPORT_INDEX.md",
+     "destination_sha256": "34b7bc4f633e04d7efda9d6d81786042ed1e63d88d31a0cd8e5ca9ba1e0b8cac",
+     "bytes": 1878,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_RESEARCH_PREREGISTRATION.md",
+     "source_sha256": "778b5b4de75fce64567b300cbc0a9a2c98bfd4f2d8903fb4d36fe7d2027f40ac",
+     "destination": "docs/prior_labs/V4/V4_RESEARCH_PREREGISTRATION.md",
+     "destination_sha256": "778b5b4de75fce64567b300cbc0a9a2c98bfd4f2d8903fb4d36fe7d2027f40ac",
+     "bytes": 12552,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_VALIDATION_NULL_REPORT.md",
+     "source_sha256": "599105f3afacd3da224f3b176c6f4e756f9bf6419654ff62d7db9c8aa4841021",
+     "destination": "docs/prior_labs/V4/V4_VALIDATION_NULL_REPORT.md",
+     "destination_sha256": "599105f3afacd3da224f3b176c6f4e756f9bf6419654ff62d7db9c8aa4841021",
+     "bytes": 996,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_VALIDATION_REPORT.md",
+     "source_sha256": "727aa12e0f515625e6c70f5423b44cd2541aed1b99239d2a3e031de2c249057e",
+     "destination": "docs/prior_labs/V4/V4_VALIDATION_REPORT.md",
+     "destination_sha256": "727aa12e0f515625e6c70f5423b44cd2541aed1b99239d2a3e031de2c249057e",
+     "bytes": 20796,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_FINAL_COHORT_FREEZE.json",
+     "source_sha256": "d1736e6dfc9506a44c7b914b55475c05ecbd1073a71a88f8bb39dc662e855226",
+     "destination": "docs/prior_labs/V4/V4_FINAL_COHORT_FREEZE.json",
+     "destination_sha256": "d1736e6dfc9506a44c7b914b55475c05ecbd1073a71a88f8bb39dc662e855226",
+     "bytes": 15950,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "V4_POSTHOC_ALL_VALIDATION_SURVIVORS.json",
+     "source_sha256": "ad5f5461ba9d70afb5b8fa0b83899d7d41b645bd93f23ebb99c5a8609d84f7c9",
+     "destination": "docs/prior_labs/V4/V4_POSTHOC_ALL_VALIDATION_SURVIVORS.json",
+     "destination_sha256": "ad5f5461ba9d70afb5b8fa0b83899d7d41b645bd93f23ebb99c5a8609d84f7c9",
+     "bytes": 542574,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "V4_POSTHOC_NULL_SURVIVOR_EXTENSION.json",
+     "source_sha256": "57d8981da886bdff8fb5e72b711469bbcab9ef47a07f17395b8b52ba1b90a290",
+     "destination": "docs/prior_labs/V4/V4_POSTHOC_NULL_SURVIVOR_EXTENSION.json",
+     "destination_sha256": "57d8981da886bdff8fb5e72b711469bbcab9ef47a07f17395b8b52ba1b90a290",
+     "bytes": 93724,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "README.md",
+     "source_sha256": "12e574eaaa1f8d0479cd5525b32d38308615a279df7bbe8c9a9f97d165009905",
+     "destination": "docs/prior_labs/V4/README.md",
+     "destination_sha256": "12e574eaaa1f8d0479cd5525b32d38308615a279df7bbe8c9a9f97d165009905",
+     "bytes": 4537,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "config/prereg_v4.yaml",
+     "source_sha256": "9017c243e0e036c64693c126b4f54939cb4968d7636726cf472b7d3e8739e469",
+     "destination": "docs/prior_labs/V4/config/prereg_v4.yaml",
+     "destination_sha256": "9017c243e0e036c64693c126b4f54939cb4968d7636726cf472b7d3e8739e469",
+     "bytes": 4207,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "docs/INHERITED_FROM_V3.md",
+     "source_sha256": "a5abf8bccfcb55f160f39fd3871ca9e8eeb9d920d432f5aff9a5dda051df75c2",
+     "destination": "docs/prior_labs/V4/docs/INHERITED_FROM_V3.md",
+     "destination_sha256": "a5abf8bccfcb55f160f39fd3871ca9e8eeb9d920d432f5aff9a5dda051df75c2",
+     "bytes": 4654,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "docs/REMAINING_WORK.md",
+     "source_sha256": "db36d9d8aa20837758f8e04df87ce259fadc0f5bcfc3f28e5f65a50498ee5d2b",
+     "destination": "docs/prior_labs/V4/docs/REMAINING_WORK.md",
+     "destination_sha256": "db36d9d8aa20837758f8e04df87ce259fadc0f5bcfc3f28e5f65a50498ee5d2b",
+     "bytes": 2414,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "output/pdf/V4_COMPLETE_RESEARCH_REPORT.pdf",
+     "source_sha256": "c41f7ad06a9e339eef90ef66f712cd9fc7ab9d771a2735a06b85115d6e909021",
+     "destination": "docs/prior_labs/V4/output/pdf/V4_COMPLETE_RESEARCH_REPORT.pdf",
+     "destination_sha256": "c41f7ad06a9e339eef90ef66f712cd9fc7ab9d771a2735a06b85115d6e909021",
+     "bytes": 1241805,
+     "gzipped": false,
+     "committed_in_source_repo": false
+    },
+    {
+     "source": "freezes/CONFIRMATION_FREEZE.json",
+     "source_sha256": "97a5a053f9058d31224edb01c0f0a305df93424bdad79b895d7174b0f11f0681",
+     "destination": "docs/prior_labs/V4/freezes/CONFIRMATION_FREEZE.json",
+     "destination_sha256": "97a5a053f9058d31224edb01c0f0a305df93424bdad79b895d7174b0f11f0681",
+     "bytes": 20854,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "freezes/DISCOVERY_FREEZE.json",
+     "source_sha256": "bea26b67329061c6b7f47fccf038b67f04ff04250ca09188b1e6ffb45dba989f",
+     "destination": "docs/prior_labs/V4/freezes/DISCOVERY_FREEZE.json",
+     "destination_sha256": "bea26b67329061c6b7f47fccf038b67f04ff04250ca09188b1e6ffb45dba989f",
+     "bytes": 37848,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "freezes/FINAL_COHORT_FREEZE.json",
+     "source_sha256": "d1736e6dfc9506a44c7b914b55475c05ecbd1073a71a88f8bb39dc662e855226",
+     "destination": "docs/prior_labs/V4/freezes/FINAL_COHORT_FREEZE.json",
+     "destination_sha256": "d1736e6dfc9506a44c7b914b55475c05ecbd1073a71a88f8bb39dc662e855226",
+     "bytes": 15950,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "freezes/HOLDOUT_REPORT_FREEZE.json",
+     "source_sha256": "d7a3c32bb03c0513a6a60deb731fceb733f04a6975095d8a9f941fd0aa523420",
+     "destination": "docs/prior_labs/V4/freezes/HOLDOUT_REPORT_FREEZE.json",
+     "destination_sha256": "d7a3c32bb03c0513a6a60deb731fceb733f04a6975095d8a9f941fd0aa523420",
+     "bytes": 1022,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "freezes/V4_BOOTSTRAP_FREEZE.json",
+     "source_sha256": "1e775ff2a373b0dc0b063d24b221d93d596e8f371ff492e343f406f249a9f998",
+     "destination": "docs/prior_labs/V4/freezes/V4_BOOTSTRAP_FREEZE.json",
+     "destination_sha256": "1e775ff2a373b0dc0b063d24b221d93d596e8f371ff492e343f406f249a9f998",
+     "bytes": 13170,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "freezes/V4_BOOTSTRAP_FREEZE_R1_SUPERSEDED.json",
+     "source_sha256": "0a0361dabc3be91dac5de8a7bc122d7107d05c0a7187b6e1e5ab7ab5984de17d",
+     "destination": "docs/prior_labs/V4/freezes/V4_BOOTSTRAP_FREEZE_R1_SUPERSEDED.json",
+     "destination_sha256": "0a0361dabc3be91dac5de8a7bc122d7107d05c0a7187b6e1e5ab7ab5984de17d",
+     "bytes": 13180,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    },
+    {
+     "source": "freezes/V4_PREREG_FREEZE.json",
+     "source_sha256": "3cec34aaf45fced6a1a9c3a2037dc2ba10e7600de682235f3f83879571766028",
+     "destination": "docs/prior_labs/V4/freezes/V4_PREREG_FREEZE.json",
+     "destination_sha256": "3cec34aaf45fced6a1a9c3a2037dc2ba10e7600de682235f3f83879571766028",
+     "bytes": 16664,
+     "gzipped": false,
+     "committed_in_source_repo": true
+    }
+   ]
+  }
+ }
+}

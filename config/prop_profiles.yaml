@@ -1,0 +1,61 @@
+# GENERIC prop-evaluation profiles. These are NOT any real firm's rules: every number
+# below is an illustrative placeholder used to exercise the simulator. Real profiles
+# must be written from a firm's published rules before any use.
+#
+# Semantics (quantlab5/prop/account.py):
+#   pass when closed balance >= start + profit_target (checked at end of day), AND
+#       trading_days >= min_trading_days AND the consistency rule holds.
+#   fail when equity <= the drawdown threshold (a touch of the threshold FAILS).
+#   drawdown_mode:
+#     static    threshold = start - max_loss, never moves
+#     eod       threshold = (highest END-OF-DAY balance) - max_loss, updated at EOD only
+#     intraday  threshold = (highest intraday equity mark) - max_loss, updated every mark
+#   trailing thresholds only ever rise; optional trail_lock caps the threshold at
+#   start + trail_lock_offset once reached.
+#   daily_loss_limit: day P&L <= -limit -> action (fail | halt_day).
+#   consistency_max_day_fraction: best day profit / total profit must be <= this to pass.
+
+version: prop_profiles_v4_2026-09-23
+
+profiles:
+  GENERIC_50K_EOD:
+    start_balance: 50000
+    profit_target: 3000
+    max_loss: 2000
+    drawdown_mode: eod
+    trail_lock_offset: 0          # threshold stops rising at start + 0
+    daily_loss_limit: null
+    daily_loss_action: halt_day
+    consistency_max_day_fraction: null
+    min_trading_days: 1
+    max_contracts: {NQ: 5, ES: 5, MNQ: 50, MES: 50}
+    max_open_risk_usd: null
+    risk_per_trade_usd: 400
+
+  GENERIC_50K_INTRADAY:
+    start_balance: 50000
+    profit_target: 3000
+    max_loss: 2500
+    drawdown_mode: intraday
+    trail_lock_offset: 100
+    daily_loss_limit: 1000
+    daily_loss_action: halt_day
+    consistency_max_day_fraction: 0.5
+    min_trading_days: 5
+    max_contracts: {NQ: 5, ES: 5, MNQ: 50, MES: 50}
+    max_open_risk_usd: 1000
+    risk_per_trade_usd: 300
+
+  GENERIC_100K_STATIC:
+    start_balance: 100000
+    profit_target: 6000
+    max_loss: 3000
+    drawdown_mode: static
+    trail_lock_offset: null
+    daily_loss_limit: 2000
+    daily_loss_action: fail
+    consistency_max_day_fraction: null
+    min_trading_days: 3
+    max_contracts: {NQ: 10, ES: 10, MNQ: 100, MES: 100}
+    max_open_risk_usd: 1500
+    risk_per_trade_usd: 500

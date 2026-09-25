@@ -1,0 +1,39 @@
+# QuantLabV3 -- research configuration.
+#
+# Periods are CME sessions (18:00-17:00 New York, labelled by the date they END on).
+# They must match config/partitions.json, which tools/partition_data.py wrote when
+# the raw files were physically split. The stage gate (core/quantlab3/data/stage_gate.py)
+# decides which of these partitions may be opened in the current stage.
+
+project: QuantLabV3
+instruments: [NQ, ES]
+
+periods:
+  DISCOVERY:     {first_session: 2010-06-07, last_session: 2018-12-31}   # data/discovery/ (project)
+  CONFIRMATION:  {first_session: 2019-01-01, last_session: 2022-12-31}   # vault
+  FINAL_HOLDOUT: {first_session: 2023-01-01, last_session: 2025-12-31}   # vault
+  SEALED_2026:   {first_session: 2026-01-01, last_session: 2026-12-31}   # vault (data ends 2026-08-14)
+# TRUE FORWARD: data first seen after the final V3 cohort is frozen (not yet a partition).
+
+partitions_manifest: config/partitions.json
+stage_state: ledgers/STAGE_STATE.json
+ledger: ledgers/DATA_ACCESS_LEDGER.jsonl
+freezes_dir: freezes
+results_dir: results
+
+# A later period may read this many calendar days of EARLIER data for indicator warm-up.
+warmup_calendar_days: 30
+
+# Execution semantics inherited unchanged from QuantLabV2 (engine version 2).
+ambiguity_policy: pessimistic        # stop assumed before target inside one bar
+target_trade_through_ticks: 1        # a target fills only on a 1-tick trade-through
+
+# Not yet written -- the V3 strategy catalog / search space comes next.
+search_space: config/search_space.yaml
+management: config/management.yaml
+
+compute:
+  workers: auto
+  memory_per_worker_mb: 1800
+  reserve_memory_mb: 2000
+  feature_cache_mb: 400

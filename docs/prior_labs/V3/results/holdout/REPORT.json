@@ -1,0 +1,52 @@
+{
+ "mode": "holdout",
+ "period": "FINAL_HOLDOUT",
+ "stage": "FINAL_HOLDOUT",
+ "cohort": {
+  "strategies": 25,
+  "trades": 5781,
+  "combined_net": 626278.5,
+  "combined_gross": 707212.5,
+  "combined_stress": 556906.5,
+  "combined_pf_pooled_trades": 1.1967961010221149,
+  "max_dd_daily_equity": 99366.0,
+  "worst_day": -32991.0,
+  "worst_week": -35647.0,
+  "months": 36,
+  "positive_months": 23,
+  "max_pairwise_corr": 0.640873382087652,
+  "median_pairwise_corr": 0.04173069052682231,
+  "max_simultaneous_positions": 13,
+  "by_family": {
+   "H05": 34571.0,
+   "H06": -13471.0,
+   "H07": 29151.0,
+   "H08": 49332.0,
+   "H09": 24057.0,
+   "H20": 120595.0,
+   "H25": 23664.5,
+   "H41": 193055.0,
+   "H43": 64961.0,
+   "H45": 39098.0,
+   "H47": 20365.5,
+   "H48": 2227.5,
+   "H50": 29271.0,
+   "X3": 9401.0
+  },
+  "by_direction": {
+   "both": 419787.0,
+   "long": 44374.5,
+   "short": 162117.0
+  },
+  "null_p_combined_net": 0.0297029702970297,
+  "null_combined_net_mean": -61774.92,
+  "null_combined_net_p95": 400887.1125
+ },
+ "classification_counts": {
+  "SUPPORTED": 13,
+  "WEAKER_THAN_EXPECTED": 8,
+  "FAILED": 3,
+  "INCONCLUSIVE": 1
+ },
+ "final_cohort_freeze_sha256": "f5666dac728aa2539b2f8223309012914d71923ab71f3363e9e035344ace8f03"
+}

@@ -1,0 +1,37 @@
+{
+ "version": "partitions_v5_2026-09-25",
+ "session_definition": "CME session 18:00-17:00 America/New_York, labelled by the date it ENDS on",
+ "definitions": {
+  "DISCOVERY": {
+   "first_session": "2010-06-08",
+   "last_session": "2018-12-31",
+   "location": "project"
+  },
+  "VALIDATION": {
+   "first_session": "2019-01-02",
+   "last_session": "2022-12-30",
+   "location": "vault"
+  },
+  "HISTORICAL_AUDIT_1": {
+   "first_session": "2023-01-03",
+   "last_session": "2025-12-31",
+   "location": "vault"
+  },
+  "HISTORICAL_AUDIT_2": {
+   "first_session": "2026-01-02",
+   "last_session": "LATEST_COMPLETE_SESSION_AT_BOOTSTRAP",
+   "location": "vault"
+  },
+  "LIVE_FORWARD": {
+   "first_session": "AFTER_FINAL_COHORT_FREEZE",
+   "last_session": "OPEN",
+   "location": "vault"
+  }
+ },
+ "notes": [
+  "LIVE_FORWARD holds no historical data. It accepts only sessions that START at or after the V5 FINAL_COHORT_FREEZE timestamp.",
+  "None of these historical periods is unseen: QuantLabV4 evaluated strategies on exactly the VALIDATION (V4 CONFIRMATION), HISTORICAL_AUDIT_1 (V4 FINAL_HISTORICAL_HOLDOUT) and HISTORICAL_AUDIT_2 (V4 SEALED_2026_AUDIT) periods, and V2/V3 examined them too. Only LIVE_FORWARD is genuinely out-of-sample.",
+  "The `registry` section is written once by research/s00_bootstrap.py and never edited."
+ ],
+ "registry": null
+}

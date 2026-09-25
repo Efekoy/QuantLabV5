@@ -1,0 +1,1078 @@
+{
+ "copied_utc": "2026-09-25T15:15:01.857829+00:00",
+ "v4_root": "C:\\Users\\Administrator\\Desktop\\QuantLabV4",
+ "v4_git_head": "f491c796b85920c538ea05e18a2b9644d638ac24",
+ "v4_working_tree_note": "V4 had uncommitted files (post-hoc reports, ledgers); none of them was copied into the active tree -- every copied source is committed and unmodified at HEAD",
+ "import_map_v4_subpackage": {
+  "ops": "quantlab5.features.ops",
+  "featurelib": "quantlab5.features.library",
+  "market": "quantlab5.data.market",
+  "synth": "quantlab5.synthetic.market_builders",
+  "outcomes": "quantlab5.engine.outcomes",
+  "kernel": "quantlab5.search.kernel",
+  "grammar": "quantlab5.search.reference_grammar",
+  "screen": "quantlab5.search.reference_screen",
+  "world": "quantlab5.search.world",
+  "ml": "quantlab5.search.ml",
+  "analysis": "quantlab5.search.analysis",
+  "inference": "quantlab5.nulls.inference",
+  "propsim": "quantlab5.prop.propsim"
+ },
+ "files": [
+  {
+   "source": "quantlab4/__init__.py",
+   "source_sha256": "421ad02b985a11d7ca6eaa1f97c91279daa94b34621715ddc8420abbc9b7e1e6",
+   "destination": "quantlab5/__init__.py",
+   "destination_sha256_at_copy": "421ad02b985a11d7ca6eaa1f97c91279daa94b34621715ddc8420abbc9b7e1e6",
+   "destination_sha256_after_rename": "421ad02b985a11d7ca6eaa1f97c91279daa94b34621715ddc8420abbc9b7e1e6",
+   "renamed": false,
+   "purpose": "package root"
+  },
+  {
+   "source": "quantlab4/project.py",
+   "source_sha256": "a285dac857cd6f2284238d97d56e27ed5fdb5ae216723a738478ed30b43dae0f",
+   "destination": "quantlab5/project.py",
+   "destination_sha256_at_copy": "a285dac857cd6f2284238d97d56e27ed5fdb5ae216723a738478ed30b43dae0f",
+   "destination_sha256_after_rename": "a285dac857cd6f2284238d97d56e27ed5fdb5ae216723a738478ed30b43dae0f",
+   "renamed": false,
+   "purpose": "package root"
+  },
+  {
+   "source": "quantlab4/research_log.py",
+   "source_sha256": "5a5240a5dce41c578d2477bd39988b03a459947691d2df5b8dad8d3c9d272d7c",
+   "destination": "quantlab5/research_log.py",
+   "destination_sha256_at_copy": "5a5240a5dce41c578d2477bd39988b03a459947691d2df5b8dad8d3c9d272d7c",
+   "destination_sha256_after_rename": "aa5b1bd341cc28be61ca7dae17f55dd634e6d45b64e999a2ac7bc789284bfc67",
+   "renamed": true,
+   "purpose": "package root"
+  },
+  {
+   "source": "quantlab4/bootstrap/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/bootstrap/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: bootstrap"
+  },
+  {
+   "source": "quantlab4/bootstrap/partitioner.py",
+   "source_sha256": "bff4cd8df525075a2f0b0078fc6417a90a54365e8a13ef65621af30b3f786549",
+   "destination": "quantlab5/bootstrap/partitioner.py",
+   "destination_sha256_at_copy": "bff4cd8df525075a2f0b0078fc6417a90a54365e8a13ef65621af30b3f786549",
+   "destination_sha256_after_rename": "97aa1de87219307731590c3c3b459e4483f42e42c2084e0fe1ece2a3a4b72bfb",
+   "renamed": true,
+   "purpose": "infrastructure: bootstrap"
+  },
+  {
+   "source": "quantlab4/data/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/data/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: data"
+  },
+  {
+   "source": "quantlab4/data/align.py",
+   "source_sha256": "d3a08c170463b8749f37ae2e15030bc2d15ea964c7c83e70ce6dd3c67c066f1c",
+   "destination": "quantlab5/data/align.py",
+   "destination_sha256_at_copy": "d3a08c170463b8749f37ae2e15030bc2d15ea964c7c83e70ce6dd3c67c066f1c",
+   "destination_sha256_after_rename": "5c55a0b3e5978eca6986f91b1253e0b11b252ad2e77c17a31179a4148d2d0309",
+   "renamed": true,
+   "purpose": "infrastructure: data"
+  },
+  {
+   "source": "quantlab4/data/cleaning.py",
+   "source_sha256": "8431bb54debb9cc9b8a3a0c406a520835264045c84ed9f1a9e9d54e987efee6d",
+   "destination": "quantlab5/data/cleaning.py",
+   "destination_sha256_at_copy": "8431bb54debb9cc9b8a3a0c406a520835264045c84ed9f1a9e9d54e987efee6d",
+   "destination_sha256_after_rename": "8431bb54debb9cc9b8a3a0c406a520835264045c84ed9f1a9e9d54e987efee6d",
+   "renamed": false,
+   "purpose": "infrastructure: data"
+  },
+  {
+   "source": "quantlab4/data/resample.py",
+   "source_sha256": "fe5e6bb58d8350a3da00fdf1403540667a33f5f0627273b85d88fdf2a8e7024f",
+   "destination": "quantlab5/data/resample.py",
+   "destination_sha256_at_copy": "fe5e6bb58d8350a3da00fdf1403540667a33f5f0627273b85d88fdf2a8e7024f",
+   "destination_sha256_after_rename": "fe5e6bb58d8350a3da00fdf1403540667a33f5f0627273b85d88fdf2a8e7024f",
+   "renamed": false,
+   "purpose": "infrastructure: data"
+  },
+  {
+   "source": "quantlab4/data/rolls.py",
+   "source_sha256": "1cde9278db410f249f0da217353b526d202030757cebbb00cbd4fe07b1ea1df5",
+   "destination": "quantlab5/data/rolls.py",
+   "destination_sha256_at_copy": "1cde9278db410f249f0da217353b526d202030757cebbb00cbd4fe07b1ea1df5",
+   "destination_sha256_after_rename": "1cde9278db410f249f0da217353b526d202030757cebbb00cbd4fe07b1ea1df5",
+   "renamed": false,
+   "purpose": "infrastructure: data"
+  },
+  {
+   "source": "quantlab4/data/schema.py",
+   "source_sha256": "0c7097433444ca69a32b567ab5c1f8547eaabf0def44ebfcd9736d4efb8ad0c2",
+   "destination": "quantlab5/data/schema.py",
+   "destination_sha256_at_copy": "0c7097433444ca69a32b567ab5c1f8547eaabf0def44ebfcd9736d4efb8ad0c2",
+   "destination_sha256_after_rename": "b7a43c82c4e6e5e19b2aa29e2b65b0ef48f3fcc2563763896b392db0fc976fe9",
+   "renamed": true,
+   "purpose": "infrastructure: data"
+  },
+  {
+   "source": "quantlab4/data/sessions.py",
+   "source_sha256": "9085e94aadf69658042e7c69c858bc4a5e3017773fdb56ba9bdf7adba3b1a452",
+   "destination": "quantlab5/data/sessions.py",
+   "destination_sha256_at_copy": "9085e94aadf69658042e7c69c858bc4a5e3017773fdb56ba9bdf7adba3b1a452",
+   "destination_sha256_after_rename": "9085e94aadf69658042e7c69c858bc4a5e3017773fdb56ba9bdf7adba3b1a452",
+   "renamed": false,
+   "purpose": "infrastructure: data"
+  },
+  {
+   "source": "quantlab4/data/validation.py",
+   "source_sha256": "ec9d2e78aee847e496bd9274494d3a319248512739bec1a20458d936a0233456",
+   "destination": "quantlab5/data/validation.py",
+   "destination_sha256_at_copy": "ec9d2e78aee847e496bd9274494d3a319248512739bec1a20458d936a0233456",
+   "destination_sha256_after_rename": "ec9d2e78aee847e496bd9274494d3a319248512739bec1a20458d936a0233456",
+   "renamed": false,
+   "purpose": "infrastructure: data"
+  },
+  {
+   "source": "quantlab4/data/volume_qc.py",
+   "source_sha256": "ad406b7a6b4b7ba3463d4ba8db1cd72f72bf84d2d11e7184496c4ff2034c9272",
+   "destination": "quantlab5/data/volume_qc.py",
+   "destination_sha256_at_copy": "ad406b7a6b4b7ba3463d4ba8db1cd72f72bf84d2d11e7184496c4ff2034c9272",
+   "destination_sha256_after_rename": "ad406b7a6b4b7ba3463d4ba8db1cd72f72bf84d2d11e7184496c4ff2034c9272",
+   "renamed": false,
+   "purpose": "infrastructure: data"
+  },
+  {
+   "source": "quantlab4/diagnostics/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/diagnostics/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: diagnostics"
+  },
+  {
+   "source": "quantlab4/diagnostics/lookahead.py",
+   "source_sha256": "2f0607649722cff16ddbfe971fe2c64a1cbef4fabc27527b8f5105897cd2458a",
+   "destination": "quantlab5/diagnostics/lookahead.py",
+   "destination_sha256_at_copy": "2f0607649722cff16ddbfe971fe2c64a1cbef4fabc27527b8f5105897cd2458a",
+   "destination_sha256_after_rename": "90da37ff33f7ee8b4d77cec0182e405bb75338b2f793e74d1972d664c74eb17d",
+   "renamed": true,
+   "purpose": "infrastructure: diagnostics"
+  },
+  {
+   "source": "quantlab4/engine/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/engine/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: engine"
+  },
+  {
+   "source": "quantlab4/engine/backtest.py",
+   "source_sha256": "9079dbecaca2daaa51ca4ab2c0a72069a311b7faf7797d85a47fd08cdd43b2d3",
+   "destination": "quantlab5/engine/backtest.py",
+   "destination_sha256_at_copy": "9079dbecaca2daaa51ca4ab2c0a72069a311b7faf7797d85a47fd08cdd43b2d3",
+   "destination_sha256_after_rename": "9079dbecaca2daaa51ca4ab2c0a72069a311b7faf7797d85a47fd08cdd43b2d3",
+   "renamed": false,
+   "purpose": "infrastructure: engine"
+  },
+  {
+   "source": "quantlab4/engine/costs.py",
+   "source_sha256": "84dec41a1d04d68d984e9201f5b7540d35cff4ed144b79bdee8efb1c1d31159d",
+   "destination": "quantlab5/engine/costs.py",
+   "destination_sha256_at_copy": "84dec41a1d04d68d984e9201f5b7540d35cff4ed144b79bdee8efb1c1d31159d",
+   "destination_sha256_after_rename": "84dec41a1d04d68d984e9201f5b7540d35cff4ed144b79bdee8efb1c1d31159d",
+   "renamed": false,
+   "purpose": "infrastructure: engine"
+  },
+  {
+   "source": "quantlab4/engine/execution.py",
+   "source_sha256": "59aac8a8fbc236cfeed9071a268141b412b887c694d27f0671fa547503131bed",
+   "destination": "quantlab5/engine/execution.py",
+   "destination_sha256_at_copy": "59aac8a8fbc236cfeed9071a268141b412b887c694d27f0671fa547503131bed",
+   "destination_sha256_after_rename": "9f6571400400b772fd4b1e86b51d25e77a8e9c5a7ca8b787e7a5c8dfa74b7b0c",
+   "renamed": true,
+   "purpose": "infrastructure: engine"
+  },
+  {
+   "source": "quantlab4/engine/metrics.py",
+   "source_sha256": "f9ec7e303692b1bf76f55932f6ac3bf5af44c0efa7eeec1d1456bb065646c1b6",
+   "destination": "quantlab5/engine/metrics.py",
+   "destination_sha256_at_copy": "f9ec7e303692b1bf76f55932f6ac3bf5af44c0efa7eeec1d1456bb065646c1b6",
+   "destination_sha256_after_rename": "d6f0f6890d1caafd22cf99284c0515ab30008c9bd4ed0055d64ca483b0a38ac0",
+   "renamed": true,
+   "purpose": "infrastructure: engine"
+  },
+  {
+   "source": "quantlab4/features/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/features/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: features"
+  },
+  {
+   "source": "quantlab4/features/base.py",
+   "source_sha256": "feb93e430b5f524b285912c70b1f93e5d4bf2ed0d4cad279e08f5971dc36e164",
+   "destination": "quantlab5/features/base.py",
+   "destination_sha256_at_copy": "feb93e430b5f524b285912c70b1f93e5d4bf2ed0d4cad279e08f5971dc36e164",
+   "destination_sha256_after_rename": "d833ba1140f68daa9b353ec996e0cee08fef37818ede1b69ce7955b71be1dcb0",
+   "renamed": true,
+   "purpose": "infrastructure: features"
+  },
+  {
+   "source": "quantlab4/isolation/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/isolation/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: isolation"
+  },
+  {
+   "source": "quantlab4/isolation/forward.py",
+   "source_sha256": "8cabdef4f1bc1d521bebd03781ec888b2bcc283469364c1e01f62bfb11670adc",
+   "destination": "quantlab5/isolation/forward.py",
+   "destination_sha256_at_copy": "8cabdef4f1bc1d521bebd03781ec888b2bcc283469364c1e01f62bfb11670adc",
+   "destination_sha256_after_rename": "82505a4815c88e783b88703f31b011e33da5526a16cb5138732bc7342c6c348f",
+   "renamed": true,
+   "purpose": "infrastructure: isolation"
+  },
+  {
+   "source": "quantlab4/isolation/freezes.py",
+   "source_sha256": "51a246b65634dc22f60c2cc3fbeec06bdcdd53e048237d178643efbdba8d3436",
+   "destination": "quantlab5/isolation/freezes.py",
+   "destination_sha256_at_copy": "51a246b65634dc22f60c2cc3fbeec06bdcdd53e048237d178643efbdba8d3436",
+   "destination_sha256_after_rename": "bfb33f2f2b5d75ca353cebae5f4ccacaca73a0638d3930165c86f7cac8abcbb4",
+   "renamed": true,
+   "purpose": "infrastructure: isolation"
+  },
+  {
+   "source": "quantlab4/isolation/ledger.py",
+   "source_sha256": "5069ce0028f8feb3ca375a5855f7794d34c8fb5a9344d593a0bf617bc0de1e8f",
+   "destination": "quantlab5/isolation/ledger.py",
+   "destination_sha256_at_copy": "5069ce0028f8feb3ca375a5855f7794d34c8fb5a9344d593a0bf617bc0de1e8f",
+   "destination_sha256_after_rename": "18ff4db27ade46ae04180b9a756aa8c96ea3df2c854cd5b992a7910bb8af0911",
+   "renamed": true,
+   "purpose": "infrastructure: isolation"
+  },
+  {
+   "source": "quantlab4/isolation/load_view.py",
+   "source_sha256": "6e838f89dbd4d2d1a12a48dd2cc0cfb540d0669e09c0ecf03faeb1e3bc6a6925",
+   "destination": "quantlab5/isolation/load_view.py",
+   "destination_sha256_at_copy": "6e838f89dbd4d2d1a12a48dd2cc0cfb540d0669e09c0ecf03faeb1e3bc6a6925",
+   "destination_sha256_after_rename": "dcd5c35c5a2b6e11c810fcffe2e6b3062309074c492d1386d42362130e61c30b",
+   "renamed": true,
+   "purpose": "infrastructure: isolation"
+  },
+  {
+   "source": "quantlab4/isolation/manifests.py",
+   "source_sha256": "6b910a7e35d9e6561b95fc9032ae2c5bfe532f6a6c08d6948d43d7be6bb45dd6",
+   "destination": "quantlab5/isolation/manifests.py",
+   "destination_sha256_at_copy": "6b910a7e35d9e6561b95fc9032ae2c5bfe532f6a6c08d6948d43d7be6bb45dd6",
+   "destination_sha256_after_rename": "ca572ec7ce2d5ef6338f753b593475424e4712ba1b0c72d831df7aab970ede5f",
+   "renamed": true,
+   "purpose": "infrastructure: isolation"
+  },
+  {
+   "source": "quantlab4/isolation/stage_gate.py",
+   "source_sha256": "505069f86d6f888f47823d99fce8112f344c580d20ea2a4e9e876cd4e7aa26bb",
+   "destination": "quantlab5/isolation/stage_gate.py",
+   "destination_sha256_at_copy": "505069f86d6f888f47823d99fce8112f344c580d20ea2a4e9e876cd4e7aa26bb",
+   "destination_sha256_after_rename": "42c3222f4e52556ed79ed12799ac97d3b11fdd40c7e8b6d4c70d12bdd7a91b6c",
+   "renamed": true,
+   "purpose": "infrastructure: isolation"
+  },
+  {
+   "source": "quantlab4/nulls/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/nulls/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: nulls"
+  },
+  {
+   "source": "quantlab4/nulls/base.py",
+   "source_sha256": "d30d5acf57aa68253e0e5e31c0a38e0903981f9ee08c835b1efbd2beb7f9eebf",
+   "destination": "quantlab5/nulls/base.py",
+   "destination_sha256_at_copy": "d30d5acf57aa68253e0e5e31c0a38e0903981f9ee08c835b1efbd2beb7f9eebf",
+   "destination_sha256_after_rename": "f781033f06600a5ec2b5fe4b643431a6325fd90ca705808261485eecdad59bea",
+   "renamed": true,
+   "purpose": "infrastructure: nulls"
+  },
+  {
+   "source": "quantlab4/nulls/evaluator.py",
+   "source_sha256": "cb4ec5708a98d73de4a25f8fc0b4e3757b9cd724acdf7f7dff1d9a911bc54dbe",
+   "destination": "quantlab5/nulls/evaluator.py",
+   "destination_sha256_at_copy": "cb4ec5708a98d73de4a25f8fc0b4e3757b9cd724acdf7f7dff1d9a911bc54dbe",
+   "destination_sha256_after_rename": "3a1da344fe9c64867debd36f1794dc69b0ed0082eb6c5e12356a3b0491c011fe",
+   "renamed": true,
+   "purpose": "infrastructure: nulls"
+  },
+  {
+   "source": "quantlab4/prop/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/prop/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: prop"
+  },
+  {
+   "source": "quantlab4/prop/account.py",
+   "source_sha256": "fb47a5460b2ebc7334f348634684e4b0748918c1240cbb520be10ca22eca94dc",
+   "destination": "quantlab5/prop/account.py",
+   "destination_sha256_at_copy": "fb47a5460b2ebc7334f348634684e4b0748918c1240cbb520be10ca22eca94dc",
+   "destination_sha256_after_rename": "0a67b82374fc71a0c87254c463f32cc1e782a6d96eb6a3319aad034933344f29",
+   "renamed": true,
+   "purpose": "infrastructure: prop"
+  },
+  {
+   "source": "quantlab4/prop/consistency.py",
+   "source_sha256": "a1fcb4f7680d356c28d0fd2ce7042ed27161b651820c21448cc1488f651d219e",
+   "destination": "quantlab5/prop/consistency.py",
+   "destination_sha256_at_copy": "a1fcb4f7680d356c28d0fd2ce7042ed27161b651820c21448cc1488f651d219e",
+   "destination_sha256_after_rename": "a1fcb4f7680d356c28d0fd2ce7042ed27161b651820c21448cc1488f651d219e",
+   "renamed": false,
+   "purpose": "infrastructure: prop"
+  },
+  {
+   "source": "quantlab4/prop/eod_drawdown.py",
+   "source_sha256": "f674f7da40738cc34f53cffbc01564c8d6ba16cf966fb513d25ef7a16592f3a3",
+   "destination": "quantlab5/prop/eod_drawdown.py",
+   "destination_sha256_at_copy": "f674f7da40738cc34f53cffbc01564c8d6ba16cf966fb513d25ef7a16592f3a3",
+   "destination_sha256_after_rename": "f674f7da40738cc34f53cffbc01564c8d6ba16cf966fb513d25ef7a16592f3a3",
+   "renamed": false,
+   "purpose": "infrastructure: prop"
+  },
+  {
+   "source": "quantlab4/prop/intraday_drawdown.py",
+   "source_sha256": "406cff93f27d6a51261e1567b903544c2fbbef3164e2b84258ed19dae8b571a7",
+   "destination": "quantlab5/prop/intraday_drawdown.py",
+   "destination_sha256_at_copy": "406cff93f27d6a51261e1567b903544c2fbbef3164e2b84258ed19dae8b571a7",
+   "destination_sha256_after_rename": "167874d825b15e0ba2a4f00c8a6d850cf4bd0a61455f1b4c46df6dc6d9641a52",
+   "renamed": true,
+   "purpose": "infrastructure: prop"
+  },
+  {
+   "source": "quantlab4/prop/rolling_evaluations.py",
+   "source_sha256": "5eb4aa4783d4c3b2ac3d4af692bb963b85263f1ee1b3153797895e42e005fee9",
+   "destination": "quantlab5/prop/rolling_evaluations.py",
+   "destination_sha256_at_copy": "5eb4aa4783d4c3b2ac3d4af692bb963b85263f1ee1b3153797895e42e005fee9",
+   "destination_sha256_after_rename": "667662851586f95bab50871c505611003810ac01b72e0f63432fdaefb2872d25",
+   "renamed": true,
+   "purpose": "infrastructure: prop"
+  },
+  {
+   "source": "quantlab4/risk/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/risk/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: risk"
+  },
+  {
+   "source": "quantlab4/risk/fixed_contract.py",
+   "source_sha256": "6ffced80cbd4ae69404151ead58726cd348191e91c04903b1ffecb5d0823efd5",
+   "destination": "quantlab5/risk/fixed_contract.py",
+   "destination_sha256_at_copy": "6ffced80cbd4ae69404151ead58726cd348191e91c04903b1ffecb5d0823efd5",
+   "destination_sha256_after_rename": "968b8b3455af375e1551fe6676c3de37a511b0322360047498408ca5186a7734",
+   "renamed": true,
+   "purpose": "infrastructure: risk"
+  },
+  {
+   "source": "quantlab4/risk/fixed_dollar.py",
+   "source_sha256": "5661d815b856dc79daae6e9f2273737804a95fc2f6ea270a9a47e9e82a4a6808",
+   "destination": "quantlab5/risk/fixed_dollar.py",
+   "destination_sha256_at_copy": "5661d815b856dc79daae6e9f2273737804a95fc2f6ea270a9a47e9e82a4a6808",
+   "destination_sha256_after_rename": "5661d815b856dc79daae6e9f2273737804a95fc2f6ea270a9a47e9e82a4a6808",
+   "renamed": false,
+   "purpose": "infrastructure: risk"
+  },
+  {
+   "source": "quantlab4/risk/sizing.py",
+   "source_sha256": "14092b6f8c072e25210654ad6145d72411cfb5d656c0bd1e9241958e45744df3",
+   "destination": "quantlab5/risk/sizing.py",
+   "destination_sha256_at_copy": "14092b6f8c072e25210654ad6145d72411cfb5d656c0bd1e9241958e45744df3",
+   "destination_sha256_after_rename": "59d96b7fc09ce52fb20a8b536d04828a585348965e37140e97909f1ac61957c6",
+   "renamed": true,
+   "purpose": "infrastructure: risk"
+  },
+  {
+   "source": "quantlab4/search/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/search/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: search"
+  },
+  {
+   "source": "quantlab4/search/candidate_id.py",
+   "source_sha256": "4eb6001aa78b1d4335e69842f7bf57829eda18089e565caef030c0ddb0f22adb",
+   "destination": "quantlab5/search/candidate_id.py",
+   "destination_sha256_at_copy": "4eb6001aa78b1d4335e69842f7bf57829eda18089e565caef030c0ddb0f22adb",
+   "destination_sha256_after_rename": "962d8f335af03d7b03d9f169fff12aa7f832975fbaf72b29618a052b729c7ea9",
+   "renamed": true,
+   "purpose": "infrastructure: search"
+  },
+  {
+   "source": "quantlab4/search/clustering.py",
+   "source_sha256": "f19d360030501208858cf01035608f2c6ff44a5585c6a7fff59fb79ef661d82c",
+   "destination": "quantlab5/search/clustering.py",
+   "destination_sha256_at_copy": "f19d360030501208858cf01035608f2c6ff44a5585c6a7fff59fb79ef661d82c",
+   "destination_sha256_after_rename": "f19d360030501208858cf01035608f2c6ff44a5585c6a7fff59fb79ef661d82c",
+   "renamed": false,
+   "purpose": "infrastructure: search"
+  },
+  {
+   "source": "quantlab4/search/generator.py",
+   "source_sha256": "cbfe722352f8d0106f22ec4cf5a36bf2948cf9c2daa90ce8fe6a364a124be509",
+   "destination": "quantlab5/search/generator.py",
+   "destination_sha256_at_copy": "cbfe722352f8d0106f22ec4cf5a36bf2948cf9c2daa90ce8fe6a364a124be509",
+   "destination_sha256_after_rename": "2dc02ffaaef3c0c4e4fecb9b906027210c1152baa7696c57b15f87154ccf2b1a",
+   "renamed": true,
+   "purpose": "infrastructure: search"
+  },
+  {
+   "source": "quantlab4/search/grammar.py",
+   "source_sha256": "aef67fbdb6fe1d75c4edf307962a44e6112101658c24df3fcac3d2c2f8d12122",
+   "destination": "quantlab5/search/grammar.py",
+   "destination_sha256_at_copy": "aef67fbdb6fe1d75c4edf307962a44e6112101658c24df3fcac3d2c2f8d12122",
+   "destination_sha256_after_rename": "0d1d3a9761aa3efe5abe29f7c1555231b2992b6bca0f63522cdd96b06b1c4035",
+   "renamed": true,
+   "purpose": "infrastructure: search"
+  },
+  {
+   "source": "quantlab4/search/pipeline.py",
+   "source_sha256": "8328ea6ffa870af68e1606665772c4116a3ad46c799a4b34656484bbfbec13a4",
+   "destination": "quantlab5/search/pipeline.py",
+   "destination_sha256_at_copy": "8328ea6ffa870af68e1606665772c4116a3ad46c799a4b34656484bbfbec13a4",
+   "destination_sha256_after_rename": "416ea5e5ee8d97b2387e86e13e83fd683129cddd5250db0cb62e335a5eff1b2d",
+   "renamed": true,
+   "purpose": "infrastructure: search"
+  },
+  {
+   "source": "quantlab4/search/robustness.py",
+   "source_sha256": "95b4e946104e24de7a105759b0a4b945e46e8f3006443c34da7b503fd00eab4d",
+   "destination": "quantlab5/search/robustness.py",
+   "destination_sha256_at_copy": "95b4e946104e24de7a105759b0a4b945e46e8f3006443c34da7b503fd00eab4d",
+   "destination_sha256_after_rename": "e169fce7c9948da250af08c3bcc62bc0ff3387670c26c0797efb8fb713a8c165",
+   "renamed": true,
+   "purpose": "infrastructure: search"
+  },
+  {
+   "source": "quantlab4/search/screening.py",
+   "source_sha256": "82e2f450e3a0c2ae313c075d0cb95fe719debbf607b9f8760d3ba7ce6d6c3e18",
+   "destination": "quantlab5/search/screening.py",
+   "destination_sha256_at_copy": "82e2f450e3a0c2ae313c075d0cb95fe719debbf607b9f8760d3ba7ce6d6c3e18",
+   "destination_sha256_after_rename": "82e2f450e3a0c2ae313c075d0cb95fe719debbf607b9f8760d3ba7ce6d6c3e18",
+   "renamed": false,
+   "purpose": "infrastructure: search"
+  },
+  {
+   "source": "quantlab4/synthetic/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/synthetic/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: synthetic"
+  },
+  {
+   "source": "quantlab4/synthetic/markets.py",
+   "source_sha256": "113009b0a5c671df83b3fc55c0b8cbe3a3dc21e180471a34990ae4ef85841353",
+   "destination": "quantlab5/synthetic/markets.py",
+   "destination_sha256_at_copy": "113009b0a5c671df83b3fc55c0b8cbe3a3dc21e180471a34990ae4ef85841353",
+   "destination_sha256_after_rename": "7ffbdf70d24e6c0a518ce04a51636d4609d3e55b9484368868e179eb8e70f133",
+   "renamed": true,
+   "purpose": "infrastructure: synthetic"
+  },
+  {
+   "source": "quantlab4/util/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/util/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: util"
+  },
+  {
+   "source": "quantlab4/util/hashing.py",
+   "source_sha256": "e1ceb8b5ea908d1e61b2f581db1ea6ebb40e9f8527746db25a650285c6048c90",
+   "destination": "quantlab5/util/hashing.py",
+   "destination_sha256_at_copy": "e1ceb8b5ea908d1e61b2f581db1ea6ebb40e9f8527746db25a650285c6048c90",
+   "destination_sha256_after_rename": "e1ceb8b5ea908d1e61b2f581db1ea6ebb40e9f8527746db25a650285c6048c90",
+   "renamed": false,
+   "purpose": "infrastructure: util"
+  },
+  {
+   "source": "quantlab4/validation/__init__.py",
+   "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination": "quantlab5/validation/__init__.py",
+   "destination_sha256_at_copy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "destination_sha256_after_rename": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "renamed": false,
+   "purpose": "infrastructure: validation"
+  },
+  {
+   "source": "quantlab4/validation/embargo.py",
+   "source_sha256": "ecd60e85ffeafc8e84b3f15acb339b6a5d0bc29fa258fa0d8c5d1cce3fbd1060",
+   "destination": "quantlab5/validation/embargo.py",
+   "destination_sha256_at_copy": "ecd60e85ffeafc8e84b3f15acb339b6a5d0bc29fa258fa0d8c5d1cce3fbd1060",
+   "destination_sha256_after_rename": "8ed8f1ffc0b967d9081e2cbf12b73d06d632246f9ed376eda9074697c6513505",
+   "renamed": true,
+   "purpose": "infrastructure: validation"
+  },
+  {
+   "source": "quantlab4/validation/purging.py",
+   "source_sha256": "92fbfc08f0617bd7f0f18ce25e825a6838acf7160a72db1107d3d774ccb59c7b",
+   "destination": "quantlab5/validation/purging.py",
+   "destination_sha256_at_copy": "92fbfc08f0617bd7f0f18ce25e825a6838acf7160a72db1107d3d774ccb59c7b",
+   "destination_sha256_after_rename": "92fbfc08f0617bd7f0f18ce25e825a6838acf7160a72db1107d3d774ccb59c7b",
+   "renamed": false,
+   "purpose": "infrastructure: validation"
+  },
+  {
+   "source": "quantlab4/validation/time_splits.py",
+   "source_sha256": "8bdfa3dc00afde0bcf0d6fe4a00d75cbf0eb2a543ae6235414c0a6c6ab821de9",
+   "destination": "quantlab5/validation/time_splits.py",
+   "destination_sha256_at_copy": "8bdfa3dc00afde0bcf0d6fe4a00d75cbf0eb2a543ae6235414c0a6c6ab821de9",
+   "destination_sha256_after_rename": "8bdfa3dc00afde0bcf0d6fe4a00d75cbf0eb2a543ae6235414c0a6c6ab821de9",
+   "renamed": false,
+   "purpose": "infrastructure: validation"
+  },
+  {
+   "source": "quantlab4/v4/ops.py",
+   "source_sha256": "e7a0f666619556eb8c4b5f493485435abe8666f90c9709c567bc418551aba2cd",
+   "destination": "quantlab5/features/ops.py",
+   "destination_sha256_at_copy": "e7a0f666619556eb8c4b5f493485435abe8666f90c9709c567bc418551aba2cd",
+   "destination_sha256_after_rename": "e7a0f666619556eb8c4b5f493485435abe8666f90c9709c567bc418551aba2cd",
+   "renamed": false,
+   "purpose": "V4 campaign module re-homed: ops"
+  },
+  {
+   "source": "quantlab4/v4/featurelib.py",
+   "source_sha256": "f1274aa446913e00fedb53a5979f14b734f0915d12022235c2096a6b6d473751",
+   "destination": "quantlab5/features/library.py",
+   "destination_sha256_at_copy": "f1274aa446913e00fedb53a5979f14b734f0915d12022235c2096a6b6d473751",
+   "destination_sha256_after_rename": "38a6ced53bbc86e55a40929a399af82a2148019616071812587544350c948e11",
+   "renamed": true,
+   "purpose": "V4 campaign module re-homed: featurelib"
+  },
+  {
+   "source": "quantlab4/v4/market.py",
+   "source_sha256": "32a75319f843ce9c648bd21cf53a1b7b32d4cf952a7200c0821f85a6516a7ca2",
+   "destination": "quantlab5/data/market.py",
+   "destination_sha256_at_copy": "32a75319f843ce9c648bd21cf53a1b7b32d4cf952a7200c0821f85a6516a7ca2",
+   "destination_sha256_after_rename": "b8a3c34ef696a4ad5af97c4fb526f52c697802930e53d70c1d8570382faec3f6",
+   "renamed": true,
+   "purpose": "V4 campaign module re-homed: market"
+  },
+  {
+   "source": "quantlab4/v4/synth.py",
+   "source_sha256": "927afc139749b75444be100ee0d77bfc6298f495127b97249a004193e0bb5449",
+   "destination": "quantlab5/synthetic/market_builders.py",
+   "destination_sha256_at_copy": "927afc139749b75444be100ee0d77bfc6298f495127b97249a004193e0bb5449",
+   "destination_sha256_after_rename": "ac1dc0ced3949f5c8eb9b521d6f99262ea9e57ac3175c55eb29dfa7358871da1",
+   "renamed": true,
+   "purpose": "V4 campaign module re-homed: synth"
+  },
+  {
+   "source": "quantlab4/v4/outcomes.py",
+   "source_sha256": "ddfe9d5d5fdd8993449567eac3f88ebb9f214872528cea053f90dbe69bd18549",
+   "destination": "quantlab5/engine/outcomes.py",
+   "destination_sha256_at_copy": "ddfe9d5d5fdd8993449567eac3f88ebb9f214872528cea053f90dbe69bd18549",
+   "destination_sha256_after_rename": "4962efa79ccc5090a262136e8d4b9e80c5d037a5db165b99abbd68de27346495",
+   "renamed": true,
+   "purpose": "V4 campaign module re-homed: outcomes"
+  },
+  {
+   "source": "quantlab4/v4/kernel.py",
+   "source_sha256": "ac0aceef904e2c7e0944e2d2acccbbf7a966e01307b06f434a1bc0abe417ab15",
+   "destination": "quantlab5/search/kernel.py",
+   "destination_sha256_at_copy": "ac0aceef904e2c7e0944e2d2acccbbf7a966e01307b06f434a1bc0abe417ab15",
+   "destination_sha256_after_rename": "ac0aceef904e2c7e0944e2d2acccbbf7a966e01307b06f434a1bc0abe417ab15",
+   "renamed": false,
+   "purpose": "V4 campaign module re-homed: kernel"
+  },
+  {
+   "source": "quantlab4/v4/grammar.py",
+   "source_sha256": "f8d73e3a41ccf232021a7fc5622e9e1547430514f1a272f5341894ba6053baa0",
+   "destination": "quantlab5/search/reference_grammar.py",
+   "destination_sha256_at_copy": "f8d73e3a41ccf232021a7fc5622e9e1547430514f1a272f5341894ba6053baa0",
+   "destination_sha256_after_rename": "d90694a0d4a8618f4ff4dd6a63257841452a5be506d882a8fecc9ddb8074875d",
+   "renamed": true,
+   "purpose": "V4 campaign module re-homed: grammar"
+  },
+  {
+   "source": "quantlab4/v4/screen.py",
+   "source_sha256": "86361fcc83555fcc20d9a940a4e03598af7e597ec5d85f00a0995855a6c73797",
+   "destination": "quantlab5/search/reference_screen.py",
+   "destination_sha256_at_copy": "86361fcc83555fcc20d9a940a4e03598af7e597ec5d85f00a0995855a6c73797",
+   "destination_sha256_after_rename": "0a5b390c6c79e4d29863513ea783868cbe0a310eebd8a8d1a1dadb385bccf5fc",
+   "renamed": true,
+   "purpose": "V4 campaign module re-homed: screen"
+  },
+  {
+   "source": "quantlab4/v4/world.py",
+   "source_sha256": "668d24db56d508681cba101382a4b73aef0787ec7a038485f55cd1ceeb9e1ea7",
+   "destination": "quantlab5/search/world.py",
+   "destination_sha256_at_copy": "668d24db56d508681cba101382a4b73aef0787ec7a038485f55cd1ceeb9e1ea7",
+   "destination_sha256_after_rename": "b4ee921edcf0bfb2b1d9ebf42acb060cbe38a64e35a75c752de22ad5d48ad48c",
+   "renamed": true,
+   "purpose": "V4 campaign module re-homed: world"
+  },
+  {
+   "source": "quantlab4/v4/ml.py",
+   "source_sha256": "e531ee7ba3458e3c7aed3b45369a223c13b9dd996fb81890b9bae7e6f418860a",
+   "destination": "quantlab5/search/ml.py",
+   "destination_sha256_at_copy": "e531ee7ba3458e3c7aed3b45369a223c13b9dd996fb81890b9bae7e6f418860a",
+   "destination_sha256_after_rename": "2f23baf91e1d8fbeffdcb0d48213e54f261ba09b5977aeb1736bf9aa0cd85e74",
+   "renamed": true,
+   "purpose": "V4 campaign module re-homed: ml"
+  },
+  {
+   "source": "quantlab4/v4/analysis.py",
+   "source_sha256": "e75b729281ed3d7762288398b7f1d01aa80439a08c6831b13e4c5767bd9124cb",
+   "destination": "quantlab5/search/analysis.py",
+   "destination_sha256_at_copy": "e75b729281ed3d7762288398b7f1d01aa80439a08c6831b13e4c5767bd9124cb",
+   "destination_sha256_after_rename": "1085956f7a0a5ec07b21fde6cf0eab6b8bd9f8e42194e1e54127c391547a20ca",
+   "renamed": true,
+   "purpose": "V4 campaign module re-homed: analysis"
+  },
+  {
+   "source": "quantlab4/v4/inference.py",
+   "source_sha256": "41ff011e8cc0fd9078e8111d0d5602e8e12ba7f7eea5e6651716214a97691439",
+   "destination": "quantlab5/nulls/inference.py",
+   "destination_sha256_at_copy": "41ff011e8cc0fd9078e8111d0d5602e8e12ba7f7eea5e6651716214a97691439",
+   "destination_sha256_after_rename": "41ff011e8cc0fd9078e8111d0d5602e8e12ba7f7eea5e6651716214a97691439",
+   "renamed": false,
+   "purpose": "V4 campaign module re-homed: inference"
+  },
+  {
+   "source": "quantlab4/v4/propsim.py",
+   "source_sha256": "ee69121abe08d8c384c9142ec52381c61c3ecc70a8a57162a3a912bd18a299f8",
+   "destination": "quantlab5/prop/propsim.py",
+   "destination_sha256_at_copy": "ee69121abe08d8c384c9142ec52381c61c3ecc70a8a57162a3a912bd18a299f8",
+   "destination_sha256_after_rename": "8581d7d7ea2b32daab954e9afa4aaacd2aa90b998b5806645a733147b39862c0",
+   "renamed": true,
+   "purpose": "V4 campaign module re-homed: propsim"
+  },
+  {
+   "source": "tests/conftest.py",
+   "source_sha256": "3742cdb136d562efe5c9cb0ecd1259f222a42e187e0c36cf6c5aa79d21586e52",
+   "destination": "tests/conftest.py",
+   "destination_sha256_at_copy": "3742cdb136d562efe5c9cb0ecd1259f222a42e187e0c36cf6c5aa79d21586e52",
+   "destination_sha256_after_rename": "eaf842b9eb5ef0ba0ab15f287f8a7334d927ce3e26f7fdbeaece330ea92b83b7",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_candidates.py",
+   "source_sha256": "5a0c9b775d8d411a3b01eee9f55d251256585b7bef16f56c5fcb20542bd298ce",
+   "destination": "tests/test_candidates.py",
+   "destination_sha256_at_copy": "5a0c9b775d8d411a3b01eee9f55d251256585b7bef16f56c5fcb20542bd298ce",
+   "destination_sha256_after_rename": "c69da04c9ec31216231b61ad22b1e5a0d21b648f34418205eedd860eb04d3fcb",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_cleaning.py",
+   "source_sha256": "ed4eadef97969d11892085a444fbba605aecfd9ad74bdae7689669f0d9f43965",
+   "destination": "tests/test_cleaning.py",
+   "destination_sha256_at_copy": "ed4eadef97969d11892085a444fbba605aecfd9ad74bdae7689669f0d9f43965",
+   "destination_sha256_after_rename": "bd2a8e0c5ade8968e7f4b0e2c5a66fd576913dfb6af872164af6681f21924fe1",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_costs_metrics.py",
+   "source_sha256": "961ca93070df1bc83508fe5177532c7a21e4d5ba5446569063876b22ebb2da22",
+   "destination": "tests/test_costs_metrics.py",
+   "destination_sha256_at_copy": "961ca93070df1bc83508fe5177532c7a21e4d5ba5446569063876b22ebb2da22",
+   "destination_sha256_after_rename": "d69f289dd8c9e94a37f0ab7704a065f6071299b7937672d1569e6764f90c13a9",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_engine_synthetic_markets.py",
+   "source_sha256": "53ec7d7bc44d6bd61f0d70df3172a3ea02490e0ea96b57acc2d742065f318737",
+   "destination": "tests/test_engine_synthetic_markets.py",
+   "destination_sha256_at_copy": "53ec7d7bc44d6bd61f0d70df3172a3ea02490e0ea96b57acc2d742065f318737",
+   "destination_sha256_after_rename": "d1411da9f0c0b159f53ee075e59f6d5eaed33d2bd795ae8af8e8b1b81d162442",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_engine_timing.py",
+   "source_sha256": "ad950c1b8d87f525a2dff63d031cdbfab22957b51a88ad9d7a6528e6e2f427bb",
+   "destination": "tests/test_engine_timing.py",
+   "destination_sha256_at_copy": "ad950c1b8d87f525a2dff63d031cdbfab22957b51a88ad9d7a6528e6e2f427bb",
+   "destination_sha256_after_rename": "c6589e4a0181591808a18870ecfe5cbdd66770fb8f7595467c0c116cb54730a4",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_features_causality.py",
+   "source_sha256": "1bfd6e5b3e3d2cce8eed9f24ae221a202d07e0d90b12ed509243dc2bb9cb0715",
+   "destination": "tests/test_features_causality.py",
+   "destination_sha256_at_copy": "1bfd6e5b3e3d2cce8eed9f24ae221a202d07e0d90b12ed509243dc2bb9cb0715",
+   "destination_sha256_after_rename": "94676f04e36bcf480303d916843bc5f8f3d20145143613da5177d974f3e4282f",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_fixed_dollar.py",
+   "source_sha256": "6b68308466ca97b79b3594951fc340b65a88d5ccfd0aab85b3db4be4bf7b6626",
+   "destination": "tests/test_fixed_dollar.py",
+   "destination_sha256_at_copy": "6b68308466ca97b79b3594951fc340b65a88d5ccfd0aab85b3db4be4bf7b6626",
+   "destination_sha256_after_rename": "e418ae84075f9618d4282a28f158cd78d1ccd247241b89c0af9d41a14ceb37cf",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_forward.py",
+   "source_sha256": "5a6fb4bbdf602f3d5f30dab0f01d3d44a8e77d91e62d8e92f6ae72142f438bc3",
+   "destination": "tests/test_forward.py",
+   "destination_sha256_at_copy": "5a6fb4bbdf602f3d5f30dab0f01d3d44a8e77d91e62d8e92f6ae72142f438bc3",
+   "destination_sha256_after_rename": "7e9b3b2ffdac3aaf04787fd0e5f33b19f038e8ded5593729ac42288590d5eae9",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_ledger.py",
+   "source_sha256": "d74242e04d7981e59b62724b332289f702e2f8b89305ebec03584b6b8b83bc38",
+   "destination": "tests/test_ledger.py",
+   "destination_sha256_at_copy": "d74242e04d7981e59b62724b332289f702e2f8b89305ebec03584b6b8b83bc38",
+   "destination_sha256_after_rename": "945e727c7b5b95fd0623b7dd9de80b73086475975700901489c34c926e92958d",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_load_view_isolation.py",
+   "source_sha256": "903775d6a33ae7a4fe0c4ff13990494b76b124bf65cb69d67643fb4fb0d069f3",
+   "destination": "tests/test_load_view_isolation.py",
+   "destination_sha256_at_copy": "903775d6a33ae7a4fe0c4ff13990494b76b124bf65cb69d67643fb4fb0d069f3",
+   "destination_sha256_after_rename": "c8873f7215501b399166ffe9a513ddf1e7dc9dc3fc01dda68bf744fa9f25d6ca",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_manifests_hashing.py",
+   "source_sha256": "9155cf69e8f4239a901f9a8aae3c93b986dade06c2b906a16ea2df73c84bfa81",
+   "destination": "tests/test_manifests_hashing.py",
+   "destination_sha256_at_copy": "9155cf69e8f4239a901f9a8aae3c93b986dade06c2b906a16ea2df73c84bfa81",
+   "destination_sha256_after_rename": "ca1e4528019f2acca9f80c762f705f612d35c0d17d799cef5922438818b00ca4",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_no_direct_data_access.py",
+   "source_sha256": "e9487cb87d47be1f0dc53677daa90b660a6f712b1ff32d6d517db439e208a79e",
+   "destination": "tests/test_no_direct_data_access.py",
+   "destination_sha256_at_copy": "e9487cb87d47be1f0dc53677daa90b660a6f712b1ff32d6d517db439e208a79e",
+   "destination_sha256_after_rename": "b18962ba0c79e90c7a9877657856a73cc3754de437f72e689694e98c4213dbea",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_nulls_pipeline.py",
+   "source_sha256": "fee6819fa9e2bd161bfada6dc9c7d08dd8ecdf3cebff643a628910314d462737",
+   "destination": "tests/test_nulls_pipeline.py",
+   "destination_sha256_at_copy": "fee6819fa9e2bd161bfada6dc9c7d08dd8ecdf3cebff643a628910314d462737",
+   "destination_sha256_after_rename": "807918bf04778bbe9a286ced49d6d4c210738b59754b152fbe26ab586ba8b304",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_prop_account.py",
+   "source_sha256": "5d1a6e5f983f3ef8a92d0c8e6fbf2f17d8b4a4cf0c9ef6b625a10fbafe2424d1",
+   "destination": "tests/test_prop_account.py",
+   "destination_sha256_at_copy": "5d1a6e5f983f3ef8a92d0c8e6fbf2f17d8b4a4cf0c9ef6b625a10fbafe2424d1",
+   "destination_sha256_after_rename": "c53f3e0a1edfcfd355e22dbc8e2d51b04338f136c8640671d239f0c2ac6759d4",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_resample.py",
+   "source_sha256": "4143e3cd402c57c47bcea27338dc5b3286040ad85497d59057372401ace49bd8",
+   "destination": "tests/test_resample.py",
+   "destination_sha256_at_copy": "4143e3cd402c57c47bcea27338dc5b3286040ad85497d59057372401ace49bd8",
+   "destination_sha256_after_rename": "135dcc618d994748feed7c6bd9ed15bc29da67417293ab2ae7c53b03bbb33df7",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_research_log.py",
+   "source_sha256": "005808867688c573d087b8ae81149dfb34475b0f01d6e0fab3f505e52035a770",
+   "destination": "tests/test_research_log.py",
+   "destination_sha256_at_copy": "005808867688c573d087b8ae81149dfb34475b0f01d6e0fab3f505e52035a770",
+   "destination_sha256_after_rename": "56d89544709bc918ec2eee488840298c7045569f6d441a6a76a327c83808dc4d",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_schema_volume_rolls.py",
+   "source_sha256": "70b01ff3cf803c8fb7b59029cc1fc4fa642c937f582e5e8cff86acdb1bad56d1",
+   "destination": "tests/test_schema_volume_rolls.py",
+   "destination_sha256_at_copy": "70b01ff3cf803c8fb7b59029cc1fc4fa642c937f582e5e8cff86acdb1bad56d1",
+   "destination_sha256_after_rename": "834c3c04968263172b3e92ce1de256cde0244dcdd8689f4953c7af8bacec9011",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_sessions_dst.py",
+   "source_sha256": "c63e0fedac94ef0cb51e6f5c4908e0822e954655aadd8e6cacb872a62a0ae291",
+   "destination": "tests/test_sessions_dst.py",
+   "destination_sha256_at_copy": "c63e0fedac94ef0cb51e6f5c4908e0822e954655aadd8e6cacb872a62a0ae291",
+   "destination_sha256_after_rename": "c1a2654bb7fdb09b0a5be2c5643d0e784aee931f45c98df220b74ad73294fe05",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_stage_gate.py",
+   "source_sha256": "b28f0f64c1e23b455ccbd115cd60ed8702fb106dbe00b13ca4e2208065d035b1",
+   "destination": "tests/test_stage_gate.py",
+   "destination_sha256_at_copy": "b28f0f64c1e23b455ccbd115cd60ed8702fb106dbe00b13ca4e2208065d035b1",
+   "destination_sha256_after_rename": "c4cc9f54503b80c178cf223957d479403f8a16a57f0dc5d8471df0630f862988",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_v4_optimizations.py",
+   "source_sha256": "692a6a5ee124e3ab8789d2e4dc3c3bf123ec776d887a8325c22c3ec249e3ad63",
+   "destination": "tests/test_performance_optimizations.py",
+   "destination_sha256_at_copy": "692a6a5ee124e3ab8789d2e4dc3c3bf123ec776d887a8325c22c3ec249e3ad63",
+   "destination_sha256_after_rename": "b548844b63114c4e4f33e0b043c294d5a6dd718cad4426969fd1de41627547ce",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_v4_pipeline.py",
+   "source_sha256": "61fbcd1fb54796a64e93badad9c1f222a14fd8bec418fd0aabf509ac871c80cf",
+   "destination": "tests/test_search_pipeline.py",
+   "destination_sha256_at_copy": "61fbcd1fb54796a64e93badad9c1f222a14fd8bec418fd0aabf509ac871c80cf",
+   "destination_sha256_after_rename": "80cabaf7cc60a2cb627bff876a258003c32d3bd4f0d72db96d5f6982ad99d7d3",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_v4_propsim.py",
+   "source_sha256": "2eec12d27c62607e7333d1d8e8aa1bfceb090b9732f3a5212864ed2907af9647",
+   "destination": "tests/test_propsim.py",
+   "destination_sha256_at_copy": "2eec12d27c62607e7333d1d8e8aa1bfceb090b9732f3a5212864ed2907af9647",
+   "destination_sha256_after_rename": "ffc9a106fb607125c24530dbe10481e8f7cda78fc5700e9c3eac903d2f0bca7a",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "tests/test_validation_splits.py",
+   "source_sha256": "b2b64d0581a1c4896d7db7870592706ed0895c38173935623d957d599627db80",
+   "destination": "tests/test_validation_splits.py",
+   "destination_sha256_at_copy": "b2b64d0581a1c4896d7db7870592706ed0895c38173935623d957d599627db80",
+   "destination_sha256_after_rename": "fab986d4e6fcafce03dcab17fc27a5ac56e67cf84e8addf636a31f9321ee0f08",
+   "renamed": true,
+   "purpose": "inherited test"
+  },
+  {
+   "source": "pyproject.toml",
+   "source_sha256": "33dd325900e8c82306970acfb4a0a8db51b968eb74efb7862eddafeeb9c5ecf2",
+   "destination": "pyproject.toml",
+   "destination_sha256_at_copy": "33dd325900e8c82306970acfb4a0a8db51b968eb74efb7862eddafeeb9c5ecf2",
+   "destination_sha256_after_rename": "e020889e9d60ac13a3ed92c1137b9325f350a6beef1a5837bd0ed3cb59a1a8ae",
+   "renamed": true,
+   "purpose": "package metadata"
+  },
+  {
+   "source": ".gitignore",
+   "source_sha256": "0d7ca1364015c3e9bd74d637f2b97ef040c1186b00d86d84b03dc1fc2557191c",
+   "destination": ".gitignore",
+   "destination_sha256_at_copy": "0d7ca1364015c3e9bd74d637f2b97ef040c1186b00d86d84b03dc1fc2557191c",
+   "destination_sha256_after_rename": "0d7ca1364015c3e9bd74d637f2b97ef040c1186b00d86d84b03dc1fc2557191c",
+   "renamed": false,
+   "purpose": "git ignore rules (market data never enters git)"
+  },
+  {
+   "source": "config/costs.yaml",
+   "source_sha256": "d3bdaea53afff688c2b29da42c81e02a22a4f091162ae64bbd968d3bc9173108",
+   "destination": "config/costs.yaml",
+   "destination_sha256_at_copy": "d3bdaea53afff688c2b29da42c81e02a22a4f091162ae64bbd968d3bc9173108",
+   "destination_sha256_after_rename": "d3bdaea53afff688c2b29da42c81e02a22a4f091162ae64bbd968d3bc9173108",
+   "renamed": false,
+   "purpose": "trading costs (inherited V3/V4 values)"
+  },
+  {
+   "source": "config/execution.yaml",
+   "source_sha256": "07d590956b2085849361496c3ad3e3b9913783f8e7094f901a580d69ec3f4bac",
+   "destination": "config/execution.yaml",
+   "destination_sha256_at_copy": "07d590956b2085849361496c3ad3e3b9913783f8e7094f901a580d69ec3f4bac",
+   "destination_sha256_after_rename": "07d590956b2085849361496c3ad3e3b9913783f8e7094f901a580d69ec3f4bac",
+   "renamed": false,
+   "purpose": "execution policy"
+  },
+  {
+   "source": "config/nulls.yaml",
+   "source_sha256": "241fcddc66b125773f0b58f1d113110f0fdc9c82152808dd1a0670740a5c197b",
+   "destination": "config/nulls.yaml",
+   "destination_sha256_at_copy": "241fcddc66b125773f0b58f1d113110f0fdc9c82152808dd1a0670740a5c197b",
+   "destination_sha256_after_rename": "20c19878fcf7957ba3f141cc2ded8b7073adc329fbb395539f2e5465092f398e",
+   "renamed": true,
+   "purpose": "null generator settings"
+  },
+  {
+   "source": "config/paths.yaml",
+   "source_sha256": "3c9e27f920a541e9dfe236fbda127aa70358a4bc055a7d752280d481cb93a20e",
+   "destination": "config/paths.yaml",
+   "destination_sha256_at_copy": "3c9e27f920a541e9dfe236fbda127aa70358a4bc055a7d752280d481cb93a20e",
+   "destination_sha256_after_rename": "3c9e27f920a541e9dfe236fbda127aa70358a4bc055a7d752280d481cb93a20e",
+   "renamed": false,
+   "purpose": "physical locations (rewritten for V5)"
+  },
+  {
+   "source": "config/prop_profiles.yaml",
+   "source_sha256": "ca4ef1d753db0c56b6e0ff6008147b5c0485551b316c571188a0540fefc4ba84",
+   "destination": "config/prop_profiles.yaml",
+   "destination_sha256_at_copy": "ca4ef1d753db0c56b6e0ff6008147b5c0485551b316c571188a0540fefc4ba84",
+   "destination_sha256_after_rename": "ee1a3327d7d175b0b6381af0fba303518f227163f3d7a1a141a5682ca84809ac",
+   "renamed": true,
+   "purpose": "generic prop profiles"
+  },
+  {
+   "source": "config/search.yaml",
+   "source_sha256": "6ec4f303483ad2ef1655d0e58cb9f038ad71d709c2c2d168e80ec156bf0030fa",
+   "destination": "config/search.yaml",
+   "destination_sha256_at_copy": "6ec4f303483ad2ef1655d0e58cb9f038ad71d709c2c2d168e80ec156bf0030fa",
+   "destination_sha256_after_rename": "214d31c7baa41d0b81191df79914fd85cb8853c8fec4153c78728ae3cf72d832",
+   "renamed": true,
+   "purpose": "candidate-ID / enumeration settings"
+  },
+  {
+   "source": "config/sessions.yaml",
+   "source_sha256": "c66de75048562a5a5b410237ad3e08a00147568732d94b02e3aea56f5b0e2f23",
+   "destination": "config/sessions.yaml",
+   "destination_sha256_at_copy": "c66de75048562a5a5b410237ad3e08a00147568732d94b02e3aea56f5b0e2f23",
+   "destination_sha256_after_rename": "c66de75048562a5a5b410237ad3e08a00147568732d94b02e3aea56f5b0e2f23",
+   "renamed": false,
+   "purpose": "sessions / DST / windows"
+  },
+  {
+   "source": "config/stage_policy.yaml",
+   "source_sha256": "1c16ae762ff6dbcca16f15c054bc3c161d632df5e02a2056fef4ef5eda52bb2a",
+   "destination": "config/stage_policy.yaml",
+   "destination_sha256_at_copy": "1c16ae762ff6dbcca16f15c054bc3c161d632df5e02a2056fef4ef5eda52bb2a",
+   "destination_sha256_after_rename": "63029d1a1cd19cc4b98ff1396fd86b245c9265406fb96d871f46de1cbf3f23f7",
+   "renamed": true,
+   "purpose": "stage machine (rewritten for V5 stages)"
+  },
+  {
+   "source": "research/s00_bootstrap.py",
+   "source_sha256": "5213efd68048188bd0e1d96ad3a30a882b496e920e5dcbd4032a122188fcc55a",
+   "destination": "research/s00_bootstrap.py",
+   "destination_sha256_at_copy": "5213efd68048188bd0e1d96ad3a30a882b496e920e5dcbd4032a122188fcc55a",
+   "destination_sha256_after_rename": "d9060e6a5665b366c97241bf74aa24bfdbd8bae51c01bb6e483126e7399069b9",
+   "renamed": true,
+   "purpose": "privileged one-time partitioner run"
+  },
+  {
+   "source": "research/s01_discovery_data_audit.py",
+   "source_sha256": "432e693ad95e6afa89fbfa58c45a2c0ef064e2e0f1136c03b10540c09e2480ff",
+   "destination": "research/s01_discovery_structural_check.py",
+   "destination_sha256_at_copy": "432e693ad95e6afa89fbfa58c45a2c0ef064e2e0f1136c03b10540c09e2480ff",
+   "destination_sha256_after_rename": "1e05f2b895cc0019589b18768ef63cbf5e9bf8e8a588b604ab4aeaca4bb00ceb",
+   "renamed": true,
+   "purpose": "DISCOVERY structural counts (schema/volume/rolls)"
+  },
+  {
+   "source": "research/s02_bootstrap_freeze.py",
+   "source_sha256": "37500235bbcef6315478d635442a91d84254ce2ff6627d77d1f9e70b2de247de",
+   "destination": "research/s02_bootstrap_freeze.py",
+   "destination_sha256_at_copy": "37500235bbcef6315478d635442a91d84254ce2ff6627d77d1f9e70b2de247de",
+   "destination_sha256_after_rename": "9c11a2da101a51104908360ce7fb1728294ef53c961f0187f785adda9d35b33b",
+   "renamed": true,
+   "purpose": "bootstrap freeze"
+  },
+  {
+   "source": "research/run_worlds.py",
+   "source_sha256": "6f111bb3c27f039f0c7682df0fdc852cff11f6bce38351f94251f6c01c1a5a34",
+   "destination": "research/run_worlds.py",
+   "destination_sha256_at_copy": "6f111bb3c27f039f0c7682df0fdc852cff11f6bce38351f94251f6c01c1a5a34",
+   "destination_sha256_after_rename": "10dcdf862b9bf0ecb42ffdca478a1c70cfd548ebef74145dab4d1064078d90f4",
+   "renamed": true,
+   "purpose": "resumable world runner (checkpoint/resume)"
+  },
+  {
+   "source": "tools/check_isolation.py",
+   "source_sha256": "5dfcbfd30c190704420058e87c1f5c233e562ccae07a392fbb11a78c442b6290",
+   "destination": "tools/check_isolation.py",
+   "destination_sha256_at_copy": "5dfcbfd30c190704420058e87c1f5c233e562ccae07a392fbb11a78c442b6290",
+   "destination_sha256_after_rename": "377f352341a6dc720e531bba066d9de2b1cd851868dce0a33bfb62fd7ef9c99e",
+   "renamed": true,
+   "purpose": "OS isolation probe"
+  },
+  {
+   "source": "tools/write_provenance.py",
+   "source_sha256": "0e5e856faa4ea044938a7732d7a4129e1f815076136733939fbee6ae92e7ed28",
+   "destination": "tools/write_provenance.py",
+   "destination_sha256_at_copy": "0e5e856faa4ea044938a7732d7a4129e1f815076136733939fbee6ae92e7ed28",
+   "destination_sha256_after_rename": "9f53c453372eb8733cd00dd4af5547bf5960046f25db01cee25a17cca2360427",
+   "renamed": true,
+   "purpose": "provenance writer"
+  },
+  {
+   "source": "tools/harden_isolation.ps1",
+   "source_sha256": "aca3d624c9cf9e241c0373ec90ff287d9cf918f31cf195974ba0279acc5bc8ca",
+   "destination": "tools/harden_isolation.ps1",
+   "destination_sha256_at_copy": "aca3d624c9cf9e241c0373ec90ff287d9cf918f31cf195974ba0279acc5bc8ca",
+   "destination_sha256_after_rename": "aca3d624c9cf9e241c0373ec90ff287d9cf918f31cf195974ba0279acc5bc8ca",
+   "renamed": false,
+   "purpose": "OS isolation hardening (manual)"
+  },
+  {
+   "source": "tools/ingest_live_forward.py",
+   "source_sha256": "c764f53d92875c5314af0ac7203535ee8df0248cfb5cb5ec0b08168df175da65",
+   "destination": "tools/ingest_live_forward.py",
+   "destination_sha256_at_copy": "c764f53d92875c5314af0ac7203535ee8df0248cfb5cb5ec0b08168df175da65",
+   "destination_sha256_after_rename": "f2a6b1e33b82c3960303f7182a46897e6238f441faf9e0da10c60d2519ec22df",
+   "renamed": true,
+   "purpose": "LIVE_FORWARD ingestion command"
+  },
+  {
+   "source": "docs/ARCHITECTURE.md",
+   "source_sha256": "dac4719bade262faddde6d8c44587301212dddce185f1a783ff5c0d57072a989",
+   "destination": "docs/ARCHITECTURE.md",
+   "destination_sha256_at_copy": "dac4719bade262faddde6d8c44587301212dddce185f1a783ff5c0d57072a989",
+   "destination_sha256_after_rename": "3a5eaa9c308e7dcad45ed04434da1147a12fbb1ff8b0734643bb87813849c4a0",
+   "renamed": true,
+   "purpose": "architecture notes (rewritten for V5)"
+  },
+  {
+   "source": "docs/OS_ISOLATION.md",
+   "source_sha256": "15f0a7fe58335812e5531cfd9a581c4beb24ac5a5bd5d606d6c7824f4ed4c115",
+   "destination": "docs/OS_ISOLATION.md",
+   "destination_sha256_at_copy": "15f0a7fe58335812e5531cfd9a581c4beb24ac5a5bd5d606d6c7824f4ed4c115",
+   "destination_sha256_after_rename": "d5cbf531fbc9cfd0f241ac88d862c145bfa9aa41056ea8c438706e9c6193f4ce",
+   "renamed": true,
+   "purpose": "OS isolation notes (rewritten for V5)"
+  }
+ ],
+ "not_copied": [
+  "quantlab4 is copied in full (re-homed); nothing in the package was left out",
+  "config/prereg_v4.yaml (V4 campaign-1 preregistered numbers) -> docs/prior_labs/V4 only",
+  "config/partitions.json (V4 registry/hashes) -> V5 writes its own registry at bootstrap",
+  "research/s03..s12, p01..p09 (V4 campaign research/post-hoc scripts)",
+  "results/**, freezes/**, ledgers/**, provenance/** (V4 campaign state and outputs)",
+  "V4_*.md / V4_*.json reports -> docs/prior_labs/V4 only (reference, never an input)",
+  "tools/copy_v3_engine.py, bench_*.py, profile_world.py, verify_world.py, dump_world_hashes.py (one-off V4 tools tied to V4 result files)",
+  "data/discovery/*.parquet (V5 re-partitions from the original source files)",
+  "output/pdf/* (V4 report PDF) -> docs/prior_labs/V4 only"
+ ]
+}

@@ -1,0 +1,3873 @@
+{
+ "document": "V3_DISCOVERY_PREREGISTRATION",
+ "written_local": "2026-09-22 18:59:13",
+ "discovery_period": "sessions 2010-06-07 .. 2018-12-31 (DISCOVERY partition only)",
+ "instruments": "NQ traded for every hypothesis except H22 (ES traded, NQ leads); ES/NQ as the other market",
+ "catalog": [
+  {
+   "id": "H01",
+   "family": "v3_h01_efficient_momentum",
+   "section": "A",
+   "title": "Efficient momentum",
+   "rule": "Z(n) crosses +/-z; confluence: normalised path efficiency PE(n)*sqrt(n) >= pe.",
+   "conditions_ablated": [
+    "pe"
+   ],
+   "grid": {
+    "n": [
+     15,
+     30,
+     60
+    ],
+    "z": [
+     1.0,
+     1.5,
+     2.0
+    ],
+    "pe": [
+     null,
+     1.8,
+     2.2
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H02",
+   "family": "v3_h02_momentum_acceleration",
+   "section": "A",
+   "title": "Momentum acceleration",
+   "rule": "Recent k-bar impulse Z(k) >= zk; confluence acc: the preceding m-bar move agrees in direction (acc=0) and recent per-minute speed >= acc x prior per-minute speed.",
+   "conditions_ablated": [
+    "acc"
+   ],
+   "grid": {
+    "k": [
+     5,
+     10
+    ],
+    "zk": [
+     1.0,
+     1.5
+    ],
+    "m": [
+     20,
+     30
+    ],
+    "acc": [
+     null,
+     0,
+     1.5,
+     2.5
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H03",
+   "family": "v3_h03_multi_horizon",
+   "section": "A",
+   "title": "Multi-horizon momentum",
+   "rule": "Directional agreement of Z(5), Z(30), Z(120) (each >= z) for the selected horizons.",
+   "conditions_ablated": [
+    "h5",
+    "h30",
+    "h120"
+   ],
+   "grid": {
+    "h5": [
+     null,
+     true
+    ],
+    "h30": [
+     null,
+     true
+    ],
+    "h120": [
+     null,
+     true
+    ],
+    "z": [
+     0.5,
+     1.0
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H04",
+   "family": "v3_h04_htf_trend_impulse",
+   "section": "A",
+   "title": "HTF trend + short-term impulse",
+   "rule": "HTF state Z(htf) >= zh (2h or 4h) and/or a k-minute impulse Z(k) >= zi, same direction.",
+   "conditions_ablated": [
+    "zh",
+    "zi"
+   ],
+   "grid": {
+    "htf": [
+     120,
+     240
+    ],
+    "zh": [
+     null,
+     0.5,
+     1.0
+    ],
+    "k": [
+     5,
+     10
+    ],
+    "zi": [
+     null,
+     1.5,
+     2.0
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H05",
+   "family": "v3_h05_vol_shock_momentum",
+   "section": "A",
+   "title": "Volatility-shock momentum",
+   "rule": "Z(n) >= z during a realised-vol shock rv15 / same-time-of-day baseline >= v.",
+   "conditions_ablated": [
+    "v"
+   ],
+   "grid": {
+    "n": [
+     15,
+     30
+    ],
+    "z": [
+     1.0,
+     1.5
+    ],
+    "v": [
+     null,
+     1.5,
+     2.0,
+     3.0
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H06",
+   "family": "v3_h06_compression_expansion",
+   "section": "A",
+   "title": "Compression to expansion",
+   "rule": "Close breaks the previous N-bar high/low; confluence: the N bars before were compressed (rv_N / time-of-day norm <= cth); optional strength Z(5) >= 1.",
+   "conditions_ablated": [
+    "cth",
+    "strong"
+   ],
+   "grid": {
+    "N": [
+     30,
+     60
+    ],
+    "cth": [
+     null,
+     0.6,
+     0.75
+    ],
+    "strong": [
+     null,
+     1.0
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H07",
+   "family": "v3_h07_opening_drive",
+   "section": "A",
+   "title": "Opening-drive continuation",
+   "rule": "At 09:30+w: RTH move >= m x D; confluence: efficiency since the open >= e.",
+   "conditions_ablated": [
+    "e"
+   ],
+   "grid": {
+    "w": [
+     15,
+     30
+    ],
+    "m": [
+     0.15,
+     0.3
+    ],
+    "e": [
+     null,
+     0.25,
+     0.4
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H08",
+   "family": "v3_h08_morning_trend",
+   "section": "A",
+   "title": "Morning trend continuation",
+   "rule": "At cutoff (10:30/11:00): return from the open >= m x D; confluences: efficiency >= e, closing location in the range >= cl (in the trend direction).",
+   "conditions_ablated": [
+    "e",
+    "cl"
+   ],
+   "grid": {
+    "cut": [
+     "10:30",
+     "11:00"
+    ],
+    "m": [
+     0.3,
+     0.5
+    ],
+    "e": [
+     null,
+     0.15
+    ],
+    "cl": [
+     null,
+     0.75
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H09",
+   "family": "v3_h09_last_hour_trend",
+   "section": "A",
+   "title": "Last-hour trend continuation",
+   "rule": "At 15:00: session return from the open >= m x D; confluences: efficiency, closing location.",
+   "conditions_ablated": [
+    "e",
+    "cl"
+   ],
+   "grid": {
+    "cut": [
+     "15:00"
+    ],
+    "m": [
+     0.4,
+     0.7
+    ],
+    "e": [
+     null,
+     0.08
+    ],
+    "cl": [
+     null,
+     0.8
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H10",
+   "family": "v3_h10_impulse_pullback",
+   "section": "A",
+   "title": "Impulse + pullback continuation",
+   "rule": "Impulse Z(L) >= zi, then a controlled pullback of >= retr of the impulse (cancelled beyond 75% or after 60 bars), then resumption: close beyond the previous bar's extreme. retr None = enter at the impulse (parent).",
+   "conditions_ablated": [
+    "retr"
+   ],
+   "grid": {
+    "L": [
+     15,
+     30
+    ],
+    "zi": [
+     1.5,
+     2.0
+    ],
+    "retr": [
+     null,
+     0.25,
+     0.33,
+     0.5
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H11",
+   "family": "v3_h11_failed_countertrend",
+   "section": "A",
+   "title": "Failed countertrend move",
+   "rule": "Trend: Z(120) measured before the counter move >= zt; counter move: 10-minute Z <= -zc; resumption within 30 bars: close above the previous r-bar high. zc None = resumption trigger in trend without a counter move (parent).",
+   "conditions_ablated": [
+    "zc"
+   ],
+   "grid": {
+    "zt": [
+     0.75,
+     1.5
+    ],
+    "zc": [
+     null,
+     1.0,
+     1.5
+    ],
+    "r": [
+     3,
+     10
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H12",
+   "family": "v3_h12_breakout_acceptance",
+   "section": "A",
+   "title": "Breakout + acceptance",
+   "rule": "Level: previous 120-bar high/low, overnight high/low, previous-day RTH high/low. Acceptance: first close beyond (parent), 2nd / 3rd consecutive close, retest, displacement.",
+   "conditions_ablated": [],
+   "grid": {
+    "level": [
+     "roll120",
+     "on",
+     "pd"
+    ],
+    "acc": [
+     "touch",
+     "close2",
+     "close3",
+     "retest",
+     "displace"
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H13",
+   "family": "v3_h13_overextension",
+   "section": "B",
+   "title": "Rolling-mean overextension",
+   "rule": "dev(n) = (close - mean of previous n closes)/(sigma_tod(n)*sqrt(n)) >= d; fade. Natural target: the mean.",
+   "conditions_ablated": [],
+   "grid": {
+    "n": [
+     30,
+     60,
+     120
+    ],
+    "d": [
+     1.25,
+     1.75,
+     2.25
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": true,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.0/NATURAL",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/NATURAL",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/NATURAL"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H14",
+   "family": "v3_h14_deceleration_exhaustion",
+   "section": "B",
+   "title": "Deceleration exhaustion",
+   "rule": "Extended move Z(N) >= z and a new N-bar high, while the last-5-bar per-minute speed <= r x the per-minute speed of the earlier part of the move. r None = no deceleration (parent).",
+   "conditions_ablated": [
+    "r"
+   ],
+   "grid": {
+    "N": [
+     30,
+     60
+    ],
+    "z": [
+     1.5,
+     2.5
+    ],
+    "r": [
+     null,
+     0.5,
+     0.25
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H15",
+   "family": "v3_h15_session_extreme_rejection",
+   "section": "B",
+   "title": "Session-extreme rejection",
+   "rule": "After 10:00, a new RTH session high then, within k bars of the latest new high, a close <= extreme - rj x ATRh and below the high it broke. Fade.",
+   "conditions_ablated": [],
+   "grid": {
+    "k": [
+     5,
+     15
+    ],
+    "rj": [
+     0.25,
+     0.5,
+     1.0
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H16",
+   "family": "v3_h16_pdhl_failed_break",
+   "section": "B",
+   "title": "PDH/PDL failed break",
+   "rule": "Failed break of the previous day's RTH high/low; fade back into the range. Natural target: prior-range mid.",
+   "conditions_ablated": [],
+   "grid": {
+    "k": [
+     5,
+     15,
+     30
+    ],
+    "depth": [
+     0.0,
+     0.25
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": true,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.0/NATURAL",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/NATURAL",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/NATURAL"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H17",
+   "family": "v3_h17_overnight_failed_break",
+   "section": "B",
+   "title": "Overnight-extreme failed break",
+   "rule": "Failed break of the overnight high/low during RTH; fade. Natural target: overnight-range mid.",
+   "conditions_ablated": [],
+   "grid": {
+    "k": [
+     5,
+     15,
+     30
+    ],
+    "depth": [
+     0.0,
+     0.25
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": true,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.0/NATURAL",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/NATURAL",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/NATURAL"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H18",
+   "family": "v3_h18_or_failed_breakout",
+   "section": "B",
+   "title": "Opening-range failed breakout",
+   "rule": "Failed break of the w-minute opening range; fade. Natural target: opening-range mid.",
+   "conditions_ablated": [],
+   "grid": {
+    "orw": [
+     15,
+     30
+    ],
+    "k": [
+     5,
+     15
+    ],
+    "depth": [
+     0.0,
+     0.25
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": true,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.0/NATURAL",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/NATURAL",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/NATURAL"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H19",
+   "family": "v3_h19_large_morning_reversal",
+   "section": "B",
+   "title": "Large morning move reversal",
+   "rule": "RTH high - open >= m x D, then (10:00-13:00) a retracement from the high of >= dr of that move (deterioration). dr None = fade at 11:00 without deterioration (parent). Natural target: RTH open.",
+   "conditions_ablated": [
+    "dr"
+   ],
+   "grid": {
+    "m": [
+     0.5,
+     0.8
+    ],
+    "dr": [
+     null,
+     0.25,
+     0.4
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": true,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.0/NATURAL",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/NATURAL",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/NATURAL"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H20",
+   "family": "v3_h20_extreme_move_path",
+   "section": "B",
+   "title": "Extreme-move path test",
+   "rule": "Equally large moves Z(n) >= z split by path efficiency: HIGH (PE >= pe_hi) or LOW (PE <= pe_lo); each tested as continuation AND reversal.",
+   "conditions_ablated": [],
+   "grid": {
+    "n": [
+     30,
+     60
+    ],
+    "z": [
+     2.0,
+     2.5
+    ],
+    "cls": [
+     "high",
+     "low"
+    ],
+    "pe_hi": [
+     2.4
+    ],
+    "pe_lo": [
+     1.7
+    ],
+    "mode": [
+     "continuation",
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H21",
+   "family": "v3_h21_es_leads_nq",
+   "section": "C",
+   "title": "ES leads NQ",
+   "rule": "The OTHER market's w-minute move >= zE sigma units; confluence lag: this market's move is <= 0.5x the other's (has not yet responded). Trades this market in the other's direction.",
+   "conditions_ablated": [
+    "lag"
+   ],
+   "grid": {
+    "w": [
+     2,
+     5
+    ],
+    "zE": [
+     1.5,
+     2.5
+    ],
+    "lag": [
+     null,
+     0.5
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_2",
+    "atr1.0/STOP_TIME_5",
+    "atr1.0/STOP_TIME_10"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H22",
+   "family": "v3_h22_nq_leads_es",
+   "section": "C",
+   "title": "NQ leads ES",
+   "rule": "The OTHER market's w-minute move >= zE sigma units; confluence lag: this market's move is <= 0.5x the other's (has not yet responded). Trades this market in the other's direction. (Traded on ES with NQ as the leader.)",
+   "conditions_ablated": [
+    "lag"
+   ],
+   "grid": {
+    "w": [
+     2,
+     5
+    ],
+    "zE": [
+     1.5,
+     2.5
+    ],
+    "lag": [
+     null,
+     0.5
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "ES"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_2",
+    "atr1.0/STOP_TIME_5",
+    "atr1.0/STOP_TIME_10"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H23",
+   "family": "v3_h23_relative_momentum",
+   "section": "C",
+   "title": "Relative momentum",
+   "rule": "Z_NQ(n) - Z_ES(n) >= thr (NQ outperforming, vol-adjusted): trade NQ in that direction.",
+   "conditions_ablated": [],
+   "grid": {
+    "n": [
+     15,
+     30,
+     60
+    ],
+    "thr": [
+     1.0,
+     1.5
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H24",
+   "family": "v3_h24_beta_residual_reversion",
+   "section": "C",
+   "title": "Beta-adjusted NQ/ES residual reversion",
+   "rule": "Residual of NQ's W-minute log return vs beta x ES's (beta from the 390 one-minute returns ending W bars earlier), standardised; |z| >= thr: fade. Natural target: residual = 0 with ES unchanged.",
+   "conditions_ablated": [],
+   "grid": {
+    "W": [
+     15,
+     30,
+     60
+    ],
+    "thr": [
+     2.5,
+     3.5
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": true,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.0/NATURAL",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/NATURAL",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/NATURAL"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H25",
+   "family": "v3_h25_corr_breakdown",
+   "section": "C",
+   "title": "Correlation breakdown",
+   "rule": "30-minute NQ/ES return correlation <= cth and |30-minute beta residual z| >= rz. Separate hypotheses: continuation (follow NQ's residual) and convergence (fade it).",
+   "conditions_ablated": [],
+   "grid": {
+    "cth": [
+     0.5,
+     0.65
+    ],
+    "rz": [
+     1.0,
+     2.0
+    ],
+    "mode": [
+     "continuation",
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H26",
+   "family": "v3_h26_smt_nonconfirmation",
+   "section": "C",
+   "title": "Mechanical SMT / non-confirmation",
+   "rule": "One market makes a new extreme (previous N-bar or RTH session high/low) that the other does not. kind nq_only: this market swept, other did not; es_only: the other swept, this did not. Confirmation 'rej': within 10 bars this market closes beyond its previous 3-bar extreme against the sweep. Fade.",
+   "conditions_ablated": [
+    "confirm"
+   ],
+   "grid": {
+    "level": [
+     "roll30",
+     "roll60",
+     "session"
+    ],
+    "kind": [
+     "nq_only",
+     "es_only"
+    ],
+    "confirm": [
+     null,
+     "rej"
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H27",
+   "family": "v3_h27_cross_confirm_momentum",
+   "section": "C",
+   "title": "Cross-market momentum confirmation",
+   "rule": "NQ Z(n) >= z; confluence: ES Z(n) >= ce in the same direction.",
+   "conditions_ablated": [
+    "ce"
+   ],
+   "grid": {
+    "n": [
+     15,
+     30
+    ],
+    "z": [
+     1.0,
+     1.5
+    ],
+    "ce": [
+     null,
+     0.5,
+     1.0
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H28",
+   "family": "v3_h28_disagreement_reversal",
+   "section": "C",
+   "title": "Cross-market disagreement reversal",
+   "rule": "NQ 30-minute Z >= z; confluence es: ES 30-minute Z <= 0.5z (not confirming); confluence trig: within 15 bars NQ closes beyond its previous 3-bar extreme against the move. Fade.",
+   "conditions_ablated": [
+    "es",
+    "trig"
+   ],
+   "grid": {
+    "z": [
+     1.5,
+     2.0
+    ],
+    "es": [
+     null,
+     "nonconf"
+    ],
+    "trig": [
+     null,
+     "rej"
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H29",
+   "family": "v3_h29_relative_acceleration",
+   "section": "C",
+   "title": "Relative acceleration",
+   "rule": "Relative move rel_k = Z_NQ(k) - Z_ES(k) >= thr; confluence acc: rel_k/sqrt(k) >= acc x the relative move over the preceding 20 bars / sqrt(20). Trades NQ absolute continuation.",
+   "conditions_ablated": [
+    "acc"
+   ],
+   "grid": {
+    "k": [
+     5,
+     10
+    ],
+    "thr": [
+     1.0,
+     1.5
+    ],
+    "acc": [
+     null,
+     2.0
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H30",
+   "family": "v3_h30_path_efficiency_cont",
+   "section": "D",
+   "title": "Path-efficiency continuation",
+   "rule": "Normalised path efficiency PE(n)*sqrt(n) >= e with at least a modest move Z(n) >= 0.75; continuation.",
+   "conditions_ablated": [],
+   "grid": {
+    "n": [
+     15,
+     30,
+     60
+    ],
+    "e": [
+     1.5,
+     1.8
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H31",
+   "family": "v3_h31_low_efficiency_reversal",
+   "section": "D",
+   "title": "Low-efficiency reversal",
+   "rule": "Large move Z(n) >= z achieved with normalised path efficiency PE(n)*sqrt(n) <= e (noisy path); fade.",
+   "conditions_ablated": [],
+   "grid": {
+    "n": [
+     30,
+     60
+    ],
+    "z": [
+     1.25,
+     1.75
+    ],
+    "e": [
+     1.2,
+     1.45
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H32",
+   "family": "v3_h32_speed_shock",
+   "section": "D",
+   "title": "Speed shock",
+   "rule": "|k-minute move| >= s x its same-time-of-day mean |k-minute move|; direction = sign of the move; continuation and reversal tested separately.",
+   "conditions_ablated": [],
+   "grid": {
+    "k": [
+     2,
+     5
+    ],
+    "s": [
+     3.0,
+     5.0
+    ],
+    "mode": [
+     "continuation",
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H33",
+   "family": "v3_h33_acceleration",
+   "section": "D",
+   "title": "Acceleration (three windows)",
+   "rule": "Three consecutive w-minute moves in the same direction with strictly increasing size, total move Z(3w) >= z; continuation.",
+   "conditions_ablated": [],
+   "grid": {
+    "w": [
+     3,
+     5,
+     10
+    ],
+    "z": [
+     0.75,
+     1.25
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H34",
+   "family": "v3_h34_deceleration",
+   "section": "D",
+   "title": "Deceleration",
+   "rule": "Three consecutive w-minute moves in the same direction with strictly decreasing size (still progressing), total Z(3w) >= z; fade.",
+   "conditions_ablated": [],
+   "grid": {
+    "w": [
+     5,
+     10
+    ],
+    "z": [
+     1.0,
+     1.5
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H35",
+   "family": "v3_h35_pullback_quality",
+   "section": "D",
+   "title": "Pullback quality",
+   "rule": "As H10 (30-minute impulse, 33% pullback, resumption) with the pullback classified FAST (depth reached <= 5 bars after the extreme) or SLOW (>= 15 bars). qual None = any (parent).",
+   "conditions_ablated": [
+    "qual"
+   ],
+   "grid": {
+    "L": [
+     30
+    ],
+    "zi": [
+     1.5,
+     2.0
+    ],
+    "retr": [
+     0.33
+    ],
+    "qual": [
+     null,
+     "fast",
+     "slow"
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H36",
+   "family": "v3_h36_time_since_extreme",
+   "section": "D",
+   "title": "Time since session high/low",
+   "rule": "stale: the RTH high was set >= Tm minutes ago and the close is still in the top 20% of the RTH range (failed to extend). fresh: a new RTH high after >= Tm minutes without one. Each tested as continuation and reversal (mirror for lows). After 10:30.",
+   "conditions_ablated": [],
+   "grid": {
+    "Tm": [
+     60,
+     120
+    ],
+    "kind": [
+     "stale",
+     "fresh"
+    ],
+    "mode": [
+     "continuation",
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H37",
+   "family": "v3_h37_rv_shock",
+   "section": "E",
+   "title": "Realised-volatility shock",
+   "rule": "rv15 / same-time-of-day norm >= v (onset); confluence hist: rv15 / rv390 >= 1.5 (also high vs recent history). Direction = sign of the 15-minute move. Continuation and reversal.",
+   "conditions_ablated": [
+    "hist"
+   ],
+   "grid": {
+    "v": [
+     2.0,
+     3.0
+    ],
+    "hist": [
+     null,
+     1.5
+    ],
+    "mode": [
+     "continuation",
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H38",
+   "family": "v3_h38_vol_of_vol",
+   "section": "E",
+   "title": "Volatility-of-volatility shock",
+   "rule": "rv15 now / rv15 of the previous 15 bars >= q (jump) or <= 1/q (collapse); direction = sign of the 15-minute move; continuation and reversal.",
+   "conditions_ablated": [],
+   "grid": {
+    "q": [
+     2.0,
+     3.0
+    ],
+    "kind": [
+     "jump",
+     "collapse"
+    ],
+    "mode": [
+     "continuation",
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H39",
+   "family": "v3_h39_intraday_compression_breakout",
+   "section": "E",
+   "title": "Intraday compression breakout",
+   "rule": "A 5-minute move Z(5) >= z5 (volatility expansion); confluence: the 30 bars before were compressed (rv30 / time-of-day norm, measured at t-1, <= cth). Trade the expansion direction.",
+   "conditions_ablated": [
+    "cth"
+   ],
+   "grid": {
+    "cth": [
+     null,
+     0.6,
+     0.75
+    ],
+    "z5": [
+     1.0,
+     1.5
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H40",
+   "family": "v3_h40_daily_compression",
+   "section": "E",
+   "title": "Daily compression -> intraday expansion",
+   "rule": "Confluence dc: mean RTH range of the previous 3 sessions <= dc x that of the previous 20. Trigger: first close of the session beyond the 30-minute opening range (or2) or beyond the previous-day RTH high/low (pd). Continuation.",
+   "conditions_ablated": [
+    "dc"
+   ],
+   "grid": {
+    "dc": [
+     null,
+     0.65,
+     0.8
+    ],
+    "trig": [
+     "or30",
+     "pd"
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H41",
+   "family": "v3_h41_vr_trending",
+   "section": "E",
+   "title": "Variance-ratio trending regime + momentum",
+   "rule": "Momentum Z(15) >= z; confluence: variance ratio VR(5) over the last L bars >= vr (persistent).",
+   "conditions_ablated": [
+    "vr"
+   ],
+   "grid": {
+    "z": [
+     1.0,
+     1.5
+    ],
+    "vr": [
+     null,
+     1.2,
+     1.4
+    ],
+    "L": [
+     120,
+     240
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H42",
+   "family": "v3_h42_vr_mean_reverting",
+   "section": "E",
+   "title": "Variance-ratio mean-reverting regime + reversion",
+   "rule": "Overextension dev(30) >= d; confluence: VR(5) over the last L bars <= vr (anti-persistent). Fade; natural target: the mean.",
+   "conditions_ablated": [
+    "vr"
+   ],
+   "grid": {
+    "d": [
+     1.0,
+     1.5
+    ],
+    "vr": [
+     null,
+     0.8,
+     0.65
+    ],
+    "L": [
+     120,
+     240
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": true,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.0/NATURAL",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/NATURAL",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/NATURAL"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H43",
+   "family": "v3_h43_pos_autocorr_momentum",
+   "section": "E",
+   "title": "Positive autocorrelation regime + momentum",
+   "rule": "Momentum Z(15) >= z; confluence: lag-1 autocorrelation of the last 24 five-minute returns >= a.",
+   "conditions_ablated": [
+    "a"
+   ],
+   "grid": {
+    "z": [
+     1.0,
+     1.5
+    ],
+    "a": [
+     null,
+     0.1,
+     0.25
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H44",
+   "family": "v3_h44_neg_autocorr_meanrev",
+   "section": "E",
+   "title": "Negative autocorrelation regime + mean reversion",
+   "rule": "Overextension dev(30) >= d; confluence: 5-minute return autocorrelation (last 24) <= -a. Fade; natural target: the mean.",
+   "conditions_ablated": [
+    "a"
+   ],
+   "grid": {
+    "d": [
+     1.0,
+     1.5
+    ],
+    "a": [
+     null,
+     0.1,
+     0.25
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": true,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.0/NATURAL",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/NATURAL",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/NATURAL"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H45",
+   "family": "v3_h45_early_trend_day",
+   "section": "F",
+   "title": "Early trend-day classification",
+   "rule": "At the cutoff count five transparent criteria: |return from open| >= 0.2D, RTH range >= 0.45D, efficiency >= 0.2, close location in the direction >= 0.75, 30-minute realised vol >= its time-of-day norm. Trend day if >= k are met; trade the open-to-cutoff direction.",
+   "conditions_ablated": [],
+   "grid": {
+    "cut": [
+     "10:00",
+     "10:30"
+    ],
+    "k": [
+     3,
+     4,
+     5
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H46",
+   "family": "v3_h46_early_range_day",
+   "section": "F",
+   "title": "Early range-day classification + fade",
+   "rule": "At the cutoff count three criteria: efficiency since open <= 0.1, >= 4 crossings of the RTH open, |return| <= 0.12D. Range day if >= strict are met (None = no classification, parent). Then until 15:00 fade the first bar that trades beyond the cutoff's RTH high (low) and closes back inside. Natural target: mid of the cutoff range.",
+   "conditions_ablated": [
+    "strict"
+   ],
+   "grid": {
+    "cut": [
+     "10:30",
+     "11:00"
+    ],
+    "strict": [
+     null,
+     2,
+     3
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": true,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.0/NATURAL",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/NATURAL",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/NATURAL"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H47",
+   "family": "v3_h47_overnight_same_dir_open",
+   "section": "F",
+   "title": "Large overnight move + same-direction open",
+   "rule": "Gap (RTH open - previous RTH close) >= g x D; confluence open: at 09:30+w the close is >= 0.05D beyond the RTH open in the gap direction. Continuation, entered at 09:30+w.",
+   "conditions_ablated": [
+    "open"
+   ],
+   "grid": {
+    "g": [
+     0.25,
+     0.5
+    ],
+    "w": [
+     5,
+     15
+    ],
+    "open": [
+     null,
+     "same"
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H48",
+   "family": "v3_h48_overnight_opening_rejection",
+   "section": "F",
+   "title": "Large overnight move + opening rejection",
+   "rule": "Gap >= g x D, then at 09:30+w the close is >= o x D back against the gap from the RTH open. Fade the gap. Natural target: the previous RTH close (gap fill).",
+   "conditions_ablated": [],
+   "grid": {
+    "g": [
+     0.25,
+     0.5
+    ],
+    "w": [
+     15,
+     30
+    ],
+    "o": [
+     0.05,
+     0.1
+    ],
+    "mode": [
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": true,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_0.5R",
+    "atr1.0/RR_0.75R",
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.0/NATURAL",
+    "atr1.5/RR_0.75R",
+    "atr1.5/RR_1.5R",
+    "atr1.5/NATURAL",
+    "struct/RR_0.75R",
+    "struct/RR_1.5R",
+    "struct/NATURAL"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T1.5R",
+    "BE_0.5R_T3R",
+    "BE_1R_T1.5R",
+    "BE_1R_T3R",
+    "BE_1.5R_T3R",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_B",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H49",
+   "family": "v3_h49_morning_range_pm",
+   "section": "F",
+   "title": "Morning range -> afternoon continuation / reversal",
+   "rule": "At 12:00 the morning RTH range >= r x D; kind eff: efficiency since the open >= 0.13; ineff: <= 0.035 (discovery quartiles). Direction = sign of the morning move. Each kind as continuation and reversal.",
+   "conditions_ablated": [],
+   "grid": {
+    "r": [
+     0.7,
+     0.95
+    ],
+    "kind": [
+     "eff",
+     "ineff"
+    ],
+    "mode": [
+     "continuation",
+     "reversal"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "H50",
+   "family": "v3_h50_trend_lunch_pm",
+   "section": "F",
+   "title": "Trend morning -> lunch consolidation -> PM continuation",
+   "rule": "A: at 11:30 the close is >= m x D from the RTH open with efficiency >= 0.1. B (cons): the 11:30-13:30 range <= cons x the 09:30-11:30 range. C (trig=brk): after 13:30 the first close beyond the 11:30-13:30 range in the morning direction; trig None: enter at 13:30.",
+   "conditions_ablated": [
+    "cons",
+    "trig"
+   ],
+   "grid": {
+    "m": [
+     0.4,
+     0.6
+    ],
+    "cons": [
+     null,
+     0.35,
+     0.5
+    ],
+    "trig": [
+     null,
+     "brk"
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "X1",
+   "family": "v3_x1_turn_of_month",
+   "section": "X",
+   "title": "Turn-of-month long",
+   "rule": "Executor hypothesis X1: month-start institutional inflows. On the first N sessions of a calendar month, buy at 09:31 (signal at the 09:30 bar's close). Long only.",
+   "conditions_ablated": [],
+   "grid": {
+    "N": [
+     1,
+     3
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "X2",
+   "family": "v3_x2_first_to_last_half_hour",
+   "section": "X",
+   "title": "First half-hour predicts last half-hour",
+   "rule": "Executor hypothesis X2 (intraday time-series momentum; late-day hedging/rebalancing flow): the return to 10:00 (from the previous RTH close, base=pcl, or from the RTH open, base=open) >= thr x D sets the direction; enter at 15:30, exit by 16:00. thr 0 = sign only.",
+   "conditions_ablated": [],
+   "grid": {
+    "base": [
+     "pcl",
+     "open"
+    ],
+    "thr": [
+     0.0,
+     0.25
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth_late",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  },
+  {
+   "id": "X3",
+   "family": "v3_x3_corr_regime_momentum",
+   "section": "X",
+   "title": "Correlation-regime momentum",
+   "rule": "Executor hypothesis X3: momentum Z(30) >= z is market-wide (and should persist) when NQ/ES one-minute correlation over the last 390 bars is high (>= 0.9), idiosyncratic when low (<= 0.75).",
+   "conditions_ablated": [
+    "reg"
+   ],
+   "grid": {
+    "z": [
+     1.5,
+     2.0
+    ],
+    "reg": [
+     null,
+     "high",
+     "low"
+    ],
+    "mode": [
+     "continuation"
+    ]
+   },
+   "instruments": [
+    "NQ"
+   ],
+   "directions": [
+    "long",
+    "short",
+    "both"
+   ],
+   "natural_target": false,
+   "window": "rth",
+   "stageA_management_ids": [
+    "atr1.0/RR_1R",
+    "atr1.0/RR_1.5R",
+    "atr1.0/RR_2R",
+    "atr1.0/RR_3R",
+    "atr1.0/RR_4R",
+    "atr1.0/STOP_TIME_eod",
+    "atr1.0/STOP_TIME_60",
+    "atr1.5/RR_1R",
+    "atr1.5/RR_2R",
+    "atr1.5/STOP_TIME_eod",
+    "struct/RR_1R",
+    "struct/RR_2R",
+    "struct/STOP_TIME_eod"
+   ],
+   "stageB_management_ids": [
+    "BE_0.5R_T2R",
+    "BE_0.5R_Tnone",
+    "BE_1R_T2R",
+    "BE_1R_Tnone",
+    "BE_1.5R_T2R",
+    "BE_1.5R_Tnone",
+    "TRAIL_ATR_1.5_ACT0R",
+    "TRAIL_ATR_2_ACT0R",
+    "TRAIL_ATR_3_ACT0R",
+    "TRAIL_SWING",
+    "PARTIAL_A",
+    "RUNNER_3R",
+    "RUNNER_ATR2",
+    "P25_1R_RUN",
+    "PARTIAL_C",
+    "BE1_TRAIL2ATR"
+   ]
+  }
+ ],
+ "executor_hypotheses": {
+  "X1": {
+   "hypothesis": "Month-start institutional inflows (pension / payroll contributions) lift equity-index futures during the first sessions of a calendar month.",
+   "rule": "On the first N RTH sessions of a calendar month (sessions counted by session end date), buy at 09:31 (signal = close of the 09:30 bar); long only; exits per the management library.",
+   "mechanism": "calendar-driven flow; not a price-pattern; independent of every H01-H50 signal",
+   "parameters": {
+    "N": [
+     1,
+     3
+    ]
+   }
+  },
+  "X2": {
+   "hypothesis": "Intraday time-series momentum: the return to 10:00 predicts the last half hour (late-day hedging / rebalancing flows that trade with the day's direction).",
+   "rule": "At 15:30 enter in the direction of the 10:00 close relative to the previous RTH close (base=pcl) or the RTH open (base=open) when |return| > thr x D; flat by 16:00.",
+   "mechanism": "documented intraday momentum (first half-hour -> last half-hour); differs from H09, which classifies the whole session at 15:00",
+   "parameters": {
+    "base": [
+     "pcl",
+     "open"
+    ],
+    "thr": [
+     0.0,
+     0.25
+    ]
+   }
+  },
+  "X3": {
+   "hypothesis": "Momentum persists when the move is market-wide (high NQ/ES correlation) and fades when it is idiosyncratic (low correlation).",
+   "rule": "30-minute momentum Z(30) >= z, optionally only when the 390-bar NQ/ES one-minute return correlation is >= 0.9 (high) or <= 0.75 (low).",
+   "mechanism": "breadth of participation: index-wide flow vs. sector rotation",
+   "parameters": {
+    "z": [
+     1.5,
+     2.0
+    ],
+    "reg": [
+     null,
+     "high",
+     "low"
+    ]
+   }
+  }
+ },
+ "normalisation": {
+  "Z(n)": "(c[t]-c[t-n]) / (sigma_tod(n) * sqrt(n)); sigma_tod(n) = mean over the previous 20 sessions of rv(n) at the same session minute; rv(n) = RMS one-minute close change over n bars",
+  "PE(n)": "|c[t]-c[t-n]| / sum |1-min close changes|; thresholds applied to PE(n)*sqrt(n)",
+  "D": "mean RTH range of the previous 10 completed sessions",
+  "ATRh": "ATR(14) of completed 15-minute bars"
+ },
+ "stops": {
+  "atr1": {
+   "method": "atr",
+   "mult": 1.0
+  },
+  "atr1.5": {
+   "method": "atr",
+   "mult": 1.5
+  },
+  "struct": {
+   "method": "struct",
+   "floor_atr": 0.5,
+   "cap_atr": 3.0
+  }
+ },
+ "management": {
+  "stageA_continuation": "ATR1 x {1R,1.5R,2R,3R,4R, no target->EOD, 60-min time exit}; ATR1.5 and STRUCT x {1R,2R,EOD}",
+  "stageA_reversal": "ATR1 x {0.5R,0.75R,1R,1.5R,2R,3R,EOD,60-min, NATURAL if defined}; ATR1.5 and STRUCT x {0.75R,1.5R,NATURAL or EOD}",
+  "stageA_lead_lag_extra": "ATR1 x time exits {2,5,10} minutes (H21/H22)",
+  "stageB": "ATR1 only: BE {0.5,1,1.5}R x {2R | none} (continuation) or x {1.5R | 3R} (reversal); ATR trails {1.5,2,3}; confirmed-swing trail; partials 50%@1R+2R, 50%@1R+3R, 50%@1R+2ATR trail, 25%@1R+runner, (reversal) 50%@0.5R+1.5R; 50%@1R->BE->3R; BE@1R+2ATR trail",
+  "stageB_qualification": "an entry qualifies if ANY Stage-A management variant has BASELINE net > 0",
+  "controls": "Stage-A single-exit variants (no BE / no partial / no trail) are the controls of Stage B"
+ },
+ "execution": {
+  "signal_timing": "condition evaluated at bar close",
+  "entry": "market order at the open of the next bar (same session and contract)",
+  "time_exit": "scheduled; fills at the close of the last bar of the holding period",
+  "stop": "stop order; gap through the stop fills at the bar open; stops rounded away from entry to the tick",
+  "target": "limit order; fills at the target price (never better) only when the bar trades at least target_trade_through_ticks beyond it; a touch is not a fill; targets rounded away from entry",
+  "same_bar_stop_and_target": "resolved by ambiguity policy (baseline: stop first)",
+  "breakeven": "stop moves to entry intrabar when the trigger is reached; same-bar return to entry is resolved by the ambiguity policy (baseline: stopped at breakeven)",
+  "trailing": "recomputed at each bar close, applies from the next bar, only tightens",
+  "partials": "fractions of one contract; costs per round trip unchanged in one-contract terms",
+  "session_end": "flat at the close of the last bar before the window's flat time",
+  "position": "one position at a time, no pyramiding",
+  "struct_stop": "continuation: 1 tick beyond the last confirmed 5-minute swing; reversal: 1 tick beyond the last 15 one-minute bars' extreme; distance clipped to [0.5, 3.0] ATRh",
+  "natural_target": "absolute level defined by the family at the signal bar; no trade if the level is not beyond the entry price",
+  "swing_trail": "stop moves to 1 tick beyond the latest confirmed 5-minute swing at each bar close, effective next bar, only tightens"
+ },
+ "costs": {
+  "version": "costs_v2_approved_2026-09-21",
+  "instruments": {
+   "NQ": {
+    "tick_size": 0.25,
+    "point_value": 20.0,
+    "commission_round_trip": 4.0,
+    "slippage_ticks_per_side": 1.0,
+    "extra_cost_round_trip": 0.0
+   },
+   "ES": {
+    "tick_size": 0.25,
+    "point_value": 50.0,
+    "commission_round_trip": 4.0,
+    "slippage_ticks_per_side": 1.0,
+    "extra_cost_round_trip": 0.0
+   }
+  },
+  "scenarios": {
+   "gross": {
+    "commission_mult": 0.0,
+    "slippage_mult": 0.0,
+    "extra_mult": 0.0
+   },
+   "moderate": {
+    "commission_mult": 1.0,
+    "slippage_mult": 0.5,
+    "extra_mult": 1.0
+   },
+   "baseline": {
+    "commission_mult": 1.0,
+    "slippage_mult": 1.0,
+    "extra_mult": 1.0
+   },
+   "stressed": {
+    "commission_mult": 1.5,
+    "slippage_mult": 2.0,
+    "extra_mult": 1.0
+   }
+  }
+ },
+ "search_space_size": {
+  "signal_configs": 511,
+  "entries": 1529,
+  "stageA_specs": 20693,
+  "stageB_max_specs": 24464,
+  "max_total_specs": 45157,
+  "families": 53
+ },
+ "discovery_labels": {
+  "PRIMARY": "trades >= 30, BASELINE net > 0 and per-trade t-statistic >= 1.0 (mean net trade at least one standard error above zero). The only candidates ELIGIBLE for the final cohort.",
+  "WEAK_POSITIVE": "trades >= 30, BASELINE net > 0, t < 1.0. Frozen and tracked (diagnostic).",
+  "LOW_SAMPLE": "0 < trades < 30 and BASELINE net > 0. Frozen and tracked (diagnostic).",
+  "MODERATE_ONLY": "MODERATE net > 0 but BASELINE net <= 0 (cost-sensitive). Frozen and tracked (diagnostic).",
+  "GROSS_ONLY": "GROSS > 0 but MODERATE net <= 0. Recorded in results only.",
+  "flag STRESS_NEGATIVE": "BASELINE net > 0 but STRESS net <= 0.",
+  "flag REGIME_CONDITIONAL": "PRIMARY with >= 1 confluence condition present while its parent without that condition (all else equal) has BASELINE net <= 0."
+ },
+ "discovery_freeze_candidate_set": "PRIMARY + WEAK_POSITIVE + LOW_SAMPLE + MODERATE_ONLY (every such spec is run unchanged in confirmation; only PRIMARY is eligible for the final cohort)",
+ "robustness": {
+  "parameter": "share of grid neighbours (same family, instrument, direction, management and every non-numeric / None-status parameter; one step apart in exactly one numeric parameter) with BASELINE net > 0",
+  "management": "share of the entry's Stage-A management variants with BASELINE net > 0"
+ },
+ "ablation": "for every spec with a confluence condition present, compare with the identical spec where that one condition is None: trades removed (n, %), change in PF, WR, avg net trade, expectancy (R), max DD, cost sensitivity (stress/baseline), parameter robustness, and sub-period repetition (sign of the avg-trade improvement in 2010-12, 2013-15, 2016-18)",
+ "subperiods": {
+  "P1": [
+   2010,
+   2012
+  ],
+  "P2": [
+   2013,
+   2015
+  ],
+  "P3": [
+   2016,
+   2018
+  ]
+ },
+ "no_further_families": "no strategy family may be added after discovery results exist",
+ "hashes": {
+  "search_space_yaml": "a4834eb6ced4702927a0b86f903747e5644ee28a22f354625a9824ff2db590d2",
+  "search_space_json": "421e68a99f26b5795fa9f6bcf49666c10b6a4d3de8fc9168ddc79fba7cd6c2de",
+  "feature_calibration": "5fd14831edc5eeb2b366e5b4ab99e9318722fe4ee792574b1f4b7cee6a61f683",
+  "behaviour_code_sha256": "a05d4436e1e81e4e1905ab84aa24570a006bf461abf852b2e12e5c73084927c7",
+  "strategy_registry_sha256": "950a256470df4cdfdfeb98625be522f43d4a4b7ca948beae9fb7077a9f60e4c9",
+  "config": {
+   "research": "f7392ef3e19a82fe071e16ec9ac9552e81270b4bc4b02f4a5618534a0a70caa8",
+   "costs": "a27ed5df0c04611fce85e81a2380963f9d63d955a88081a4c12b6e543c98624a",
+   "sessions": "fffc52681f6b3e5a2222f073aaaaa73a0ccfecdcc555c7ba7a2907b5447c5460",
+   "partitions": "1161208105e16d4d782b2014c5282a9f3b64a5969f867756722323b9f42831a9",
+   "search_space": "49243942ec9edf81a346603bf7779e51c0cc0eaf6ba1394f19d65e5dc8478b2d",
+   "management": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  "research_code": {
+   "_calib_features.py": "de8253996f8f31d658d001ea4ed1f5cffe605fa9d5a3a1b64805be21c3c55a18",
+   "count_space.py": "78543836947fa47f3a5612ff60c9e1db17b879b202ef10e8a403b275eb76a369",
+   "s0_verify_engine.py": "0dea96d61f6e1b9f8980318550e88012f983259e3a1f172cd76d3437a97c20db",
+   "s1_discovery.py": "03ed3f41a51e8bfafd3474ef41dd6edc7e7eac95fd6f4c019bf82018ad1a68f6",
+   "s1a_prereg_discovery.py": "9c374979a76770a3f2ac9ea7df4c8e9b94fe38dd9adde77ae226844b049c0f5a",
+   "s2_discovery_analysis.py": "1c0b2738c29a369b387d551fbf08cfc11ce54ad6008eed9e47ac33a77c1c10a0",
+   "v3lib.py": "27fa05b74df51f1cdb00ead6758656ccc449328237a6dfc57fa22b148792c086"
+  }
+ },
+ "content_sha256": "7ddb103c6955e65111d34bbb14428c083a3139fdf934d8903fa8f032ed9c0225"
+}

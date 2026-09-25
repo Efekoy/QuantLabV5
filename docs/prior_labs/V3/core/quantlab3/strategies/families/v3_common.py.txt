@@ -1,0 +1,425 @@
+"""Shared machinery for the V3 catalog (NEW in V3).
+
+V3Family adds to the V2 Family contract:
+  hypothesis   catalog id (H01..H50, X1..X3)
+  section      A momentum, B reversal, C cross-market, D path shape, E volatility, F day type, X executor
+  conditions   parameter names that are CONFLUENCE conditions: value None = condition absent.
+               The ablation analysis compares a spec with the same spec where one condition is None.
+  natural      True if the family defines a natural (absolute) profit target (abs_target)
+  lead_lag     True for the lead-lag families (they also get very short time exits)
+
+State machines are Numba kernels; each only reads bars <= t when deciding bar t.
+"""
+from __future__ import annotations
+
+import numpy as np
+from numba import njit
+
+from quantlab3.data.sessions import clock_to_sm
+from quantlab3.features import indicators as ind
+from quantlab3.strategies.base import Family
+
+RTH_OPEN = clock_to_sm("09:30")
+
+
+def T(s: str) -> int:
+    """Clock time -> session minute."""
+    return clock_to_sm(s)
+
+
+def B(x) -> np.ndarray:
+    return np.ascontiguousarray(np.asarray(x, dtype=np.bool_))
+
+
+def ge(a, b):
+    a = np.asarray(a, dtype=np.float64)
+    with np.errstate(invalid="ignore"):
+        r = a >= b
+    return r & np.isfinite(a) & (np.isfinite(b) if isinstance(b, np.ndarray) else True)
+
+
+def le(a, b):
+    a = np.asarray(a, dtype=np.float64)
+    with np.errstate(invalid="ignore"):
+        r = a <= b
+    return r & np.isfinite(a) & (np.isfinite(b) if isinstance(b, np.ndarray) else True)
+
+
+def onset(x) -> np.ndarray:
+    return ind.onset(B(x))
+
+
+def first_in_session(x, fc) -> np.ndarray:
+    return ind.first_in_session(B(x), np.asarray(fc.arr("sday")))
+
+
+def in_sm(fc, a: int, b: int) -> np.ndarray:
+    sm = fc.smi()
+    return (sm >= a) & (sm < b)
+
+
+class V3Family(Family):
+    tier = 3
+    version = "3.0"
+    hypothesis = ""
+    section = ""
+    conditions: tuple = ()
+    natural = False
+    lead_lag = False
+    default_exits = ()
+    default_directions = ("long", "short", "both")
+    # params that are irrelevant when a named condition is None: {condition: (param, ...)}
+    tied: dict = {}
+    window = "rth"          # trading window (config/sessions.yaml)
+
+    def valid(self, p, grid=None):
+        conds = [c for c in self.conditions if c in p]
+        if conds and all(p[c] is None for c in conds) and getattr(self, "need_one_condition", False):
+            return False
+        # dedupe parameters that only matter when their condition is present
+        if grid:
+            for cond, deps in self.tied.items():
+                if p.get(cond) is None:
+                    for d in deps:
+                        if d in grid and p.get(d) != grid[d][0]:
+                            return False
+        return self.extra_valid(p, grid)
+
+    def extra_valid(self, p, grid=None) -> bool:
+        return True
+
+    def valid_template(self, p, tmpl):
+        if tmpl["kind"] == "gapfill":
+            return False
+        if tmpl.get("abs_target") == "natural":
+            return self.natural
+        return True
+
+    def abs_target(self, fc, p, fill):
+        return None
+
+
+# ============================================================================ kernels
+
+@njit(cache=True)
+def armed_trigger(arm_up, arm_dn, trig_up, trig_dn, sday, window):
+    """After an arm event at t0 the FIRST bar t in (t0, t0+window] of the same session with
+    trig[t] fires. A new arm event restarts the timer."""
+    N = len(arm_up)
+    up = np.zeros(N, np.bool_)
+    dn = np.zeros(N, np.bool_)
+    au = -1
+    ad = -1
+    for t in range(N):
+        if t > 0 and sday[t] != sday[t - 1]:
+            au = -1
+            ad = -1
+        if au >= 0 and t > au:
+            if t - au > window:
+                au = -1
+            elif trig_up[t]:
+                up[t] = True
+                au = -1
+        if ad >= 0 and t > ad:
+            if t - ad > window:
+                ad = -1
+            elif trig_dn[t]:
+                dn[t] = True
+                ad = -1
+        if arm_up[t]:
+            au = t
+        if arm_dn[t]:
+            ad = t
+    return up, dn
+
+
+@njit(cache=True)
+def impulse_pullback(c, h, l, imp_up, imp_dn, L, sday, seg, retr, maxdepth, timeout, qual):
+    """Impulse -> controlled pullback -> resumption.
+
+    An impulse onset at t0 (imp_up) starts a leg from P0 = c[t0-L] with extreme H = max high since
+    t0-L+1 (extended while price keeps making highs). The pullback depth is (H - lowest low since H)
+    / (H - P0). Once depth >= retr the setup is armed; depth > maxdepth cancels it. The signal is the
+    first close above the previous bar's high (resumption) while armed. qual: 0 any pullback,
+    1 FAST (depth reached within 5 bars of the extreme), 2 SLOW (took >= 15 bars).
+    retr < 0 -> signal at the impulse onset itself (the no-pullback parent)."""
+    N = len(c)
+    up = np.zeros(N, np.bool_)
+    dn = np.zeros(N, np.bool_)
+    for side in range(2):
+        act = False
+        p0 = 0.0
+        ext = 0.0
+        tex = 0
+        worst = 0.0
+        armed = False
+        t_arm = 0
+        t0 = 0
+        for t in range(N):
+            if t > 0 and (sday[t] != sday[t - 1] or seg[t] != seg[t - 1]):
+                act = False
+            onset_ = imp_up[t] if side == 0 else imp_dn[t]
+            if onset_ and t >= L and seg[t - L] == seg[t] and sday[t - L] == sday[t]:
+                if retr < 0.0:
+                    if side == 0:
+                        up[t] = True
+                    else:
+                        dn[t] = True
+                    continue
+                act = True
+                t0 = t
+                p0 = c[t - L]
+                ext = h[t] if side == 0 else l[t]
+                for j in range(t - L + 1, t + 1):
+                    if side == 0 and h[j] > ext:
+                        ext = h[j]
+                    if side == 1 and l[j] < ext:
+                        ext = l[j]
+                tex = t
+                worst = c[t]
+                armed = False
+                continue
+            if not act:
+                continue
+            if t - t0 > timeout:
+                act = False
+                continue
+            # extend the impulse while no pullback has armed
+            if not armed:
+                if side == 0 and h[t] > ext:
+                    ext = h[t]
+                    tex = t
+                    worst = c[t]
+                elif side == 1 and l[t] < ext:
+                    ext = l[t]
+                    tex = t
+                    worst = c[t]
+            size = (ext - p0) if side == 0 else (p0 - ext)
+            if size <= 0.0:
+                act = False
+                continue
+            # the bar that set the extreme: its low/high may have come BEFORE the extreme,
+            # so only its close counts toward the pullback (conservative)
+            if side == 0:
+                if t != tex and l[t] < worst:
+                    worst = l[t]
+                depth = (ext - worst) / size
+            else:
+                if t != tex and h[t] > worst:
+                    worst = h[t]
+                depth = (worst - ext) / size
+            if depth > maxdepth:
+                act = False
+                continue
+            if not armed and depth >= retr:
+                armed = True
+                t_arm = t
+                if qual == 1 and t_arm - tex > 5:
+                    act = False
+                    continue
+                if qual == 2 and t_arm - tex < 15:
+                    act = False
+                    continue
+            if armed and t > t_arm:
+                if side == 0 and c[t] > h[t - 1]:
+                    up[t] = True
+                    act = False
+                elif side == 1 and c[t] < l[t - 1]:
+                    dn[t] = True
+                    act = False
+    return up, dn
+
+
+@njit(cache=True)
+def breakout_accept(c, h, l, lvl_up, lvl_dn, atr, sday, mode, window):
+    """Break of a level + acceptance.  mode: 0 first close beyond; 1 second consecutive close
+    beyond; 2 third consecutive close; 3 retest (after the break, a bar trades back to within
+    0.25 ATR of the level while closing beyond it, then a close beyond the previous bar's
+    extreme); 4 displacement (a close >= 0.5 ATR beyond the level at the break).
+    Retest/displacement setups expire after `window` bars, at the session end, or when the
+    close falls back more than 0.25 ATR through the level."""
+    N = len(c)
+    up = np.zeros(N, np.bool_)
+    dn = np.zeros(N, np.bool_)
+    for side in range(2):
+        act = False
+        t0 = 0
+        L0 = 0.0
+        a0 = 0.0
+        rt = False
+        for t in range(2, N):
+            if sday[t] != sday[t - 1]:
+                act = False
+            lv = lvl_up[t] if side == 0 else lvl_dn[t]
+            lv1 = lvl_up[t - 1] if side == 0 else lvl_dn[t - 1]
+            lv2 = lvl_up[t - 2] if side == 0 else lvl_dn[t - 2]
+            s = 1.0 if side == 0 else -1.0
+            b0 = np.isfinite(lv) and s * (c[t] - lv) > 0.0
+            b1 = np.isfinite(lv1) and s * (c[t - 1] - lv1) > 0.0 and sday[t - 1] == sday[t]
+            b2 = np.isfinite(lv2) and s * (c[t - 2] - lv2) > 0.0 and sday[t - 2] == sday[t]
+            ev = False
+            if mode == 0:
+                ev = b0 and not b1
+            elif mode == 1:
+                ev = b0 and b1 and not b2
+            elif mode == 2:
+                b3 = False
+                if t >= 3 and sday[t - 3] == sday[t]:
+                    lv3 = lvl_up[t - 3] if side == 0 else lvl_dn[t - 3]
+                    b3 = np.isfinite(lv3) and s * (c[t - 3] - lv3) > 0.0
+                ev = b0 and b1 and b2 and not b3
+            else:
+                if act:
+                    if t - t0 > window or s * (c[t] - L0) < -0.25 * a0:
+                        act = False
+                    elif mode == 3:
+                        near = (l[t] <= L0 + 0.25 * a0) if side == 0 else (h[t] >= L0 - 0.25 * a0)
+                        if near and s * (c[t] - L0) >= 0.0:
+                            rt = True
+                        elif rt and s * (c[t] - L0) > 0.0 and ((side == 0 and c[t] > h[t - 1]) or
+                                                               (side == 1 and c[t] < l[t - 1])):
+                            ev = True
+                            act = False
+                    elif mode == 4:
+                        if s * (c[t] - L0) >= 0.5 * a0:
+                            ev = True
+                            act = False
+                if b0 and not b1 and not act and np.isfinite(atr[t]) and atr[t] > 0.0:
+                    act = True
+                    t0 = t
+                    L0 = lv
+                    a0 = atr[t]
+                    rt = False
+            if ev:
+                if side == 0:
+                    up[t] = True
+                else:
+                    dn[t] = True
+    return up, dn
+
+
+@njit(cache=True)
+def failed_break(h, l, c, UL, DL, atr, sday, ok, k, depth):
+    """First break of the level in the session (a trade beyond it on an `ok` bar), then a close back
+    inside within k bars (the break bar counts) with the break having reached >= depth x ATR beyond
+    the level. up[t] = a failed UPSIDE break (for a fade: short)."""
+    N = len(c)
+    up = np.zeros(N, np.bool_)
+    dn = np.zeros(N, np.bool_)
+    su = 0
+    sd = 0
+    tu = 0
+    td = 0
+    mu = 0.0
+    md = 0.0
+    Lu = 0.0
+    Ld = 0.0
+    au = 0.0
+    ad = 0.0
+    for t in range(N):
+        if t == 0 or sday[t] != sday[t - 1]:
+            su = 0
+            sd = 0
+        if not ok[t]:
+            if su == 1:
+                su = 2
+            if sd == 1:
+                sd = 2
+            continue
+        if su == 0 and np.isfinite(UL[t]) and h[t] > UL[t] and np.isfinite(atr[t]):
+            su = 1
+            tu = t
+            mu = h[t]
+            Lu = UL[t]
+            au = atr[t]
+        if su == 1:
+            if h[t] > mu:
+                mu = h[t]
+            if t - tu > k:
+                su = 2
+            elif c[t] < Lu and (mu - Lu) >= depth * au:
+                up[t] = True
+                su = 2
+        if sd == 0 and np.isfinite(DL[t]) and l[t] < DL[t] and np.isfinite(atr[t]):
+            sd = 1
+            td = t
+            md = l[t]
+            Ld = DL[t]
+            ad = atr[t]
+        if sd == 1:
+            if l[t] < md:
+                md = l[t]
+            if t - td > k:
+                sd = 2
+            elif c[t] > Ld and (Ld - md) >= depth * ad:
+                dn[t] = True
+                sd = 2
+    return up, dn
+
+
+@njit(cache=True)
+def extreme_rejection(h, l, c, rh_prev, rl_prev, atr, sday, ok, k, rj):
+    """New RTH session high (h > previous RTH high) then, within k bars of the latest new high,
+    a close <= extreme - rj x ATR AND below the previously broken high. Once per side per session.
+    up[t] = rejection of a new HIGH."""
+    N = len(c)
+    up = np.zeros(N, np.bool_)
+    dn = np.zeros(N, np.bool_)
+    au = False
+    ad = False
+    doneu = False
+    doned = False
+    tu = 0
+    td = 0
+    xu = 0.0
+    xd = 0.0
+    lu = 0.0
+    ld = 0.0
+    for t in range(N):
+        if t == 0 or sday[t] != sday[t - 1]:
+            au = False
+            ad = False
+            doneu = False
+            doned = False
+        if not ok[t]:
+            continue
+        if not doneu and np.isfinite(rh_prev[t]) and h[t] > rh_prev[t]:
+            au = True
+            tu = t
+            xu = h[t]
+            lu = rh_prev[t]
+        if au and not doneu:
+            if h[t] > xu:
+                xu = h[t]
+            if t - tu > k:
+                au = False
+            elif np.isfinite(atr[t]) and c[t] <= xu - rj * atr[t] and c[t] < lu:
+                up[t] = True
+                doneu = True
+                au = False
+        if not doned and np.isfinite(rl_prev[t]) and l[t] < rl_prev[t]:
+            ad = True
+            td = t
+            xd = l[t]
+            ld = rl_prev[t]
+        if ad and not doned:
+            if l[t] < xd:
+                xd = l[t]
+            if t - td > k:
+                ad = False
+            elif np.isfinite(atr[t]) and c[t] >= xd + rj * atr[t] and c[t] > ld:
+                dn[t] = True
+                doned = True
+                ad = False
+    return up, dn
+
+
+@njit(cache=True)
+def shift_in_session(x, sday):
+    """x[t-1] if bar t-1 is in the same session, else NaN."""
+    N = len(x)
+    out = np.full(N, np.nan)
+    for t in range(1, N):
+        if sday[t] == sday[t - 1]:
+            out[t] = x[t - 1]
+    return out

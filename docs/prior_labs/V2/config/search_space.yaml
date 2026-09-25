@@ -1,0 +1,192 @@
+# The discovery search space. This file is authoritative: the exact grids used
+# are copied into every discovery run manifest and into the freeze manifest.
+#
+# Run `python -m quantlab space` to see how many specifications this produces
+# BEFORE launching anything.
+#
+# Conventions
+#   mode: continuation | reversal
+#     Every family defines an "up-type" event (price broke up, stretched up,
+#     probed up, ...) and a "down-type" event. continuation trades WITH the
+#     event (up-type -> long), reversal trades AGAINST it (up-type -> short).
+#   direction (applied to every spec): long | short | both
+#   window: which sessions.yaml trading window entries may occur in.
+#   "z" thresholds are moves measured in units of ATR60 * sqrt(N), where ATR60
+#   is the average true range of the previous 60 one-minute bars. That makes a
+#   threshold mean the same thing in 2010 and 2020.
+
+directions: [long, short, both]
+
+# Management (stops, targets, breakeven, trails, partials, runners) is defined in
+# config/management.yaml. Under each family, `exits` lists the NO-STOP exits it is
+# also tested with (time, opposite, gapfill).
+
+families:
+  time_of_day:
+    grid:
+      entry_time: ["19:00","19:30","20:00","20:30","21:00","21:30","22:00","22:30","23:00","23:30",
+                   "00:00","00:30","01:00","01:30","02:00","02:30","03:00","03:30","04:00","04:30",
+                   "05:00","05:30","06:00","06:30","07:00","07:30","08:00","08:30","09:00","09:30",
+                   "10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30",
+                   "15:00"]
+      window: [globex]
+    exits: [time]
+    directions: [long, short]
+
+  momentum:
+    grid:
+      lookback: [5, 10, 15, 30, 60, 120, 240]
+      z: [0.5, 1.0, 1.5, 2.0, 3.0]
+      mode: [continuation, reversal]
+      window: [rth, rth_am, rth_pm]
+    exits: [time, opposite]
+
+  consecutive_bars:
+    grid:
+      n: [2, 3, 4, 5, 6, 8]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  displacement:
+    grid:
+      measure: [body, range]
+      k: [2.0, 3.0, 4.0, 5.0]
+      close_strength: [none, strong]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  rolling_breakout:
+    grid:
+      lookback: [15, 30, 60, 120, 240]
+      trigger: [close, touch]
+      mode: [continuation, reversal]
+      window: [rth, rth_am, rth_pm]
+    exits: [time]
+
+  failed_breakout:
+    grid:
+      lookback: [15, 30, 60, 120, 240]
+      mode: [reversal, continuation]
+      window: [rth]
+    exits: [time]
+
+  mean_deviation:
+    grid:
+      anchor: [sma, midpoint]
+      lookback: [15, 30, 60, 120, 240]
+      z: [0.5, 1.0, 1.5, 2.0, 3.0]
+      mode: [reversal, continuation]
+      window: [rth]
+    exits: [time, opposite]
+
+  range_position:
+    grid:
+      lookback: [15, 30, 60, 120, 240]
+      edge: [0.10, 0.20, 0.25, 0.33]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  session_open_distance:
+    grid:
+      anchor: [globex_open, rth_open]
+      z: [0.5, 1.0, 1.5, 2.0, 3.0]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  prior_session_levels:
+    grid:
+      level: [high, low, close, midpoint]
+      event: [break, touch]
+      first_only: [true, false]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  overnight_range:
+    grid:
+      level: [high, low, midpoint]
+      event: [break, touch]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  opening_range:
+    grid:
+      minutes: [5, 15, 30, 60]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  gap:
+    grid:
+      threshold: [0.10, 0.20, 0.30, 0.50]   # fraction of the average RTH range of the prior 10 sessions
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time, gapfill]
+
+  candles:
+    grid:
+      timeframe: [1, 5, 15]
+      pattern: [body_0.6, body_0.8, close_0.8, close_0.9, wick_0.5, wick_0.66, outside, inside_break]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  compression_expansion:
+    grid:
+      lookback: [10, 20, 30, 60]
+      state: [compression_breakout, expansion_move]
+      strength: [1, 2]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  volatility_regime:
+    grid:
+      setup: [mom15_z1, mom60_z1, dev60_z1.5, dev120_z2]
+      regime: [low, mid, high]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  price_structure:
+    grid:
+      timeframe: [1, 5]
+      swing: [2, 3, 5, 10]
+      event: [swing_break, pullback, trend_state]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  multi_timeframe:
+    grid:
+      htf: [15, 30, 60]
+      htf_lookback: [1, 3]
+      trigger: [with_trend, pullback]
+      ltf_lookback: [5, 15]
+      z: [1.0, 2.0]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  fvg:
+    grid:
+      timeframe: [1, 5, 15]
+      min_gap: [0.0, 0.25, 0.5]
+      event: [create, touch, reject, invert]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]
+
+  cross_market:
+    grid:
+      kind: [relative, lead, nonconfirm, confirm]
+      lookback: [5, 15, 30, 60]
+      z: [0.5, 1.0, 1.5]
+      mode: [continuation, reversal]
+      window: [rth]
+    exits: [time]

@@ -1,0 +1,1482 @@
+"""The V3 strategy catalog (NEW in V3): hypotheses H01-H50 of the V3 brief plus executor
+hypotheses X1-X3. Every family emits UP-type and DOWN-type events evaluated at a bar's CLOSE;
+`mode` maps them to trades (continuation: up->long; reversal: up->short). Fills are at the next
+bar's open (engine). Notation: Z(n) = n-bar move / (same-time-of-day sigma(n) * sqrt(n));
+PE(n) = path efficiency; D = mean RTH range of the previous 10 sessions; ATRh = ATR(14) of
+completed 15-minute bars. Grids live in config/search_space.yaml; default_grid is a tiny
+test grid only.
+"""
+from __future__ import annotations
+
+import numpy as np
+
+from quantlab3.features import indicators as ind
+from quantlab3.strategies.families.v3_common import (B, T, V3Family, armed_trigger, breakout_accept,
+                                                      extreme_rejection, failed_break, first_in_session, ge,
+                                                      impulse_pullback, in_sm, le, onset, shift_in_session)
+
+RTH_S, RTH_E = T("09:30"), T("16:00")
+
+
+def _cond(p, key, fn_true, n):
+    """All-True if the confluence condition is absent (None)."""
+    if p.get(key) is None:
+        return np.ones(n, dtype=bool), np.ones(n, dtype=bool)
+    return fn_true()
+
+
+def _rth(fc):
+    return in_sm(fc, RTH_S, RTH_E)
+
+
+def _dirz(fc, x, thr):
+    return ge(x, thr), le(x, -thr)
+
+
+# =============================================================================== A. momentum
+
+class EfficientMomentum(V3Family):
+    name = "v3_h01_efficient_momentum"
+    hypothesis, section = "H01", "A"
+    title = "Efficient momentum"
+    summary = "Z(n) crosses +/-z; confluence: normalised path efficiency PE(n)*sqrt(n) >= pe."
+    conditions = ("pe",)
+    default_grid = {"n": [30], "z": [1.5], "pe": [None, 0.4], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        n = int(p["n"])
+        u, d = _dirz(fc, fc.Z(n), float(p["z"]))
+        if p["pe"] is not None:
+            e = ge(fc.pe(n) * np.sqrt(n), float(p["pe"]))
+            u, d = u & e, d & e
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        e = "" if p["pe"] is None else (f" and its path efficiency |net|/sum|1-min changes| over those bars, "
+                                        f"x sqrt({p['n']}), is >= {p['pe']}")
+        return (f"the {p['n']}-minute move first exceeds +{p['z']} sigma_tod(n)*sqrt(n){e}",
+                f"the {p['n']}-minute move first falls below -{p['z']} sigma_tod(n)*sqrt(n){e}")
+
+
+class MomentumAcceleration(V3Family):
+    name = "v3_h02_momentum_acceleration"
+    hypothesis, section = "H02", "A"
+    title = "Momentum acceleration"
+    summary = ("Recent k-bar impulse Z(k) >= zk; confluence acc: the preceding m-bar move agrees in "
+               "direction (acc=0) and recent per-minute speed >= acc x prior per-minute speed.")
+    conditions = ("acc",)
+    tied = {"acc": ("m",)}
+    default_grid = {"k": [5], "zk": [1.5], "m": [20], "acc": [None, 1.5], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        k, m = int(p["k"]), int(p["m"])
+        u, d = _dirz(fc, fc.Z(k), float(p["zk"]))
+        if p["acc"] is not None:
+            rk = fc.ret(k)
+            rp = ind.shift_same_seg(fc.ret(m), k, fc.seg)       # move over [t-k-m, t-k]
+            vr = rk / k
+            vp = rp / m
+            a = float(p["acc"])
+            with np.errstate(invalid="ignore"):
+                cu = (vp > 0) & (vr >= a * vp) if a > 0 else (vp > 0)
+                cd = (vp < 0) & (vr <= a * vp) if a > 0 else (vp < 0)
+            fin = np.isfinite(vp) & np.isfinite(vr)
+            u, d = u & cu & fin, d & cd & fin
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        base = f"the {p['k']}-minute move first exceeds {p['zk']} sigma units"
+        if p["acc"] is None:
+            x = ""
+        elif p["acc"] == 0:
+            x = f", and the preceding {p['m']}-minute move was in the same direction"
+        else:
+            x = (f", the preceding {p['m']}-minute move was in the same direction, and the recent per-minute "
+                 f"speed is >= {p['acc']}x the preceding per-minute speed")
+        return base + " (up)" + x, base.replace("exceeds", "exceeds (down)") + x
+
+
+class MultiHorizonMomentum(V3Family):
+    name = "v3_h03_multi_horizon"
+    hypothesis, section = "H03", "A"
+    title = "Multi-horizon momentum"
+    summary = "Directional agreement of Z(5), Z(30), Z(120) (each >= z) for the selected horizons."
+    conditions = ("h5", "h30", "h120")
+    need_one_condition = True
+    default_grid = {"h5": [True], "h30": [None, True], "h120": [True], "z": [0.5], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        z = float(p["z"])
+        n = fc.v.n
+        u = np.ones(n, bool)
+        d = np.ones(n, bool)
+        for h in (5, 30, 120):
+            if p.get(f"h{h}"):
+                a, b = _dirz(fc, fc.Z(h), z)
+                u &= a
+                d &= b
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        hs = [str(h) for h in (5, 30, 120) if p.get(f"h{h}")]
+        return (f"the {'/'.join(hs)}-minute moves are all >= +{p['z']} sigma units (first bar)",
+                f"the {'/'.join(hs)}-minute moves are all <= -{p['z']} sigma units (first bar)")
+
+
+class HTFTrendImpulse(V3Family):
+    name = "v3_h04_htf_trend_impulse"
+    hypothesis, section = "H04", "A"
+    title = "HTF trend + short-term impulse"
+    summary = "HTF state Z(htf) >= zh (2h or 4h) and/or a k-minute impulse Z(k) >= zi, same direction."
+    conditions = ("zh", "zi")
+    need_one_condition = True
+    tied = {"zh": ("htf",), "zi": ("k",)}
+    default_grid = {"htf": [120], "zh": [None, 0.5], "k": [5], "zi": [1.5], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        n = fc.v.n
+        u = np.ones(n, bool)
+        d = np.ones(n, bool)
+        if p["zh"] is not None:
+            a, b = _dirz(fc, fc.Z(int(p["htf"])), float(p["zh"]))
+            u, d = u & a, d & b
+        if p["zi"] is not None:
+            a, b = _dirz(fc, fc.Z(int(p["k"])), float(p["zi"]))
+            u, d = u & a, d & b
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        parts = []
+        if p["zh"] is not None:
+            parts.append(f"the {p['htf']}-minute trend Z >= {p['zh']}")
+        if p["zi"] is not None:
+            parts.append(f"the {p['k']}-minute impulse Z >= {p['zi']}")
+        s = " and ".join(parts)
+        return s + " (up; first bar)", s.replace(">=", "<= -") + " (down; first bar)"
+
+
+class VolShockMomentum(V3Family):
+    name = "v3_h05_vol_shock_momentum"
+    hypothesis, section = "H05", "A"
+    title = "Volatility-shock momentum"
+    summary = "Z(n) >= z during a realised-vol shock rv15 / same-time-of-day baseline >= v."
+    conditions = ("v",)
+    default_grid = {"n": [15], "z": [1.0], "v": [None, 2.0], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        u, d = _dirz(fc, fc.Z(int(p["n"])), float(p["z"]))
+        if p["v"] is not None:
+            s = ge(fc.vol_shock(15), float(p["v"]))
+            u, d = u & s, d & s
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        v = "" if p["v"] is None else f" while 15-minute realised vol >= {p['v']}x its same-time-of-day norm"
+        return (f"the {p['n']}-minute move first exceeds +{p['z']} sigma units{v}",
+                f"the {p['n']}-minute move first falls below -{p['z']} sigma units{v}")
+
+
+class CompressionExpansion3(V3Family):
+    name = "v3_h06_compression_expansion"
+    hypothesis, section = "H06", "A"
+    title = "Compression to expansion"
+    summary = ("Close breaks the previous N-bar high/low; confluence: the N bars before were compressed "
+               "(rv_N / time-of-day norm <= cth); optional strength Z(5) >= 1.")
+    conditions = ("cth", "strong")
+    default_grid = {"N": [30], "cth": [None, 0.7], "strong": [None], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        N = int(p["N"])
+        c = fc.arr("c")
+        u = ge(c - fc.hi_prev(N), 1e-12)
+        d = le(c - fc.lo_prev(N), -1e-12)
+        if p["cth"] is not None:
+            s = le(fc.compression(N), float(p["cth"]))
+            u, d = u & s, d & s
+        if p["strong"] is not None:
+            a, b = _dirz(fc, fc.Z(5), float(p["strong"]))
+            u, d = u & a, d & b
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        x = "" if p["cth"] is None else f"; the previous {p['N']} bars' realised vol was <= {p['cth']}x its time-of-day norm"
+        y = "" if p["strong"] is None else f"; the 5-minute move >= {p['strong']} sigma units"
+        return (f"the close breaks above the previous {p['N']}-bar high{x}{y}",
+                f"the close breaks below the previous {p['N']}-bar low{x}{y}")
+
+
+class OpeningDrive(V3Family):
+    name = "v3_h07_opening_drive"
+    hypothesis, section = "H07", "A"
+    title = "Opening-drive continuation"
+    summary = "At 09:30+w: RTH move >= m x D; confluence: efficiency since the open >= e."
+    conditions = ("e",)
+    default_grid = {"w": [15], "m": [0.15], "e": [None, 0.5], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        ro, rh, rl, rp, *_ = fc.rth()
+        c = fc.arr("c")
+        at = fc.at_time(RTH_S + int(p["w"]))
+        mv = (c - ro) / fc.D()
+        u = at & ge(mv, float(p["m"]))
+        d = at & le(mv, -float(p["m"]))
+        if p["e"] is not None:
+            with np.errstate(invalid="ignore", divide="ignore"):
+                ef = ge(np.abs(c - ro) / rp, float(p["e"]))
+            u, d = u & ef, d & ef
+        return B(u), B(d)
+
+    def event_text(self, p):
+        e = "" if p["e"] is None else f" with path efficiency since the open >= {p['e']}"
+        return (f"at 09:30+{p['w']}min the close is >= {p['m']} x D above the RTH open{e}",
+                f"at 09:30+{p['w']}min the close is >= {p['m']} x D below the RTH open{e}")
+
+
+class MorningTrend(V3Family):
+    name = "v3_h08_morning_trend"
+    hypothesis, section = "H08", "A"
+    title = "Morning trend continuation"
+    summary = ("At cutoff (10:30/11:00): return from the open >= m x D; confluences: efficiency >= e, "
+               "closing location in the range >= cl (in the trend direction).")
+    conditions = ("e", "cl")
+    default_grid = {"cut": ["11:00"], "m": [0.3], "e": [None, 0.3], "cl": [None], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        return day_trend_events(fc, T(p["cut"]), float(p["m"]), p["e"], p["cl"])
+
+    def event_text(self, p):
+        return trend_text(p, "up"), trend_text(p, "down")
+
+
+class LastHourTrend(MorningTrend):
+    name = "v3_h09_last_hour_trend"
+    hypothesis, section = "H09", "A"
+    title = "Last-hour trend continuation"
+    summary = "At 15:00: session return from the open >= m x D; confluences: efficiency, closing location."
+    default_grid = {"cut": ["15:00"], "m": [0.3], "e": [None], "cl": [None, 0.8], "mode": ["continuation"]}
+
+
+def day_trend_events(fc, cut_sm, m, e, cl):
+    ro, rh, rl, rp, *_ = fc.rth()
+    c = fc.arr("c")
+    at = fc.at_time(cut_sm)
+    mv = (c - ro) / fc.D()
+    u = at & ge(mv, m)
+    d = at & le(mv, -m)
+    if e is not None:
+        with np.errstate(invalid="ignore", divide="ignore"):
+            ef = ge(np.abs(c - ro) / rp, float(e))
+        u, d = u & ef, d & ef
+    if cl is not None:
+        with np.errstate(invalid="ignore", divide="ignore"):
+            loc = (c - rl) / (rh - rl)
+        u, d = u & ge(loc, float(cl)), d & le(loc, 1.0 - float(cl))
+    return B(u), B(d)
+
+
+def trend_text(p, side):
+    s = "above" if side == "up" else "below"
+    x = f"at {p['cut']} the close is >= {p['m']} x D {s} the RTH open"
+    if p.get("e") is not None:
+        x += f", path efficiency since the open >= {p['e']}"
+    if p.get("cl") is not None:
+        x += (f", close in the top {round((1 - p['cl']) * 100)}% of the RTH range" if side == "up"
+              else f", close in the bottom {round((1 - p['cl']) * 100)}% of the RTH range")
+    return x
+
+
+class ImpulsePullback(V3Family):
+    name = "v3_h10_impulse_pullback"
+    hypothesis, section = "H10", "A"
+    title = "Impulse + pullback continuation"
+    summary = ("Impulse Z(L) >= zi, then a controlled pullback of >= retr of the impulse (cancelled beyond "
+               "75% or after 60 bars), then resumption: close beyond the previous bar's extreme. "
+               "retr None = enter at the impulse (parent).")
+    conditions = ("retr",)
+    default_grid = {"L": [15], "zi": [1.5], "retr": [None, 0.33], "mode": ["continuation"]}
+
+    qual = 0
+
+    def events(self, fc, p):
+        L = int(p["L"])
+        u, d = _dirz(fc, fc.Z(L), float(p["zi"]))
+        r = -1.0 if p["retr"] is None else float(p["retr"])
+        q = {None: 0, "fast": 1, "slow": 2}[p.get("qual")]
+        return impulse_pullback(fc.arr("c"), fc.arr("h"), fc.arr("l"), onset(u), onset(d), L,
+                                np.asarray(fc.arr("sday")), np.asarray(fc.seg), r, 0.75, 60, q)
+
+    def event_text(self, p):
+        base = f"a {p['L']}-minute impulse >= {p['zi']} sigma units"
+        if p["retr"] is None:
+            return base + " (up) begins", base + " (down) begins"
+        q = {None: "", "fast": " reached within 5 bars of the extreme (FAST)",
+             "slow": " taking >= 15 bars from the extreme (SLOW)"}[p.get("qual")]
+        x = (f" is followed by a pullback of >= {p['retr']} of the impulse (<= 0.75){q} and then a close "
+             f"beyond the previous bar's extreme in the impulse direction")
+        return base + " (up)" + x, base + " (down)" + x
+
+
+class FailedCountertrend(V3Family):
+    name = "v3_h11_failed_countertrend"
+    hypothesis, section = "H11", "A"
+    title = "Failed countertrend move"
+    summary = ("Trend: Z(120) measured before the counter move >= zt; counter move: 10-minute Z <= -zc; "
+               "resumption within 30 bars: close above the previous r-bar high. zc None = resumption "
+               "trigger in trend without a counter move (parent).")
+    conditions = ("zc",)
+    default_grid = {"zt": [0.75], "zc": [None, 1.0], "r": [3], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        r = int(p["r"])
+        c = fc.arr("c")
+        tu = gt0(c - fc.hi_prev(r))
+        td = gt0(fc.lo_prev(r) - c)
+        zt = float(p["zt"])
+        if p["zc"] is None:
+            su, sd = _dirz(fc, fc.Z(120), zt)
+            return onset(su & tu), onset(sd & td)
+        trend_u, trend_d = _dirz(fc, fc.Zlag(120, 10), zt)
+        cu, cd = _dirz(fc, fc.Z(10), float(p["zc"]))
+        arm_u = onset(trend_u & cd)     # up-trend, counter move down
+        arm_d = onset(trend_d & cu)
+        return armed_trigger(arm_u, arm_d, B(tu), B(td), np.asarray(fc.arr("sday")), 30)
+
+    def event_text(self, p):
+        if p["zc"] is None:
+            return (f"with the 120-minute Z >= {p['zt']}, the close first breaks above the previous {p['r']}-bar high",
+                    f"with the 120-minute Z <= -{p['zt']}, the close first breaks below the previous {p['r']}-bar low")
+        return (f"the 120-minute Z before a 10-minute counter move <= -{p['zc']} sigma units was >= {p['zt']}; within "
+                f"30 bars the close breaks above the previous {p['r']}-bar high",
+                f"the 120-minute Z before a 10-minute counter move >= +{p['zc']} sigma units was <= -{p['zt']}; within "
+                f"30 bars the close breaks below the previous {p['r']}-bar low")
+
+
+def gt0(x):
+    return ge(x, 1e-12)
+
+
+class BreakoutAcceptance(V3Family):
+    name = "v3_h12_breakout_acceptance"
+    hypothesis, section = "H12", "A"
+    title = "Breakout + acceptance"
+    summary = ("Level: previous 120-bar high/low, overnight high/low, previous-day RTH high/low. "
+               "Acceptance: first close beyond (parent), 2nd / 3rd consecutive close, retest, displacement.")
+    default_grid = {"level": ["pd"], "acc": ["touch", "retest"], "mode": ["continuation"]}
+    ACC = {"touch": 0, "close2": 1, "close3": 2, "retest": 3, "displace": 4}
+
+    def levels(self, fc, lv):
+        if lv == "roll120":
+            return fc.hi_prev(120), fc.lo_prev(120)
+        s = fc.session()
+        if lv == "on":
+            return s.on_hi, s.on_lo
+        return s.p_hi, s.p_lo
+
+    def events(self, fc, p):
+        up, dn = self.levels(fc, p["level"])
+        rth = _rth(fc)
+        up = np.where(rth, up, np.nan)
+        dn = np.where(rth, dn, np.nan)
+        return breakout_accept(fc.arr("c"), fc.arr("h"), fc.arr("l"), up, dn, fc.atrh(),
+                               np.asarray(fc.arr("sday")), self.ACC[p["acc"]], 30)
+
+    def event_text(self, p):
+        lv = {"roll120": "previous 120-bar high", "on": "overnight high", "pd": "previous RTH high"}[p["level"]]
+        a = {"touch": "the first close above it", "close2": "the second consecutive close above it",
+             "close3": "the third consecutive close above it",
+             "retest": "after the break, a retest to within 0.25 ATRh that holds, then a close above the previous bar's high (within 30 bars)",
+             "displace": "after the break, a close >= 0.5 ATRh above it (within 30 bars)"}[p["acc"]]
+        return (f"RTH break of the {lv}: {a}",
+                f"RTH break of the {lv.replace('high', 'low')}: {a.replace('above', 'below').replace('high', 'low')}")
+
+
+# =============================================================================== B. reversal
+
+class Overextension(V3Family):
+    name = "v3_h13_overextension"
+    hypothesis, section = "H13", "B"
+    title = "Rolling-mean overextension"
+    summary = "dev(n) = (close - mean of previous n closes)/(sigma_tod(n)*sqrt(n)) >= d; fade. Natural target: the mean."
+    natural = True
+    default_grid = {"n": [60], "d": [1.5], "mode": ["reversal"]}
+
+    def events(self, fc, p):
+        u, d = _dirz(fc, fc.dev(int(p["n"])), float(p["d"]))
+        return onset(u), onset(d)
+
+    def abs_target(self, fc, p, fill):
+        m = fc.sma_prev(int(p["n"]))
+        return m, m
+
+    def event_text(self, p):
+        return (f"the close first stands >= {p['d']} sigma units above the mean of the previous {p['n']} closes",
+                f"the close first stands >= {p['d']} sigma units below the mean of the previous {p['n']} closes")
+
+
+class DecelerationExhaustion(V3Family):
+    name = "v3_h14_deceleration_exhaustion"
+    hypothesis, section = "H14", "B"
+    title = "Deceleration exhaustion"
+    summary = ("Extended move Z(N) >= z and a new N-bar high, while the last-5-bar per-minute speed "
+               "<= r x the per-minute speed of the earlier part of the move. r None = no deceleration (parent).")
+    conditions = ("r",)
+    default_grid = {"N": [30], "z": [1.5], "r": [None, 0.5], "mode": ["reversal"]}
+
+    def events(self, fc, p):
+        N = int(p["N"])
+        u, d = _dirz(fc, fc.Z(N), float(p["z"]))
+        u &= ge(fc.arr("h") - fc.hi_prev(N), 1e-12)
+        d &= le(fc.arr("l") - fc.lo_prev(N), -1e-12)
+        if p["r"] is not None:
+            vr = fc.ret(5) / 5.0
+            ve = ind.shift_same_seg(fc.ret(N - 5), 5, fc.seg) / (N - 5)
+            r = float(p["r"])
+            with np.errstate(invalid="ignore"):
+                du = (ve > 0) & (vr <= r * ve)
+                dd = (ve < 0) & (vr >= r * ve)
+            u, d = u & du, d & dd
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        x = "" if p["r"] is None else (f", while the last 5 minutes' speed is <= {p['r']}x the speed of the "
+                                       f"preceding {int(p['N']) - 5} minutes")
+        return (f"the {p['N']}-minute move >= {p['z']} sigma units and a new {p['N']}-bar high{x}",
+                f"the {p['N']}-minute move <= -{p['z']} sigma units and a new {p['N']}-bar low{x}")
+
+
+class SessionExtremeRejection(V3Family):
+    name = "v3_h15_session_extreme_rejection"
+    hypothesis, section = "H15", "B"
+    title = "Session-extreme rejection"
+    summary = ("After 10:00, a new RTH session high then, within k bars of the latest new high, a close "
+               "<= extreme - rj x ATRh and below the high it broke. Fade.")
+    default_grid = {"k": [5], "rj": [0.5], "mode": ["reversal"]}
+
+    def events(self, fc, p):
+        ro, rh, rl, *_ = fc.rth()
+        sday = np.asarray(fc.arr("sday"))
+        ok = in_sm(fc, T("10:00"), T("15:30"))
+        return extreme_rejection(fc.arr("h"), fc.arr("l"), fc.arr("c"), shift_in_session(rh, sday),
+                                 shift_in_session(rl, sday), fc.atrh(), sday, B(ok), int(p["k"]), float(p["rj"]))
+
+    def event_text(self, p):
+        return (f"after 10:00 a new RTH high is rejected within {p['k']} bars: close <= new extreme - {p['rj']} ATRh and below the old high",
+                f"after 10:00 a new RTH low is rejected within {p['k']} bars: close >= new extreme + {p['rj']} ATRh and above the old low")
+
+
+class _FailedLevel(V3Family):
+    natural = True
+    level_name = ""
+
+    def lv(self, fc, p):
+        raise NotImplementedError
+
+    def events(self, fc, p):
+        up, dn = self.lv(fc, p)
+        ok = in_sm(fc, RTH_S, T("15:30"))
+        return failed_break(fc.arr("h"), fc.arr("l"), fc.arr("c"), up, dn, fc.atrh(), np.asarray(fc.arr("sday")),
+                            B(ok), int(p["k"]), float(p["depth"]))
+
+    def abs_target(self, fc, p, fill):
+        up, dn = self.lv(fc, p)
+        mid = (up + dn) / 2.0
+        return mid, mid
+
+    def event_text(self, p):
+        return (f"the first RTH trade above the {self.level_name} high (reaching >= {p['depth']} ATRh beyond) is "
+                f"followed within {p['k']} bars by a close back below it",
+                f"the first RTH trade below the {self.level_name} low (reaching >= {p['depth']} ATRh beyond) is "
+                f"followed within {p['k']} bars by a close back above it")
+
+
+class PDFailedBreak(_FailedLevel):
+    name = "v3_h16_pdhl_failed_break"
+    hypothesis, section = "H16", "B"
+    title = "PDH/PDL failed break"
+    summary = "Failed break of the previous day's RTH high/low; fade back into the range. Natural target: prior-range mid."
+    level_name = "previous-day RTH"
+    default_grid = {"k": [15], "depth": [0.0], "mode": ["reversal"]}
+
+    def lv(self, fc, p):
+        s = fc.session()
+        return s.p_hi, s.p_lo
+
+
+class ONFailedBreak(_FailedLevel):
+    name = "v3_h17_overnight_failed_break"
+    hypothesis, section = "H17", "B"
+    title = "Overnight-extreme failed break"
+    summary = "Failed break of the overnight high/low during RTH; fade. Natural target: overnight-range mid."
+    level_name = "overnight"
+    default_grid = {"k": [15], "depth": [0.0], "mode": ["reversal"]}
+
+    def lv(self, fc, p):
+        s = fc.session()
+        return s.on_hi, s.on_lo
+
+
+class ORFailedBreak(_FailedLevel):
+    name = "v3_h18_or_failed_breakout"
+    hypothesis, section = "H18", "B"
+    title = "Opening-range failed breakout"
+    summary = "Failed break of the w-minute opening range; fade. Natural target: opening-range mid."
+    level_name = "opening-range"
+    default_grid = {"orw": [30], "k": [15], "depth": [0.0], "mode": ["reversal"]}
+
+    def lv(self, fc, p):
+        return fc.opening_range(int(p["orw"]))
+
+    def event_text(self, p):
+        u, d = super().event_text(p)
+        return u.replace("opening-range", f"{p['orw']}-minute opening-range"), d.replace("opening-range", f"{p['orw']}-minute opening-range")
+
+
+class LargeMorningReversal(V3Family):
+    name = "v3_h19_large_morning_reversal"
+    hypothesis, section = "H19", "B"
+    title = "Large morning move reversal"
+    summary = ("RTH high - open >= m x D, then (10:00-13:00) a retracement from the high of >= dr of that "
+               "move (deterioration). dr None = fade at 11:00 without deterioration (parent). Natural target: RTH open.")
+    conditions = ("dr",)
+    natural = True
+    default_grid = {"m": [0.5], "dr": [None, 0.25], "mode": ["reversal"]}
+
+    def events(self, fc, p):
+        ro, rh, rl, *_ = fc.rth()
+        c = fc.arr("c")
+        D = fc.D()
+        m = float(p["m"])
+        if p["dr"] is None:
+            at = fc.at_time(T("11:00"))
+            return B(at & ge((c - ro) / D, m)), B(at & le((c - ro) / D, -m))
+        dr = float(p["dr"])
+        w = in_sm(fc, T("10:00"), T("13:00"))
+        with np.errstate(invalid="ignore", divide="ignore"):
+            cu = w & ge((rh - ro) / D, m) & ge((rh - c) / (rh - ro), dr)
+            cd = w & ge((ro - rl) / D, m) & ge((c - rl) / (ro - rl), dr)
+        return first_in_session(cu, fc), first_in_session(cd, fc)
+
+    def abs_target(self, fc, p, fill):
+        ro = fc.rth()[0]
+        return ro, ro
+
+    def event_text(self, p):
+        if p["dr"] is None:
+            return (f"at 11:00 the close is >= {p['m']} x D above the RTH open",
+                    f"at 11:00 the close is >= {p['m']} x D below the RTH open")
+        return (f"between 10:00 and 13:00, with the RTH high >= {p['m']} x D above the open, price first retraces "
+                f">= {p['dr']} of that move from the high",
+                f"between 10:00 and 13:00, with the RTH low >= {p['m']} x D below the open, price first retraces "
+                f">= {p['dr']} of that move from the low")
+
+
+class ExtremeMovePath(V3Family):
+    name = "v3_h20_extreme_move_path"
+    hypothesis, section = "H20", "B"
+    title = "Extreme-move path test"
+    summary = ("Equally large moves Z(n) >= z split by path efficiency: HIGH (PE >= pe_hi) or LOW "
+               "(PE <= pe_lo); each tested as continuation AND reversal.")
+    default_grid = {"n": [30], "z": [2.0], "cls": ["high"], "pe_hi": [0.5], "pe_lo": [0.25],
+                    "mode": ["continuation", "reversal"]}
+
+    def events(self, fc, p):
+        n = int(p["n"])
+        u, d = _dirz(fc, fc.Z(n), float(p["z"]))
+        pn = fc.pe(n) * np.sqrt(n)
+        e = ge(pn, float(p["pe_hi"])) if p["cls"] == "high" else le(pn, float(p["pe_lo"]))
+        return onset(u & e), onset(d & e)
+
+    def event_text(self, p):
+        e = (f"path efficiency x sqrt(n) >= {p['pe_hi']}" if p["cls"] == "high"
+             else f"path efficiency x sqrt(n) <= {p['pe_lo']}")
+        return (f"the {p['n']}-minute move first exceeds +{p['z']} sigma units with {e}",
+                f"the {p['n']}-minute move first falls below -{p['z']} sigma units with {e}")
+
+
+# =============================================================================== C. cross-market
+
+class _Cross(V3Family):
+    needs_other = True
+    section = "C"
+
+
+class ESLeadsNQ(_Cross):
+    name = "v3_h21_es_leads_nq"
+    hypothesis = "H21"
+    title = "ES leads NQ"
+    summary = ("The OTHER market's w-minute move >= zE sigma units; confluence lag: this market's move is "
+               "<= 0.5x the other's (has not yet responded). Trades this market in the other's direction.")
+    conditions = ("lag",)
+    lead_lag = True
+    default_grid = {"w": [2], "zE": [1.5], "lag": [None, 0.5], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        w = int(p["w"])
+        oz = fc.oZ(w)
+        u, d = _dirz(fc, oz, float(p["zE"]))
+        if p["lag"] is not None:
+            z = fc.Z(w)
+            with np.errstate(invalid="ignore"):
+                u &= np.isfinite(z) & (z <= float(p["lag"]) * oz)
+                d &= np.isfinite(z) & (z >= float(p["lag"]) * oz)
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        x = "" if p["lag"] is None else f" while this market's {p['w']}-minute move is <= {p['lag']}x as large (lagging)"
+        return (f"the other index future's {p['w']}-minute move first exceeds +{p['zE']} sigma units{x}",
+                f"the other index future's {p['w']}-minute move first falls below -{p['zE']} sigma units{x}")
+
+
+class NQLeadsES(ESLeadsNQ):
+    name = "v3_h22_nq_leads_es"
+    hypothesis = "H22"
+    title = "NQ leads ES"
+    summary = ESLeadsNQ.summary + " (Traded on ES with NQ as the leader.)"
+
+
+class RelativeMomentum(_Cross):
+    name = "v3_h23_relative_momentum"
+    hypothesis = "H23"
+    title = "Relative momentum"
+    summary = "Z_NQ(n) - Z_ES(n) >= thr (NQ outperforming, vol-adjusted): trade NQ in that direction."
+    default_grid = {"n": [30], "thr": [1.0], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        n = int(p["n"])
+        with np.errstate(invalid="ignore"):
+            r = fc.Z(n) - fc.oZ(n)
+        u, d = _dirz(fc, r, float(p["thr"]))
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        return (f"this market's {p['n']}-minute Z first exceeds the other's by >= {p['thr']}",
+                f"this market's {p['n']}-minute Z first trails the other's by >= {p['thr']}")
+
+
+class BetaResidual(_Cross):
+    name = "v3_h24_beta_residual_reversion"
+    hypothesis = "H24"
+    title = "Beta-adjusted NQ/ES residual reversion"
+    summary = ("Residual of NQ's W-minute log return vs beta x ES's (beta from the 390 one-minute returns "
+               "ending W bars earlier), standardised; |z| >= thr: fade. Natural target: residual = 0 "
+               "with ES unchanged.")
+    natural = True
+    default_grid = {"W": [30], "thr": [2.0], "mode": ["reversal"]}
+
+    def events(self, fc, p):
+        z, _ = fc.beta_resid_z(int(p["W"]))
+        u, d = _dirz(fc, z, float(p["thr"]))
+        return onset(u), onset(d)
+
+    def abs_target(self, fc, p, fill):
+        _, pts = fc.beta_resid_z(int(p["W"]))
+        t = fc.arr("c") - pts
+        return t, t
+
+    def event_text(self, p):
+        return (f"the standardised {p['W']}-minute NQ-vs-beta*ES residual first exceeds +{p['thr']}",
+                f"the standardised {p['W']}-minute NQ-vs-beta*ES residual first falls below -{p['thr']}")
+
+
+class CorrBreakdown(_Cross):
+    name = "v3_h25_corr_breakdown"
+    hypothesis = "H25"
+    title = "Correlation breakdown"
+    summary = ("30-minute NQ/ES return correlation <= cth and |30-minute beta residual z| >= rz. "
+               "Separate hypotheses: continuation (follow NQ's residual) and convergence (fade it).")
+    default_grid = {"cth": [0.5], "rz": [1.0], "mode": ["continuation", "reversal"]}
+
+    def events(self, fc, p):
+        z, _ = fc.beta_resid_z(30)
+        br = le(fc.corr(30), float(p["cth"]))
+        u, d = _dirz(fc, z, float(p["rz"]))
+        return onset(u & br), onset(d & br)
+
+    def event_text(self, p):
+        return (f"30-minute NQ/ES correlation <= {p['cth']} and NQ's 30-minute beta residual >= +{p['rz']} sigma",
+                f"30-minute NQ/ES correlation <= {p['cth']} and NQ's 30-minute beta residual <= -{p['rz']} sigma")
+
+
+class SMT(_Cross):
+    name = "v3_h26_smt_nonconfirmation"
+    hypothesis = "H26"
+    title = "Mechanical SMT / non-confirmation"
+    summary = ("One market makes a new extreme (previous N-bar or RTH session high/low) that the other does "
+               "not. kind nq_only: this market swept, other did not; es_only: the other swept, this did not. "
+               "Confirmation 'rej': within 10 bars this market closes beyond its previous 3-bar extreme "
+               "against the sweep. Fade.")
+    conditions = ("confirm",)
+    default_grid = {"level": ["roll60"], "kind": ["nq_only"], "confirm": [None, "rej"], "mode": ["reversal"]}
+
+    def events(self, fc, p):
+        h, l = fc.arr("h"), fc.arr("l")
+        om = fc.v.other
+        oh = np.where(om.valid, om.h, np.nan)
+        ol = np.where(om.valid, om.l, np.nan)
+        sday = np.asarray(fc.arr("sday"))
+        if p["level"] == "session":
+            ro, rh, rl, *_ = fc.rth()
+            orh, orl = fc.o_rth()
+            xh, xl = shift_in_session(rh, sday), shift_in_session(rl, sday)
+            yh, yl = shift_in_session(orh, sday), shift_in_session(orl, sday)
+            rth_ok = in_sm(fc, T("10:00"), RTH_E)
+        else:
+            n = int(p["level"][4:])
+            xh, xl = fc.hi_prev(n), fc.lo_prev(n)
+            yh, yl = fc.o_hi_prev(n), fc.o_lo_prev(n)
+            rth_ok = _rth(fc)
+        with np.errstate(invalid="ignore"):
+            x_up = np.isfinite(xh) & (h > xh)
+            x_dn = np.isfinite(xl) & (l < xl)
+            y_up = np.isfinite(yh) & np.isfinite(oh) & (oh > yh)
+            y_dn = np.isfinite(yl) & np.isfinite(ol) & (ol < yl)
+            y_noup = np.isfinite(yh) & np.isfinite(oh) & (oh <= yh)
+            y_nodn = np.isfinite(yl) & np.isfinite(ol) & (ol >= yl)
+            x_noup = np.isfinite(xh) & (h <= xh)
+            x_nodn = np.isfinite(xl) & (l >= xl)
+        if p["kind"] == "nq_only":
+            du, dd = x_up & y_noup, x_dn & y_nodn
+        else:
+            du, dd = y_up & x_noup, y_dn & x_nodn
+        du, dd = onset(du & rth_ok), onset(dd & rth_ok)
+        if p["confirm"] is None:
+            return du, dd
+        c = fc.arr("c")
+        tu = gt0(fc.lo_prev(3) - c)        # bearish rejection after an upside sweep
+        td = gt0(c - fc.hi_prev(3))
+        return armed_trigger(du, dd, B(tu), B(td), sday, 10)
+
+    def event_text(self, p):
+        who = "this market" if p["kind"] == "nq_only" else "the other index future"
+        oth = "the other" if p["kind"] == "nq_only" else "this market"
+        lv = "the RTH session high (after 10:00)" if p["level"] == "session" else f"its previous {p['level'][4:]}-bar high"
+        c = "" if p["confirm"] is None else " and then, within 10 bars, this market closes below its previous 3-bar low"
+        u = f"{who} trades above {lv} while {oth} does not{c}"
+        return u, u.replace("above", "below").replace("high", "low").replace("closes below its previous 3-bar low",
+                                                                             "closes above its previous 3-bar high")
+
+
+class CrossConfirmMomentum(_Cross):
+    name = "v3_h27_cross_confirm_momentum"
+    hypothesis = "H27"
+    title = "Cross-market momentum confirmation"
+    summary = "NQ Z(n) >= z; confluence: ES Z(n) >= ce in the same direction."
+    conditions = ("ce",)
+    default_grid = {"n": [15], "z": [1.0], "ce": [None, 0.5], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        n = int(p["n"])
+        u, d = _dirz(fc, fc.Z(n), float(p["z"]))
+        if p["ce"] is not None:
+            a, b = _dirz(fc, fc.oZ(n), float(p["ce"]))
+            u, d = u & a, d & b
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        x = "" if p["ce"] is None else f" and the other index future's {p['n']}-minute Z >= {p['ce']} in the same direction"
+        return (f"the {p['n']}-minute Z first exceeds +{p['z']}{x}", f"the {p['n']}-minute Z first falls below -{p['z']}{x}")
+
+
+class DisagreementReversal(_Cross):
+    name = "v3_h28_disagreement_reversal"
+    hypothesis = "H28"
+    title = "Cross-market disagreement reversal"
+    summary = ("NQ 30-minute Z >= z; confluence es: ES 30-minute Z <= 0.5z (not confirming); confluence trig: "
+               "within 15 bars NQ closes beyond its previous 3-bar extreme against the move. Fade.")
+    conditions = ("es", "trig")
+    default_grid = {"z": [1.5], "es": [None, "nonconf"], "trig": [None], "mode": ["reversal"]}
+
+    def events(self, fc, p):
+        z = float(p["z"])
+        Z = fc.Z(30)
+        u, d = _dirz(fc, Z, z)
+        if p["es"] is not None:
+            oz = fc.oZ(30)
+            u &= le(oz, 0.5 * z)
+            d &= ge(oz, -0.5 * z)
+        u, d = onset(u), onset(d)
+        if p["trig"] is None:
+            return u, d
+        c = fc.arr("c")
+        return armed_trigger(u, d, B(gt0(fc.lo_prev(3) - c)), B(gt0(c - fc.hi_prev(3))),
+                             np.asarray(fc.arr("sday")), 15)
+
+    def event_text(self, p):
+        x = "" if p["es"] is None else f" while the other index future's 30-minute Z <= {0.5 * p['z']}"
+        y = "" if p["trig"] is None else "; then, within 15 bars, a close below the previous 3-bar low"
+        return (f"the 30-minute Z first exceeds +{p['z']}{x}{y}",
+                f"the 30-minute Z first falls below -{p['z']}{x.replace('<=', '>= -')}{y.replace('below', 'above').replace('low', 'high')}")
+
+
+class RelativeAcceleration(_Cross):
+    name = "v3_h29_relative_acceleration"
+    hypothesis = "H29"
+    title = "Relative acceleration"
+    summary = ("Relative move rel_k = Z_NQ(k) - Z_ES(k) >= thr; confluence acc: rel_k/sqrt(k) >= acc x the "
+               "relative move over the preceding 20 bars / sqrt(20). Trades NQ absolute continuation.")
+    conditions = ("acc",)
+    default_grid = {"k": [5], "thr": [1.0], "acc": [None, 2.0], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        k = int(p["k"])
+        with np.errstate(invalid="ignore"):
+            rel = fc.Z(k) - fc.oZ(k)
+        u, d = _dirz(fc, rel, float(p["thr"]))
+        if p["acc"] is not None:
+            prev = ind.shift_same_seg(fc.Z(20) - fc.oZ(20), k, fc.seg)
+            a = float(p["acc"])
+            with np.errstate(invalid="ignore"):
+                u &= np.isfinite(prev) & (rel / np.sqrt(k) >= a * prev / np.sqrt(20))
+                d &= np.isfinite(prev) & (rel / np.sqrt(k) <= a * prev / np.sqrt(20))
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        x = "" if p["acc"] is None else f", accelerating >= {p['acc']}x relative to the preceding 20 minutes"
+        return (f"this market's {p['k']}-minute Z first beats the other's by >= {p['thr']}{x}",
+                f"this market's {p['k']}-minute Z first trails the other's by >= {p['thr']}{x}")
+
+
+# =============================================================================== D. path shape
+
+class PECont(V3Family):
+    name = "v3_h30_path_efficiency_cont"
+    hypothesis, section = "H30", "D"
+    title = "Path-efficiency continuation"
+    summary = "Normalised path efficiency PE(n)*sqrt(n) >= e with at least a modest move Z(n) >= 0.75; continuation."
+    default_grid = {"n": [30], "e": [0.5], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        n = int(p["n"])
+        e = ge(fc.pe(n) * np.sqrt(n), float(p["e"]))
+        u, d = _dirz(fc, fc.Z(n), 0.75)
+        return onset(u & e), onset(d & e)
+
+    def event_text(self, p):
+        return (f"the {p['n']}-minute path efficiency x sqrt(n) first reaches >= {p['e']} on an up-move >= 0.75 sigma units",
+                f"the {p['n']}-minute path efficiency x sqrt(n) first reaches >= {p['e']} on a down-move >= 0.75 sigma units")
+
+
+class LowPERev(V3Family):
+    name = "v3_h31_low_efficiency_reversal"
+    hypothesis, section = "H31", "D"
+    title = "Low-efficiency reversal"
+    summary = "Large move Z(n) >= z achieved with normalised path efficiency PE(n)*sqrt(n) <= e (noisy path); fade."
+    default_grid = {"n": [30], "z": [1.25], "e": [0.2], "mode": ["reversal"]}
+
+    def events(self, fc, p):
+        n = int(p["n"])
+        e = le(fc.pe(n) * np.sqrt(n), float(p["e"]))
+        u, d = _dirz(fc, fc.Z(n), float(p["z"]))
+        return onset(u & e), onset(d & e)
+
+    def event_text(self, p):
+        return (f"the {p['n']}-minute move first exceeds +{p['z']} sigma units with path efficiency x sqrt(n) <= {p['e']}",
+                f"the {p['n']}-minute move first falls below -{p['z']} sigma units with path efficiency x sqrt(n) <= {p['e']}")
+
+
+class SpeedShock(V3Family):
+    name = "v3_h32_speed_shock"
+    hypothesis, section = "H32", "D"
+    title = "Speed shock"
+    summary = ("|k-minute move| >= s x its same-time-of-day mean |k-minute move|; direction = sign of the "
+               "move; continuation and reversal tested separately.")
+    default_grid = {"k": [5], "s": [3.0], "mode": ["continuation", "reversal"]}
+
+    def events(self, fc, p):
+        k = int(p["k"])
+        sh = ge(fc.speed_ratio(k), float(p["s"]))
+        r = fc.ret(k)
+        return onset(sh & gt0(r)), onset(sh & gt0(-r))
+
+    def event_text(self, p):
+        return (f"a {p['k']}-minute rise first reaches >= {p['s']}x the usual {p['k']}-minute absolute move at this time of day",
+                f"a {p['k']}-minute fall first reaches >= {p['s']}x the usual {p['k']}-minute absolute move at this time of day")
+
+
+def _three_windows(fc, w):
+    r3 = fc.ret(w)
+    r2 = ind.shift_same_seg(r3, w, fc.seg)
+    r1 = ind.shift_same_seg(r3, 2 * w, fc.seg)
+    return r1, r2, r3
+
+
+class Acceleration3(V3Family):
+    name = "v3_h33_acceleration"
+    hypothesis, section = "H33", "D"
+    title = "Acceleration (three windows)"
+    summary = ("Three consecutive w-minute moves in the same direction with strictly increasing size, total "
+               "move Z(3w) >= z; continuation.")
+    default_grid = {"w": [5], "z": [0.75], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        w = int(p["w"])
+        r1, r2, r3 = _three_windows(fc, w)
+        u0, d0 = _dirz(fc, fc.Z(3 * w), float(p["z"]))
+        with np.errstate(invalid="ignore"):
+            u = (r1 > 0) & (r2 > r1) & (r3 > r2)
+            d = (r1 < 0) & (r2 < r1) & (r3 < r2)
+        return onset(u & u0), onset(d & d0)
+
+    def event_text(self, p):
+        return (f"three consecutive {p['w']}-minute rises, each larger than the last, total >= {p['z']} sigma units",
+                f"three consecutive {p['w']}-minute falls, each larger than the last, total <= -{p['z']} sigma units")
+
+
+class Deceleration3(V3Family):
+    name = "v3_h34_deceleration"
+    hypothesis, section = "H34", "D"
+    title = "Deceleration"
+    summary = ("Three consecutive w-minute moves in the same direction with strictly decreasing size "
+               "(still progressing), total Z(3w) >= z; fade.")
+    default_grid = {"w": [5], "z": [1.0], "mode": ["reversal"]}
+
+    def events(self, fc, p):
+        w = int(p["w"])
+        r1, r2, r3 = _three_windows(fc, w)
+        u0, d0 = _dirz(fc, fc.Z(3 * w), float(p["z"]))
+        with np.errstate(invalid="ignore"):
+            u = (r3 > 0) & (r2 > r3) & (r1 > r2)
+            d = (r3 < 0) & (r2 < r3) & (r1 < r2)
+        return onset(u & u0), onset(d & d0)
+
+    def event_text(self, p):
+        return (f"three consecutive {p['w']}-minute rises, each smaller than the last, total >= {p['z']} sigma units",
+                f"three consecutive {p['w']}-minute falls, each smaller than the last, total <= -{p['z']} sigma units")
+
+
+class PullbackQuality(ImpulsePullback):
+    name = "v3_h35_pullback_quality"
+    hypothesis, section = "H35", "D"
+    title = "Pullback quality"
+    summary = ("As H10 (30-minute impulse, 33% pullback, resumption) with the pullback classified FAST "
+               "(depth reached <= 5 bars after the extreme) or SLOW (>= 15 bars). qual None = any (parent).")
+    conditions = ("qual",)
+    default_grid = {"L": [30], "zi": [1.5], "retr": [0.33], "qual": [None, "fast"], "mode": ["continuation"]}
+
+
+class TimeSinceExtreme(V3Family):
+    name = "v3_h36_time_since_extreme"
+    hypothesis, section = "H36", "D"
+    title = "Time since session high/low"
+    summary = ("stale: the RTH high was set >= Tm minutes ago and the close is still in the top 20% of the "
+               "RTH range (failed to extend). fresh: a new RTH high after >= Tm minutes without one. "
+               "Each tested as continuation and reversal (mirror for lows). After 10:30.")
+    default_grid = {"Tm": [60], "kind": ["stale"], "mode": ["continuation", "reversal"]}
+
+    def events(self, fc, p):
+        ro, rh, rl, rp, sh, sl, nb, cx = fc.rth()
+        c, h, l = fc.arr("c"), fc.arr("h"), fc.arr("l")
+        sday = np.asarray(fc.arr("sday"))
+        Tm = int(p["Tm"])
+        ok = in_sm(fc, T("10:30"), T("15:30"))
+        if p["kind"] == "stale":
+            with np.errstate(invalid="ignore", divide="ignore"):
+                loc = (c - rl) / (rh - rl)
+            u = ok & (sh >= Tm) & ge(loc, 0.8)
+            d = ok & (sl >= Tm) & le(loc, 0.2)
+            return onset(u), onset(d)
+        shp = shift_in_session(sh.astype(np.float64), sday)
+        slp = shift_in_session(sl.astype(np.float64), sday)
+        u = ok & ge(shp, Tm) & (sh == 0)
+        d = ok & ge(slp, Tm) & (sl == 0)
+        return B(u), B(d)
+
+    def event_text(self, p):
+        if p["kind"] == "stale":
+            return (f"the RTH high is >= {p['Tm']} minutes old and the close is still in the top 20% of the RTH range",
+                    f"the RTH low is >= {p['Tm']} minutes old and the close is still in the bottom 20% of the RTH range")
+        return (f"a new RTH high after >= {p['Tm']} minutes without one", f"a new RTH low after >= {p['Tm']} minutes without one")
+
+
+# =============================================================================== E. volatility / regime
+
+class RVShock(V3Family):
+    name = "v3_h37_rv_shock"
+    hypothesis, section = "H37", "E"
+    title = "Realised-volatility shock"
+    summary = ("rv15 / same-time-of-day norm >= v (onset); confluence hist: rv15 / rv390 >= 1.5 (also high vs "
+               "recent history). Direction = sign of the 15-minute move. Continuation and reversal.")
+    conditions = ("hist",)
+    default_grid = {"v": [2.0], "hist": [None, 1.5], "mode": ["continuation", "reversal"]}
+
+    def events(self, fc, p):
+        s = ge(fc.vol_shock(15), float(p["v"]))
+        if p["hist"] is not None:
+            s &= ge(fc.rv_ratio_hist(15, 390), float(p["hist"]))
+        s = onset(s)
+        r = fc.ret(15)
+        return B(s & gt0(r)), B(s & gt0(-r))
+
+    def event_text(self, p):
+        x = "" if p["hist"] is None else f" and >= {p['hist']}x the last 390 minutes' realised vol"
+        return (f"15-minute realised vol first reaches >= {p['v']}x its time-of-day norm{x}, with the 15-minute move up",
+                f"15-minute realised vol first reaches >= {p['v']}x its time-of-day norm{x}, with the 15-minute move down")
+
+
+class VoVShock(V3Family):
+    name = "v3_h38_vol_of_vol"
+    hypothesis, section = "H38", "E"
+    title = "Volatility-of-volatility shock"
+    summary = ("rv15 now / rv15 of the previous 15 bars >= q (jump) or <= 1/q (collapse); direction = sign of "
+               "the 15-minute move; continuation and reversal.")
+    default_grid = {"q": [2.0], "kind": ["jump"], "mode": ["continuation", "reversal"]}
+
+    def events(self, fc, p):
+        v = fc.vov(15)
+        q = float(p["q"])
+        s = ge(v, q) if p["kind"] == "jump" else le(v, 1.0 / q)
+        s = onset(s & _rth(fc))
+        r = fc.ret(15)
+        return B(s & gt0(r)), B(s & gt0(-r))
+
+    def event_text(self, p):
+        k = f"jumps to >= {p['q']}x" if p["kind"] == "jump" else f"collapses to <= 1/{p['q']} of"
+        return (f"15-minute realised vol {k} the previous 15 minutes' (first bar), 15-minute move up",
+                f"15-minute realised vol {k} the previous 15 minutes' (first bar), 15-minute move down")
+
+
+class IntradayCompressionBreakout(V3Family):
+    name = "v3_h39_intraday_compression_breakout"
+    hypothesis, section = "H39", "E"
+    title = "Intraday compression breakout"
+    summary = ("A 5-minute move Z(5) >= z5 (volatility expansion); confluence: the 30 bars before were "
+               "compressed (rv30 / time-of-day norm, measured at t-1, <= cth). Trade the expansion direction.")
+    conditions = ("cth",)
+    default_grid = {"cth": [None, 0.7], "z5": [1.5], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        u, d = _dirz(fc, fc.Z(5), float(p["z5"]))
+        if p["cth"] is not None:
+            s = le(fc.compression(30), float(p["cth"]))
+            u, d = u & s, d & s
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        x = "" if p["cth"] is None else f" after 30 minutes of realised vol <= {p['cth']}x the time-of-day norm"
+        return (f"the 5-minute move first exceeds +{p['z5']} sigma units{x}", f"the 5-minute move first falls below -{p['z5']} sigma units{x}")
+
+
+class DailyCompression(V3Family):
+    name = "v3_h40_daily_compression"
+    hypothesis, section = "H40", "E"
+    title = "Daily compression -> intraday expansion"
+    summary = ("Confluence dc: mean RTH range of the previous 3 sessions <= dc x that of the previous 20. "
+               "Trigger: first close of the session beyond the 30-minute opening range (or2) or beyond the "
+               "previous-day RTH high/low (pd). Continuation.")
+    conditions = ("dc",)
+    default_grid = {"dc": [None, 0.7], "trig": ["or30"], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        c = fc.arr("c")
+        if p["trig"] == "or30":
+            hi, lo = fc.opening_range(30)
+        else:
+            s = fc.session()
+            hi, lo = s.p_hi, s.p_lo
+        ok = in_sm(fc, RTH_S, T("15:30"))
+        u = ok & gt0(c - hi)
+        d = ok & gt0(lo - c)
+        if p["dc"] is not None:
+            a, b = fc.day_ranges(3, 20)
+            with np.errstate(invalid="ignore", divide="ignore"):
+                cc = le(a / b, float(p["dc"]))
+            u, d = u & cc, d & cc
+        return first_in_session(u, fc), first_in_session(d, fc)
+
+    def event_text(self, p):
+        x = "" if p["dc"] is None else f" on a day whose previous-3-session average RTH range is <= {p['dc']}x the previous-20 average"
+        lv = "the 30-minute opening range" if p["trig"] == "or30" else "the previous-day RTH range"
+        return (f"the session's first close above {lv}{x}", f"the session's first close below {lv}{x}")
+
+
+class VRTrend(V3Family):
+    name = "v3_h41_vr_trending"
+    hypothesis, section = "H41", "E"
+    title = "Variance-ratio trending regime + momentum"
+    summary = "Momentum Z(15) >= z; confluence: variance ratio VR(5) over the last L bars >= vr (persistent)."
+    conditions = ("vr",)
+    tied = {"vr": ("L",)}
+    default_grid = {"z": [1.0], "vr": [None, 1.2], "L": [120], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        u, d = _dirz(fc, fc.Z(15), float(p["z"]))
+        if p["vr"] is not None:
+            s = ge(fc.vr(5, int(p["L"])), float(p["vr"]))
+            u, d = u & s, d & s
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        x = "" if p["vr"] is None else f" with variance ratio VR(5) over the last {p['L']} minutes >= {p['vr']}"
+        return (f"the 15-minute move first exceeds +{p['z']} sigma units{x}", f"the 15-minute move first falls below -{p['z']} sigma units{x}")
+
+
+class VRMeanRev(V3Family):
+    name = "v3_h42_vr_mean_reverting"
+    hypothesis, section = "H42", "E"
+    title = "Variance-ratio mean-reverting regime + reversion"
+    summary = "Overextension dev(30) >= d; confluence: VR(5) over the last L bars <= vr (anti-persistent). Fade; natural target: the mean."
+    conditions = ("vr",)
+    tied = {"vr": ("L",)}
+    natural = True
+    default_grid = {"d": [1.0], "vr": [None, 0.8], "L": [120], "mode": ["reversal"]}
+
+    def events(self, fc, p):
+        u, d = _dirz(fc, fc.dev(30), float(p["d"]))
+        if p["vr"] is not None:
+            s = le(fc.vr(5, int(p["L"])), float(p["vr"]))
+            u, d = u & s, d & s
+        return onset(u), onset(d)
+
+    def abs_target(self, fc, p, fill):
+        m = fc.sma_prev(30)
+        return m, m
+
+    def event_text(self, p):
+        x = "" if p["vr"] is None else f" with VR(5) over the last {p['L']} minutes <= {p['vr']}"
+        return (f"the close first stands >= {p['d']} sigma units above the previous-30-close mean{x}",
+                f"the close first stands >= {p['d']} sigma units below the previous-30-close mean{x}")
+
+
+class PosACMomentum(V3Family):
+    name = "v3_h43_pos_autocorr_momentum"
+    hypothesis, section = "H43", "E"
+    title = "Positive autocorrelation regime + momentum"
+    summary = "Momentum Z(15) >= z; confluence: lag-1 autocorrelation of the last 24 five-minute returns >= a."
+    conditions = ("a",)
+    default_grid = {"z": [1.0], "a": [None, 0.1], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        u, d = _dirz(fc, fc.Z(15), float(p["z"]))
+        if p["a"] is not None:
+            s = ge(fc.ac5(24), float(p["a"]))
+            u, d = u & s, d & s
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        x = "" if p["a"] is None else f" with the 5-minute return autocorrelation (last 24) >= {p['a']}"
+        return (f"the 15-minute move first exceeds +{p['z']} sigma units{x}", f"the 15-minute move first falls below -{p['z']} sigma units{x}")
+
+
+class NegACMeanRev(V3Family):
+    name = "v3_h44_neg_autocorr_meanrev"
+    hypothesis, section = "H44", "E"
+    title = "Negative autocorrelation regime + mean reversion"
+    summary = "Overextension dev(30) >= d; confluence: 5-minute return autocorrelation (last 24) <= -a. Fade; natural target: the mean."
+    conditions = ("a",)
+    natural = True
+    default_grid = {"d": [1.0], "a": [None, 0.1], "mode": ["reversal"]}
+
+    def events(self, fc, p):
+        u, d = _dirz(fc, fc.dev(30), float(p["d"]))
+        if p["a"] is not None:
+            s = le(fc.ac5(24), -float(p["a"]))
+            u, d = u & s, d & s
+        return onset(u), onset(d)
+
+    def abs_target(self, fc, p, fill):
+        m = fc.sma_prev(30)
+        return m, m
+
+    def event_text(self, p):
+        x = "" if p["a"] is None else f" with the 5-minute return autocorrelation (last 24) <= -{p['a']}"
+        return (f"the close first stands >= {p['d']} sigma units above the previous-30-close mean{x}",
+                f"the close first stands >= {p['d']} sigma units below the previous-30-close mean{x}")
+
+
+# =============================================================================== F. day type
+
+# early trend-day criteria (fixed, documented in the preregistration)
+TD_RET, TD_RANGE, TD_EFF, TD_LOC, TD_VOL = 0.2, 0.45, 0.2, 0.75, 1.0
+RD_EFF, RD_CROSS, RD_RET = 0.1, 4, 0.12
+MR_EFF_HI, MR_EFF_LO = 0.13, 0.035
+TL_EFF = 0.1
+
+
+class EarlyTrendDay(V3Family):
+    name = "v3_h45_early_trend_day"
+    hypothesis, section = "H45", "F"
+    title = "Early trend-day classification"
+    summary = ("At the cutoff count five transparent criteria: |return from open| >= 0.2D, RTH range >= 0.45D, "
+               "efficiency >= 0.2, close location in the direction >= 0.75, 30-minute realised vol >= its "
+               "time-of-day norm. Trend day if >= k are met; trade the open-to-cutoff direction.")
+    default_grid = {"cut": ["10:30"], "k": [4], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        ro, rh, rl, rp, *_ = fc.rth()
+        c = fc.arr("c")
+        D = fc.D()
+        at = fc.at_time(T(p["cut"]))
+        with np.errstate(invalid="ignore", divide="ignore"):
+            r = (c - ro) / D
+            loc = (c - rl) / (rh - rl)
+            n = (ge(np.abs(r), TD_RET).astype(int) + ge((rh - rl) / D, TD_RANGE).astype(int)
+                 + ge(np.abs(c - ro) / rp, TD_EFF).astype(int) + ge(fc.vol_shock(30), TD_VOL).astype(int))
+            nu = n + ge(loc, TD_LOC).astype(int)
+            nd = n + le(loc, 1 - TD_LOC).astype(int)
+        k = int(p["k"])
+        return B(at & (nu >= k) & gt0(r)), B(at & (nd >= k) & gt0(-r))
+
+    def event_text(self, p):
+        return (f"at {p['cut']} at least {p['k']} of the 5 trend-day criteria hold and the close is above the RTH open",
+                f"at {p['cut']} at least {p['k']} of the 5 trend-day criteria hold and the close is below the RTH open")
+
+
+class EarlyRangeDay(V3Family):
+    name = "v3_h46_early_range_day"
+    hypothesis, section = "H46", "F"
+    title = "Early range-day classification + fade"
+    summary = ("At the cutoff count three criteria: efficiency since open <= 0.1, >= 4 crossings of the RTH "
+               "open, |return| <= 0.12D. Range day if >= strict are met (None = no classification, parent). "
+               "Then until 15:00 fade the first bar that trades beyond the cutoff's RTH high (low) and closes "
+               "back inside. Natural target: mid of the cutoff range.")
+    conditions = ("strict",)
+    natural = True
+    default_grid = {"cut": ["11:00"], "strict": [None, 2], "mode": ["reversal"]}
+
+    def _parts(self, fc, p):
+        ro, rh, rl, rp, sh, sl, nb, cx = fc.rth()
+        cut = T(p["cut"])
+        c = fc.arr("c")
+        D = fc.D()
+        with np.errstate(invalid="ignore", divide="ignore"):
+            n = (le(np.abs(c - ro) / rp, RD_EFF).astype(np.float64) + (cx >= RD_CROSS).astype(np.float64)
+                 + le(np.abs(c - ro) / D, RD_RET).astype(np.float64))
+        ncut = fc.val_at(f"rd_n_{p['cut']}", lambda: n, cut)
+        mh = fc.val_at("rth_hi", lambda: rh, cut)
+        ml = fc.val_at("rth_lo", lambda: rl, cut)
+        return ncut, mh, ml
+
+    def events(self, fc, p):
+        ncut, mh, ml = self._parts(fc, p)
+        c, h, l = fc.arr("c"), fc.arr("h"), fc.arr("l")
+        ok = in_sm(fc, T(p["cut"]), T("15:00"))
+        u = ok & ge(h - mh, 1e-12) & gt0(mh - c)
+        d = ok & le(l - ml, -1e-12) & gt0(c - ml)
+        if p["strict"] is not None:
+            cl = ge(ncut, float(p["strict"]))
+            u, d = u & cl, d & cl
+        return first_in_session(u, fc), first_in_session(d, fc)
+
+    def abs_target(self, fc, p, fill):
+        _, mh, ml = self._parts(fc, p)
+        m = (mh + ml) / 2
+        return m, m
+
+    def event_text(self, p):
+        x = "" if p["strict"] is None else f" on a day classified at {p['cut']} as a range day (>= {p['strict']} of 3 criteria)"
+        return (f"after {p['cut']} (until 15:00) a bar trades above the {p['cut']} RTH high and closes back below it{x}",
+                f"after {p['cut']} (until 15:00) a bar trades below the {p['cut']} RTH low and closes back above it{x}")
+
+
+def _gap(fc):
+    s = fc.session()
+    ro = fc.rth()[0]
+    with np.errstate(invalid="ignore", divide="ignore"):
+        return (ro - s.p_cl) / fc.D()
+
+
+class OvernightSameDir(V3Family):
+    name = "v3_h47_overnight_same_dir_open"
+    hypothesis, section = "H47", "F"
+    title = "Large overnight move + same-direction open"
+    summary = ("Gap (RTH open - previous RTH close) >= g x D; confluence open: at 09:30+w the close is >= 0.05D "
+               "beyond the RTH open in the gap direction. Continuation, entered at 09:30+w.")
+    conditions = ("open",)
+    default_grid = {"g": [0.25], "w": [15], "open": [None, "same"], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        g = _gap(fc)
+        at = fc.at_time(RTH_S + int(p["w"]))
+        u = at & ge(g, float(p["g"]))
+        d = at & le(g, -float(p["g"]))
+        if p["open"] is not None:
+            ro = fc.rth()[0]
+            with np.errstate(invalid="ignore", divide="ignore"):
+                m = (fc.arr("c") - ro) / fc.D()
+            u, d = u & ge(m, 0.05), d & le(m, -0.05)
+        return B(u), B(d)
+
+    def event_text(self, p):
+        x = "" if p["open"] is None else " and the close is >= 0.05D above the RTH open"
+        return (f"at 09:30+{p['w']}min, the RTH open gapped >= {p['g']}D above the previous RTH close{x}",
+                f"at 09:30+{p['w']}min, the RTH open gapped >= {p['g']}D below the previous RTH close{x.replace('above', 'below')}")
+
+
+class OvernightRejection(V3Family):
+    name = "v3_h48_overnight_opening_rejection"
+    hypothesis, section = "H48", "F"
+    title = "Large overnight move + opening rejection"
+    summary = ("Gap >= g x D, then at 09:30+w the close is >= o x D back against the gap from the RTH open. Fade "
+               "the gap. Natural target: the previous RTH close (gap fill).")
+    natural = True
+    default_grid = {"g": [0.25], "w": [15], "o": [0.05], "mode": ["reversal"]}
+
+    def events(self, fc, p):
+        g = _gap(fc)
+        at = fc.at_time(RTH_S + int(p["w"]))
+        ro = fc.rth()[0]
+        with np.errstate(invalid="ignore", divide="ignore"):
+            m = (fc.arr("c") - ro) / fc.D()
+        o = float(p["o"])
+        return B(at & ge(g, float(p["g"])) & le(m, -o)), B(at & le(g, -float(p["g"])) & ge(m, o))
+
+    def abs_target(self, fc, p, fill):
+        pc = fc.session().p_cl
+        return pc, pc
+
+    def event_text(self, p):
+        return (f"the RTH open gapped >= {p['g']}D up and at 09:30+{p['w']}min the close is >= {p['o']}D below the RTH open",
+                f"the RTH open gapped >= {p['g']}D down and at 09:30+{p['w']}min the close is >= {p['o']}D above the RTH open")
+
+
+class MorningRangePM(V3Family):
+    name = "v3_h49_morning_range_pm"
+    hypothesis, section = "H49", "F"
+    title = "Morning range -> afternoon continuation / reversal"
+    summary = ("At 12:00 the morning RTH range >= r x D; kind eff: efficiency since the open >= 0.13; ineff: "
+               "<= 0.035 (discovery quartiles). Direction = sign of the morning move. Each kind as continuation and reversal.")
+    default_grid = {"r": [0.6], "kind": ["eff"], "mode": ["continuation", "reversal"]}
+
+    def events(self, fc, p):
+        ro, rh, rl, rp, *_ = fc.rth()
+        c = fc.arr("c")
+        at = fc.at_time(T("12:00"))
+        with np.errstate(invalid="ignore", divide="ignore"):
+            big = ge((rh - rl) / fc.D(), float(p["r"]))
+            ef = np.abs(c - ro) / rp
+        e = ge(ef, MR_EFF_HI) if p["kind"] == "eff" else le(ef, MR_EFF_LO)
+        s = at & big & e
+        return B(s & gt0(c - ro)), B(s & gt0(ro - c))
+
+    def event_text(self, p):
+        k = f"efficiency >= {MR_EFF_HI}" if p["kind"] == "eff" else f"efficiency <= {MR_EFF_LO}"
+        return (f"at 12:00 the morning RTH range >= {p['r']}D with {k} and the close above the RTH open",
+                f"at 12:00 the morning RTH range >= {p['r']}D with {k} and the close below the RTH open")
+
+
+class TrendLunchPM(V3Family):
+    name = "v3_h50_trend_lunch_pm"
+    hypothesis, section = "H50", "F"
+    title = "Trend morning -> lunch consolidation -> PM continuation"
+    summary = ("A: at 11:30 the close is >= m x D from the RTH open with efficiency >= 0.1. B (cons): the "
+               "11:30-13:30 range <= cons x the 09:30-11:30 range. C (trig=brk): after 13:30 the first close "
+               "beyond the 11:30-13:30 range in the morning direction; trig None: enter at 13:30.")
+    conditions = ("cons", "trig")
+    default_grid = {"m": [0.4], "cons": [None, 0.5], "trig": ["brk"], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        ro, rh, rl, rp, *_ = fc.rth()
+        c = fc.arr("c")
+        t1130 = T("11:30")
+        with np.errstate(invalid="ignore", divide="ignore"):
+            mv = fc.val_at("h50mv", lambda: (c - ro) / fc.D(), t1130)
+            ef = fc.val_at("h50ef", lambda: np.abs(c - ro) / rp, t1130)
+            mr = fc.val_at("h50mr", lambda: rh - rl, t1130)
+        m = float(p["m"])
+        au = ge(mv, m) & ge(ef, TL_EFF)
+        ad = le(mv, -m) & ge(ef, TL_EFF)
+        mh, ml = fc.win_hilo(t1130, T("13:30"))
+        if p["cons"] is not None:
+            with np.errstate(invalid="ignore", divide="ignore"):
+                cc = le((mh - ml) / mr, float(p["cons"]))
+            au, ad = au & cc, ad & cc
+        if p["trig"] is None:
+            at = fc.at_time(T("13:30"))
+            return B(at & au), B(at & ad)
+        ok = in_sm(fc, T("13:30"), T("15:30"))
+        u = ok & au & gt0(c - mh)
+        d = ok & ad & gt0(ml - c)
+        return first_in_session(u, fc), first_in_session(d, fc)
+
+    def event_text(self, p):
+        a = f"at 11:30 the close is >= {p['m']}D above the RTH open with efficiency >= {TL_EFF}"
+        b = "" if p["cons"] is None else f"; the 11:30-13:30 range is <= {p['cons']}x the morning range"
+        c = "; entry at 13:30" if p["trig"] is None else "; then the first close after 13:30 above the 11:30-13:30 high"
+        u = a + b + c
+        return u, u.replace("above", "below").replace("high", "low")
+
+
+# =============================================================================== X. executor hypotheses
+
+class TurnOfMonth(V3Family):
+    name = "v3_x1_turn_of_month"
+    hypothesis, section = "X1", "X"
+    title = "Turn-of-month long"
+    summary = ("Executor hypothesis X1: month-start institutional inflows. On the first N sessions of a calendar "
+               "month, buy at 09:31 (signal at the 09:30 bar's close). Long only.")
+    default_grid = {"N": [1], "mode": ["continuation"]}
+    default_directions = ("long",)
+
+    def events(self, fc, p):
+        at = fc.at_time(RTH_S + 1)
+        ms = fc.month_session()
+        u = at & (ms <= int(p["N"]))
+        return B(u), np.zeros(fc.v.n, dtype=bool)
+
+    def event_text(self, p):
+        return (f"it is one of the first {p['N']} sessions of the calendar month and the 09:30 bar has closed", "never")
+
+
+class IntradayMomentumLastHalfHour(V3Family):
+    name = "v3_x2_first_to_last_half_hour"
+    hypothesis, section = "X2", "X"
+    title = "First half-hour predicts last half-hour"
+    summary = ("Executor hypothesis X2 (intraday time-series momentum; late-day hedging/rebalancing flow): the "
+               "return to 10:00 (from the previous RTH close, base=pcl, or from the RTH open, base=open) >= thr x D "
+               "sets the direction; enter at 15:30, exit by 16:00. thr 0 = sign only.")
+    default_grid = {"base": ["pcl"], "thr": [0.0], "mode": ["continuation"]}
+    window = "rth_late"
+
+    def events(self, fc, p):
+        c = fc.arr("c")
+        if p["base"] == "pcl":
+            ref = fc.session().p_cl
+        else:
+            ref = fc.rth()[0]
+        with np.errstate(invalid="ignore", divide="ignore"):
+            r = fc.val_at(f"x2_{p['base']}", lambda: (c - ref) / fc.D(), T("10:00"))
+        at = fc.at_time(T("15:30"))
+        thr = max(float(p["thr"]), 1e-12)
+        return B(at & ge(r, thr)), B(at & le(r, -thr))
+
+    def event_text(self, p):
+        b = "the previous RTH close" if p["base"] == "pcl" else "the RTH open"
+        return (f"at 15:30, the 10:00 close was > {p['thr']}D above {b}", f"at 15:30, the 10:00 close was > {p['thr']}D below {b}")
+
+
+class CorrRegimeMomentum(_Cross):
+    name = "v3_x3_corr_regime_momentum"
+    hypothesis, section = "X3", "X"
+    title = "Correlation-regime momentum"
+    summary = ("Executor hypothesis X3: momentum Z(30) >= z is market-wide (and should persist) when NQ/ES "
+               "one-minute correlation over the last 390 bars is high (>= 0.9), idiosyncratic when low (<= 0.75).")
+    conditions = ("reg",)
+    default_grid = {"z": [1.5], "reg": [None, "high"], "mode": ["continuation"]}
+
+    def events(self, fc, p):
+        u, d = _dirz(fc, fc.Z(30), float(p["z"]))
+        if p["reg"] is not None:
+            cr = fc.corr(390)
+            s = ge(cr, 0.9) if p["reg"] == "high" else le(cr, 0.75)
+            u, d = u & s, d & s
+        return onset(u), onset(d)
+
+    def event_text(self, p):
+        x = {None: "", "high": " with 390-minute NQ/ES correlation >= 0.9", "low": " with 390-minute NQ/ES correlation <= 0.75"}[p["reg"]]
+        return (f"the 30-minute move first exceeds +{p['z']} sigma units{x}", f"the 30-minute move first falls below -{p['z']} sigma units{x}")
+
+
+V3_FAMILIES = [
+    EfficientMomentum(), MomentumAcceleration(), MultiHorizonMomentum(), HTFTrendImpulse(), VolShockMomentum(),
+    CompressionExpansion3(), OpeningDrive(), MorningTrend(), LastHourTrend(), ImpulsePullback(),
+    FailedCountertrend(), BreakoutAcceptance(),
+    Overextension(), DecelerationExhaustion(), SessionExtremeRejection(), PDFailedBreak(), ONFailedBreak(),
+    ORFailedBreak(), LargeMorningReversal(), ExtremeMovePath(),
+    ESLeadsNQ(), NQLeadsES(), RelativeMomentum(), BetaResidual(), CorrBreakdown(), SMT(), CrossConfirmMomentum(),
+    DisagreementReversal(), RelativeAcceleration(),
+    PECont(), LowPERev(), SpeedShock(), Acceleration3(), Deceleration3(), PullbackQuality(), TimeSinceExtreme(),
+    RVShock(), VoVShock(), IntradayCompressionBreakout(), DailyCompression(), VRTrend(), VRMeanRev(), PosACMomentum(),
+    NegACMeanRev(),
+    EarlyTrendDay(), EarlyRangeDay(), OvernightSameDir(), OvernightRejection(), MorningRangePM(), TrendLunchPM(),
+    TurnOfMonth(), IntradayMomentumLastHalfHour(), CorrRegimeMomentum(),
+]

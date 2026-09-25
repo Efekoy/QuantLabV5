@@ -1,0 +1,598 @@
+{
+ "body_sha256": "1708eddcf919a46daef57cf8b01014f8e196f4e39f20acb08842fb2604b7f307",
+ "created_utc": "2026-09-25T05:20:01.194563+00:00",
+ "files": {
+  "config/costs.yaml": "d3bdaea53afff688c2b29da42c81e02a22a4f091162ae64bbd968d3bc9173108",
+  "config/prereg_v4.yaml": "9017c243e0e036c64693c126b4f54939cb4968d7636726cf472b7d3e8739e469",
+  "config/sessions.yaml": "c66de75048562a5a5b410237ad3e08a00147568732d94b02e3aea56f5b0e2f23",
+  "freezes/CONFIRMATION_FREEZE.json": "97a5a053f9058d31224edb01c0f0a305df93424bdad79b895d7174b0f11f0681",
+  "quantlab4/v4/analysis.py": "e75b729281ed3d7762288398b7f1d01aa80439a08c6831b13e4c5767bd9124cb",
+  "quantlab4/v4/featurelib.py": "f1274aa446913e00fedb53a5979f14b734f0915d12022235c2096a6b6d473751",
+  "quantlab4/v4/kernel.py": "ac0aceef904e2c7e0944e2d2acccbbf7a966e01307b06f434a1bc0abe417ab15",
+  "quantlab4/v4/outcomes.py": "ddfe9d5d5fdd8993449567eac3f88ebb9f214872528cea053f90dbe69bd18549",
+  "quantlab4/v4/propsim.py": "ee69121abe08d8c384c9142ec52381c61c3ecc70a8a57162a3a912bd18a299f8",
+  "research/s11_frozen_evaluation.py": "d0ae0d33f61eb0db2120b2e4e8d1a0c26a02fda89328084e20026211bf68655e",
+  "results/discovery/selection/ML_FROZEN.pkl": "926248e52d1fa532c317e37da24ed652ae64110f8219cb5e061668bd3091f048",
+  "results/discovery/selection/VALIDATION_SET.json": "b5afc72f290bfaeff9500209ac6960727a108e3c6cea8445e38d95fd8f105c4c",
+  "results/final/FINAL_SELECTION.json": "efe91ddfa61ab76b771452d2db1ccac507d34f1be1bfce15ca2d516dece5879a",
+  "results/final/PROP_RESEARCH.json": "3e5df295a06ab5308f54d67aaa88551a5fbd70adfcfe569d745ce1b1056eac22"
+ },
+ "git_commit": "9f809ca9ab888a6d32b2958f4d479e38b58dec5d",
+ "kind": "FINAL_COHORT_FREEZE",
+ "ledger_anchor": {
+  "record_hash": "099c3f99dfe71a6644bd952cfa52e3545b7ed7bbf3369aab5f32ca2589b50f7e",
+  "seq": 613
+ },
+ "sections": {
+  "artifacts": {
+   "ml_frozen": "results/discovery/selection/ML_FROZEN.pkl"
+  },
+  "cleaning": "clean_v1_2026-09-23",
+  "cluster_selection_rule": {
+   "input": "all DISCOVERY candidates that PASS the screen, capped at the top 5000 by t (if none pass: the 300 eligible candidates with the highest t)",
+   "method": "greedy in descending t; join the first cluster whose representative correlates >= 0.60",
+   "representative": "highest neighbourhood-robustness score, ties by t",
+   "stream": "daily net P&L (baseline cost), DISCOVERY sessions"
+  },
+  "cohort": [
+   {
+    "addr": [
+     "RULE",
+     65,
+     264,
+     2,
+     13
+    ],
+    "discovery_t": 3.017971646452453,
+    "family": "VWAP",
+    "id": "Q4-60857891da97d59c25f0f86c",
+    "pooled_t": 4.247640362110252,
+    "spec": {
+     "exit": "S2_R3",
+     "family": "VWAP",
+     "filters": [
+      "sgnvol_aligned",
+      "volreg_low"
+     ],
+     "grammar": "V4G1",
+     "instrument": "NQ",
+     "kind": "RULE",
+     "trigger": "VWAP:dist_cross:anchor=glx,thr=3.0",
+     "variant": "cont_long",
+     "window": "rth"
+    },
+    "validation": {
+     "mean": 10.426971608832808,
+     "n": 317,
+     "pf": 1.6916405105670642,
+     "posthoc_drift_excess_mean": 9.138236970574322,
+     "posthoc_drift_excess_t": 3.0422662908243763,
+     "stress_sum": 3115.1500000000005,
+     "sum": 3305.3500000000004,
+     "t": 3.4653009638986005,
+     "years": {
+      "2019": -110.50000000000013,
+      "2020": 914.1500000000001,
+      "2021": 1210.2499999999998,
+      "2022": 1291.4500000000003
+     },
+     "years_pos": 3
+    }
+   },
+   {
+    "addr": [
+     "RULE",
+     97,
+     621,
+     0,
+     11
+    ],
+    "discovery_t": 3.101552366698296,
+    "family": "DIST",
+    "id": "Q4-9757cb9ee92c11b68d2ad60b",
+    "pooled_t": 4.202688868359198,
+    "spec": {
+     "exit": "S2_EOD",
+     "family": "DIST",
+     "filters": [
+      "es_confirms",
+      "trend60_aligned"
+     ],
+     "grammar": "V4G1",
+     "instrument": "NQ",
+     "kind": "RULE",
+     "trigger": "DIST:semi_cross:W=30,thr=0.7",
+     "variant": "cont_both",
+     "window": "rth"
+    },
+    "validation": {
+     "mean": 9.893376764386538,
+     "n": 921,
+     "pf": 1.3591557762006772,
+     "posthoc_drift_excess_mean": 8.958844458034322,
+     "posthoc_drift_excess_t": 2.9832112238148603,
+     "stress_sum": 8559.2,
+     "sum": 9111.800000000001,
+     "t": 3.291005627018512,
+     "years": {
+      "2019": -533.8499999999996,
+      "2020": 507.45000000000056,
+      "2021": 2193.5500000000006,
+      "2022": 6944.65
+     },
+     "years_pos": 3
+    }
+   },
+   {
+    "addr": [
+     "RULE",
+     9,
+     264,
+     3,
+     8
+    ],
+    "discovery_t": 3.054353173310403,
+    "family": "RET",
+    "id": "Q4-14478681d690cde198df1979",
+    "pooled_t": 4.195372544287677,
+    "spec": {
+     "exit": "S2_T30",
+     "family": "RET",
+     "filters": [
+      "sgnvol_aligned",
+      "volreg_low"
+     ],
+     "grammar": "V4G1",
+     "instrument": "NQ",
+     "kind": "RULE",
+     "trigger": "RET:retz_cross:H=15,thr=2.0",
+     "variant": "cont_short",
+     "window": "rth"
+    },
+    "validation": {
+     "mean": 6.931502890173411,
+     "n": 346,
+     "pf": 1.7160707621109204,
+     "posthoc_drift_excess_mean": 7.81594322971526,
+     "posthoc_drift_excess_t": 3.89122739383288,
+     "stress_sum": 2190.7000000000003,
+     "sum": 2398.3,
+     "t": 3.451439814343439,
+     "years": {
+      "2019": -127.40000000000005,
+      "2020": 194.40000000000003,
+      "2021": 439.2500000000001,
+      "2022": 1892.0499999999997
+     },
+     "years_pos": 3
+    }
+   },
+   {
+    "addr": [
+     "RULE",
+     22,
+     266,
+     0,
+     13
+    ],
+    "discovery_t": 3.5416363705834057,
+    "family": "RET",
+    "id": "Q4-40aae8a2c827fb779e4dd7b9",
+    "pooled_t": 4.123774478099989,
+    "spec": {
+     "exit": "S2_R3",
+     "family": "RET",
+     "filters": [
+      "semi_aligned",
+      "volreg_low"
+     ],
+     "grammar": "V4G1",
+     "instrument": "NQ",
+     "kind": "RULE",
+     "trigger": "RET:open_retz_cross:thr=2.0",
+     "variant": "cont_both",
+     "window": "rth"
+    },
+    "validation": {
+     "mean": 12.764114832535885,
+     "n": 418,
+     "pf": 1.5172191497302612,
+     "posthoc_drift_excess_mean": 11.260593807497662,
+     "posthoc_drift_excess_t": 2.844413400296785,
+     "stress_sum": 5084.599999999999,
+     "sum": 5335.4,
+     "t": 3.2203798776535657,
+     "years": {
+      "2019": 568.3499999999999,
+      "2020": 332.50000000000017,
+      "2021": 1312.5,
+      "2022": 3122.0499999999997
+     },
+     "years_pos": 4
+    }
+   },
+   {
+    "addr": [
+     "RULE",
+     182,
+     479,
+     0,
+     9
+    ],
+    "discovery_t": 3.212403976671936,
+    "family": "XMKT",
+    "id": "Q4-c790712e4f51f6f4268b0033",
+    "pooled_t": 4.042485087747169,
+    "spec": {
+     "exit": "S2_T60",
+     "family": "XMKT",
+     "filters": [
+      "corr_low",
+      "first_hour"
+     ],
+     "grammar": "V4G1",
+     "instrument": "NQ",
+     "kind": "RULE",
+     "trigger": "XMKT:er_disagree:H=15,thr=0.4",
+     "variant": "cont_both",
+     "window": "rth"
+    },
+    "validation": {
+     "mean": 12.277891156462584,
+     "n": 147,
+     "pf": 1.9361255186721995,
+     "posthoc_drift_excess_mean": 13.01400379648014,
+     "posthoc_drift_excess_t": 3.166457647004183,
+     "stress_sum": 1716.6499999999999,
+     "sum": 1804.85,
+     "t": 2.990996095381005,
+     "years": {
+      "2019": -33.75000000000001,
+      "2020": 873.1500000000001,
+      "2021": 603.7999999999998,
+      "2022": 361.65000000000003
+     },
+     "years_pos": 3
+    }
+   }
+  ],
+  "cost_model": {
+   "default_scenario": "baseline",
+   "instruments": {
+    "ES": {
+     "commission_round_trip": 4.0,
+     "extra_cost_round_trip": 0.0,
+     "point_value": 50.0,
+     "slippage_ticks_per_side": 1.0,
+     "tick_size": 0.25,
+     "validated": true
+    },
+    "MES": {
+     "commission_round_trip": 1.0,
+     "extra_cost_round_trip": 0.0,
+     "point_value": 5.0,
+     "slippage_ticks_per_side": 1.0,
+     "tick_size": 0.25,
+     "validated": false
+    },
+    "MNQ": {
+     "commission_round_trip": 1.0,
+     "extra_cost_round_trip": 0.0,
+     "point_value": 2.0,
+     "slippage_ticks_per_side": 1.0,
+     "tick_size": 0.25,
+     "validated": false
+    },
+    "NQ": {
+     "commission_round_trip": 4.0,
+     "extra_cost_round_trip": 0.0,
+     "point_value": 20.0,
+     "slippage_ticks_per_side": 1.0,
+     "tick_size": 0.25,
+     "validated": true
+    }
+   },
+   "micro_of": {
+    "ES": {
+     "micro": "MES",
+     "ratio": 10
+    },
+    "NQ": {
+     "micro": "MNQ",
+     "ratio": 10
+    }
+   },
+   "scenarios": {
+    "baseline": {
+     "commission_mult": 1.0,
+     "extra_mult": 1.0,
+     "slippage_mult": 1.0
+    },
+    "gross": {
+     "commission_mult": 0.0,
+     "extra_mult": 0.0,
+     "slippage_mult": 0.0
+    },
+    "moderate": {
+     "commission_mult": 1.0,
+     "extra_mult": 1.0,
+     "slippage_mult": 0.5
+    },
+    "stress": {
+     "commission_mult": 1.5,
+     "extra_mult": 1.0,
+     "slippage_mult": 2.0
+    }
+   },
+   "version": "costs_v4_2026-09-23"
+  },
+  "entry_rules": "signal at bar close -> market entry at next bar open; entries 09:30-15:30 NY; one position per strategy",
+  "execution": "pessimistic same-bar stop/target; target 1-tick trade-through; stop gap fills at open; flat 16:00, session change, roll",
+  "exit_rules": {
+   "S1_EOD": {
+    "hold": -1,
+    "id": "S1_EOD",
+    "stop_mult": 1.0,
+    "target_R": 0.0
+   },
+   "S1_R2": {
+    "hold": -1,
+    "id": "S1_R2",
+    "stop_mult": 1.0,
+    "target_R": 2.0
+   },
+   "S1_R3": {
+    "hold": -1,
+    "id": "S1_R3",
+    "stop_mult": 1.0,
+    "target_R": 3.0
+   },
+   "S1_T120": {
+    "hold": 120,
+    "id": "S1_T120",
+    "stop_mult": 1.0,
+    "target_R": 0.0
+   },
+   "S1_T15": {
+    "hold": 15,
+    "id": "S1_T15",
+    "stop_mult": 1.0,
+    "target_R": 0.0
+   },
+   "S1_T30": {
+    "hold": 30,
+    "id": "S1_T30",
+    "stop_mult": 1.0,
+    "target_R": 0.0
+   },
+   "S1_T60": {
+    "hold": 60,
+    "id": "S1_T60",
+    "stop_mult": 1.0,
+    "target_R": 0.0
+   },
+   "S2_EOD": {
+    "hold": -1,
+    "id": "S2_EOD",
+    "stop_mult": 2.0,
+    "target_R": 0.0
+   },
+   "S2_R2": {
+    "hold": -1,
+    "id": "S2_R2",
+    "stop_mult": 2.0,
+    "target_R": 2.0
+   },
+   "S2_R3": {
+    "hold": -1,
+    "id": "S2_R3",
+    "stop_mult": 2.0,
+    "target_R": 3.0
+   },
+   "S2_T120": {
+    "hold": 120,
+    "id": "S2_T120",
+    "stop_mult": 2.0,
+    "target_R": 0.0
+   },
+   "S2_T15": {
+    "hold": 15,
+    "id": "S2_T15",
+    "stop_mult": 2.0,
+    "target_R": 0.0
+   },
+   "S2_T30": {
+    "hold": 30,
+    "id": "S2_T30",
+    "stop_mult": 2.0,
+    "target_R": 0.0
+   },
+   "S2_T60": {
+    "hold": 60,
+    "id": "S2_T60",
+    "stop_mult": 2.0,
+    "target_R": 0.0
+   }
+  },
+  "failure_criteria": {
+   "cohort_pass_if": {
+    "net_positive_baseline": true,
+    "net_positive_stress": true,
+    "t_min": 1.5
+   },
+   "no_changes": "no parameter, filter, exit, sizing, risk, ranking or membership change of any kind",
+   "otherwise": "INCONCLUSIVE",
+   "strategy_failed_if": "net <= 0 at baseline cost",
+   "strategy_supported_if": {
+    "net_positive_baseline": true,
+    "pf_min": 1.05,
+    "t_min": 1.0
+   }
+  },
+  "feature_library": "featurelib_v4.0_2026-09-23",
+  "forward_2026_evaluation_rules": "research/s11_frozen_evaluation.py FORWARD2026, unchanged cohort, after HOLDOUT_REPORT_FREEZE",
+  "holdout_evaluation_rules": "research/s11_frozen_evaluation.py HOLDOUT, unchanged cohort, classification per failure_criteria",
+  "parameters": {
+   "Q4-14478681d690cde198df1979": {
+    "exit": "S2_T30",
+    "family": "RET",
+    "filters": [
+     "sgnvol_aligned",
+     "volreg_low"
+    ],
+    "grammar": "V4G1",
+    "instrument": "NQ",
+    "kind": "RULE",
+    "trigger": "RET:retz_cross:H=15,thr=2.0",
+    "variant": "cont_short",
+    "window": "rth"
+   },
+   "Q4-40aae8a2c827fb779e4dd7b9": {
+    "exit": "S2_R3",
+    "family": "RET",
+    "filters": [
+     "semi_aligned",
+     "volreg_low"
+    ],
+    "grammar": "V4G1",
+    "instrument": "NQ",
+    "kind": "RULE",
+    "trigger": "RET:open_retz_cross:thr=2.0",
+    "variant": "cont_both",
+    "window": "rth"
+   },
+   "Q4-60857891da97d59c25f0f86c": {
+    "exit": "S2_R3",
+    "family": "VWAP",
+    "filters": [
+     "sgnvol_aligned",
+     "volreg_low"
+    ],
+    "grammar": "V4G1",
+    "instrument": "NQ",
+    "kind": "RULE",
+    "trigger": "VWAP:dist_cross:anchor=glx,thr=3.0",
+    "variant": "cont_long",
+    "window": "rth"
+   },
+   "Q4-9757cb9ee92c11b68d2ad60b": {
+    "exit": "S2_EOD",
+    "family": "DIST",
+    "filters": [
+     "es_confirms",
+     "trend60_aligned"
+    ],
+    "grammar": "V4G1",
+    "instrument": "NQ",
+    "kind": "RULE",
+    "trigger": "DIST:semi_cross:W=30,thr=0.7",
+    "variant": "cont_both",
+    "window": "rth"
+   },
+   "Q4-c790712e4f51f6f4268b0033": {
+    "exit": "S2_T60",
+    "family": "XMKT",
+    "filters": [
+     "corr_low",
+     "first_hour"
+    ],
+    "grammar": "V4G1",
+    "instrument": "NQ",
+    "kind": "RULE",
+    "trigger": "XMKT:er_disagree:H=15,thr=0.4",
+    "variant": "cont_both",
+    "window": "rth"
+   }
+  },
+  "portfolio": "equal fixed-dollar risk per strategy; trades skipped when simultaneous open risk would exceed 2 x risk",
+  "prop_policy": {
+   "daily_policy": "stop_after_daily_loss_300",
+   "max_open_risk_usd": 400,
+   "primary_profile": "GENERIC_EVAL_EOD",
+   "profiles": {
+    "GENERIC_EVAL_EOD": {
+     "consistency": 0.5,
+     "daily_action": "halt_day",
+     "daily_loss": 1000,
+     "max_loss": 2000,
+     "min_days": 5,
+     "mode": "eod",
+     "start": 50000,
+     "target": 3000,
+     "trail_lock_offset": 0
+    },
+    "GENERIC_EVAL_INTRADAY": {
+     "consistency": 0.5,
+     "daily_action": "halt_day",
+     "daily_loss": 1000,
+     "max_loss": 2000,
+     "min_days": 5,
+     "mode": "intraday",
+     "start": 50000,
+     "target": 3000,
+     "trail_lock_offset": 0
+    }
+   },
+   "prop_eligible": true,
+   "risk_usd": 200
+  },
+  "researcher_prior_exposure": "V2/V3 researchers were previously exposed to 2019-2026 market behaviour; disclosed limitation",
+  "selection_process": {
+   "log": [
+    {
+     "family": "VWAP",
+     "id": "Q4-60857891da97d59c25f0f86c",
+     "pooled_t": 4.247640362110252,
+     "reason": null,
+     "selected": true
+    },
+    {
+     "family": "DIST",
+     "id": "Q4-9757cb9ee92c11b68d2ad60b",
+     "pooled_t": 4.202688868359198,
+     "reason": null,
+     "selected": true
+    },
+    {
+     "family": "RET",
+     "id": "Q4-14478681d690cde198df1979",
+     "pooled_t": 4.195372544287677,
+     "reason": null,
+     "selected": true
+    },
+    {
+     "family": "RET",
+     "id": "Q4-40aae8a2c827fb779e4dd7b9",
+     "pooled_t": 4.123774478099989,
+     "reason": null,
+     "selected": true
+    },
+    {
+     "family": "XMKT",
+     "id": "Q4-c790712e4f51f6f4268b0033",
+     "pooled_t": 4.042485087747169,
+     "reason": null,
+     "selected": true
+    }
+   ],
+   "n_validation_survivors": 43,
+   "rules": {
+    "eligible": "validation survivors",
+    "fallback_if_empty": "UNSUPPORTED_BEST_EFFORT cohort = top 3 validation performers by validation t (one per family); tested on holdout/2026 as falsification; not prop-eligible",
+    "max_pairwise_daily_corr": 0.5,
+    "max_per_family": 2,
+    "max_strategies": 5,
+    "min_pooled_t": 3.0,
+    "rank_by": "pooled DISCOVERY+VALIDATION t (net, baseline)"
+   }
+  },
+  "sizing_rules": {
+   "instrument": "MNQ",
+   "method": "fixed-dollar risk per trade = frozen stop distance x $2 x contracts",
+   "policy_if_one_micro_exceeds": "SKIP",
+   "risk_usd": 200,
+   "rounding": "floor to integer micros (exact cents)"
+  },
+  "status": "SUPPORTED_COHORT"
+ }
+}

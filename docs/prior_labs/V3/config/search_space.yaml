@@ -1,0 +1,71 @@
+# QuantLabV3 -- DISCOVERY search space (first V3 campaign).
+#
+# Written BEFORE any discovery return / P&L was computed. Scale-dependent thresholds were set from
+# DISCOVERY feature distributions only (results/discovery/feature_calibration_quantiles.json):
+#   * normalised path efficiency PE(n)*sqrt(n): median ~1.8, upper quartile ~2.2 at |Z|>=1.5 momentum onsets
+#   * dev(n): 94th / 98.5th / 99.5th percentiles ~ 1.25 / 1.75 / 2.25
+#   * compression (rv/time-of-day norm): 10th / 25th percentiles ~ 0.6 / 0.75
+#   * VR(5,120): 10th/25th pct 0.67/0.77, 90th/97.5th 1.21/1.40 ; ac5(24): 10/25/75/90 pct -0.27/-0.15/0.12/0.24
+#   * beta residual |z30| 97.5th pct 3.5 ; corr30 10th/25th pct 0.63/0.745 ; range3/range20 10/25 pct 0.66/0.79
+#   * day-type values from their session-time quantiles (see preregistration)
+# null = the confluence condition is ABSENT (the ablation parent). Management is defined in
+# core/quantlab3/engine/v3exec.py (management_library) and is identical for every family of a mode.
+
+version: v3_search_space_2026-09-22
+default_instruments: [NQ]
+directions: [long, short, both]
+
+families:
+  v3_h01_efficient_momentum:     {grid: {n: [15, 30, 60], z: [1.0, 1.5, 2.0], pe: [null, 1.8, 2.2], mode: [continuation]}}
+  v3_h02_momentum_acceleration:  {grid: {k: [5, 10], zk: [1.0, 1.5], m: [20, 30], acc: [null, 0, 1.5, 2.5], mode: [continuation]}}
+  v3_h03_multi_horizon:          {grid: {h5: [null, true], h30: [null, true], h120: [null, true], z: [0.5, 1.0], mode: [continuation]}}
+  v3_h04_htf_trend_impulse:      {grid: {htf: [120, 240], zh: [null, 0.5, 1.0], k: [5, 10], zi: [null, 1.5, 2.0], mode: [continuation]}}
+  v3_h05_vol_shock_momentum:     {grid: {n: [15, 30], z: [1.0, 1.5], v: [null, 1.5, 2.0, 3.0], mode: [continuation]}}
+  v3_h06_compression_expansion:  {grid: {N: [30, 60], cth: [null, 0.6, 0.75], strong: [null, 1.0], mode: [continuation]}}
+  v3_h07_opening_drive:          {grid: {w: [15, 30], m: [0.15, 0.3], e: [null, 0.25, 0.4], mode: [continuation]}}
+  v3_h08_morning_trend:          {grid: {cut: ["10:30", "11:00"], m: [0.3, 0.5], e: [null, 0.15], cl: [null, 0.75], mode: [continuation]}}
+  v3_h09_last_hour_trend:        {grid: {cut: ["15:00"], m: [0.4, 0.7], e: [null, 0.08], cl: [null, 0.8], mode: [continuation]}}
+  v3_h10_impulse_pullback:       {grid: {L: [15, 30], zi: [1.5, 2.0], retr: [null, 0.25, 0.33, 0.5], mode: [continuation]}}
+  v3_h11_failed_countertrend:    {grid: {zt: [0.75, 1.5], zc: [null, 1.0, 1.5], r: [3, 10], mode: [continuation]}}
+  v3_h12_breakout_acceptance:    {grid: {level: [roll120, "on", pd], acc: [touch, close2, close3, retest, displace], mode: [continuation]}}
+  v3_h13_overextension:          {grid: {n: [30, 60, 120], d: [1.25, 1.75, 2.25], mode: [reversal]}}
+  v3_h14_deceleration_exhaustion: {grid: {N: [30, 60], z: [1.5, 2.5], r: [null, 0.5, 0.25], mode: [reversal]}}
+  v3_h15_session_extreme_rejection: {grid: {k: [5, 15], rj: [0.25, 0.5, 1.0], mode: [reversal]}}
+  v3_h16_pdhl_failed_break:      {grid: {k: [5, 15, 30], depth: [0.0, 0.25], mode: [reversal]}}
+  v3_h17_overnight_failed_break: {grid: {k: [5, 15, 30], depth: [0.0, 0.25], mode: [reversal]}}
+  v3_h18_or_failed_breakout:     {grid: {orw: [15, 30], k: [5, 15], depth: [0.0, 0.25], mode: [reversal]}}
+  v3_h19_large_morning_reversal: {grid: {m: [0.5, 0.8], dr: [null, 0.25, 0.4], mode: [reversal]}}
+  v3_h20_extreme_move_path:      {grid: {n: [30, 60], z: [2.0, 2.5], cls: [high, low], pe_hi: [2.4], pe_lo: [1.7], mode: [continuation, reversal]}}
+  v3_h21_es_leads_nq:            {grid: {w: [2, 5], zE: [1.5, 2.5], lag: [null, 0.5], mode: [continuation]}}
+  v3_h22_nq_leads_es:            {grid: {w: [2, 5], zE: [1.5, 2.5], lag: [null, 0.5], mode: [continuation]}, instruments: [ES]}
+  v3_h23_relative_momentum:      {grid: {n: [15, 30, 60], thr: [1.0, 1.5], mode: [continuation]}}
+  v3_h24_beta_residual_reversion: {grid: {W: [15, 30, 60], thr: [2.5, 3.5], mode: [reversal]}}
+  v3_h25_corr_breakdown:         {grid: {cth: [0.5, 0.65], rz: [1.0, 2.0], mode: [continuation, reversal]}}
+  v3_h26_smt_nonconfirmation:    {grid: {level: [roll30, roll60, session], kind: [nq_only, es_only], confirm: [null, rej], mode: [reversal]}}
+  v3_h27_cross_confirm_momentum: {grid: {n: [15, 30], z: [1.0, 1.5], ce: [null, 0.5, 1.0], mode: [continuation]}}
+  v3_h28_disagreement_reversal:  {grid: {z: [1.5, 2.0], es: [null, nonconf], trig: [null, rej], mode: [reversal]}}
+  v3_h29_relative_acceleration:  {grid: {k: [5, 10], thr: [1.0, 1.5], acc: [null, 2.0], mode: [continuation]}}
+  v3_h30_path_efficiency_cont:   {grid: {n: [15, 30, 60], e: [1.5, 1.8], mode: [continuation]}}
+  v3_h31_low_efficiency_reversal: {grid: {n: [30, 60], z: [1.25, 1.75], e: [1.2, 1.45], mode: [reversal]}}
+  v3_h32_speed_shock:            {grid: {k: [2, 5], s: [3.0, 5.0], mode: [continuation, reversal]}}
+  v3_h33_acceleration:           {grid: {w: [3, 5, 10], z: [0.75, 1.25], mode: [continuation]}}
+  v3_h34_deceleration:           {grid: {w: [5, 10], z: [1.0, 1.5], mode: [reversal]}}
+  v3_h35_pullback_quality:       {grid: {L: [30], zi: [1.5, 2.0], retr: [0.33], qual: [null, fast, slow], mode: [continuation]}}
+  v3_h36_time_since_extreme:     {grid: {Tm: [60, 120], kind: [stale, fresh], mode: [continuation, reversal]}}
+  v3_h37_rv_shock:               {grid: {v: [2.0, 3.0], hist: [null, 1.5], mode: [continuation, reversal]}}
+  v3_h38_vol_of_vol:             {grid: {q: [2.0, 3.0], kind: [jump, collapse], mode: [continuation, reversal]}}
+  v3_h39_intraday_compression_breakout: {grid: {cth: [null, 0.6, 0.75], z5: [1.0, 1.5], mode: [continuation]}}
+  v3_h40_daily_compression:      {grid: {dc: [null, 0.65, 0.8], trig: [or30, pd], mode: [continuation]}}
+  v3_h41_vr_trending:            {grid: {z: [1.0, 1.5], vr: [null, 1.2, 1.4], L: [120, 240], mode: [continuation]}}
+  v3_h42_vr_mean_reverting:      {grid: {d: [1.0, 1.5], vr: [null, 0.8, 0.65], L: [120, 240], mode: [reversal]}}
+  v3_h43_pos_autocorr_momentum:  {grid: {z: [1.0, 1.5], a: [null, 0.1, 0.25], mode: [continuation]}}
+  v3_h44_neg_autocorr_meanrev:   {grid: {d: [1.0, 1.5], a: [null, 0.1, 0.25], mode: [reversal]}}
+  v3_h45_early_trend_day:        {grid: {cut: ["10:00", "10:30"], k: [3, 4, 5], mode: [continuation]}}
+  v3_h46_early_range_day:        {grid: {cut: ["10:30", "11:00"], strict: [null, 2, 3], mode: [reversal]}}
+  v3_h47_overnight_same_dir_open: {grid: {g: [0.25, 0.5], w: [5, 15], open: [null, same], mode: [continuation]}}
+  v3_h48_overnight_opening_rejection: {grid: {g: [0.25, 0.5], w: [15, 30], o: [0.05, 0.1], mode: [reversal]}}
+  v3_h49_morning_range_pm:       {grid: {r: [0.7, 0.95], kind: [eff, ineff], mode: [continuation, reversal]}}
+  v3_h50_trend_lunch_pm:         {grid: {m: [0.4, 0.6], cons: [null, 0.35, 0.5], trig: [null, brk], mode: [continuation]}}
+  v3_x1_turn_of_month:           {grid: {N: [1, 3], mode: [continuation]}, directions: [long]}
+  v3_x2_first_to_last_half_hour: {grid: {base: [pcl, open], thr: [0.0, 0.25], mode: [continuation]}}
+  v3_x3_corr_regime_momentum:    {grid: {z: [1.5, 2.0], reg: [null, high, low], mode: [continuation]}}

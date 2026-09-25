@@ -1,0 +1,64 @@
+# Trading costs -- the ONLY place costs are defined.
+#
+# INHERITED FROM QuantLabV3 config/costs.yaml (version costs_v2_approved_2026-09-21):
+#   NQ/ES: $4.00 commission per round trip, 1 tick slippage per side (baseline),
+#   and the four scenario multipliers below -- values copied unchanged.
+# Renamed in V4: V3 scenario "stressed" -> "stress" (same multipliers).
+# NEW in V4: micro contracts (MNQ, MES). Their tick/point values are exchange
+# contract specifications; their commission is an UNVALIDATED placeholder
+# (validated: false) and must be confirmed before any micro-contract result is used.
+#
+# No cost number was tuned on any result. A single friction model is NOT assumed to
+# be correct: every evaluation reports all scenarios, and the historical cost regime
+# (commissions and spreads were different in 2010 than in 2026) is an open question
+# recorded in docs/REMAINING_WORK.md.
+
+version: costs_v4_2026-09-23
+
+instruments:
+  NQ:
+    tick_size: 0.25
+    point_value: 20.0
+    commission_round_trip: 4.00
+    slippage_ticks_per_side: 1.0
+    extra_cost_round_trip: 0.0
+    validated: true              # inherited V3-approved value
+  ES:
+    tick_size: 0.25
+    point_value: 50.0
+    commission_round_trip: 4.00
+    slippage_ticks_per_side: 1.0
+    extra_cost_round_trip: 0.0
+    validated: true
+  MNQ:
+    tick_size: 0.25
+    point_value: 2.0
+    commission_round_trip: 1.00  # PLACEHOLDER
+    slippage_ticks_per_side: 1.0
+    extra_cost_round_trip: 0.0
+    validated: false
+  MES:
+    tick_size: 0.25
+    point_value: 5.0
+    commission_round_trip: 1.00  # PLACEHOLDER
+    slippage_ticks_per_side: 1.0
+    extra_cost_round_trip: 0.0
+    validated: false
+
+# Micro equivalents used by fixed-dollar sizing (1 standard = `ratio` micros).
+micro_of:
+  NQ: {micro: MNQ, ratio: 10}
+  ES: {micro: MES, ratio: 10}
+
+# round trip = commission x commission_mult + 2 x slippage_ticks x tick_value x slippage_mult + extra x extra_mult
+#   gross     NQ $0      ES $0        (diagnostic only)
+#   moderate  NQ $9.00   ES $16.50
+#   baseline  NQ $14.00  ES $29.00    (default)
+#   stress    NQ $26.00  ES $56.00
+scenarios:
+  gross:      {commission_mult: 0.0, slippage_mult: 0.0, extra_mult: 0.0}
+  moderate:   {commission_mult: 1.0, slippage_mult: 0.5, extra_mult: 1.0}
+  baseline:   {commission_mult: 1.0, slippage_mult: 1.0, extra_mult: 1.0}
+  stress:     {commission_mult: 1.5, slippage_mult: 2.0, extra_mult: 1.0}
+
+default_scenario: baseline

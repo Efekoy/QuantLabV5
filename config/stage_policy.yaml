@@ -1,0 +1,86 @@
+# QuantLabV5 stage policy. Enforced by quantlab5/isolation/stage_gate.py.
+#
+# (Adapted from QuantLabV4 config/stage_policy.yaml: same one-way machine, V5 partition/stage names,
+#  the V5 no-candidate-cap rule and a second historical audit.)
+#
+# The stage machine is strictly monotonic: a transition may only move exactly ONE
+# step forward, after its precondition verifies. There is no way back.
+# Every transition is written to the hash-chained data-access ledger, and the
+# stage-state file is cross-checked against the ledger on every read.
+#
+# `readable` = the logical partitions research code may read through load_view
+# while the project is in that stage. Anything not listed is REFUSED (and the
+# refusal is ledgered).
+
+version: stage_policy_v5_2026-09-25
+
+stages:
+  - BOOTSTRAP
+  - DISCOVERY               # only DISCOVERY is readable
+  - DISCOVERY_FROZEN        # discovery candidates + validation rules frozen
+  - VALIDATION              # VALIDATION opens
+  - VALIDATION_FROZEN       # ALL validation survivors frozen
+  - FINAL_COHORT_FROZEN     # survivors + prop-selection, risk and portfolio rules frozen
+  - HISTORICAL_AUDIT_1      # 2023-2025 opens
+  - HISTORICAL_AUDIT_2      # 2026 opens (after the audit-1 report is frozen)
+  - LIVE_FORWARD            # post-freeze sessions only
+
+readable:
+  BOOTSTRAP:            []
+  DISCOVERY:            [DISCOVERY]
+  DISCOVERY_FROZEN:     [DISCOVERY]
+  VALIDATION:           [DISCOVERY, VALIDATION]
+  VALIDATION_FROZEN:    [DISCOVERY, VALIDATION]
+  FINAL_COHORT_FROZEN:  [DISCOVERY, VALIDATION]
+  HISTORICAL_AUDIT_1:   [DISCOVERY, VALIDATION, HISTORICAL_AUDIT_1]
+  HISTORICAL_AUDIT_2:   [DISCOVERY, VALIDATION, HISTORICAL_AUDIT_1, HISTORICAL_AUDIT_2]
+  LIVE_FORWARD:         [DISCOVERY, VALIDATION, HISTORICAL_AUDIT_1, HISTORICAL_AUDIT_2, LIVE_FORWARD]
+
+# Preconditions checked when ENTERING a stage (in addition to "exactly one step forward").
+preconditions:
+  DISCOVERY:           [partition_registry_verified]
+  DISCOVERY_FROZEN:    [discovery_freeze_verified]
+  VALIDATION:          [discovery_freeze_verified]
+  VALIDATION_FROZEN:   [discovery_freeze_verified, validation_freeze_verified]
+  FINAL_COHORT_FROZEN: [discovery_freeze_verified, validation_freeze_verified, final_cohort_freeze_verified]
+  HISTORICAL_AUDIT_1:  [discovery_freeze_verified, validation_freeze_verified, final_cohort_freeze_verified]
+  HISTORICAL_AUDIT_2:  [discovery_freeze_verified, validation_freeze_verified, final_cohort_freeze_verified,
+                        audit_1_report_freeze_verified]
+  LIVE_FORWARD:        [discovery_freeze_verified, validation_freeze_verified, final_cohort_freeze_verified,
+                        audit_1_report_freeze_verified, audit_2_report_freeze_verified]
+
+# Freeze manifests (written later, under freezes/). Each must self-verify and its
+# hash is pinned into the stage state when the corresponding stage is entered; from
+# then on it is re-verified before EVERY read.
+freezes:
+  discovery:       freezes/DISCOVERY_FREEZE.json
+  validation:      freezes/VALIDATION_FREEZE.json
+  final_cohort:    freezes/FINAL_COHORT_FREEZE.json
+  audit_1_report:  freezes/AUDIT_1_REPORT_FREEZE.json    # the 2023-2025 report is sealed before 2026 opens
+  audit_2_report:  freezes/AUDIT_2_REPORT_FREEZE.json    # the 2026 report is sealed before LIVE_FORWARD opens
+
+# Sections each freeze must contain, NON-EMPTY, before it can be written or pinned.
+required_sections:
+  discovery:      [validation_rules, selection_process]
+  validation:     [validation_rules_sha256]
+  final_cohort:   [cohort, parameters, prop_selection_rules, risk_rules, portfolio_rules, sizing_rules,
+                   selection_process]
+  audit_1_report: [report]
+  audit_2_report: [report]
+
+# Candidate lists each freeze must contain; they MAY be empty (an honest "nothing qualified" is recordable).
+required_candidate_lists:
+  discovery:      [candidates, qualifying]
+  validation:     [evaluated, survivors]
+  final_cohort:   [cohort]
+
+# V5 rule: NO arbitrary candidate limit. Enforced by the stage gate on the freeze CONTENTS:
+#   discovery:    every `qualifying` candidate is in `candidates` (nothing that qualifies is dropped;
+#                 behavioural clustering may only ANNOTATE duplicates, in an optional `duplicate_of` map)
+#   validation:   `evaluated` == the frozen discovery `candidates` (every frozen candidate is tested) and
+#                 `survivors` is a subset of `evaluated`
+#   final_cohort: `cohort` == the frozen validation `survivors` (if 7 survive, 7 advance; if 70, 70)
+no_candidate_cap: true
+
+stage_state: ledgers/STAGE_STATE.json
+ledger: ledgers/DATA_ACCESS_LEDGER.jsonl

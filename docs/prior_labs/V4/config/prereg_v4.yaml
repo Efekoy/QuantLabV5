@@ -1,0 +1,81 @@
+# QuantLabV4 campaign-1 preregistered numbers. Frozen (hashed) with V4_RESEARCH_PREREGISTRATION.md
+# BEFORE any real DISCOVERY strategy result is computed. Code implementing these rules must read them
+# from here; changing anything here after the freeze is a deviation that must be logged.
+
+version: prereg_v4_campaign1
+
+discovery:
+  period: [2010-06-01, 2018-12-31]
+  first_year: 2010
+  screen:              # quantlab4/v4/screen.py (values duplicated here for the record)
+    min_trades: 200
+    min_active_years: 6
+    year_positive_fraction: 0.6667
+    halves_positive: true
+    min_pf: 1.10
+    stress_cost_positive: true
+    t_pass: 3.0
+  cost_scenario: baseline
+
+nulls:
+  primary: [A, C]            # edge-free for every strategy in the grammar (per-minute sign randomisation)
+  secondary: [B]             # path-preserving tod-block resampling; NOT edge-free inside a 30-min block
+  seeds:                     # world i of kind K uses seed = base[K] + i
+    base: {A: 1000000, B: 2000000, C: 3000000}
+  planned_worlds: {A: 150, B: 40, C: 150}
+  p_value: "(1 + #null worlds with statistic >= real) / (1 + N)"
+  family_decision: "family beats its null if max(p_A, p_C) <= 0.05"
+  global_decision: "search beats the global null if max(p_A, p_C) <= 0.05 for T_G = max over families of max eligible t"
+
+clustering:
+  input: "all DISCOVERY candidates that PASS the screen, capped at the top 5000 by t (if none pass: the 300 eligible candidates with the highest t)"
+  stream: daily net P&L (baseline cost), DISCOVERY sessions
+  method: greedy in descending t; join the first cluster whose representative correlates >= 0.60
+  representative: highest neighbourhood-robustness score, ties by t
+
+robustness:
+  neighbours: "candidates differing in exactly one of: trigger parameter (adjacent value, same trigger name), exit (same stop, adjacent holding rule; or same holding rule, other stop), one filter removed"
+  score: fraction of neighbours with net > 0 and t >= 1.0
+  broad_if: ">= 0.60"
+  needle_if: "< 0.30"
+
+validation:
+  period: [2019-01-01, 2022-12-31]
+  max_candidates: 300        # cluster representatives in descending discovery t
+  survive_if:
+    min_trades: 40
+    mean_net_positive: true
+    t_min: 1.5
+    pf_min: 1.05
+    positive_years_min: 2    # of 4
+    stress_cost_positive: true
+  null_worlds: {A: 100, C: 100}     # frozen candidates re-run unchanged on null-transformed VALIDATION data
+  survivors_decision: "survivor count beats validation null if max(p_A, p_C) <= 0.05"
+
+final_selection:
+  eligible: validation survivors
+  rank_by: pooled DISCOVERY+VALIDATION t (net, baseline)
+  min_pooled_t: 3.0
+  max_strategies: 5
+  max_per_family: 2
+  max_pairwise_daily_corr: 0.50
+  fallback_if_empty: "UNSUPPORTED_BEST_EFFORT cohort = top 3 validation performers by validation t (one per family); tested on holdout/2026 as falsification; not prop-eligible"
+
+prop:
+  data: DISCOVERY + VALIDATION (rolling starts on every session)
+  instrument_for_sizing: MNQ (micro, $2/pt, tick 0.25); fixed-dollar sizing, SKIP policy
+  risk_per_trade_usd: [100, 150, 200, 250]
+  daily_policies: [none, stop_after_daily_loss_300, stop_after_first_winner, stop_after_daily_pm_2R]
+  profiles:
+    GENERIC_EVAL_EOD: {start: 50000, target: 3000, max_loss: 2000, mode: eod, daily_loss: 1000, daily_action: halt_day, consistency: 0.5, min_days: 5, trail_lock_offset: 0}
+    GENERIC_EVAL_INTRADAY: {start: 50000, target: 3000, max_loss: 2000, mode: intraday, daily_loss: 1000, daily_action: halt_day, consistency: 0.5, min_days: 5, trail_lock_offset: 0}
+  max_eval_days: 120
+  choose: "(risk, policy) maximising P(pass) - P(fail) on the EOD profile; ties -> lower risk"
+  portfolio: equal fixed-dollar risk per strategy; max simultaneous open risk = 2 x risk_per_trade
+
+holdout_and_forward:
+  strategy_supported_if: {net_positive_baseline: true, pf_min: 1.05, t_min: 1.0}
+  strategy_failed_if: "net <= 0 at baseline cost"
+  otherwise: INCONCLUSIVE
+  cohort_pass_if: {net_positive_baseline: true, net_positive_stress: true, t_min: 1.5}
+  no_changes: "no parameter, filter, exit, sizing, risk, ranking or membership change of any kind"

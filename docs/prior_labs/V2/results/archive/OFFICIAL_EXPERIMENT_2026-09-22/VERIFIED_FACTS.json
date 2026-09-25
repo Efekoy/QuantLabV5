@@ -1,0 +1,51 @@
+{
+ "frozen": 190475,
+ "frozen_entries": 2657,
+ "final_survivors": 11462,
+ "final_entry_rules": 567,
+ "final_NQ": 10876,
+ "final_ES": 586,
+ "final_long": 5577,
+ "final_short": 1227,
+ "final_both": 4658,
+ "short_only_median_oos_pf": 1.5452045379125083,
+ "short_only_entry_rules": 70,
+ "strong_subset": 4362,
+ "strong_subset_entry_rules": 138,
+ "oos_long_pnl_total": 946139847.7249999,
+ "oos_short_pnl_total": 394612432.4,
+ "oos_long_share": 0.70567834323339,
+ "oos_trades_total": 9975435,
+ "oos_net_total": 1340752280.125,
+ "nq_share_of_final": 0.9488745419647531,
+ "funnel": {
+  "Discovery freeze (2010-06-07..2020-12-31)": {
+   "Entering": null,
+   "Profitable": 190475
+  },
+  "2021": {
+   "Entering": 190475,
+   "Profitable": 104342
+  },
+  "2022": {
+   "Entering": 104342,
+   "Profitable": 63361
+  },
+  "2023": {
+   "Entering": 63361,
+   "Profitable": 42828
+  },
+  "2024": {
+   "Entering": 42828,
+   "Profitable": 29748
+  },
+  "2025 (final validation)": {
+   "Entering": 29748,
+   "Profitable": 16553
+  },
+  "2026 (FINAL FORWARD - PARTIAL YEAR)": {
+   "Entering": 16553,
+   "Profitable": 11462
+  }
+ }
+}
