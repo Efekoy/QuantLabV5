@@ -1,0 +1,24 @@
+{
+  "all_family_core_surfaces_present": true,
+  "allowed_2019_plus_reads_before_gate": 0,
+  "benchmark_sha256": "3a80537353d85be3ec8e1f75b2d043f50e5c337a6f7d0bf143a69d24338865fb",
+  "exact_static_duplicates_remaining": 0,
+  "family_count": 30,
+  "inventory_sha256": "31962fd34579be2c5fbcf1978c692977aa73c3beff64e0835b5f14b24433934e",
+  "kind": "V5_4_AUTOMATIC_PRE_DISCOVERY_GATE",
+  "ledger_anchor": {
+    "record_hash": "0a3da0908b96ecf416e2bbb1b4416780d773c3ca516a6c516ca47b096ce97740",
+    "seq": 23
+  },
+  "management_variants": 198,
+  "new_v54_outcome_reads_before_gate": 0,
+  "no_family_kill": true,
+  "no_top_n_cap": true,
+  "original_v5_60_rule_result_preserved": true,
+  "original_v5_stage": "VALIDATION_FROZEN",
+  "signal_configurations": 71820,
+  "status": "PASS",
+  "test_command": "python -m pytest -q -p no:cacheprovider --basetemp=.pytest_tmp_v54_final",
+  "test_result": "PASS; separately verified by operator immediately before and after freeze",
+  "unique_specifications": 14220360
+}

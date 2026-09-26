@@ -11,3 +11,6 @@ ledgers/*.tmp
 results/**
 !results/.gitkeep
 .pytest_cache/
+.pytest_tmp_*/
+reports/v54/
+.numba_cache_holdout/

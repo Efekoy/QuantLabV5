@@ -32,7 +32,7 @@ from quantlab5.data.schema import ALL_COLUMNS, TS, Bars, bars_from_frame
 from quantlab5.data.sessions import session_start_utc_ns
 from quantlab5.data.validation import DataIntegrityError, quick_check
 from quantlab5.isolation import ledger
-from quantlab5.isolation.stage_gate import StageViolation, authorize
+from quantlab5.isolation.stage_gate import StageViolation, authorize, current_stage
 from quantlab5.project import Project, default_project
 from quantlab5.util.hashing import file_sha256
 
@@ -116,7 +116,16 @@ def load_view(instrument, partition, start=None, end=None, columns=None, *, proj
 
     # 2. stage authorisation (re-verifies stage state, ledger chain, registry pin and freezes)
     try:
-        stage, ok, why = authorize(project, partition)
+        from quantlab5.project import ROOT as V5_ROOT
+        is_v54 = (project.root.resolve() == V5_ROOT.resolve()
+                  and str(purpose).startswith("V5_4_"))
+        if is_v54:
+            stage = current_stage(project)
+            from quantlab5.v54.access import authorize as authorize_v54
+            ok, why = authorize_v54(project, purpose, partition, instrument,
+                                    start, end, cols_req, stage)
+        else:
+            stage, ok, why = authorize(project, partition)
     except StageViolation as e:
         _refuse(project, req, f"stage state invalid: {e}")
     if not ok:
@@ -159,6 +168,9 @@ def load_view(instrument, partition, start=None, end=None, columns=None, *, proj
                     or purpose != "CALIBRATION_NUISANCE_ACCESS"):
                 _refuse(project, req, "calibration worker may read only full DISCOVERY NQ/ES OHLCV", stage)
             why = "CALIBRATION_NUISANCE_ACCESS"
+        elif is_v54:
+            # authorize_v54 verified the separate tagged phase and exact scope.
+            pass
         else:
             from quantlab5.isolation.prereg_gate import prereg_ready
             ready, reason = prereg_ready(project.root)

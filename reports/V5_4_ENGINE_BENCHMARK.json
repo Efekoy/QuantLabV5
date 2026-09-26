@@ -1,0 +1,38 @@
+{
+  "estimated_10m_seconds_at_1m_rate": 149.40735763986595,
+  "estimated_full_universe_seconds_at_1m_rate": 212.4626412287644,
+  "fixture": {
+    "bars": 6000,
+    "eligible_entry_events": 119,
+    "management": {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    "note": "Management-kernel timing only; full-world feature, storage and IO costs require separate allowance."
+  },
+  "kind": "V5_4_SYNTHETIC_ENGINE_BENCHMARK",
+  "measurements": [
+    {
+      "elapsed_seconds": 0.2006453339708969,
+      "specifications": 10000,
+      "specifications_per_second": 49839.18540288843
+    },
+    {
+      "elapsed_seconds": 1.6424308120040223,
+      "specifications": 100000,
+      "specifications_per_second": 60885.36531897156
+    },
+    {
+      "elapsed_seconds": 14.940735763986595,
+      "specifications": 1000000,
+      "specifications_per_second": 66931.1080656695
+    }
+  ]
+}

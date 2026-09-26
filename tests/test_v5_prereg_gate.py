@@ -1,5 +1,6 @@
 import json
 import subprocess
+import hashlib
 
 from quantlab5.isolation.prereg_gate import prereg_ready
 from quantlab5.project import ROOT
@@ -8,11 +9,21 @@ from quantlab5.util.hashing import canonical_json, file_sha256, sha256_text
 
 def test_actual_research_data_access_fails_closed_before_final_tag():
     ok, reason = prereg_ready(ROOT)
-    import subprocess
     tag = subprocess.run(["git", "tag", "--list", "v5-prereg"],
                          cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
     if tag:
-        assert ok, reason
+        # V5.4 extends the shared loader after the original V5 tag. The old
+        # campaign remains immutable at its tag, while its *current-tree*
+        # prereg gate correctly refuses the changed loader.
+        frozen = json.loads(subprocess.run(
+            ["git", "show", "v5-prereg:V5_PREREGISTRATION_FREEZE.json"],
+            cwd=ROOT, capture_output=True, check=True).stdout)
+        for rel, expected in frozen["files_sha256"].items():
+            tagged = subprocess.run(["git", "show", f"v5-prereg:{rel}"],
+                                    cwd=ROOT, capture_output=True, check=True).stdout
+            assert hashlib.sha256(tagged).hexdigest() == expected
+        assert not ok
+        assert "load_view.py" in reason
     else:
         assert not ok
         assert "FINAL" in reason or "tag" in reason or "missing" in reason

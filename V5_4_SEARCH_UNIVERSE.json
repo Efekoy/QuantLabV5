@@ -1,0 +1,3974 @@
+{
+  "candidate_id": "Q54 + first 24 SHA-256 hex characters of canonical spec in namespace quantlab5.v54.broad_discovery",
+  "counts": {
+    "duplicate_reason": "globex and rth are equivalent under original V5 RTH-only SignalContext.base_ok",
+    "final_unique_executable_specifications": 14220360,
+    "invalid_management_tuples_excluded_over_final_signal_set": 637330680,
+    "invalid_management_tuples_excluded_per_signal": 8874,
+    "naive_management_cartesian_per_signal": 9072,
+    "raw_four_session_valid_specifications": 18960480,
+    "remaining_static_duplicates": 0,
+    "semantic_static_duplicates_removed": 4740120
+  },
+  "dimensions": {
+    "directions": [
+      "long",
+      "short",
+      "both"
+    ],
+    "entries": [
+      "next_open",
+      "delay_one_bar"
+    ],
+    "filter_count_per_family": {
+      "one": 3,
+      "two": 1,
+      "zero": 1
+    },
+    "sessions": [
+      "rth",
+      "rth_am",
+      "rth_pm"
+    ]
+  },
+  "families": {
+    "E01": {
+      "core_axes": {
+        "lookback": [
+          10,
+          15,
+          20,
+          30,
+          45,
+          60
+        ],
+        "threshold": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "vol_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Event-time continuation: divide preceding same-day NQ volume into causal buckets each containing the prior 20-session median volume for 5 RTH minutes; after 3 completed buckets, require their signed net returns all align with `s`, then take `C15` in `s`.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E02": {
+      "core_axes": {
+        "lookback": [
+          15,
+          30,
+          45,
+          60,
+          90,
+          120
+        ],
+        "threshold": [
+          0.75,
+          1,
+          1.25,
+          1.5,
+          2,
+          2.5
+        ]
+      },
+      "core_signal_variants": 36,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "vol_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 641520,
+      "original_executable_definition": "Directional-change overshoot: confirm a `1.5v sqrt(15)` reversal from the running 60-minute extreme; after confirmation, take the first same-direction overshoot of half that size.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 3240
+    },
+    "E03": {
+      "core_axes": {
+        "lookback": [
+          10,
+          15,
+          20,
+          30,
+          45,
+          60,
+          90
+        ],
+        "threshold": [
+          0.75,
+          1,
+          1.25,
+          1.5,
+          2,
+          2.5
+        ]
+      },
+      "core_signal_variants": 42,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "vol_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 748440,
+      "original_executable_definition": "Volatility forecast surprise: EWMA(20) forecast of next 15-minute absolute return made at `t-15`; require realized absolute return/forecast \u22651.5 and `C15`.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 3780
+    },
+    "E04": {
+      "core_axes": {
+        "lookback": [
+          null
+        ],
+        "threshold": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "core_signal_variants": 5,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_low"
+        ],
+        [
+          "trend_young"
+        ],
+        [
+          "es_agree"
+        ],
+        [
+          "vol_low",
+          "trend_young"
+        ]
+      ],
+      "management_compatible_configurations": 89100,
+      "original_executable_definition": "Online change point: two-sided CUSUM on standardized 1-minute returns with reference 0.5, threshold 4, reset at session open; first upward/downward alarm and `C15` same direction.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 450
+    },
+    "E05": {
+      "core_axes": {
+        "lookback": [
+          10,
+          15,
+          20,
+          30,
+          45,
+          60
+        ],
+        "threshold": [
+          5,
+          10,
+          15,
+          20,
+          30,
+          45
+        ]
+      },
+      "core_signal_variants": 36,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_low"
+        ],
+        [
+          "trend_young"
+        ],
+        [
+          "es_agree"
+        ],
+        [
+          "vol_low",
+          "trend_young"
+        ]
+      ],
+      "management_compatible_configurations": 641520,
+      "original_executable_definition": "Regime age: classify sign of EWMA(30) return each minute; require a new sign state between 5 and 20 minutes old and `C15` aligned.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 3240
+    },
+    "E06": {
+      "core_axes": {
+        "lookback": [
+          10,
+          15,
+          20,
+          30,
+          45,
+          60
+        ],
+        "threshold": [
+          5,
+          10,
+          15,
+          20,
+          30
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "vol_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "First-passage speed: after session open, time to first \u00b1`2v sqrt(30)` displacement; require passage in \u226415 minutes and `C15` aligned.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E07": {
+      "core_axes": {
+        "lookback": [
+          10,
+          15,
+          20,
+          30,
+          45,
+          60,
+          90
+        ],
+        "threshold": [
+          0.6,
+          0.7,
+          0.8,
+          0.9
+        ]
+      },
+      "core_signal_variants": 28,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "vol_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 498960,
+      "original_executable_definition": "Occupation time: in last 30 minutes, fraction of closes above their 30-minute starting price \u22650.8 for long (\u22640.2 for short), plus `C15`.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2520
+    },
+    "E08": {
+      "core_axes": {
+        "lookback": [
+          5,
+          10,
+          15,
+          20,
+          30
+        ],
+        "threshold": [
+          0.25,
+          0.4,
+          0.5,
+          0.65,
+          0.8
+        ]
+      },
+      "core_signal_variants": 25,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "vol_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 445500,
+      "original_executable_definition": "Pullback duration/recovery: after `C15`, wait for counter-move \u22650.5 of impulse over \u22653 minutes, then recovery to prior impulse endpoint within 10 minutes; enter on recovery.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2250
+    },
+    "E09": {
+      "core_axes": {
+        "lookback": [
+          10,
+          15,
+          20,
+          30,
+          45,
+          60
+        ],
+        "threshold": [
+          0.3,
+          0.45,
+          0.6,
+          0.75,
+          0.9
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "volume_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "vol_high"
+        ],
+        [
+          "volume_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Volume-time toxicity proxy: within the last 30 completed minutes, sum `sign(r)\u00d7volume` / sum volume has magnitude \u22650.6 and agrees with `C15`.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E10": {
+      "core_axes": {
+        "lookback": [
+          10,
+          15,
+          20,
+          30,
+          45,
+          60
+        ],
+        "threshold": [
+          0.6,
+          0.7,
+          0.8,
+          0.9
+        ]
+      },
+      "core_signal_variants": 24,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "volume_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "vol_high"
+        ],
+        [
+          "volume_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 427680,
+      "original_executable_definition": "Price-impact state: last 15-minute `",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2160
+    },
+    "E11": {
+      "core_axes": {
+        "lookback": [
+          null
+        ],
+        "threshold": [
+          null
+        ]
+      },
+      "core_signal_variants": 1,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "es_disagree"
+        ],
+        [
+          "trend_old"
+        ],
+        [
+          "vol_high",
+          "es_disagree"
+        ]
+      ],
+      "management_compatible_configurations": 17820,
+      "original_executable_definition": "Session handoff: direction of Asia (18:00\u201302:00), Europe (02:00\u201308:00), and US premarket (08:00\u201309:30) net returns agree; first RTH `C15` aligned.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 90
+    },
+    "E12": {
+      "core_axes": {
+        "lookback": [
+          5,
+          10,
+          15,
+          20,
+          30,
+          45
+        ],
+        "threshold": [
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          0.95
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "es_agree"
+        ],
+        [
+          "relative_vol_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "es_agree",
+          "relative_vol_high"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "NQ/ES tail dependence: both standardized 15-minute returns exceed their own prior-60-session 90th percentile in the same sign, with NQ `C15`.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E13": {
+      "core_axes": {
+        "lookback": [
+          10,
+          15,
+          20,
+          30,
+          45,
+          60
+        ],
+        "threshold": [
+          1,
+          1.5,
+          2,
+          2.5,
+          3
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "es_agree"
+        ],
+        [
+          "relative_vol_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "es_agree",
+          "relative_vol_high"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "NQ/ES relative value: rolling 20-session regression of synchronized 1-minute NQ returns on ES, fitted through prior session; residual 15-minute cumulative return exceeds 2 prior-session residual SDs, enter in residual direction.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E14": {
+      "core_axes": {
+        "lookback": [
+          10,
+          15,
+          20,
+          30,
+          45,
+          60
+        ],
+        "threshold": [
+          4,
+          6,
+          8,
+          10,
+          15,
+          20
+        ]
+      },
+      "core_signal_variants": 36,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_low"
+        ],
+        [
+          "trend_young"
+        ],
+        [
+          "es_agree"
+        ],
+        [
+          "vol_low",
+          "trend_young"
+        ]
+      ],
+      "management_compatible_configurations": 641520,
+      "original_executable_definition": "Relative regime transition: NQ and ES EWMA(30) signs disagreed for \u226510 minutes and become aligned at `t`; require NQ `C15` aligned.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 3240
+    },
+    "E15": {
+      "core_axes": {
+        "lookback": [
+          null
+        ],
+        "threshold": [
+          5,
+          10,
+          15,
+          20,
+          30,
+          45
+        ]
+      },
+      "core_signal_variants": 6,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "vol_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 106920,
+      "original_executable_definition": "Trend age/exhaustion: count minutes since last CUSUM alarm E04; `C15` only when age 5\u201320, while age \u226560 is a preregistered negative-control stratum.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 540
+    },
+    "E16": {
+      "core_axes": {
+        "lookback": [
+          30,
+          45,
+          60,
+          90,
+          120,
+          180
+        ],
+        "threshold": [
+          1.1,
+          1.25,
+          1.5,
+          1.75,
+          2
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_low"
+        ],
+        [
+          "trend_young"
+        ],
+        [
+          "es_agree"
+        ],
+        [
+          "vol_low",
+          "trend_young"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Volatility term structure: ratio of EWMA 10-minute realized variance to EWMA 120-minute realized variance crosses upward through 1.5 at `t`; require `C15`.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E17": {
+      "core_axes": {
+        "lookback": [
+          15,
+          30,
+          45,
+          60,
+          90,
+          120
+        ],
+        "threshold": [
+          1.1,
+          1.25,
+          1.5,
+          1.75,
+          2
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_low"
+        ],
+        [
+          "trend_young"
+        ],
+        [
+          "es_agree"
+        ],
+        [
+          "vol_low",
+          "trend_young"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Multiscale volatility: realized variance of 1-minute returns divided by realized variance of nonoverlapping 5-minute returns over last 60 minutes \u22651.5; require `C15`.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E18": {
+      "core_axes": {
+        "lookback": [
+          20,
+          30,
+          45,
+          60,
+          90,
+          120
+        ],
+        "threshold": [
+          0.1,
+          0.15,
+          0.2,
+          0.3,
+          0.4
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "volume_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "vol_high"
+        ],
+        [
+          "volume_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Liquidity-seasonality residual: NQ volume below its prior-60-session same-minute 20th percentile and range above its 80th percentile on two consecutive completed minutes; `C15` direction.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E19": {
+      "core_axes": {
+        "lookback": [
+          20,
+          30,
+          45,
+          60,
+          90,
+          120
+        ],
+        "threshold": [
+          0.55,
+          0.6,
+          0.65,
+          0.7,
+          0.8
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_low"
+        ],
+        [
+          "trend_young"
+        ],
+        [
+          "es_agree"
+        ],
+        [
+          "vol_low",
+          "trend_young"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Market-state transition probability: fit a 3-state sign/volatility Markov table on previous 60 sessions; take `C15` when estimated probability of a same-sign next state \u22650.65, with Laplace smoothing.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E20": {
+      "core_axes": {
+        "lookback": [
+          20,
+          30,
+          45,
+          60,
+          90,
+          120
+        ],
+        "threshold": [
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_low"
+        ],
+        [
+          "trend_young"
+        ],
+        [
+          "es_agree"
+        ],
+        [
+          "vol_low",
+          "trend_young"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Hazard continuation: among prior-60-session same-clock impulses like `C15`, estimate smoothed probability of reaching +0.5R before \u22120.5R within 30 minutes; require \u22650.60.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E21": {
+      "core_axes": {
+        "lookback": [
+          20,
+          30,
+          45,
+          60,
+          90,
+          120
+        ],
+        "threshold": [
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_low"
+        ],
+        [
+          "trend_young"
+        ],
+        [
+          "es_agree"
+        ],
+        [
+          "vol_low",
+          "trend_young"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Targeted TAKE/SKIP: fit regularized logistic continuation outcome model to *only* prior-session C15 events, using E03/E07/E10 states; walk forward monthly with a 1-session purge; take when predicted probability \u22650.60.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E22": {
+      "core_axes": {
+        "lookback": [
+          null
+        ],
+        "threshold": [
+          null
+        ]
+      },
+      "core_signal_variants": 1,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_low"
+        ],
+        [
+          "trend_young"
+        ],
+        [
+          "es_agree"
+        ],
+        [
+          "vol_low",
+          "trend_young"
+        ]
+      ],
+      "management_compatible_configurations": 17820,
+      "original_executable_definition": "Independent-state agreement: require `C15` plus E07 occupancy and E03 surprise, where both states were computed from distinct features; all three directions agree.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 90
+    },
+    "E23": {
+      "core_axes": {
+        "lookback": [
+          20,
+          30,
+          45,
+          60,
+          90,
+          120
+        ],
+        "threshold": [
+          1,
+          1.5,
+          2,
+          2.5,
+          3
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "vol_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Causal Kalman trend: constant-velocity state-space filter with process/observation noise fixed from prior 60 sessions; take `C15` only if filtered trend sign agrees and magnitude exceeds 2 posterior SDs.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E24": {
+      "core_axes": {
+        "lookback": [
+          10,
+          15,
+          20,
+          30,
+          45,
+          60
+        ],
+        "threshold": [
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.3
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_low"
+        ],
+        [
+          "trend_young"
+        ],
+        [
+          "es_agree"
+        ],
+        [
+          "vol_low",
+          "trend_young"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Distribution shift: Jensen-Shannon divergence between histogram of last 30 signed standardized returns and previous 20-session same-clock reference exceeds 0.15; require `C15`.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E25": {
+      "core_axes": {
+        "lookback": [
+          10,
+          15,
+          20,
+          30,
+          45,
+          60
+        ],
+        "threshold": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "es_disagree"
+        ],
+        [
+          "trend_old"
+        ],
+        [
+          "vol_high",
+          "es_disagree"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Extreme-move clustering: at least 3 of last 20 absolute standardized 1-minute returns exceed previous-60-session 95th percentile; signed majority agrees with `C15`.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E26": {
+      "core_axes": {
+        "lookback": [
+          10,
+          15,
+          20,
+          30,
+          45,
+          60
+        ],
+        "threshold": [
+          0.5,
+          0.65,
+          0.8,
+          1,
+          1.25
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "vol_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Intraday excursion geometry: from RTH open, favorable excursion / (favorable + adverse excursion) \u22650.8 at `t`, with at least 30 minutes elapsed and `C15` aligned.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E27": {
+      "core_axes": {
+        "lookback": [
+          20,
+          30,
+          45,
+          60,
+          90,
+          120
+        ],
+        "threshold": [
+          1,
+          1.25,
+          1.5,
+          2,
+          2.5
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "vol_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Range-expansion topology: 15-minute range \u22651.5 \u00d7 preceding 60-minute median 15-minute range, and \u226570% of that range was formed in the final 5 minutes; `C15` aligned.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    },
+    "E28": {
+      "core_axes": {
+        "lookback": [
+          20,
+          30,
+          45,
+          60,
+          90,
+          120
+        ],
+        "threshold": [
+          0.5,
+          0.65,
+          0.8,
+          0.9
+        ]
+      },
+      "core_signal_variants": 24,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "volume_high"
+        ],
+        [
+          "eff_high"
+        ],
+        [
+          "vol_high"
+        ],
+        [
+          "volume_high",
+          "eff_high"
+        ]
+      ],
+      "management_compatible_configurations": 427680,
+      "original_executable_definition": "Return-volume elasticity: slope of log(abs return + tick floor) on log(volume +1) over previous 60 completed minutes exceeds its previous-60-session same-clock 80th percentile; require `C15`.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2160
+    },
+    "E29": {
+      "core_axes": {
+        "lookback": [
+          20,
+          30,
+          45,
+          60,
+          90,
+          120
+        ],
+        "threshold": [
+          0.5,
+          0.65,
+          0.8,
+          0.9
+        ]
+      },
+      "core_signal_variants": 24,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "es_agree"
+        ],
+        [
+          "relative_vol_high"
+        ],
+        [
+          "volume_high"
+        ],
+        [
+          "es_agree",
+          "relative_vol_high"
+        ]
+      ],
+      "management_compatible_configurations": 427680,
+      "original_executable_definition": "NQ/ES cross-market elasticity: slope of standardized NQ returns on synchronized ES returns over last 60 minutes exceeds its prior-session 80th percentile; require `C15` with ES same-sign move.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2160
+    },
+    "E30": {
+      "core_axes": {
+        "lookback": [
+          20,
+          30,
+          45,
+          60,
+          90,
+          120
+        ],
+        "threshold": [
+          0.2,
+          0.3,
+          0.35,
+          0.45,
+          0.6
+        ]
+      },
+      "core_signal_variants": 30,
+      "directions": [
+        "long",
+        "short",
+        "both"
+      ],
+      "entry_variants": [
+        "next_open",
+        "delay_one_bar"
+      ],
+      "filter_variants": [
+        [],
+        [
+          "vol_high"
+        ],
+        [
+          "es_disagree"
+        ],
+        [
+          "trend_old"
+        ],
+        [
+          "vol_high",
+          "es_disagree"
+        ]
+      ],
+      "management_compatible_configurations": 534600,
+      "original_executable_definition": "Continuation-failure predictor: at the **completed E08 recovery event**, a monthly logistic model uses the now-observed pullback duration, E16 term structure and E18 liquidity residual to predict stop-before-+0.5R from the recovery entry; take only if predicted failure probability \u22640.35.",
+      "sessions": [
+        "rth",
+        "rth_am",
+        "rth_pm"
+      ],
+      "signal_configurations": 2700
+    }
+  },
+  "family_count": 30,
+  "inventory_representation": "finite axis lists, disjoint template list, and canonical Cartesian iterator; no materialized 14-million-row JSON",
+  "kind": "V5_4_POST_ORIGINAL_V5_BROAD_DISCOVERY_UNIVERSE",
+  "management_axis_counts_per_signal": {
+    "breakeven_r": {
+      "0.75": 54,
+      "1.25": 36,
+      "none": 108
+    },
+    "hold": {
+      "15": 6,
+      "30": 6,
+      "60": 96,
+      "eod": 90
+    },
+    "mechanism_exit": {
+      "True": 6,
+      "none": 192
+    },
+    "partial_fraction": {
+      "0.5": 48,
+      "none": 150
+    },
+    "partial_r": {
+      "1.0": 18,
+      "1.5": 30,
+      "none": 150
+    },
+    "stop": {
+      "atr_0.75": 33,
+      "atr_1": 33,
+      "atr_1.5": 33,
+      "signal_bar": 33,
+      "swing_15": 33,
+      "swing_5": 33
+    },
+    "target_r": {
+      "0.75": 6,
+      "1.0": 12,
+      "1.5": 18,
+      "2.0": 18,
+      "3.0": 18,
+      "4.0": 18,
+      "none": 108
+    },
+    "trail_r": {
+      "1.0": 24,
+      "1.5": 24,
+      "none": 150
+    }
+  },
+  "management_by_template_per_signal": {
+    "T10_TIME_EXIT": 18,
+    "T11_MECHANISM_EXIT": 6,
+    "T1_FIXED_TARGET": 18,
+    "T2_STRUCTURE_STOP_FIXED_TARGET": 18,
+    "T3_SESSION_RUNNER": 6,
+    "T4_BREAKEVEN_TARGET": 54,
+    "T5_PARTIAL_RUNNER": 12,
+    "T6_PARTIAL_BE_RUNNER": 18,
+    "T7_TRAIL_RUNNER": 12,
+    "T8_BE_TRAIL_RUNNER": 18,
+    "T9_PARTIAL_TRAIL": 18
+  },
+  "management_templates": [
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 0.75,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 1.0,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 1.5,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 2.0,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 3.0,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 4.0,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 0.75,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 1.0,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 1.5,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 2.0,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 3.0,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 4.0,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 0.75,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 1.0,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 1.5,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 2.0,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 3.0,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 4.0,
+      "template": "T1_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 0.75,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 1.0,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 1.5,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 2.0,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 3.0,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 4.0,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 0.75,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 1.0,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 1.5,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 2.0,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 3.0,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 4.0,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 0.75,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 1.0,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 1.5,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 2.0,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 3.0,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 4.0,
+      "template": "T2_STRUCTURE_STOP_FIXED_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T3_SESSION_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T3_SESSION_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T3_SESSION_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T3_SESSION_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T3_SESSION_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T3_SESSION_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 1.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 1.5,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 2.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 3.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 4.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 1.5,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 2.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 3.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": 4.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 1.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 1.5,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 2.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 3.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 4.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 1.5,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 2.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 3.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": 4.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 1.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 1.5,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 2.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 3.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 4.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 1.5,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 2.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 3.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": 4.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 1.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 1.5,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 2.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 3.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 4.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 1.5,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 2.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 3.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": 4.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 1.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 1.5,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 2.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 3.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 4.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 1.5,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 2.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 3.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": 4.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 1.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 1.5,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 2.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 3.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 4.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 1.5,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 2.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 3.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": 4.0,
+      "template": "T4_BREAKEVEN_TARGET",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T5_PARTIAL_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T5_PARTIAL_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T5_PARTIAL_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T5_PARTIAL_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T5_PARTIAL_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T5_PARTIAL_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T5_PARTIAL_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T5_PARTIAL_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T5_PARTIAL_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T5_PARTIAL_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T5_PARTIAL_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T5_PARTIAL_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T6_PARTIAL_BE_RUNNER",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T7_TRAIL_RUNNER",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T7_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T7_TRAIL_RUNNER",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T7_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T7_TRAIL_RUNNER",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T7_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T7_TRAIL_RUNNER",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T7_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T7_TRAIL_RUNNER",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T7_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T7_TRAIL_RUNNER",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T7_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": 0.75,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": 1.25,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T8_BE_TRAIL_RUNNER",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.0,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.0
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": false,
+      "partial_fraction": 0.5,
+      "partial_r": 1.5,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T9_PARTIAL_TRAIL",
+      "trail_r": 1.5
+    },
+    {
+      "breakeven_r": null,
+      "hold": 15,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 30,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 15,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 30,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 15,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 30,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 15,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 30,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 15,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 30,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 15,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 30,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": 60,
+      "mechanism_exit": false,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T10_TIME_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": true,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_0.75",
+      "target_r": null,
+      "template": "T11_MECHANISM_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": true,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1",
+      "target_r": null,
+      "template": "T11_MECHANISM_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": true,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "atr_1.5",
+      "target_r": null,
+      "template": "T11_MECHANISM_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": true,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "signal_bar",
+      "target_r": null,
+      "template": "T11_MECHANISM_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": true,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_5",
+      "target_r": null,
+      "template": "T11_MECHANISM_EXIT",
+      "trail_r": null
+    },
+    {
+      "breakeven_r": null,
+      "hold": "eod",
+      "mechanism_exit": true,
+      "partial_fraction": null,
+      "partial_r": null,
+      "stop": "swing_15",
+      "target_r": null,
+      "template": "T11_MECHANISM_EXIT",
+      "trail_r": null
+    }
+  ],
+  "management_variants": 198,
+  "no_family_kill": true,
+  "no_top_n_cap": true,
+  "original_catalog_sha256": "0c30b6c01052f745fcdc4827473ac43b7e09751c24030f3288cb2dffed69f82d",
+  "original_v5_result": "60 Stage A evaluated; 0 qualified; later partitions unopened",
+  "outcome_reads": 0,
+  "signal_configurations": 71820,
+  "specifications_by_direction": {
+    "both": 4740120,
+    "long": 4740120,
+    "short": 4740120
+  },
+  "specifications_by_filter_count": {
+    "one": 8532216,
+    "two": 2844072,
+    "zero": 2844072
+  },
+  "specifications_by_management_axis": {
+    "breakeven_r": {
+      "0.75": 3878280,
+      "1.25": 2585520,
+      "none": 7756560
+    },
+    "hold": {
+      "15": 430920,
+      "30": 430920,
+      "60": 6894720,
+      "eod": 6463800
+    },
+    "mechanism_exit": {
+      "True": 430920,
+      "none": 13789440
+    },
+    "partial_fraction": {
+      "0.5": 3447360,
+      "none": 10773000
+    },
+    "partial_r": {
+      "1.0": 1292760,
+      "1.5": 2154600,
+      "none": 10773000
+    },
+    "stop": {
+      "atr_0.75": 2370060,
+      "atr_1": 2370060,
+      "atr_1.5": 2370060,
+      "signal_bar": 2370060,
+      "swing_15": 2370060,
+      "swing_5": 2370060
+    },
+    "target_r": {
+      "0.75": 430920,
+      "1.0": 861840,
+      "1.5": 1292760,
+      "2.0": 1292760,
+      "3.0": 1292760,
+      "4.0": 1292760,
+      "none": 7756560
+    },
+    "trail_r": {
+      "1.0": 1723680,
+      "1.5": 1723680,
+      "none": 10773000
+    }
+  },
+  "specifications_by_session": {
+    "rth": 4740120,
+    "rth_am": 4740120,
+    "rth_pm": 4740120
+  },
+  "specifications_by_template": {
+    "T10_TIME_EXIT": 1292760,
+    "T11_MECHANISM_EXIT": 430920,
+    "T1_FIXED_TARGET": 1292760,
+    "T2_STRUCTURE_STOP_FIXED_TARGET": 1292760,
+    "T3_SESSION_RUNNER": 430920,
+    "T4_BREAKEVEN_TARGET": 3878280,
+    "T5_PARTIAL_RUNNER": 861840,
+    "T6_PARTIAL_BE_RUNNER": 1292760,
+    "T7_TRAIL_RUNNER": 861840,
+    "T8_BE_TRAIL_RUNNER": 1292760,
+    "T9_PARTIAL_TRAIL": 1292760
+  },
+  "status": "PRE_OUTCOME_INVENTORY",
+  "storage_and_runtime": {
+    "first_pass_npy_estimated_bytes": 1663782248,
+    "first_pass_row_bytes": 117,
+    "full_run_note": "Kernel timing excludes real-world feature/event generation, qualifier reruns, hashing, data loading and disk IO; it is a lower bound, not a wall-clock forecast.",
+    "peak_ram_pre_run_estimate_gb": "4\u201312 GB, unverified until a full-market run",
+    "qualifier_detail_and_validation_size": "outcome-dependent; no candidate cap",
+    "qualifier_index_worst_case_bytes": 113763008,
+    "synthetic_kernel_benchmark": {
+      "estimated_10m_seconds_at_1m_rate": 149.40735763986595,
+      "estimated_full_universe_seconds_at_1m_rate": 212.4626412287644,
+      "fixture": {
+        "bars": 6000,
+        "eligible_entry_events": 119,
+        "management": {
+          "breakeven_r": null,
+          "hold": 60,
+          "mechanism_exit": false,
+          "partial_fraction": null,
+          "partial_r": null,
+          "stop": "atr_0.75",
+          "target_r": null,
+          "template": "T10_TIME_EXIT",
+          "trail_r": null
+        },
+        "note": "Management-kernel timing only; full-world feature, storage and IO costs require separate allowance."
+      },
+      "kind": "V5_4_SYNTHETIC_ENGINE_BENCHMARK",
+      "measurements": [
+        {
+          "elapsed_seconds": 0.2006453339708969,
+          "specifications": 10000,
+          "specifications_per_second": 49839.18540288843
+        },
+        {
+          "elapsed_seconds": 1.6424308120040223,
+          "specifications": 100000,
+          "specifications_per_second": 60885.36531897156
+        },
+        {
+          "elapsed_seconds": 14.940735763986595,
+          "specifications": 1000000,
+          "specifications_per_second": 66931.1080656695
+        }
+      ]
+    }
+  }
+}
