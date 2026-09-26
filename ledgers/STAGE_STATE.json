@@ -1,9 +1,9 @@
 {
- "stage": "DISCOVERY",
+ "stage": "VALIDATION_FROZEN",
  "registry_sha256": "8ba89bc09a91b3f61290c654384ca951a92add841a99a5bfb14f3e2009e4c81c",
  "freezes": {
-  "discovery": null,
-  "validation": null,
+  "discovery": "5d3533a0e7249b0f46b29779c831eef0b8fa53140672f09f2312329d99f96fea",
+  "validation": "5e1423670e077043a179d23a5ffdb5ac7eef16e7d8d2d0736af9c3bdac40431d",
   "final_cohort": null,
   "audit_1_report": null,
   "audit_2_report": null
@@ -17,7 +17,19 @@
   {
    "stage": "DISCOVERY",
    "entered_utc": "2026-09-25T15:31:39.686746+00:00"
+  },
+  {
+   "stage": "DISCOVERY_FROZEN",
+   "entered_utc": "2026-09-26T18:53:46.490807+00:00"
+  },
+  {
+   "stage": "VALIDATION",
+   "entered_utc": "2026-09-26T18:53:54.185272+00:00"
+  },
+  {
+   "stage": "VALIDATION_FROZEN",
+   "entered_utc": "2026-09-26T18:53:59.220059+00:00"
   }
  ],
- "state_hash": "876e525f1a04f3619a80d9f0c4ce9827720730e8200a6f7aa8f144bc847f1c98"
+ "state_hash": "61520210465cba393701e4881a54cda7e9909ac1643b09a87b9554e3a196f54f"
 }

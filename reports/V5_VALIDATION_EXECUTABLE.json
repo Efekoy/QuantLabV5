@@ -1,0 +1,17 @@
+{
+  "bootstrap_reps": 0,
+  "candidate_ids": [],
+  "class_counts": {
+    "INCONCLUSIVE / UNDERPOWERED": 0,
+    "REJECTED": 0,
+    "SUPPORTED": 0
+  },
+  "created_utc": "2026-09-26T18:53:54.319661+00:00",
+  "discovery_freeze_sha256": "7d33742fc97b987515a8d2c2ae6bd376134a0c470406bd1ebf1f3c3cf73396ae",
+  "holdout_protocol_sha256": "3c45a2957cb62e58e816e0413b6c7cfb816390a784c7c58a3be75a33108eff68",
+  "kind": "V5_EXACT_CANDIDATE_HOLDOUT_VALIDATION",
+  "mnq_budget_coverage": {},
+  "rows": {},
+  "survivor_ids": [],
+  "unresolved_ids": []
+}

@@ -1,0 +1,11 @@
+{
+  "body_sha256": "153d4212102a0345d64e691e5b26ed159edfdd4a0a144ced5f41d046abe706c0",
+  "classifications": {},
+  "discovery_freeze_sha256": "7d33742fc97b987515a8d2c2ae6bd376134a0c470406bd1ebf1f3c3cf73396ae",
+  "evaluated_ids": [],
+  "kind": "V5_VALIDATION_COHORT_FREEZE",
+  "report_sha256": "7383e39f1276c4dd091d03c2a4d2e046176e24156a3690c91a41fde5b30beaf6",
+  "status": "FROZEN",
+  "survivor_ids": [],
+  "survivor_specs": {}
+}

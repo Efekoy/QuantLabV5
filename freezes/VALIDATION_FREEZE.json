@@ -1,0 +1,17 @@
+{
+ "body_sha256": "5e1423670e077043a179d23a5ffdb5ac7eef16e7d8d2d0736af9c3bdac40431d",
+ "created_utc": "2026-09-26T18:53:54.335428+00:00",
+ "files": {
+  "V5_VALIDATION_FREEZE.json": "b6eee893555aa79bf129303db23c1c3fcf35cf34783b10596bccb20ad06e248f",
+  "V5_VALIDATION_REPORT.md": "ecbc999efff8e60a1bd0950a6d0318b61765ff2714962bef908fef0726313024",
+  "reports/V5_VALIDATION_EXECUTABLE.json": "7383e39f1276c4dd091d03c2a4d2e046176e24156a3690c91a41fde5b30beaf6"
+ },
+ "git_commit": null,
+ "kind": "VALIDATION_FREEZE",
+ "ledger_anchor": null,
+ "sections": {
+  "evaluated": [],
+  "survivors": [],
+  "validation_rules_sha256": "3c45a2957cb62e58e816e0413b6c7cfb816390a784c7c58a3be75a33108eff68"
+ }
+}

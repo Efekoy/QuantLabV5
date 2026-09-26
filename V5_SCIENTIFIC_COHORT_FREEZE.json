@@ -1,0 +1,8 @@
+{
+  "body_sha256": "a1126c4af509e22f8646810245f41ecbd0023da7b3df727b564dd3c68ca6c7df",
+  "candidate_ids": [],
+  "kind": "V5_SCIENTIFIC_COHORT_FREEZE",
+  "specs": {},
+  "status": "FROZEN",
+  "validation_freeze_sha256": "b6eee893555aa79bf129303db23c1c3fcf35cf34783b10596bccb20ad06e248f"
+}
