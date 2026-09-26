@@ -1,0 +1,20 @@
+{
+ "body_sha256": "5d3533a0e7249b0f46b29779c831eef0b8fa53140672f09f2312329d99f96fea",
+ "created_utc": "2026-09-26T18:52:34.545413+00:00",
+ "files": {
+  "V5_DISCOVERY_FREEZE.json": "7d33742fc97b987515a8d2c2ae6bd376134a0c470406bd1ebf1f3c3cf73396ae",
+  "V5_DISCOVERY_REPORT.md": "c1e48ec7815e0b513bc6b9ac7c823a02a7542af546e9b9c9add70c45ab52b49c",
+  "V5_HOLDOUT_CONFIRMATION_PROTOCOL_FREEZE.json": "3c45a2957cb62e58e816e0413b6c7cfb816390a784c7c58a3be75a33108eff68",
+  "reports/V5_DISCOVERY_EXECUTABLE.json": "aced9d9fafed7d10f3906385c433935ec707d6255f642ff6187b06319a008c02"
+ },
+ "git_commit": null,
+ "kind": "DISCOVERY_FREEZE",
+ "ledger_anchor": null,
+ "sections": {
+  "candidates": {},
+  "duplicate_of": {},
+  "qualifying": [],
+  "selection_process": "all frozen economic/stability qualifiers; no top-N or correlation deletion",
+  "validation_rules": "V5_HOLDOUT_CONFIRMATION_PROTOCOL_FREEZE.json"
+ }
+}

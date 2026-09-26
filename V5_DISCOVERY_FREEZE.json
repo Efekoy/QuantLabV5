@@ -1,0 +1,11 @@
+{
+  "body_sha256": "95f4e28d40740999622a95ee9fcacb17cf5fee87bf5b2a5f53313d1c65bfdfe1",
+  "evaluated_ids_sha256": "6b49e09d51f0dbe528b54c3092771088bb9bdac0ad8d40c61e913ceafa2723f0",
+  "kind": "V5_DISCOVERY_COHORT_FREEZE",
+  "no_cap": true,
+  "prereg_sha256": "46103d67b94c652fe89e24adab4943da4493a99fdf9665e06e4f43fa0a77adb1",
+  "qualifying_ids": [],
+  "report_sha256": "aced9d9fafed7d10f3906385c433935ec707d6255f642ff6187b06319a008c02",
+  "specs": {},
+  "status": "FROZEN"
+}
