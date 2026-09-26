@@ -5,7 +5,9 @@ features, search kernels, nulls, purging/embargo, sizing, prop simulator, isolat
 unchanged in behaviour, over the same verified NQ/ES 1-minute data, with new partitions, a new vault and a
 new stage machine.
 
-**Status: bootstrap only, stage `DISCOVERY`. No V5 strategy catalog exists and no research has run.**
+**Status: stage `DISCOVERY`, with real research access held by the preregistration guard. All 30 Stage A market-signal families and the adaptive A/B/C search runner execute on synthetic markets. Full market-level planted-edge and all-null calibration, independent validation machinery, and blind historical-audit architecture remain incomplete. No real V5 strategy search has run. The review hash pin is `REVIEW_REQUIRED` and does not authorize discovery.**
+
+Design documents: `V5_PRIOR_LAB_COVERAGE.md`, `V5_STRATEGY_CATALOG.md`, `V5_POWER_CALIBRATION_REPORT.md`, `V5_NULL_METHOD_REPORT.md`, `V5_RESEARCH_PREREGISTRATION.md`, `V5_EXECUTABLE_PIPELINE_STATUS.md`, and `V5_PREREGISTRATION_FREEZE.json`.
 See `V5_BOOTSTRAP_REPORT.md`.
 
 ## Rules that the code enforces

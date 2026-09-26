@@ -1,0 +1,1181 @@
+{
+  "kind": "fixed_library_hierarchical_synthetic_calibration",
+  "days": 1034,
+  "families": 30,
+  "specs_per_family": 4,
+  "worlds_per_frequency": 120,
+  "bootstrap_reps": 99,
+  "block_sessions": 20,
+  "hac_lags": 20,
+  "effects_R": [
+    0,
+    0.01,
+    0.02,
+    0.03,
+    0.05,
+    0.075,
+    0.1,
+    0.15
+  ],
+  "warning": "No executable market grammar or adaptive A/B/C replay; cannot freeze.",
+  "results": {
+    "100": {
+      "rates": {
+        "needle": {
+          "0": {
+            "single_hac": 0.03333333333333333,
+            "single_bootstrap": 0.03333333333333333,
+            "unadjusted_120": 0.03333333333333333,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.1,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.05
+          },
+          "0.01": {
+            "single_hac": 0.041666666666666664,
+            "single_bootstrap": 0.05,
+            "unadjusted_120": 0.05,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.1,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.058333333333333334
+          },
+          "0.02": {
+            "single_hac": 0.08333333333333333,
+            "single_bootstrap": 0.05,
+            "unadjusted_120": 0.05,
+            "holm_120": 0.0,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.10833333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.08333333333333333
+          },
+          "0.03": {
+            "single_hac": 0.1,
+            "single_bootstrap": 0.1,
+            "unadjusted_120": 0.1,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.10833333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.125
+          },
+          "0.05": {
+            "single_hac": 0.19166666666666668,
+            "single_bootstrap": 0.16666666666666666,
+            "unadjusted_120": 0.16666666666666666,
+            "holm_120": 0.016666666666666666,
+            "stepdown_120": 0.016666666666666666,
+            "global": 0.11666666666666667,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.19166666666666668
+          },
+          "0.075": {
+            "single_hac": 0.35833333333333334,
+            "single_bootstrap": 0.31666666666666665,
+            "unadjusted_120": 0.31666666666666665,
+            "holm_120": 0.03333333333333333,
+            "stepdown_120": 0.03333333333333333,
+            "global": 0.13333333333333333,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.35833333333333334
+          },
+          "0.1": {
+            "single_hac": 0.5166666666666667,
+            "single_bootstrap": 0.475,
+            "unadjusted_120": 0.475,
+            "holm_120": 0.06666666666666667,
+            "stepdown_120": 0.06666666666666667,
+            "global": 0.16666666666666666,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.5583333333333333
+          },
+          "0.15": {
+            "single_hac": 0.8416666666666667,
+            "single_bootstrap": 0.8416666666666667,
+            "unadjusted_120": 0.8416666666666667,
+            "holm_120": 0.26666666666666666,
+            "stepdown_120": 0.2833333333333333,
+            "global": 0.35833333333333334,
+            "family": 0.025,
+            "neighborhood": 0.025,
+            "naive_event": 0.8583333333333333
+          }
+        },
+        "plateau": {
+          "0": {
+            "single_hac": 0.03333333333333333,
+            "single_bootstrap": 0.03333333333333333,
+            "unadjusted_120": 0.03333333333333333,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.1,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.05
+          },
+          "0.01": {
+            "single_hac": 0.041666666666666664,
+            "single_bootstrap": 0.05,
+            "unadjusted_120": 0.05,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.10833333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.058333333333333334
+          },
+          "0.02": {
+            "single_hac": 0.08333333333333333,
+            "single_bootstrap": 0.05,
+            "unadjusted_120": 0.05,
+            "holm_120": 0.0,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.11666666666666667,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.08333333333333333
+          },
+          "0.03": {
+            "single_hac": 0.1,
+            "single_bootstrap": 0.1,
+            "unadjusted_120": 0.1,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.11666666666666667,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.125
+          },
+          "0.05": {
+            "single_hac": 0.19166666666666668,
+            "single_bootstrap": 0.16666666666666666,
+            "unadjusted_120": 0.16666666666666666,
+            "holm_120": 0.016666666666666666,
+            "stepdown_120": 0.016666666666666666,
+            "global": 0.125,
+            "family": 0.025,
+            "neighborhood": 0.025,
+            "naive_event": 0.19166666666666668
+          },
+          "0.075": {
+            "single_hac": 0.35833333333333334,
+            "single_bootstrap": 0.31666666666666665,
+            "unadjusted_120": 0.31666666666666665,
+            "holm_120": 0.03333333333333333,
+            "stepdown_120": 0.03333333333333333,
+            "global": 0.15,
+            "family": 0.05,
+            "neighborhood": 0.05,
+            "naive_event": 0.35833333333333334
+          },
+          "0.1": {
+            "single_hac": 0.5166666666666667,
+            "single_bootstrap": 0.475,
+            "unadjusted_120": 0.475,
+            "holm_120": 0.06666666666666667,
+            "stepdown_120": 0.06666666666666667,
+            "global": 0.2,
+            "family": 0.08333333333333333,
+            "neighborhood": 0.08333333333333333,
+            "naive_event": 0.5583333333333333
+          },
+          "0.15": {
+            "single_hac": 0.8416666666666667,
+            "single_bootstrap": 0.8416666666666667,
+            "unadjusted_120": 0.8416666666666667,
+            "holm_120": 0.275,
+            "stepdown_120": 0.2833333333333333,
+            "global": 0.375,
+            "family": 0.25,
+            "neighborhood": 0.25,
+            "naive_event": 0.8583333333333333
+          }
+        },
+        "family": {
+          "0": {
+            "single_hac": 0.03333333333333333,
+            "single_bootstrap": 0.03333333333333333,
+            "unadjusted_120": 0.03333333333333333,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.1,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.05
+          },
+          "0.01": {
+            "single_hac": 0.041666666666666664,
+            "single_bootstrap": 0.05,
+            "unadjusted_120": 0.05,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.1,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.058333333333333334
+          },
+          "0.02": {
+            "single_hac": 0.08333333333333333,
+            "single_bootstrap": 0.05,
+            "unadjusted_120": 0.05,
+            "holm_120": 0.0,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.11666666666666667,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.08333333333333333
+          },
+          "0.03": {
+            "single_hac": 0.1,
+            "single_bootstrap": 0.1,
+            "unadjusted_120": 0.1,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.11666666666666667,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.125
+          },
+          "0.05": {
+            "single_hac": 0.19166666666666668,
+            "single_bootstrap": 0.16666666666666666,
+            "unadjusted_120": 0.16666666666666666,
+            "holm_120": 0.016666666666666666,
+            "stepdown_120": 0.016666666666666666,
+            "global": 0.11666666666666667,
+            "family": 0.016666666666666666,
+            "neighborhood": 0.016666666666666666,
+            "naive_event": 0.19166666666666668
+          },
+          "0.075": {
+            "single_hac": 0.35833333333333334,
+            "single_bootstrap": 0.31666666666666665,
+            "unadjusted_120": 0.31666666666666665,
+            "holm_120": 0.03333333333333333,
+            "stepdown_120": 0.03333333333333333,
+            "global": 0.14166666666666666,
+            "family": 0.025,
+            "neighborhood": 0.025,
+            "naive_event": 0.35833333333333334
+          },
+          "0.1": {
+            "single_hac": 0.5166666666666667,
+            "single_bootstrap": 0.475,
+            "unadjusted_120": 0.475,
+            "holm_120": 0.06666666666666667,
+            "stepdown_120": 0.06666666666666667,
+            "global": 0.18333333333333332,
+            "family": 0.05,
+            "neighborhood": 0.05,
+            "naive_event": 0.5583333333333333
+          },
+          "0.15": {
+            "single_hac": 0.8416666666666667,
+            "single_bootstrap": 0.8416666666666667,
+            "unadjusted_120": 0.8416666666666667,
+            "holm_120": 0.26666666666666666,
+            "stepdown_120": 0.2833333333333333,
+            "global": 0.36666666666666664,
+            "family": 0.11666666666666667,
+            "neighborhood": 0.11666666666666667,
+            "naive_event": 0.8583333333333333
+          }
+        },
+        "regime": {
+          "0": {
+            "single_hac": 0.058333333333333334,
+            "single_bootstrap": 0.041666666666666664,
+            "unadjusted_120": 0.041666666666666664,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.1,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.075
+          },
+          "0.01": {
+            "single_hac": 0.075,
+            "single_bootstrap": 0.08333333333333333,
+            "unadjusted_120": 0.08333333333333333,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.1,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.08333333333333333
+          },
+          "0.02": {
+            "single_hac": 0.09166666666666666,
+            "single_bootstrap": 0.09166666666666666,
+            "unadjusted_120": 0.09166666666666666,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.10833333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.09166666666666666
+          },
+          "0.03": {
+            "single_hac": 0.1,
+            "single_bootstrap": 0.11666666666666667,
+            "unadjusted_120": 0.11666666666666667,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.10833333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.125
+          },
+          "0.05": {
+            "single_hac": 0.175,
+            "single_bootstrap": 0.18333333333333332,
+            "unadjusted_120": 0.18333333333333332,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.10833333333333334,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.23333333333333334
+          },
+          "0.075": {
+            "single_hac": 0.30833333333333335,
+            "single_bootstrap": 0.2833333333333333,
+            "unadjusted_120": 0.2833333333333333,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.11666666666666667,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.3333333333333333
+          },
+          "0.1": {
+            "single_hac": 0.4166666666666667,
+            "single_bootstrap": 0.43333333333333335,
+            "unadjusted_120": 0.43333333333333335,
+            "holm_120": 0.025,
+            "stepdown_120": 0.03333333333333333,
+            "global": 0.14166666666666666,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.44166666666666665
+          },
+          "0.15": {
+            "single_hac": 0.725,
+            "single_bootstrap": 0.75,
+            "unadjusted_120": 0.75,
+            "holm_120": 0.1,
+            "stepdown_120": 0.11666666666666667,
+            "global": 0.225,
+            "family": 0.025,
+            "neighborhood": 0.025,
+            "naive_event": 0.75
+          }
+        }
+      },
+      "mde80_brackets": {
+        "needle": {
+          "stepdown_120": "> 0.15R",
+          "family": "> 0.15R",
+          "neighborhood": "> 0.15R"
+        },
+        "plateau": {
+          "stepdown_120": "> 0.15R",
+          "family": "> 0.15R",
+          "neighborhood": "> 0.15R"
+        },
+        "family": {
+          "stepdown_120": "> 0.15R",
+          "family": "> 0.15R",
+          "neighborhood": "> 0.15R"
+        },
+        "regime": {
+          "stepdown_120": "> 0.15R",
+          "family": "> 0.15R",
+          "neighborhood": "> 0.15R"
+        }
+      }
+    },
+    "250": {
+      "rates": {
+        "needle": {
+          "0": {
+            "single_hac": 0.05,
+            "single_bootstrap": 0.05,
+            "unadjusted_120": 0.05,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.1
+          },
+          "0.01": {
+            "single_hac": 0.125,
+            "single_bootstrap": 0.10833333333333334,
+            "unadjusted_120": 0.10833333333333334,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.175
+          },
+          "0.02": {
+            "single_hac": 0.23333333333333334,
+            "single_bootstrap": 0.18333333333333332,
+            "unadjusted_120": 0.18333333333333332,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.26666666666666666
+          },
+          "0.03": {
+            "single_hac": 0.2833333333333333,
+            "single_bootstrap": 0.275,
+            "unadjusted_120": 0.275,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.3333333333333333
+          },
+          "0.05": {
+            "single_hac": 0.45,
+            "single_bootstrap": 0.44166666666666665,
+            "unadjusted_120": 0.44166666666666665,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.025,
+            "global": 0.06666666666666667,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.5083333333333333
+          },
+          "0.075": {
+            "single_hac": 0.6666666666666666,
+            "single_bootstrap": 0.6666666666666666,
+            "unadjusted_120": 0.6666666666666666,
+            "holm_120": 0.15,
+            "stepdown_120": 0.15833333333333333,
+            "global": 0.19166666666666668,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.7583333333333333
+          },
+          "0.1": {
+            "single_hac": 0.8916666666666667,
+            "single_bootstrap": 0.8833333333333333,
+            "unadjusted_120": 0.8833333333333333,
+            "holm_120": 0.38333333333333336,
+            "stepdown_120": 0.38333333333333336,
+            "global": 0.39166666666666666,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.9333333333333333
+          },
+          "0.15": {
+            "single_hac": 1.0,
+            "single_bootstrap": 0.9916666666666667,
+            "unadjusted_120": 0.9916666666666667,
+            "holm_120": 0.7916666666666666,
+            "stepdown_120": 0.775,
+            "global": 0.775,
+            "family": 0.03333333333333333,
+            "neighborhood": 0.03333333333333333,
+            "naive_event": 1.0
+          }
+        },
+        "plateau": {
+          "0": {
+            "single_hac": 0.05,
+            "single_bootstrap": 0.05,
+            "unadjusted_120": 0.05,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.1
+          },
+          "0.01": {
+            "single_hac": 0.125,
+            "single_bootstrap": 0.10833333333333334,
+            "unadjusted_120": 0.10833333333333334,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.175
+          },
+          "0.02": {
+            "single_hac": 0.23333333333333334,
+            "single_bootstrap": 0.18333333333333332,
+            "unadjusted_120": 0.18333333333333332,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.26666666666666666
+          },
+          "0.03": {
+            "single_hac": 0.2833333333333333,
+            "single_bootstrap": 0.275,
+            "unadjusted_120": 0.275,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.3333333333333333
+          },
+          "0.05": {
+            "single_hac": 0.45,
+            "single_bootstrap": 0.44166666666666665,
+            "unadjusted_120": 0.44166666666666665,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.025,
+            "global": 0.08333333333333333,
+            "family": 0.03333333333333333,
+            "neighborhood": 0.03333333333333333,
+            "naive_event": 0.5083333333333333
+          },
+          "0.075": {
+            "single_hac": 0.6666666666666666,
+            "single_bootstrap": 0.6666666666666666,
+            "unadjusted_120": 0.6666666666666666,
+            "holm_120": 0.15,
+            "stepdown_120": 0.15833333333333333,
+            "global": 0.225,
+            "family": 0.15,
+            "neighborhood": 0.15,
+            "naive_event": 0.7583333333333333
+          },
+          "0.1": {
+            "single_hac": 0.8916666666666667,
+            "single_bootstrap": 0.8833333333333333,
+            "unadjusted_120": 0.8833333333333333,
+            "holm_120": 0.38333333333333336,
+            "stepdown_120": 0.38333333333333336,
+            "global": 0.43333333333333335,
+            "family": 0.36666666666666664,
+            "neighborhood": 0.36666666666666664,
+            "naive_event": 0.9333333333333333
+          },
+          "0.15": {
+            "single_hac": 1.0,
+            "single_bootstrap": 0.9916666666666667,
+            "unadjusted_120": 0.9916666666666667,
+            "holm_120": 0.7916666666666666,
+            "stepdown_120": 0.775,
+            "global": 0.7833333333333333,
+            "family": 0.7666666666666667,
+            "neighborhood": 0.7666666666666667,
+            "naive_event": 1.0
+          }
+        },
+        "family": {
+          "0": {
+            "single_hac": 0.05,
+            "single_bootstrap": 0.05,
+            "unadjusted_120": 0.05,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.1
+          },
+          "0.01": {
+            "single_hac": 0.125,
+            "single_bootstrap": 0.10833333333333334,
+            "unadjusted_120": 0.10833333333333334,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.175
+          },
+          "0.02": {
+            "single_hac": 0.23333333333333334,
+            "single_bootstrap": 0.18333333333333332,
+            "unadjusted_120": 0.18333333333333332,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.26666666666666666
+          },
+          "0.03": {
+            "single_hac": 0.2833333333333333,
+            "single_bootstrap": 0.275,
+            "unadjusted_120": 0.275,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.3333333333333333
+          },
+          "0.05": {
+            "single_hac": 0.45,
+            "single_bootstrap": 0.44166666666666665,
+            "unadjusted_120": 0.44166666666666665,
+            "holm_120": 0.008333333333333333,
+            "stepdown_120": 0.025,
+            "global": 0.06666666666666667,
+            "family": 0.016666666666666666,
+            "neighborhood": 0.016666666666666666,
+            "naive_event": 0.5083333333333333
+          },
+          "0.075": {
+            "single_hac": 0.6666666666666666,
+            "single_bootstrap": 0.6666666666666666,
+            "unadjusted_120": 0.6666666666666666,
+            "holm_120": 0.15,
+            "stepdown_120": 0.15833333333333333,
+            "global": 0.2,
+            "family": 0.041666666666666664,
+            "neighborhood": 0.041666666666666664,
+            "naive_event": 0.7583333333333333
+          },
+          "0.1": {
+            "single_hac": 0.8916666666666667,
+            "single_bootstrap": 0.8833333333333333,
+            "unadjusted_120": 0.8833333333333333,
+            "holm_120": 0.38333333333333336,
+            "stepdown_120": 0.38333333333333336,
+            "global": 0.39166666666666666,
+            "family": 0.15833333333333333,
+            "neighborhood": 0.15833333333333333,
+            "naive_event": 0.9333333333333333
+          },
+          "0.15": {
+            "single_hac": 1.0,
+            "single_bootstrap": 0.9916666666666667,
+            "unadjusted_120": 0.9916666666666667,
+            "holm_120": 0.7916666666666666,
+            "stepdown_120": 0.775,
+            "global": 0.775,
+            "family": 0.4583333333333333,
+            "neighborhood": 0.4583333333333333,
+            "naive_event": 1.0
+          }
+        },
+        "regime": {
+          "0": {
+            "single_hac": 0.075,
+            "single_bootstrap": 0.08333333333333333,
+            "unadjusted_120": 0.08333333333333333,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.05,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.06666666666666667
+          },
+          "0.01": {
+            "single_hac": 0.10833333333333334,
+            "single_bootstrap": 0.13333333333333333,
+            "unadjusted_120": 0.13333333333333333,
+            "holm_120": 0.0,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.14166666666666666
+          },
+          "0.02": {
+            "single_hac": 0.18333333333333332,
+            "single_bootstrap": 0.19166666666666668,
+            "unadjusted_120": 0.19166666666666668,
+            "holm_120": 0.0,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.20833333333333334
+          },
+          "0.03": {
+            "single_hac": 0.25,
+            "single_bootstrap": 0.25,
+            "unadjusted_120": 0.25,
+            "holm_120": 0.0,
+            "stepdown_120": 0.008333333333333333,
+            "global": 0.058333333333333334,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.2916666666666667
+          },
+          "0.05": {
+            "single_hac": 0.36666666666666664,
+            "single_bootstrap": 0.4083333333333333,
+            "unadjusted_120": 0.4083333333333333,
+            "holm_120": 0.025,
+            "stepdown_120": 0.016666666666666666,
+            "global": 0.06666666666666667,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.43333333333333335
+          },
+          "0.075": {
+            "single_hac": 0.5333333333333333,
+            "single_bootstrap": 0.5583333333333333,
+            "unadjusted_120": 0.5583333333333333,
+            "holm_120": 0.08333333333333333,
+            "stepdown_120": 0.075,
+            "global": 0.13333333333333333,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.625
+          },
+          "0.1": {
+            "single_hac": 0.75,
+            "single_bootstrap": 0.7583333333333333,
+            "unadjusted_120": 0.7583333333333333,
+            "holm_120": 0.18333333333333332,
+            "stepdown_120": 0.23333333333333334,
+            "global": 0.26666666666666666,
+            "family": 0.025,
+            "neighborhood": 0.025,
+            "naive_event": 0.8333333333333334
+          },
+          "0.15": {
+            "single_hac": 0.975,
+            "single_bootstrap": 0.975,
+            "unadjusted_120": 0.975,
+            "holm_120": 0.4666666666666667,
+            "stepdown_120": 0.44166666666666665,
+            "global": 0.48333333333333334,
+            "family": 0.06666666666666667,
+            "neighborhood": 0.06666666666666667,
+            "naive_event": 0.9833333333333333
+          }
+        }
+      },
+      "mde80_brackets": {
+        "needle": {
+          "stepdown_120": "> 0.15R",
+          "family": "> 0.15R",
+          "neighborhood": "> 0.15R"
+        },
+        "plateau": {
+          "stepdown_120": "> 0.15R",
+          "family": "> 0.15R",
+          "neighborhood": "> 0.15R"
+        },
+        "family": {
+          "stepdown_120": "> 0.15R",
+          "family": "> 0.15R",
+          "neighborhood": "> 0.15R"
+        },
+        "regime": {
+          "stepdown_120": "> 0.15R",
+          "family": "> 0.15R",
+          "neighborhood": "> 0.15R"
+        }
+      }
+    },
+    "500": {
+      "rates": {
+        "needle": {
+          "0": {
+            "single_hac": 0.058333333333333334,
+            "single_bootstrap": 0.06666666666666667,
+            "unadjusted_120": 0.06666666666666667,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.06666666666666667,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.125
+          },
+          "0.01": {
+            "single_hac": 0.125,
+            "single_bootstrap": 0.14166666666666666,
+            "unadjusted_120": 0.14166666666666666,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.06666666666666667,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.2
+          },
+          "0.02": {
+            "single_hac": 0.18333333333333332,
+            "single_bootstrap": 0.2,
+            "unadjusted_120": 0.2,
+            "holm_120": 0.016666666666666666,
+            "stepdown_120": 0.016666666666666666,
+            "global": 0.075,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.25833333333333336
+          },
+          "0.03": {
+            "single_hac": 0.2833333333333333,
+            "single_bootstrap": 0.275,
+            "unadjusted_120": 0.275,
+            "holm_120": 0.016666666666666666,
+            "stepdown_120": 0.025,
+            "global": 0.075,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.3416666666666667
+          },
+          "0.05": {
+            "single_hac": 0.5166666666666667,
+            "single_bootstrap": 0.525,
+            "unadjusted_120": 0.525,
+            "holm_120": 0.08333333333333333,
+            "stepdown_120": 0.125,
+            "global": 0.16666666666666666,
+            "family": 0.016666666666666666,
+            "neighborhood": 0.016666666666666666,
+            "naive_event": 0.65
+          },
+          "0.075": {
+            "single_hac": 0.8416666666666667,
+            "single_bootstrap": 0.825,
+            "unadjusted_120": 0.825,
+            "holm_120": 0.26666666666666666,
+            "stepdown_120": 0.30833333333333335,
+            "global": 0.31666666666666665,
+            "family": 0.025,
+            "neighborhood": 0.025,
+            "naive_event": 0.8916666666666667
+          },
+          "0.1": {
+            "single_hac": 0.9833333333333333,
+            "single_bootstrap": 0.9666666666666667,
+            "unadjusted_120": 0.9666666666666667,
+            "holm_120": 0.525,
+            "stepdown_120": 0.5666666666666667,
+            "global": 0.5666666666666667,
+            "family": 0.03333333333333333,
+            "neighborhood": 0.03333333333333333,
+            "naive_event": 0.9916666666666667
+          },
+          "0.15": {
+            "single_hac": 1.0,
+            "single_bootstrap": 1.0,
+            "unadjusted_120": 1.0,
+            "holm_120": 0.9833333333333333,
+            "stepdown_120": 0.9666666666666667,
+            "global": 0.9666666666666667,
+            "family": 0.09166666666666666,
+            "neighborhood": 0.09166666666666666,
+            "naive_event": 1.0
+          }
+        },
+        "plateau": {
+          "0": {
+            "single_hac": 0.058333333333333334,
+            "single_bootstrap": 0.06666666666666667,
+            "unadjusted_120": 0.06666666666666667,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.06666666666666667,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.125
+          },
+          "0.01": {
+            "single_hac": 0.125,
+            "single_bootstrap": 0.14166666666666666,
+            "unadjusted_120": 0.14166666666666666,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.06666666666666667,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.2
+          },
+          "0.02": {
+            "single_hac": 0.18333333333333332,
+            "single_bootstrap": 0.2,
+            "unadjusted_120": 0.2,
+            "holm_120": 0.016666666666666666,
+            "stepdown_120": 0.016666666666666666,
+            "global": 0.075,
+            "family": 0.016666666666666666,
+            "neighborhood": 0.016666666666666666,
+            "naive_event": 0.25833333333333336
+          },
+          "0.03": {
+            "single_hac": 0.2833333333333333,
+            "single_bootstrap": 0.275,
+            "unadjusted_120": 0.275,
+            "holm_120": 0.016666666666666666,
+            "stepdown_120": 0.025,
+            "global": 0.075,
+            "family": 0.025,
+            "neighborhood": 0.025,
+            "naive_event": 0.3416666666666667
+          },
+          "0.05": {
+            "single_hac": 0.5166666666666667,
+            "single_bootstrap": 0.525,
+            "unadjusted_120": 0.525,
+            "holm_120": 0.08333333333333333,
+            "stepdown_120": 0.125,
+            "global": 0.18333333333333332,
+            "family": 0.125,
+            "neighborhood": 0.125,
+            "naive_event": 0.65
+          },
+          "0.075": {
+            "single_hac": 0.8416666666666667,
+            "single_bootstrap": 0.825,
+            "unadjusted_120": 0.825,
+            "holm_120": 0.26666666666666666,
+            "stepdown_120": 0.30833333333333335,
+            "global": 0.325,
+            "family": 0.2833333333333333,
+            "neighborhood": 0.2833333333333333,
+            "naive_event": 0.8916666666666667
+          },
+          "0.1": {
+            "single_hac": 0.9833333333333333,
+            "single_bootstrap": 0.9666666666666667,
+            "unadjusted_120": 0.9666666666666667,
+            "holm_120": 0.5333333333333333,
+            "stepdown_120": 0.5666666666666667,
+            "global": 0.5833333333333334,
+            "family": 0.5,
+            "neighborhood": 0.5,
+            "naive_event": 0.9916666666666667
+          },
+          "0.15": {
+            "single_hac": 1.0,
+            "single_bootstrap": 1.0,
+            "unadjusted_120": 1.0,
+            "holm_120": 0.9833333333333333,
+            "stepdown_120": 0.9666666666666667,
+            "global": 0.9666666666666667,
+            "family": 0.9083333333333333,
+            "neighborhood": 0.9083333333333333,
+            "naive_event": 1.0
+          }
+        },
+        "family": {
+          "0": {
+            "single_hac": 0.058333333333333334,
+            "single_bootstrap": 0.06666666666666667,
+            "unadjusted_120": 0.06666666666666667,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.06666666666666667,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.125
+          },
+          "0.01": {
+            "single_hac": 0.125,
+            "single_bootstrap": 0.14166666666666666,
+            "unadjusted_120": 0.14166666666666666,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.06666666666666667,
+            "family": 0.008333333333333333,
+            "neighborhood": 0.008333333333333333,
+            "naive_event": 0.2
+          },
+          "0.02": {
+            "single_hac": 0.18333333333333332,
+            "single_bootstrap": 0.2,
+            "unadjusted_120": 0.2,
+            "holm_120": 0.016666666666666666,
+            "stepdown_120": 0.016666666666666666,
+            "global": 0.075,
+            "family": 0.016666666666666666,
+            "neighborhood": 0.016666666666666666,
+            "naive_event": 0.25833333333333336
+          },
+          "0.03": {
+            "single_hac": 0.2833333333333333,
+            "single_bootstrap": 0.275,
+            "unadjusted_120": 0.275,
+            "holm_120": 0.016666666666666666,
+            "stepdown_120": 0.025,
+            "global": 0.075,
+            "family": 0.025,
+            "neighborhood": 0.025,
+            "naive_event": 0.3416666666666667
+          },
+          "0.05": {
+            "single_hac": 0.5166666666666667,
+            "single_bootstrap": 0.525,
+            "unadjusted_120": 0.525,
+            "holm_120": 0.08333333333333333,
+            "stepdown_120": 0.125,
+            "global": 0.175,
+            "family": 0.041666666666666664,
+            "neighborhood": 0.041666666666666664,
+            "naive_event": 0.65
+          },
+          "0.075": {
+            "single_hac": 0.8416666666666667,
+            "single_bootstrap": 0.825,
+            "unadjusted_120": 0.825,
+            "holm_120": 0.26666666666666666,
+            "stepdown_120": 0.30833333333333335,
+            "global": 0.31666666666666665,
+            "family": 0.15833333333333333,
+            "neighborhood": 0.15833333333333333,
+            "naive_event": 0.8916666666666667
+          },
+          "0.1": {
+            "single_hac": 0.9833333333333333,
+            "single_bootstrap": 0.9666666666666667,
+            "unadjusted_120": 0.9666666666666667,
+            "holm_120": 0.525,
+            "stepdown_120": 0.5666666666666667,
+            "global": 0.5666666666666667,
+            "family": 0.275,
+            "neighborhood": 0.275,
+            "naive_event": 0.9916666666666667
+          },
+          "0.15": {
+            "single_hac": 1.0,
+            "single_bootstrap": 1.0,
+            "unadjusted_120": 1.0,
+            "holm_120": 0.9833333333333333,
+            "stepdown_120": 0.9666666666666667,
+            "global": 0.9666666666666667,
+            "family": 0.6416666666666667,
+            "neighborhood": 0.6416666666666667,
+            "naive_event": 1.0
+          }
+        },
+        "regime": {
+          "0": {
+            "single_hac": 0.06666666666666667,
+            "single_bootstrap": 0.075,
+            "unadjusted_120": 0.075,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.06666666666666667,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.11666666666666667
+          },
+          "0.01": {
+            "single_hac": 0.10833333333333334,
+            "single_bootstrap": 0.1,
+            "unadjusted_120": 0.1,
+            "holm_120": 0.0,
+            "stepdown_120": 0.0,
+            "global": 0.06666666666666667,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.15
+          },
+          "0.02": {
+            "single_hac": 0.13333333333333333,
+            "single_bootstrap": 0.14166666666666666,
+            "unadjusted_120": 0.14166666666666666,
+            "holm_120": 0.0,
+            "stepdown_120": 0.016666666666666666,
+            "global": 0.08333333333333333,
+            "family": 0.0,
+            "neighborhood": 0.0,
+            "naive_event": 0.20833333333333334
+          },
+          "0.03": {
+            "single_hac": 0.21666666666666667,
+            "single_bootstrap": 0.23333333333333334,
+            "unadjusted_120": 0.23333333333333334,
+            "holm_120": 0.016666666666666666,
+            "stepdown_120": 0.025,
+            "global": 0.09166666666666666,
+            "family": 0.016666666666666666,
+            "neighborhood": 0.016666666666666666,
+            "naive_event": 0.325
+          },
+          "0.05": {
+            "single_hac": 0.44166666666666665,
+            "single_bootstrap": 0.45,
+            "unadjusted_120": 0.45,
+            "holm_120": 0.058333333333333334,
+            "stepdown_120": 0.06666666666666667,
+            "global": 0.11666666666666667,
+            "family": 0.016666666666666666,
+            "neighborhood": 0.016666666666666666,
+            "naive_event": 0.55
+          },
+          "0.075": {
+            "single_hac": 0.675,
+            "single_bootstrap": 0.6666666666666666,
+            "unadjusted_120": 0.6666666666666666,
+            "holm_120": 0.10833333333333334,
+            "stepdown_120": 0.15,
+            "global": 0.18333333333333332,
+            "family": 0.025,
+            "neighborhood": 0.025,
+            "naive_event": 0.8583333333333333
+          },
+          "0.1": {
+            "single_hac": 0.925,
+            "single_bootstrap": 0.8916666666666667,
+            "unadjusted_120": 0.8916666666666667,
+            "holm_120": 0.25833333333333336,
+            "stepdown_120": 0.2833333333333333,
+            "global": 0.31666666666666665,
+            "family": 0.05,
+            "neighborhood": 0.05,
+            "naive_event": 0.9583333333333334
+          },
+          "0.15": {
+            "single_hac": 0.9916666666666667,
+            "single_bootstrap": 0.9916666666666667,
+            "unadjusted_120": 0.9916666666666667,
+            "holm_120": 0.775,
+            "stepdown_120": 0.8166666666666667,
+            "global": 0.825,
+            "family": 0.175,
+            "neighborhood": 0.175,
+            "naive_event": 1.0
+          }
+        }
+      },
+      "mde80_brackets": {
+        "needle": {
+          "stepdown_120": "(0.1R,0.15R]",
+          "family": "> 0.15R",
+          "neighborhood": "> 0.15R"
+        },
+        "plateau": {
+          "stepdown_120": "(0.1R,0.15R]",
+          "family": "(0.1R,0.15R]",
+          "neighborhood": "(0.1R,0.15R]"
+        },
+        "family": {
+          "stepdown_120": "(0.1R,0.15R]",
+          "family": "> 0.15R",
+          "neighborhood": "> 0.15R"
+        },
+        "regime": {
+          "stepdown_120": "(0.1R,0.15R]",
+          "family": "> 0.15R",
+          "neighborhood": "> 0.15R"
+        }
+      }
+    }
+  }
+}

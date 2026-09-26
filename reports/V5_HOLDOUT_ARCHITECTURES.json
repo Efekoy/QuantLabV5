@@ -1,0 +1,3434 @@
+{
+  "kind": "synthetic_stream_adaptive_holdout_architecture",
+  "discovery_days": 2160,
+  "validation_days": 1008,
+  "worlds_per_frequency": 120,
+  "null_reference_worlds": 199,
+  "effects_R": [
+    0.0,
+    0.05,
+    0.075,
+    0.1,
+    0.15
+  ],
+  "families": 30,
+  "rules_per_family": 4,
+  "discovery_screen": {
+    "stress_increment_R": 0.02,
+    "min_events": 120,
+    "min_positive_neighbors": 3,
+    "positive_halves": 2,
+    "cross_family_corr_duplicate": 0.85
+  },
+  "warning": "Stream-level adaptive nomination, not executable A/B/C market replay; no real partition read.",
+  "results": {
+    "100": {
+      "rates": {
+        "needle": {
+          "0.0": {
+            "mean_frozen_hypotheses": 5.991666666666666,
+            "target_nomination_rate": 0.18333333333333332,
+            "target_stable_rate": 0.18333333333333332,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.05,
+                "mean_total_survivors": 0.05,
+                "fdr": 0.05
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.06666666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.0,
+              "top2": 0.0,
+              "median": 0.0
+            }
+          },
+          "0.05": {
+            "mean_frozen_hypotheses": 6.158333333333333,
+            "target_nomination_rate": 0.35,
+            "target_stable_rate": 0.35,
+            "target_representative_true_rate": 0.075,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.041666666666666664
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.06666666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.008333333333333333,
+              "top2": 0.008333333333333333,
+              "median": 0.0
+            }
+          },
+          "0.075": {
+            "mean_frozen_hypotheses": 6.241666666666666,
+            "target_nomination_rate": 0.43333333333333335,
+            "target_stable_rate": 0.43333333333333335,
+            "target_representative_true_rate": 0.05,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.058333333333333334
+              },
+              "stepdown": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.058333333333333334
+              },
+              "bh": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.058333333333333334
+              },
+              "by": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.05,
+                "fdr": 0.041666666666666664
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.06666666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.008333333333333333,
+              "max": 0.03333333333333333,
+              "top2": 0.016666666666666666,
+              "median": 0.0
+            }
+          },
+          "0.1": {
+            "mean_frozen_hypotheses": 6.258333333333334,
+            "target_nomination_rate": 0.45,
+            "target_stable_rate": 0.45,
+            "target_representative_true_rate": 0.025,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.058333333333333334
+              },
+              "stepdown": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.058333333333333334
+              },
+              "bh": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.058333333333333334
+              },
+              "by": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.05,
+                "fdr": 0.041666666666666664
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.06666666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.008333333333333333,
+              "max": 0.06666666666666667,
+              "top2": 0.025,
+              "median": 0.0
+            }
+          },
+          "0.15": {
+            "mean_frozen_hypotheses": 6.325,
+            "target_nomination_rate": 0.5166666666666667,
+            "target_stable_rate": 0.5166666666666667,
+            "target_representative_true_rate": 0.008333333333333333,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.075,
+                "fdr": 0.06666666666666667
+              },
+              "stepdown": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.075,
+                "fdr": 0.06666666666666667
+              },
+              "bh": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.075,
+                "fdr": 0.06666666666666667
+              },
+              "by": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.05,
+                "fdr": 0.041666666666666664
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.075,
+                "any_false_rate": 0.075,
+                "mean_total_survivors": 0.075,
+                "fdr": 0.075
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.025,
+              "max": 0.3333333333333333,
+              "top2": 0.06666666666666667,
+              "median": 0.0
+            }
+          }
+        },
+        "plateau": {
+          "0.0": {
+            "mean_frozen_hypotheses": 5.991666666666666,
+            "target_nomination_rate": 0.18333333333333332,
+            "target_stable_rate": 0.18333333333333332,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.05,
+                "mean_total_survivors": 0.05,
+                "fdr": 0.05
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.06666666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.0,
+              "top2": 0.0,
+              "median": 0.0
+            }
+          },
+          "0.05": {
+            "mean_frozen_hypotheses": 6.475,
+            "target_nomination_rate": 0.6666666666666666,
+            "target_stable_rate": 0.6666666666666666,
+            "target_representative_true_rate": 0.6666666666666666,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.05,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.10833333333333334,
+                "fdr": 0.05
+              },
+              "stepdown": {
+                "target_survival": 0.05,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.10833333333333334,
+                "fdr": 0.05
+              },
+              "bh": {
+                "target_survival": 0.05,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.11666666666666667,
+                "fdr": 0.05416666666666667
+              },
+              "by": {
+                "target_survival": 0.03333333333333333,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.05,
+                "mean_total_survivors": 0.08333333333333333,
+                "fdr": 0.04583333333333333
+              },
+              "family_first": {
+                "target_survival": 0.041666666666666664,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.10833333333333334,
+                "fdr": 0.0625
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.025,
+              "max": 0.016666666666666666,
+              "top2": 0.025,
+              "median": 0.025
+            }
+          },
+          "0.075": {
+            "mean_frozen_hypotheses": 6.666666666666667,
+            "target_nomination_rate": 0.8583333333333333,
+            "target_stable_rate": 0.8583333333333333,
+            "target_representative_true_rate": 0.8583333333333333,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.14166666666666666,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.2,
+                "fdr": 0.05
+              },
+              "stepdown": {
+                "target_survival": 0.14166666666666666,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.2,
+                "fdr": 0.05
+              },
+              "bh": {
+                "target_survival": 0.14166666666666666,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.20833333333333334,
+                "fdr": 0.05416666666666667
+              },
+              "by": {
+                "target_survival": 0.1,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.15833333333333333,
+                "fdr": 0.05
+              },
+              "family_first": {
+                "target_survival": 0.125,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.19166666666666668,
+                "fdr": 0.0625
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.06666666666666667,
+              "max": 0.05,
+              "top2": 0.06666666666666667,
+              "median": 0.05
+            }
+          },
+          "0.1": {
+            "mean_frozen_hypotheses": 6.733333333333333,
+            "target_nomination_rate": 0.925,
+            "target_stable_rate": 0.925,
+            "target_representative_true_rate": 0.925,
+            "methods": {
+              "current": {
+                "target_survival": 0.06666666666666667,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.25,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.30833333333333335,
+                "fdr": 0.04583333333333333
+              },
+              "stepdown": {
+                "target_survival": 0.225,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.2833333333333333,
+                "fdr": 0.04583333333333333
+              },
+              "bh": {
+                "target_survival": 0.25,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.31666666666666665,
+                "fdr": 0.05
+              },
+              "by": {
+                "target_survival": 0.175,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.23333333333333334,
+                "fdr": 0.04583333333333333
+              },
+              "family_first": {
+                "target_survival": 0.24166666666666667,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.30833333333333335,
+                "fdr": 0.05416666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.11666666666666667,
+              "max": 0.1,
+              "top2": 0.125,
+              "median": 0.10833333333333334
+            }
+          },
+          "0.15": {
+            "mean_frozen_hypotheses": 6.8,
+            "target_nomination_rate": 0.9916666666666667,
+            "target_stable_rate": 0.9916666666666667,
+            "target_representative_true_rate": 0.9916666666666667,
+            "methods": {
+              "current": {
+                "target_survival": 0.4166666666666667,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.4166666666666667,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.5416666666666666,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.6,
+                "fdr": 0.0375
+              },
+              "stepdown": {
+                "target_survival": 0.5333333333333333,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.5916666666666667,
+                "fdr": 0.0375
+              },
+              "bh": {
+                "target_survival": 0.55,
+                "mean_false_survivors": 0.09166666666666666,
+                "any_false_rate": 0.09166666666666666,
+                "mean_total_survivors": 0.6416666666666667,
+                "fdr": 0.05416666666666667
+              },
+              "by": {
+                "target_survival": 0.4166666666666667,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.475,
+                "fdr": 0.041666666666666664
+              },
+              "family_first": {
+                "target_survival": 0.5583333333333333,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.625,
+                "fdr": 0.05
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.35,
+              "max": 0.35,
+              "top2": 0.36666666666666664,
+              "median": 0.35
+            }
+          }
+        },
+        "family": {
+          "0.0": {
+            "mean_frozen_hypotheses": 5.991666666666666,
+            "target_nomination_rate": 0.18333333333333332,
+            "target_stable_rate": 0.18333333333333332,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.05,
+                "mean_total_survivors": 0.05,
+                "fdr": 0.05
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.06666666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.0,
+              "top2": 0.0,
+              "median": 0.0
+            }
+          },
+          "0.05": {
+            "mean_frozen_hypotheses": 6.35,
+            "target_nomination_rate": 0.5416666666666666,
+            "target_stable_rate": 0.5416666666666666,
+            "target_representative_true_rate": 0.5416666666666666,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.03333333333333333,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.09166666666666666,
+                "fdr": 0.05416666666666667
+              },
+              "stepdown": {
+                "target_survival": 0.03333333333333333,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.09166666666666666,
+                "fdr": 0.05416666666666667
+              },
+              "bh": {
+                "target_survival": 0.041666666666666664,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.10833333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "by": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.05,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.04583333333333333
+              },
+              "family_first": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.08333333333333333,
+                "fdr": 0.06666666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.008333333333333333,
+              "max": 0.008333333333333333,
+              "top2": 0.016666666666666666,
+              "median": 0.008333333333333333
+            }
+          },
+          "0.075": {
+            "mean_frozen_hypotheses": 6.5,
+            "target_nomination_rate": 0.6916666666666667,
+            "target_stable_rate": 0.6916666666666667,
+            "target_representative_true_rate": 0.6916666666666667,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.075,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.13333333333333333,
+                "fdr": 0.05
+              },
+              "stepdown": {
+                "target_survival": 0.075,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.13333333333333333,
+                "fdr": 0.05
+              },
+              "bh": {
+                "target_survival": 0.08333333333333333,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.15,
+                "fdr": 0.05416666666666667
+              },
+              "by": {
+                "target_survival": 0.058333333333333334,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.11666666666666667,
+                "fdr": 0.05
+              },
+              "family_first": {
+                "target_survival": 0.041666666666666664,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.10833333333333334,
+                "fdr": 0.0625
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.025,
+              "max": 0.03333333333333333,
+              "top2": 0.058333333333333334,
+              "median": 0.025
+            }
+          },
+          "0.1": {
+            "mean_frozen_hypotheses": 6.65,
+            "target_nomination_rate": 0.8416666666666667,
+            "target_stable_rate": 0.8416666666666667,
+            "target_representative_true_rate": 0.8416666666666667,
+            "methods": {
+              "current": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.13333333333333333,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.19166666666666668,
+                "fdr": 0.05
+              },
+              "stepdown": {
+                "target_survival": 0.125,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.18333333333333332,
+                "fdr": 0.05
+              },
+              "bh": {
+                "target_survival": 0.14166666666666666,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.20833333333333334,
+                "fdr": 0.05416666666666667
+              },
+              "by": {
+                "target_survival": 0.1,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.15833333333333333,
+                "fdr": 0.05
+              },
+              "family_first": {
+                "target_survival": 0.1,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.16666666666666666,
+                "fdr": 0.0625
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.058333333333333334,
+              "max": 0.08333333333333333,
+              "top2": 0.1,
+              "median": 0.06666666666666667
+            }
+          },
+          "0.15": {
+            "mean_frozen_hypotheses": 6.75,
+            "target_nomination_rate": 0.9416666666666667,
+            "target_stable_rate": 0.9416666666666667,
+            "target_representative_true_rate": 0.9416666666666667,
+            "methods": {
+              "current": {
+                "target_survival": 0.11666666666666667,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.11666666666666667,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.26666666666666666,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.325,
+                "fdr": 0.04583333333333333
+              },
+              "stepdown": {
+                "target_survival": 0.275,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.3333333333333333,
+                "fdr": 0.04583333333333333
+              },
+              "bh": {
+                "target_survival": 0.2833333333333333,
+                "mean_false_survivors": 0.08333333333333333,
+                "any_false_rate": 0.08333333333333333,
+                "mean_total_survivors": 0.36666666666666664,
+                "fdr": 0.058333333333333334
+              },
+              "by": {
+                "target_survival": 0.19166666666666668,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.25,
+                "fdr": 0.04583333333333333
+              },
+              "family_first": {
+                "target_survival": 0.2833333333333333,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.35,
+                "fdr": 0.05416666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.15,
+              "max": 0.3416666666666667,
+              "top2": 0.3416666666666667,
+              "median": 0.18333333333333332
+            }
+          }
+        },
+        "regime": {
+          "0.0": {
+            "mean_frozen_hypotheses": 5.966666666666667,
+            "target_nomination_rate": 0.15833333333333333,
+            "target_stable_rate": 0.15833333333333333,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.05,
+                "mean_total_survivors": 0.05,
+                "fdr": 0.05
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.06666666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.0,
+              "top2": 0.0,
+              "median": 0.0
+            }
+          },
+          "0.05": {
+            "mean_frozen_hypotheses": 6.175,
+            "target_nomination_rate": 0.36666666666666664,
+            "target_stable_rate": 0.36666666666666664,
+            "target_representative_true_rate": 0.36666666666666664,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "stepdown": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.05416666666666667
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.041666666666666664
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.06666666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.0,
+              "top2": 0.0,
+              "median": 0.0
+            }
+          },
+          "0.075": {
+            "mean_frozen_hypotheses": 6.266666666666667,
+            "target_nomination_rate": 0.4583333333333333,
+            "target_stable_rate": 0.4583333333333333,
+            "target_representative_true_rate": 0.4583333333333333,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.075,
+                "fdr": 0.05416666666666667
+              },
+              "stepdown": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.05416666666666667
+              },
+              "bh": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.075,
+                "fdr": 0.05416666666666667
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.041666666666666664
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.06666666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.008333333333333333,
+              "top2": 0.0,
+              "median": 0.0
+            }
+          },
+          "0.1": {
+            "mean_frozen_hypotheses": 6.308333333333334,
+            "target_nomination_rate": 0.5,
+            "target_stable_rate": 0.5,
+            "target_representative_true_rate": 0.5,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.025,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.08333333333333333,
+                "fdr": 0.05416666666666667
+              },
+              "stepdown": {
+                "target_survival": 0.025,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.08333333333333333,
+                "fdr": 0.05416666666666667
+              },
+              "bh": {
+                "target_survival": 0.025,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.08333333333333333,
+                "fdr": 0.05416666666666667
+              },
+              "by": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.05,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.04583333333333333
+              },
+              "family_first": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.08333333333333333,
+                "fdr": 0.0625
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.008333333333333333,
+              "max": 0.008333333333333333,
+              "top2": 0.008333333333333333,
+              "median": 0.0
+            }
+          },
+          "0.15": {
+            "mean_frozen_hypotheses": 6.525,
+            "target_nomination_rate": 0.7166666666666667,
+            "target_stable_rate": 0.7166666666666667,
+            "target_representative_true_rate": 0.7166666666666667,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.041666666666666664,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.1,
+                "fdr": 0.05
+              },
+              "stepdown": {
+                "target_survival": 0.05,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.10833333333333334,
+                "fdr": 0.05
+              },
+              "bh": {
+                "target_survival": 0.05,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.11666666666666667,
+                "fdr": 0.05416666666666667
+              },
+              "by": {
+                "target_survival": 0.041666666666666664,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.1,
+                "fdr": 0.05
+              },
+              "family_first": {
+                "target_survival": 0.06666666666666667,
+                "mean_false_survivors": 0.06666666666666667,
+                "any_false_rate": 0.06666666666666667,
+                "mean_total_survivors": 0.13333333333333333,
+                "fdr": 0.0625
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.025,
+              "max": 0.058333333333333334,
+              "top2": 0.025,
+              "median": 0.008333333333333333
+            }
+          }
+        }
+      },
+      "null_reference_critical": {
+        "global_critical": 3.184672974228129,
+        "family_critical": 2.875955191687619
+      }
+    },
+    "250": {
+      "rates": {
+        "needle": {
+          "0.0": {
+            "mean_frozen_hypotheses": 5.2,
+            "target_nomination_rate": 0.175,
+            "target_stable_rate": 0.175,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.03333333333333333
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.041666666666666664
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.03333333333333333
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.025
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.041666666666666664
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.008333333333333333,
+              "max": 0.008333333333333333,
+              "top2": 0.008333333333333333,
+              "median": 0.008333333333333333
+            }
+          },
+          "0.05": {
+            "mean_frozen_hypotheses": 5.358333333333333,
+            "target_nomination_rate": 0.3333333333333333,
+            "target_stable_rate": 0.3333333333333333,
+            "target_representative_true_rate": 0.041666666666666664,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.025
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.03333333333333333
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.025
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.025,
+                "fdr": 0.025
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.041666666666666664
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.008333333333333333,
+              "max": 0.05,
+              "top2": 0.008333333333333333,
+              "median": 0.008333333333333333
+            }
+          },
+          "0.075": {
+            "mean_frozen_hypotheses": 5.425,
+            "target_nomination_rate": 0.4,
+            "target_stable_rate": 0.4,
+            "target_representative_true_rate": 0.025,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.025
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.03333333333333333
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.025
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.025,
+                "fdr": 0.025
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.008333333333333333,
+              "max": 0.13333333333333333,
+              "top2": 0.025,
+              "median": 0.008333333333333333
+            }
+          },
+          "0.1": {
+            "mean_frozen_hypotheses": 5.508333333333334,
+            "target_nomination_rate": 0.48333333333333334,
+            "target_stable_rate": 0.48333333333333334,
+            "target_representative_true_rate": 0.008333333333333333,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.025
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.03333333333333333
+              },
+              "bh": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.025
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.025,
+                "fdr": 0.025
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.025,
+              "max": 0.36666666666666664,
+              "top2": 0.058333333333333334,
+              "median": 0.008333333333333333
+            }
+          },
+          "0.15": {
+            "mean_frozen_hypotheses": 5.541666666666667,
+            "target_nomination_rate": 0.5166666666666667,
+            "target_stable_rate": 0.5166666666666667,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.008333333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.025
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.03333333333333333
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.025
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.025,
+                "fdr": 0.025
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.058333333333333334,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.058333333333333334
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.058333333333333334,
+              "max": 0.725,
+              "top2": 0.15833333333333333,
+              "median": 0.008333333333333333
+            }
+          }
+        },
+        "plateau": {
+          "0.0": {
+            "mean_frozen_hypotheses": 5.2,
+            "target_nomination_rate": 0.175,
+            "target_stable_rate": 0.175,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.03333333333333333
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.041666666666666664
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.03333333333333333
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.025
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.041666666666666664
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.008333333333333333,
+              "max": 0.008333333333333333,
+              "top2": 0.008333333333333333,
+              "median": 0.008333333333333333
+            }
+          },
+          "0.05": {
+            "mean_frozen_hypotheses": 5.775,
+            "target_nomination_rate": 0.75,
+            "target_stable_rate": 0.75,
+            "target_representative_true_rate": 0.75,
+            "methods": {
+              "current": {
+                "target_survival": 0.041666666666666664,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.1,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.13333333333333333,
+                "fdr": 0.018055555555555554
+              },
+              "stepdown": {
+                "target_survival": 0.10833333333333334,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.13333333333333333,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.1,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.13333333333333333,
+                "fdr": 0.018055555555555554
+              },
+              "by": {
+                "target_survival": 0.09166666666666666,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.11666666666666667,
+                "fdr": 0.013888888888888888
+              },
+              "family_first": {
+                "target_survival": 0.11666666666666667,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.14166666666666666,
+                "fdr": 0.016666666666666666
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.058333333333333334,
+              "max": 0.058333333333333334,
+              "top2": 0.058333333333333334,
+              "median": 0.058333333333333334
+            }
+          },
+          "0.075": {
+            "mean_frozen_hypotheses": 5.941666666666666,
+            "target_nomination_rate": 0.9166666666666666,
+            "target_stable_rate": 0.9166666666666666,
+            "target_representative_true_rate": 0.9166666666666666,
+            "methods": {
+              "current": {
+                "target_survival": 0.15833333333333333,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.15833333333333333,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.3333333333333333,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.36666666666666664,
+                "fdr": 0.018055555555555554
+              },
+              "stepdown": {
+                "target_survival": 0.3,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.325,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.3333333333333333,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.38333333333333336,
+                "fdr": 0.023611111111111107
+              },
+              "by": {
+                "target_survival": 0.2,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.225,
+                "fdr": 0.013888888888888888
+              },
+              "family_first": {
+                "target_survival": 0.3416666666666667,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.36666666666666664,
+                "fdr": 0.016666666666666666
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.14166666666666666,
+              "max": 0.15833333333333333,
+              "top2": 0.15833333333333333,
+              "median": 0.13333333333333333
+            }
+          },
+          "0.1": {
+            "mean_frozen_hypotheses": 6.008333333333334,
+            "target_nomination_rate": 0.9833333333333333,
+            "target_stable_rate": 0.9833333333333333,
+            "target_representative_true_rate": 0.9833333333333333,
+            "methods": {
+              "current": {
+                "target_survival": 0.4166666666666667,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.4166666666666667,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.49166666666666664,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.525,
+                "fdr": 0.018055555555555554
+              },
+              "stepdown": {
+                "target_survival": 0.475,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.5,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.5,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.55,
+                "fdr": 0.01944444444444444
+              },
+              "by": {
+                "target_survival": 0.425,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.45,
+                "fdr": 0.013888888888888888
+              },
+              "family_first": {
+                "target_survival": 0.525,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.5666666666666667,
+                "fdr": 0.02222222222222222
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.375,
+              "max": 0.4,
+              "top2": 0.39166666666666666,
+              "median": 0.38333333333333336
+            }
+          },
+          "0.15": {
+            "mean_frozen_hypotheses": 6.025,
+            "target_nomination_rate": 1.0,
+            "target_stable_rate": 1.0,
+            "target_representative_true_rate": 1.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.775,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.775,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.775,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.8083333333333333,
+                "fdr": 0.013888888888888888
+              },
+              "stepdown": {
+                "target_survival": 0.775,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.8083333333333333,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.775,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.8333333333333334,
+                "fdr": 0.023611111111111107
+              },
+              "by": {
+                "target_survival": 0.7416666666666667,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.7666666666666667,
+                "fdr": 0.00972222222222222
+              },
+              "family_first": {
+                "target_survival": 0.825,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.875,
+                "fdr": 0.02222222222222222
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.7083333333333334,
+              "max": 0.7416666666666667,
+              "top2": 0.7333333333333333,
+              "median": 0.7166666666666667
+            }
+          }
+        },
+        "family": {
+          "0.0": {
+            "mean_frozen_hypotheses": 5.2,
+            "target_nomination_rate": 0.175,
+            "target_stable_rate": 0.175,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.03333333333333333
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.041666666666666664
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.03333333333333333
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.025
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.041666666666666664
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.008333333333333333,
+              "max": 0.008333333333333333,
+              "top2": 0.008333333333333333,
+              "median": 0.008333333333333333
+            }
+          },
+          "0.05": {
+            "mean_frozen_hypotheses": 5.675,
+            "target_nomination_rate": 0.65,
+            "target_stable_rate": 0.65,
+            "target_representative_true_rate": 0.65,
+            "methods": {
+              "current": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.075,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.10833333333333334,
+                "fdr": 0.018055555555555554
+              },
+              "stepdown": {
+                "target_survival": 0.058333333333333334,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.08333333333333333,
+                "fdr": 0.020833333333333332
+              },
+              "bh": {
+                "target_survival": 0.075,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.10833333333333334,
+                "fdr": 0.018055555555555554
+              },
+              "by": {
+                "target_survival": 0.058333333333333334,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.08333333333333333,
+                "fdr": 0.013888888888888888
+              },
+              "family_first": {
+                "target_survival": 0.058333333333333334,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.08333333333333333,
+                "fdr": 0.020833333333333332
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.03333333333333333,
+              "max": 0.05,
+              "top2": 0.041666666666666664,
+              "median": 0.03333333333333333
+            }
+          },
+          "0.075": {
+            "mean_frozen_hypotheses": 5.816666666666666,
+            "target_nomination_rate": 0.7916666666666666,
+            "target_stable_rate": 0.7916666666666666,
+            "target_representative_true_rate": 0.7916666666666666,
+            "methods": {
+              "current": {
+                "target_survival": 0.041666666666666664,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.15833333333333333,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.19166666666666668,
+                "fdr": 0.018055555555555554
+              },
+              "stepdown": {
+                "target_survival": 0.13333333333333333,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.15833333333333333,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.16666666666666666,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.21666666666666667,
+                "fdr": 0.023611111111111107
+              },
+              "by": {
+                "target_survival": 0.13333333333333333,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.15833333333333333,
+                "fdr": 0.013888888888888888
+              },
+              "family_first": {
+                "target_survival": 0.13333333333333333,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.15833333333333333,
+                "fdr": 0.016666666666666666
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.06666666666666667,
+              "max": 0.14166666666666666,
+              "top2": 0.09166666666666666,
+              "median": 0.075
+            }
+          },
+          "0.1": {
+            "mean_frozen_hypotheses": 5.925,
+            "target_nomination_rate": 0.9,
+            "target_stable_rate": 0.9,
+            "target_representative_true_rate": 0.9,
+            "methods": {
+              "current": {
+                "target_survival": 0.15,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.15,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.2833333333333333,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.31666666666666665,
+                "fdr": 0.018055555555555554
+              },
+              "stepdown": {
+                "target_survival": 0.275,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.3,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.2833333333333333,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.3333333333333333,
+                "fdr": 0.023611111111111107
+              },
+              "by": {
+                "target_survival": 0.21666666666666667,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.24166666666666667,
+                "fdr": 0.013888888888888888
+              },
+              "family_first": {
+                "target_survival": 0.2916666666666667,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.31666666666666665,
+                "fdr": 0.016666666666666666
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.14166666666666666,
+              "max": 0.375,
+              "top2": 0.26666666666666666,
+              "median": 0.13333333333333333
+            }
+          },
+          "0.15": {
+            "mean_frozen_hypotheses": 6.008333333333334,
+            "target_nomination_rate": 0.9833333333333333,
+            "target_stable_rate": 0.9833333333333333,
+            "target_representative_true_rate": 0.9833333333333333,
+            "methods": {
+              "current": {
+                "target_survival": 0.4166666666666667,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.4166666666666667,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.49166666666666664,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.525,
+                "fdr": 0.018055555555555554
+              },
+              "stepdown": {
+                "target_survival": 0.475,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.5083333333333333,
+                "fdr": 0.020833333333333332
+              },
+              "bh": {
+                "target_survival": 0.49166666666666664,
+                "mean_false_survivors": 0.058333333333333334,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.55,
+                "fdr": 0.027777777777777776
+              },
+              "by": {
+                "target_survival": 0.45,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.475,
+                "fdr": 0.013888888888888888
+              },
+              "family_first": {
+                "target_survival": 0.55,
+                "mean_false_survivors": 0.05,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.6,
+                "fdr": 0.02638888888888889
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.49166666666666664,
+              "max": 0.725,
+              "top2": 0.6666666666666666,
+              "median": 0.4666666666666667
+            }
+          }
+        },
+        "regime": {
+          "0.0": {
+            "mean_frozen_hypotheses": 5.166666666666667,
+            "target_nomination_rate": 0.14166666666666666,
+            "target_stable_rate": 0.14166666666666666,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.03333333333333333
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.041666666666666664
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.03333333333333333
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.025
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.041666666666666664,
+                "any_false_rate": 0.041666666666666664,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.041666666666666664
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.008333333333333333,
+              "max": 0.008333333333333333,
+              "top2": 0.008333333333333333,
+              "median": 0.008333333333333333
+            }
+          },
+          "0.05": {
+            "mean_frozen_hypotheses": 5.408333333333333,
+            "target_nomination_rate": 0.38333333333333336,
+            "target_stable_rate": 0.38333333333333336,
+            "target_representative_true_rate": 0.38333333333333336,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.016666666666666666
+              },
+              "stepdown": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.025
+              },
+              "bh": {
+                "target_survival": 0.025,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.05,
+                "fdr": 0.013888888888888888
+              },
+              "by": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.025,
+                "fdr": 0.016666666666666666
+              },
+              "family_first": {
+                "target_survival": 0.025,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.029166666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.008333333333333333,
+              "max": 0.03333333333333333,
+              "top2": 0.008333333333333333,
+              "median": 0.008333333333333333
+            }
+          },
+          "0.075": {
+            "mean_frozen_hypotheses": 5.508333333333334,
+            "target_nomination_rate": 0.48333333333333334,
+            "target_stable_rate": 0.48333333333333334,
+            "target_representative_true_rate": 0.48333333333333334,
+            "methods": {
+              "current": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.008333333333333333,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.016666666666666666
+              },
+              "stepdown": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.025
+              },
+              "bh": {
+                "target_survival": 0.03333333333333333,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.018055555555555554
+              },
+              "by": {
+                "target_survival": 0.008333333333333333,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.025,
+                "fdr": 0.016666666666666666
+              },
+              "family_first": {
+                "target_survival": 0.03333333333333333,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.029166666666666667
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.025,
+              "max": 0.10833333333333334,
+              "top2": 0.008333333333333333,
+              "median": 0.008333333333333333
+            }
+          },
+          "0.1": {
+            "mean_frozen_hypotheses": 5.625,
+            "target_nomination_rate": 0.6,
+            "target_stable_rate": 0.6,
+            "target_representative_true_rate": 0.6,
+            "methods": {
+              "current": {
+                "target_survival": 0.025,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.025,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.058333333333333334,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.09166666666666666,
+                "fdr": 0.018055555555555554
+              },
+              "stepdown": {
+                "target_survival": 0.041666666666666664,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.025
+              },
+              "bh": {
+                "target_survival": 0.058333333333333334,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.09166666666666666,
+                "fdr": 0.018055555555555554
+              },
+              "by": {
+                "target_survival": 0.03333333333333333,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.058333333333333334,
+                "fdr": 0.013888888888888888
+              },
+              "family_first": {
+                "target_survival": 0.058333333333333334,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.09166666666666666,
+                "fdr": 0.025
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.05,
+              "max": 0.21666666666666667,
+              "top2": 0.06666666666666667,
+              "median": 0.025
+            }
+          },
+          "0.15": {
+            "mean_frozen_hypotheses": 5.8,
+            "target_nomination_rate": 0.775,
+            "target_stable_rate": 0.775,
+            "target_representative_true_rate": 0.775,
+            "methods": {
+              "current": {
+                "target_survival": 0.041666666666666664,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.09166666666666666,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.125,
+                "fdr": 0.018055555555555554
+              },
+              "stepdown": {
+                "target_survival": 0.08333333333333333,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.03333333333333333,
+                "mean_total_survivors": 0.11666666666666667,
+                "fdr": 0.025
+              },
+              "bh": {
+                "target_survival": 0.09166666666666666,
+                "mean_false_survivors": 0.03333333333333333,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.125,
+                "fdr": 0.018055555555555554
+              },
+              "by": {
+                "target_survival": 0.075,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.1,
+                "fdr": 0.013888888888888888
+              },
+              "family_first": {
+                "target_survival": 0.15833333333333333,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.18333333333333332,
+                "fdr": 0.016666666666666666
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.09166666666666666,
+              "max": 0.5083333333333333,
+              "top2": 0.16666666666666666,
+              "median": 0.06666666666666667
+            }
+          }
+        }
+      },
+      "null_reference_critical": {
+        "global_critical": 2.965436277495603,
+        "family_critical": 2.6943596215021968
+      }
+    },
+    "500": {
+      "rates": {
+        "needle": {
+          "0.0": {
+            "mean_frozen_hypotheses": 3.6666666666666665,
+            "target_nomination_rate": 0.16666666666666666,
+            "target_stable_rate": 0.16666666666666666,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.008333333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.0,
+              "top2": 0.0,
+              "median": 0.0
+            }
+          },
+          "0.05": {
+            "mean_frozen_hypotheses": 3.875,
+            "target_nomination_rate": 0.375,
+            "target_stable_rate": 0.375,
+            "target_representative_true_rate": 0.05,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.008333333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.025,
+                "fdr": 0.025
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.075,
+              "top2": 0.0,
+              "median": 0.0
+            }
+          },
+          "0.075": {
+            "mean_frozen_hypotheses": 3.941666666666667,
+            "target_nomination_rate": 0.44166666666666665,
+            "target_stable_rate": 0.44166666666666665,
+            "target_representative_true_rate": 0.016666666666666666,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.008333333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.025,
+                "fdr": 0.025
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.275,
+              "top2": 0.041666666666666664,
+              "median": 0.0
+            }
+          },
+          "0.1": {
+            "mean_frozen_hypotheses": 3.975,
+            "target_nomination_rate": 0.475,
+            "target_stable_rate": 0.475,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.008333333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.025,
+                "fdr": 0.025
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.008333333333333333,
+              "max": 0.5583333333333333,
+              "top2": 0.16666666666666666,
+              "median": 0.0
+            }
+          },
+          "0.15": {
+            "mean_frozen_hypotheses": 4.0,
+            "target_nomination_rate": 0.5,
+            "target_stable_rate": 0.5,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.008333333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.025,
+                "any_false_rate": 0.025,
+                "mean_total_survivors": 0.025,
+                "fdr": 0.025
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.041666666666666664,
+              "max": 0.9833333333333333,
+              "top2": 0.4,
+              "median": 0.0
+            }
+          }
+        },
+        "plateau": {
+          "0.0": {
+            "mean_frozen_hypotheses": 3.6666666666666665,
+            "target_nomination_rate": 0.16666666666666666,
+            "target_stable_rate": 0.16666666666666666,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.008333333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.0,
+              "top2": 0.0,
+              "median": 0.0
+            }
+          },
+          "0.05": {
+            "mean_frozen_hypotheses": 4.366666666666666,
+            "target_nomination_rate": 0.8666666666666667,
+            "target_stable_rate": 0.8666666666666667,
+            "target_representative_true_rate": 0.8666666666666667,
+            "methods": {
+              "current": {
+                "target_survival": 0.03333333333333333,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.23333333333333334,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.25,
+                "fdr": 0.0125
+              },
+              "stepdown": {
+                "target_survival": 0.24166666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.25833333333333336,
+                "fdr": 0.0125
+              },
+              "bh": {
+                "target_survival": 0.23333333333333334,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.25,
+                "fdr": 0.0125
+              },
+              "by": {
+                "target_survival": 0.2,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.20833333333333334,
+                "fdr": 0.004166666666666667
+              },
+              "family_first": {
+                "target_survival": 0.275,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.2916666666666667,
+                "fdr": 0.0125
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.1,
+              "max": 0.09166666666666666,
+              "top2": 0.125,
+              "median": 0.075
+            }
+          },
+          "0.075": {
+            "mean_frozen_hypotheses": 4.475,
+            "target_nomination_rate": 0.975,
+            "target_stable_rate": 0.975,
+            "target_representative_true_rate": 0.975,
+            "methods": {
+              "current": {
+                "target_survival": 0.24166666666666667,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.24166666666666667,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.4666666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.48333333333333334,
+                "fdr": 0.008333333333333333
+              },
+              "stepdown": {
+                "target_survival": 0.5083333333333333,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.525,
+                "fdr": 0.008333333333333333
+              },
+              "bh": {
+                "target_survival": 0.4666666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.48333333333333334,
+                "fdr": 0.008333333333333333
+              },
+              "by": {
+                "target_survival": 0.4083333333333333,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.425,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.49166666666666664,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.5083333333333333,
+                "fdr": 0.008333333333333333
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.30833333333333335,
+              "max": 0.3,
+              "top2": 0.31666666666666665,
+              "median": 0.30833333333333335
+            }
+          },
+          "0.1": {
+            "mean_frozen_hypotheses": 4.491666666666666,
+            "target_nomination_rate": 0.9916666666666667,
+            "target_stable_rate": 0.9916666666666667,
+            "target_representative_true_rate": 0.9916666666666667,
+            "methods": {
+              "current": {
+                "target_survival": 0.625,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.625,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.7083333333333334,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.725,
+                "fdr": 0.008333333333333333
+              },
+              "stepdown": {
+                "target_survival": 0.7333333333333333,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.75,
+                "fdr": 0.008333333333333333
+              },
+              "bh": {
+                "target_survival": 0.7083333333333334,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.725,
+                "fdr": 0.008333333333333333
+              },
+              "by": {
+                "target_survival": 0.675,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.6916666666666667,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.7583333333333333,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.775,
+                "fdr": 0.008333333333333333
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.55,
+              "max": 0.575,
+              "top2": 0.6,
+              "median": 0.525
+            }
+          },
+          "0.15": {
+            "mean_frozen_hypotheses": 4.5,
+            "target_nomination_rate": 1.0,
+            "target_stable_rate": 1.0,
+            "target_representative_true_rate": 1.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.9833333333333333,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.9833333333333333,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.9833333333333333,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 1.0,
+                "fdr": 0.008333333333333333
+              },
+              "stepdown": {
+                "target_survival": 0.9916666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 1.0083333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "bh": {
+                "target_survival": 0.9833333333333333,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 1.0,
+                "fdr": 0.008333333333333333
+              },
+              "by": {
+                "target_survival": 0.9583333333333334,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.975,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 1.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 1.0166666666666666,
+                "fdr": 0.008333333333333333
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.9583333333333334,
+              "max": 0.9833333333333333,
+              "top2": 0.9666666666666667,
+              "median": 0.95
+            }
+          }
+        },
+        "family": {
+          "0.0": {
+            "mean_frozen_hypotheses": 3.6666666666666665,
+            "target_nomination_rate": 0.16666666666666666,
+            "target_stable_rate": 0.16666666666666666,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.008333333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.0,
+              "top2": 0.0,
+              "median": 0.0
+            }
+          },
+          "0.05": {
+            "mean_frozen_hypotheses": 4.208333333333333,
+            "target_nomination_rate": 0.7083333333333334,
+            "target_stable_rate": 0.7083333333333334,
+            "target_representative_true_rate": 0.7083333333333334,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.10833333333333334,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.125,
+                "fdr": 0.016666666666666666
+              },
+              "stepdown": {
+                "target_survival": 0.1,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.11666666666666667,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.11666666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.13333333333333333,
+                "fdr": 0.0125
+              },
+              "by": {
+                "target_survival": 0.09166666666666666,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.1,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.11666666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.13333333333333333,
+                "fdr": 0.0125
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.016666666666666666,
+              "max": 0.08333333333333333,
+              "top2": 0.058333333333333334,
+              "median": 0.016666666666666666
+            }
+          },
+          "0.075": {
+            "mean_frozen_hypotheses": 4.391666666666667,
+            "target_nomination_rate": 0.8916666666666667,
+            "target_stable_rate": 0.8916666666666667,
+            "target_representative_true_rate": 0.8916666666666667,
+            "methods": {
+              "current": {
+                "target_survival": 0.06666666666666667,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.24166666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.25833333333333336,
+                "fdr": 0.008333333333333333
+              },
+              "stepdown": {
+                "target_survival": 0.275,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.2916666666666667,
+                "fdr": 0.008333333333333333
+              },
+              "bh": {
+                "target_survival": 0.24166666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.25833333333333336,
+                "fdr": 0.008333333333333333
+              },
+              "by": {
+                "target_survival": 0.18333333333333332,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.19166666666666668,
+                "fdr": 0.004166666666666667
+              },
+              "family_first": {
+                "target_survival": 0.225,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.24166666666666667,
+                "fdr": 0.0125
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.175,
+              "max": 0.275,
+              "top2": 0.25833333333333336,
+              "median": 0.16666666666666666
+            }
+          },
+          "0.1": {
+            "mean_frozen_hypotheses": 4.475,
+            "target_nomination_rate": 0.975,
+            "target_stable_rate": 0.975,
+            "target_representative_true_rate": 0.975,
+            "methods": {
+              "current": {
+                "target_survival": 0.23333333333333334,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.23333333333333334,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.4583333333333333,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.475,
+                "fdr": 0.008333333333333333
+              },
+              "stepdown": {
+                "target_survival": 0.44166666666666665,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.4583333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "bh": {
+                "target_survival": 0.4583333333333333,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.475,
+                "fdr": 0.008333333333333333
+              },
+              "by": {
+                "target_survival": 0.39166666666666666,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.4083333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.43333333333333335,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.45,
+                "fdr": 0.008333333333333333
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.275,
+              "max": 0.5583333333333333,
+              "top2": 0.525,
+              "median": 0.31666666666666665
+            }
+          },
+          "0.15": {
+            "mean_frozen_hypotheses": 4.491666666666666,
+            "target_nomination_rate": 0.9916666666666667,
+            "target_stable_rate": 0.9916666666666667,
+            "target_representative_true_rate": 0.9916666666666667,
+            "methods": {
+              "current": {
+                "target_survival": 0.6583333333333333,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.6583333333333333,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.6916666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.7083333333333334,
+                "fdr": 0.008333333333333333
+              },
+              "stepdown": {
+                "target_survival": 0.7166666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.7333333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "bh": {
+                "target_survival": 0.6916666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.7083333333333334,
+                "fdr": 0.008333333333333333
+              },
+              "by": {
+                "target_survival": 0.6416666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.6583333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.7666666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.7833333333333333,
+                "fdr": 0.008333333333333333
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.6916666666666667,
+              "max": 0.9833333333333333,
+              "top2": 0.9333333333333333,
+              "median": 0.65
+            }
+          }
+        },
+        "regime": {
+          "0.0": {
+            "mean_frozen_hypotheses": 3.6333333333333333,
+            "target_nomination_rate": 0.13333333333333333,
+            "target_stable_rate": 0.13333333333333333,
+            "target_representative_true_rate": 0.0,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "stepdown": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              },
+              "by": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.008333333333333333,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.016666666666666666,
+                "fdr": 0.016666666666666666
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.0,
+              "top2": 0.0,
+              "median": 0.0
+            }
+          },
+          "0.05": {
+            "mean_frozen_hypotheses": 3.875,
+            "target_nomination_rate": 0.375,
+            "target_stable_rate": 0.375,
+            "target_representative_true_rate": 0.375,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.016666666666666666
+              },
+              "stepdown": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.016666666666666666
+              },
+              "bh": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.03333333333333333,
+                "fdr": 0.016666666666666666
+              },
+              "by": {
+                "target_survival": 0.016666666666666666,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.025,
+                "fdr": 0.008333333333333333
+              },
+              "family_first": {
+                "target_survival": 0.03333333333333333,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.05,
+                "fdr": 0.016666666666666666
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.0,
+              "max": 0.05,
+              "top2": 0.008333333333333333,
+              "median": 0.0
+            }
+          },
+          "0.075": {
+            "mean_frozen_hypotheses": 3.9916666666666667,
+            "target_nomination_rate": 0.49166666666666664,
+            "target_stable_rate": 0.49166666666666664,
+            "target_representative_true_rate": 0.49166666666666664,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.05,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.0125
+              },
+              "stepdown": {
+                "target_survival": 0.058333333333333334,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.075,
+                "fdr": 0.0125
+              },
+              "bh": {
+                "target_survival": 0.05,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.06666666666666667,
+                "fdr": 0.0125
+              },
+              "by": {
+                "target_survival": 0.041666666666666664,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.05,
+                "fdr": 0.004166666666666667
+              },
+              "family_first": {
+                "target_survival": 0.06666666666666667,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.08333333333333333,
+                "fdr": 0.0125
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.016666666666666666,
+              "max": 0.15833333333333333,
+              "top2": 0.03333333333333333,
+              "median": 0.0
+            }
+          },
+          "0.1": {
+            "mean_frozen_hypotheses": 4.183333333333334,
+            "target_nomination_rate": 0.6833333333333333,
+            "target_stable_rate": 0.6833333333333333,
+            "target_representative_true_rate": 0.6833333333333333,
+            "methods": {
+              "current": {
+                "target_survival": 0.0,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.0,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.09166666666666666,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.10833333333333334,
+                "fdr": 0.0125
+              },
+              "stepdown": {
+                "target_survival": 0.1,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.11666666666666667,
+                "fdr": 0.0125
+              },
+              "bh": {
+                "target_survival": 0.09166666666666666,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.10833333333333334,
+                "fdr": 0.0125
+              },
+              "by": {
+                "target_survival": 0.075,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.08333333333333333,
+                "fdr": 0.004166666666666667
+              },
+              "family_first": {
+                "target_survival": 0.10833333333333334,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.125,
+                "fdr": 0.0125
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.03333333333333333,
+              "max": 0.30833333333333335,
+              "top2": 0.058333333333333334,
+              "median": 0.016666666666666666
+            }
+          },
+          "0.15": {
+            "mean_frozen_hypotheses": 4.375,
+            "target_nomination_rate": 0.875,
+            "target_stable_rate": 0.875,
+            "target_representative_true_rate": 0.875,
+            "methods": {
+              "current": {
+                "target_survival": 0.041666666666666664,
+                "mean_false_survivors": 0.0,
+                "any_false_rate": 0.0,
+                "mean_total_survivors": 0.041666666666666664,
+                "fdr": 0.0
+              },
+              "holm": {
+                "target_survival": 0.2,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.21666666666666667,
+                "fdr": 0.0125
+              },
+              "stepdown": {
+                "target_survival": 0.20833333333333334,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.225,
+                "fdr": 0.0125
+              },
+              "bh": {
+                "target_survival": 0.2,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.21666666666666667,
+                "fdr": 0.0125
+              },
+              "by": {
+                "target_survival": 0.14166666666666666,
+                "mean_false_survivors": 0.008333333333333333,
+                "any_false_rate": 0.008333333333333333,
+                "mean_total_survivors": 0.15,
+                "fdr": 0.004166666666666667
+              },
+              "family_first": {
+                "target_survival": 0.275,
+                "mean_false_survivors": 0.016666666666666666,
+                "any_false_rate": 0.016666666666666666,
+                "mean_total_survivors": 0.2916666666666667,
+                "fdr": 0.0125
+              }
+            },
+            "family_stat_global_power": {
+              "daily_mean": 0.19166666666666668,
+              "max": 0.7083333333333334,
+              "top2": 0.375,
+              "median": 0.075
+            }
+          }
+        }
+      },
+      "null_reference_critical": {
+        "global_critical": 3.343600839661884,
+        "family_critical": 3.131013308646555
+      }
+    }
+  }
+}

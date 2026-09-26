@@ -1,0 +1,83 @@
+{
+  "9001": {
+    "ES": {
+      "calendar_identical": true,
+      "errors": {
+        "abs_body_log_lag_correlation": 0.0836194396188431,
+        "body_abs_points_by_clock": 0.0,
+        "range_points_by_clock": 0.1111111111111111,
+        "volume_by_clock": 0.2744479495268137,
+        "volume_log_lag_correlation": 0.13087446608454079
+      },
+      "roll_identical": true
+    },
+    "NQ": {
+      "calendar_identical": true,
+      "errors": {
+        "abs_body_log_lag_correlation": 0.041495900306648625,
+        "body_abs_points_by_clock": 0.2,
+        "range_points_by_clock": 0.2,
+        "volume_by_clock": 0.225,
+        "volume_log_lag_correlation": 0.09059642691787684
+      },
+      "roll_identical": true
+    },
+    "joint_abs_body_correlation_error": 0.16124010567481994,
+    "joint_sign_agreement_error": 0.00012003181580877431,
+    "pass": false
+  },
+  "9002": {
+    "ES": {
+      "calendar_identical": true,
+      "errors": {
+        "abs_body_log_lag_correlation": 0.08543306790710098,
+        "body_abs_points_by_clock": 0.0,
+        "range_points_by_clock": 0.16666666666666666,
+        "volume_by_clock": 0.2,
+        "volume_log_lag_correlation": 0.1306714616687753
+      },
+      "roll_identical": true
+    },
+    "NQ": {
+      "calendar_identical": true,
+      "errors": {
+        "abs_body_log_lag_correlation": 0.04268990272662304,
+        "body_abs_points_by_clock": 0.2,
+        "range_points_by_clock": 0.2,
+        "volume_by_clock": 0.16279069767441862,
+        "volume_log_lag_correlation": 0.09068268477073727
+      },
+      "roll_identical": true
+    },
+    "joint_abs_body_correlation_error": 0.16055634852126588,
+    "joint_sign_agreement_error": 0.0007715599780242499,
+    "pass": false
+  },
+  "9003": {
+    "ES": {
+      "calendar_identical": true,
+      "errors": {
+        "abs_body_log_lag_correlation": 0.08404145117053186,
+        "body_abs_points_by_clock": 0.14285714285714285,
+        "range_points_by_clock": 0.16666666666666666,
+        "volume_by_clock": 0.3,
+        "volume_log_lag_correlation": 0.13100428816576026
+      },
+      "roll_identical": true
+    },
+    "NQ": {
+      "calendar_identical": true,
+      "errors": {
+        "abs_body_log_lag_correlation": 0.04073729304193463,
+        "body_abs_points_by_clock": 0.25,
+        "range_points_by_clock": 0.2,
+        "volume_by_clock": 0.1794871794871795,
+        "volume_log_lag_correlation": 0.09054419536635272
+      },
+      "roll_identical": true
+    },
+    "joint_abs_body_correlation_error": 0.15980176079631436,
+    "joint_sign_agreement_error": 9.063422994770587e-05,
+    "pass": false
+  }
+}

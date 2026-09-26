@@ -122,6 +122,30 @@ def load_view(instrument, partition, start=None, end=None, columns=None, *, proj
     if not ok:
         _refuse(project, req, why, stage)
 
+    # Actual V5 research is held behind the final immutable preregistration.
+    # The stage machine alone permits DISCOVERY immediately after bootstrap,
+    # which is useful for structural checks but too permissive for strategy
+    # research before the executable synthetic calibration is complete.
+    from quantlab5.project import ROOT as V5_ROOT
+    if project.root.resolve() == V5_ROOT.resolve():
+        from quantlab5.isolation.calibration_gate import calibration_access_active
+        calibration = calibration_access_active()
+        if calibration:
+            expected_columns = ["open", "high", "low", "close", "volume", "symbol"]
+            if (stage != "DISCOVERY" or partition != "DISCOVERY"
+                    or instrument not in ("NQ", "ES")
+                    or str(start) != "2010-06-08" or str(end) != "2018-12-31"
+                    or cols_req != expected_columns
+                    or purpose != "CALIBRATION_NUISANCE_ACCESS"):
+                _refuse(project, req, "calibration worker may read only full DISCOVERY NQ/ES OHLCV", stage)
+            why = "CALIBRATION_NUISANCE_ACCESS"
+        else:
+            from quantlab5.isolation.prereg_gate import prereg_ready
+            ready, reason = prereg_ready(project.root)
+            if not ready:
+                _refuse(project, req, reason, stage)
+            why = "REAL_DISCOVERY_SEARCH_ACCESS" if partition == "DISCOVERY" else why
+
     if partition == "LIVE_FORWARD":
         return _load_forward(project, req, stage, why, instrument, d0, d1, cols_req)
 

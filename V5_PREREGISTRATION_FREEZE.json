@@ -1,0 +1,20 @@
+{
+  "kind": "V5_PREREGISTRATION_DESIGN_FREEZE",
+  "version": 1,
+  "status": "REVIEW_REQUIRED",
+  "discovery_search_authorized": false,
+  "later_partitions_opened": false,
+  "note": "Review-draft hash pin only; not a stage transition or calibrated search authorization.",
+  "files_sha256": {
+    "V5_PRIOR_LAB_COVERAGE.md": "c194949bd3dc111e49b8312befbe994d82cf18c1db94587eef02d8f6c1b9a454",
+    "V5_STRATEGY_CATALOG.md": "ece331147f0860a8a62804c25e1f6f2da141ecdea10920db1fa39eb31cf75f86",
+    "V5_POWER_CALIBRATION_REPORT.md": "814afb06af49f90eb7c0c24c24e7594532480ac797a9ff1a0b82ac2ed179647f",
+    "V5_NULL_METHOD_REPORT.md": "0b392e1ae0cd1211e3476528e2169b2507f682fa5136b2e1eace71f4cf6c3626",
+    "V5_RESEARCH_PREREGISTRATION.md": "230abe6eebd6de1bec62e8f2572d95ff80b0198aefac26bec03cd999440561c8",
+    "V5_UPDATED_POWER_GATE_INVESTIGATION.md": "736f01d210e2bb11a7526470b80f4278da15421d49696c599041932a6bcff7a3",
+    "quantlab5/v5/candidate_inventory.py": "4233defc05fe0d0e654a1adfd903f75e98e1a639235b50481c00bb82c7bf0a8a",
+    "reports/V5_CANDIDATE_INVENTORY.json": "05e59f18dbdece8ba4ed29b47a0bfdc847a175bd0c97c210c5e92c83e5618599",
+    "research/planning_power.py": "615323654ccf09dddc5b18487e27ac4afe53bafad6c3c318f0cac2760ecb01f8"
+  },
+  "body_sha256": "4f929e5e630403173c5ec9e9aba8b05d7915bae0c07d7c0182b1557e5d4015ef"
+}
