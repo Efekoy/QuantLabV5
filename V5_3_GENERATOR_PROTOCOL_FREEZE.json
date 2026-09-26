@@ -1,0 +1,77 @@
+{
+  "body_sha256": "670db174f340b20b00b46023fa84bc43898c8cc5302654a7e9246ec04d6d7742",
+  "candidate_universe_ids_sha256": "b6f7234ffdde96b26f06ca9a13065e126f1c52f08d5fa06b1b52e56e54b676e2",
+  "created_utc": "2026-09-26T17:38:39.694797+00:00",
+  "downstream_seed_policy": {
+    "adaptive_null_reference": [
+      2000,
+      2499
+    ],
+    "all_null_test": [
+      3000,
+      3199
+    ],
+    "plants": "100000 + cell_index*1000 + replication; validation 500000 + discovery seed",
+    "stage_a_reference": [
+      1000,
+      1018
+    ]
+  },
+  "extreme_value_treatment": "none; nonfinite or underflow world fails",
+  "fidelity_seeds": [
+    9101,
+    9102,
+    9103
+  ],
+  "fidelity_thresholds_source": "V5_1_NUISANCE_PROTOCOL_FREEZE.json",
+  "files_sha256": {
+    "V5_1_DISCOVERY_NUISANCE_CALIBRATION.json": "23f1b9f2ec77fb346149a27baf8f4d353edf1fad58b4e71e426ef24bc373b8ea",
+    "V5_1_NUISANCE_PROTOCOL_FREEZE.json": "cbb10197004ca1c60128ab7a23917e5c454b232a67f40635a5d9c80f0fb8cd64",
+    "V5_3_GENERATOR_PROTOCOL.md": "671c44ab9a58effecc3f86ed7ab24e5545293e81a1a0669f9643c313529faa44",
+    "V5_3_RANGE_GENERATOR_DIAGNOSIS.md": "ce815b9efc87256748aeff60c812f671845e11b2ce093df528ca09d0cd30fcf3",
+    "config/costs.yaml": "d3bdaea53afff688c2b29da42c81e02a22a4f091162ae64bbd968d3bc9173108",
+    "config/execution.yaml": "07d590956b2085849361496c3ad3e3b9913783f8e7094f901a580d69ec3f4bac",
+    "config/stage_policy.yaml": "13a5e1c08b8f2b25f50f32924d2906ed8b329a0ba3d417bccb017aff9ba97ba6",
+    "quantlab5/engine/costs.py": "84dec41a1d04d68d984e9201f5b7540d35cff4ed144b79bdee8efb1c1d31159d",
+    "quantlab5/engine/execution.py": "9f6571400400b772fd4b1e86b51d25e77a8e9c5a7ca8b787e7a5c8dfa74b7b0c",
+    "quantlab5/v5/candidate_inventory.py": "4233defc05fe0d0e654a1adfd903f75e98e1a639235b50481c00bb82c7bf0a8a",
+    "quantlab5/v5/duplicate_accounting.py": "aa8c97dc99fc28636874d13d25eae84a0bcf0257f2e1437e739ad68fd2a2cbcb",
+    "quantlab5/v5/inference.py": "c397f87052bd445723351378b2195871147df80b9d44a7987cae32e9eb8901f6",
+    "quantlab5/v5/market_plant.py": "2643e988d1013c37d3833fe6020412c6576f3988bd2913acaed512ccb3896313",
+    "quantlab5/v5/market_search.py": "173eb2a5405c99011616c6350eec6db7f1a52e6c40944455774a9acb749837f2",
+    "quantlab5/v5/risk_coverage.py": "8c1f33b6eccc651e398289870bb37d97cf6ccf60d8c2884fdf9ddb88ce896615",
+    "quantlab5/v5/signals.py": "d09cd865a484a21fe359eaf78c19c868e985d580c4983553823acddc4f6b75c6",
+    "quantlab5/v5/validation.py": "c594ecd030ad534c015294d1c3b365b6beb4d97179a6855f94938f442b2b6585",
+    "quantlab5/v5_1/paired_null.py": "004cea66804d23d382216024117cbfdb24c8a2312ffc7456274f950bfd1ddb5f",
+    "quantlab5/v5_3/gate.py": "a05d83458deb272b8cc72a2416c2f3fa3895b708c0932a48e55c14d0c95968c0",
+    "quantlab5/v5_3/range_null.py": "cef18cc0f150c6075b4bf2f02f7b4755819db1dadba9a9740fed9d928e21afe3",
+    "reports/V5_1_NUISANCE_TAPE.npz": "8a93507f1622ee9012552ca00c00bc13ee786828bb7b0af96198be82b05f9e02",
+    "reports/V5_3_RANGE_DIAGNOSIS.json": "aef95e270a035faa22ae9f31e4a95120fed5356f65b4413a61f71e5b9050e5cd",
+    "reports/V5_3_STRUCTURAL_STRESS.json": "d41dd27cb0079edc07c611f23e79b8e61eee234e105dbfb107e544be7bb956ea",
+    "research/check_v5_1_nuisance.py": "46b7e4e0acdbfec0c7a31556c70c4d73a8322d95c5642792771ba997d1310bd9",
+    "research/check_v5_3_nuisance.py": "fb770d7a5e5e4f838b94ef168acda42b23f34f3b60af1a6fd92052dddf4c3f57",
+    "research/freeze_v5_3_generator.py": "059734afe38699800bed79c55fe6b6a82dc450c0e3455bb91b3f7d1570b588c7",
+    "research/stress_v5_3_structure.py": "b39399fc7e286cd770d399abbe63a39fd0230208767ddc2afc3147302f2aac62",
+    "tests/test_v5_3_range_null.py": "88a60e4abe8e425913f37f8044e312cba6bc18b9326284cc6237f52375ab837e"
+  },
+  "kind": "V5_3_GENERATOR_PROTOCOL_FREEZE",
+  "new_real_market_access_authorized": false,
+  "range_quantile_error_max": 0.25,
+  "real_strategy_search_authorized": false,
+  "stage_a_ids_sha256": "6b49e09d51f0dbe528b54c3092771088bb9bdac0ad8d40c61e913ceafa2723f0",
+  "status": "FROZEN",
+  "strategy_files_unchanged_from_v5_2_tag": true,
+  "structural_invariants": [
+    "finite OHLCV",
+    "positive OHLC",
+    "ordered OHLC",
+    "nonnegative volume",
+    "strictly increasing timestamps",
+    "exact NQ/ES tape calendars",
+    "at least one million matched timestamps"
+  ],
+  "structural_seed_policy": "0..999 plus 1002",
+  "structural_world_count": 1001,
+  "v5_2_failed_archive_commit": "70f9c9f470c5b9cb63b119f7bfce3c17926b0fcb",
+  "zero_edge_threshold": 0.01
+}

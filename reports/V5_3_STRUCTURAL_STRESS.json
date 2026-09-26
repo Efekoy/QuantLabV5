@@ -1,0 +1,19 @@
+{
+  "completed_utc": "2026-09-26T17:38:08.864206+00:00",
+  "completed_worlds": 1001,
+  "failures": [],
+  "fingerprints": {
+    "artifact_sha256": "23f1b9f2ec77fb346149a27baf8f4d353edf1fad58b4e71e426ef24bc373b8ea",
+    "generator_code_sha256": "cef18cc0f150c6075b4bf2f02f7b4755819db1dadba9a9740fed9d928e21afe3",
+    "tape_sha256": "8a93507f1622ee9012552ca00c00bc13ee786828bb7b0af96198be82b05f9e02"
+  },
+  "invalid_worlds": 0,
+  "joint_timestamp_count": 2761436,
+  "kind": "V5_3_STRUCTURAL_VALIDITY_STRESS",
+  "minimum_price": 543.1689857202397,
+  "numerical_overflow_or_underflow_events": 0,
+  "ohlc_invariant_failures": 0,
+  "seed_policy": "0..999 plus 1002",
+  "status": "PASS",
+  "target_worlds": 1001
+}
