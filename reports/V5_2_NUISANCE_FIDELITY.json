@@ -1,0 +1,308 @@
+{
+  "generator_code_sha256": "1a8958a728c0e8ea5442251367cf679edc2b8958968f179d1ebc42ee4f6b4981",
+  "kind": "V5_2_UNCHANGED_V5_1_NUISANCE_GATE",
+  "seed_results": [
+    {
+      "cross_lag_directional_error": 0.00044479683645065143,
+      "instruments": {
+        "ES": {
+          "calendar_roll_exact": true,
+          "directional": {
+            "next_sign_given_prior_body_high": 0.000780413747222708,
+            "next_sign_given_prior_body_low": 0.000546471996435431,
+            "next_sign_given_prior_volume_high": 0.00022995715857314984,
+            "next_sign_given_prior_volume_low": 0.000228713989423505,
+            "sign_autocorr_1": 0.0004980575854011727,
+            "sign_autocorr_2": 0.00042362859023866855,
+            "sign_autocorr_30": 0.0003953547321653148,
+            "sign_autocorr_5": 0.0002809163495328952,
+            "sign_bias": 0.0003782806713622188
+          },
+          "lag_error": {
+            "body_1": 0.002670142866563585,
+            "body_30": 0.005403751543601065,
+            "body_5": 0.004312436428697719,
+            "volume_1": 0.0,
+            "volume_30": 0.0,
+            "volume_5": 0.0
+          },
+          "median_price_relative_error": 0.0,
+          "quantile_error": {
+            "body": 0.006228148506961339,
+            "close_close": 0.0,
+            "gap": 0.0,
+            "range": 0.07423784734344989,
+            "volume": 0.0
+          },
+          "zero_fraction_error": {
+            "body": 0.0,
+            "close_close": 0.0,
+            "gap": 0.0,
+            "range": 0.0,
+            "volume": 0.0
+          }
+        },
+        "NQ": {
+          "calendar_roll_exact": true,
+          "directional": {
+            "next_sign_given_prior_body_high": 0.00018274482730613818,
+            "next_sign_given_prior_body_low": 0.00040769399554651414,
+            "next_sign_given_prior_volume_high": 0.0005465481661794841,
+            "next_sign_given_prior_volume_low": 0.0007956481505504674,
+            "sign_autocorr_1": 0.0002418890347687564,
+            "sign_autocorr_2": 0.0006729721327634519,
+            "sign_autocorr_30": 0.00038804687247693636,
+            "sign_autocorr_5": 0.00029385767724227855,
+            "sign_bias": 0.00016545214501711682
+          },
+          "lag_error": {
+            "body_1": 0.003118166182045634,
+            "body_30": 0.0026926653997082495,
+            "body_5": 0.002933863884805321,
+            "volume_1": 0.0,
+            "volume_30": 0.0,
+            "volume_5": 0.0
+          },
+          "median_price_relative_error": 0.0,
+          "quantile_error": {
+            "body": 0.017338780123099914,
+            "close_close": 0.019510729453993188,
+            "gap": 0.007240752285725034,
+            "range": 0.06456333808030952,
+            "volume": 0.0
+          },
+          "zero_fraction_error": {
+            "body": 0.0,
+            "close_close": 0.0,
+            "gap": 0.0,
+            "range": 0.0,
+            "volume": 0.0
+          }
+        }
+      },
+      "joint_nuisance_error": {
+        "body": 0.024741590975021488,
+        "body_non_rth": 0.029157777940584606,
+        "body_rth": 0.023258765591971375,
+        "cc": 0.022678963629996995,
+        "range": 0.04244287768647259,
+        "range_non_rth": 0.05369039224088601,
+        "range_rth": 0.049313769614162783,
+        "volatility_state_30": 0.059917275990283625,
+        "volume": 0.0,
+        "volume_non_rth": 0.0,
+        "volume_rth": 0.0
+      },
+      "joint_sign_agreement_error": 0.0002537055252179732,
+      "max_zero_edge_diagnostic": 0.0007956481505504674,
+      "mode": "paired_sign",
+      "nuisance_pass": true,
+      "pass": true,
+      "seed": 9101,
+      "zero_edge_pass": true
+    },
+    {
+      "cross_lag_directional_error": 0.00012760753425047357,
+      "instruments": {
+        "ES": {
+          "calendar_roll_exact": true,
+          "directional": {
+            "next_sign_given_prior_body_high": 0.0002373936170968893,
+            "next_sign_given_prior_body_low": 0.0008991785954419592,
+            "next_sign_given_prior_volume_high": 0.0009347962599985441,
+            "next_sign_given_prior_volume_low": 0.0005476919568687494,
+            "sign_autocorr_1": 0.0005149849979442919,
+            "sign_autocorr_2": 2.4444929666357655e-05,
+            "sign_autocorr_30": 0.0002706224737389727,
+            "sign_autocorr_5": 0.0003001090540292984,
+            "sign_bias": 0.0011670818440323
+          },
+          "lag_error": {
+            "body_1": 0.007591037709220982,
+            "body_30": 0.008242610738453837,
+            "body_5": 0.007836118583636031,
+            "volume_1": 0.0,
+            "volume_30": 0.0,
+            "volume_5": 0.0
+          },
+          "median_price_relative_error": 0.0,
+          "quantile_error": {
+            "body": 0.0,
+            "close_close": 0.0,
+            "gap": 0.0,
+            "range": 0.0,
+            "volume": 0.0
+          },
+          "zero_fraction_error": {
+            "body": 0.0,
+            "close_close": 0.0,
+            "gap": 0.0,
+            "range": 0.0,
+            "volume": 0.0
+          }
+        },
+        "NQ": {
+          "calendar_roll_exact": true,
+          "directional": {
+            "next_sign_given_prior_body_high": 3.2337562033596474e-05,
+            "next_sign_given_prior_body_low": 0.0007897773326291556,
+            "next_sign_given_prior_volume_high": 0.00020621738196218003,
+            "next_sign_given_prior_volume_low": 0.0005852049802961771,
+            "sign_autocorr_1": 0.0006659568978113762,
+            "sign_autocorr_2": 0.0005297818574168295,
+            "sign_autocorr_30": 0.0002587715631380446,
+            "sign_autocorr_5": 0.0009767641790146932,
+            "sign_bias": 0.0005445932120242709
+          },
+          "lag_error": {
+            "body_1": 0.02566757864998065,
+            "body_30": 0.029142025299881524,
+            "body_5": 0.02662010707349216,
+            "volume_1": 0.0,
+            "volume_30": 0.0,
+            "volume_5": 0.0
+          },
+          "median_price_relative_error": 0.0,
+          "quantile_error": {
+            "body": 0.1865760402929864,
+            "close_close": 0.2029069495059316,
+            "gap": 0.007909518690830607,
+            "range": 0.1798062190658598,
+            "volume": 0.0
+          },
+          "zero_fraction_error": {
+            "body": 0.0,
+            "close_close": 0.0,
+            "gap": 0.0,
+            "range": 0.0,
+            "volume": 0.0
+          }
+        }
+      },
+      "joint_nuisance_error": {
+        "body": 0.011233608496097336,
+        "body_non_rth": 0.010233796394457317,
+        "body_rth": 0.012088134898386005,
+        "cc": 0.011579275188399296,
+        "range": 0.017246474215745655,
+        "range_non_rth": 0.015350553581163218,
+        "range_rth": 0.02701845942657699,
+        "volatility_state_30": 0.016104580048181827,
+        "volume": 0.0,
+        "volume_non_rth": 0.0,
+        "volume_rth": 0.0
+      },
+      "joint_sign_agreement_error": 3.45962079842943e-05,
+      "max_zero_edge_diagnostic": 0.0011670818440323,
+      "mode": "paired_sign",
+      "nuisance_pass": true,
+      "pass": true,
+      "seed": 9102,
+      "zero_edge_pass": true
+    },
+    {
+      "cross_lag_directional_error": 0.0003501575296271032,
+      "instruments": {
+        "ES": {
+          "calendar_roll_exact": true,
+          "directional": {
+            "next_sign_given_prior_body_high": 0.001525289527814145,
+            "next_sign_given_prior_body_low": 0.00026162793293395633,
+            "next_sign_given_prior_volume_high": 0.00038235480212458643,
+            "next_sign_given_prior_volume_low": 5.0900739485943255e-05,
+            "sign_autocorr_1": 0.00013018185206738032,
+            "sign_autocorr_2": 0.0005904249448377817,
+            "sign_autocorr_30": 0.0010728203572632914,
+            "sign_autocorr_5": 0.0002636912594082572,
+            "sign_bias": 0.00024179872459232735
+          },
+          "lag_error": {
+            "body_1": 0.04400371182611973,
+            "body_30": 0.04799946803925903,
+            "body_5": 0.045248574171392886,
+            "volume_1": 0.0,
+            "volume_30": 0.0,
+            "volume_5": 0.0
+          },
+          "median_price_relative_error": 0.0,
+          "quantile_error": {
+            "body": 0.0,
+            "close_close": 0.017055332079481796,
+            "gap": 0.0,
+            "range": 0.08082207295299226,
+            "volume": 0.0
+          },
+          "zero_fraction_error": {
+            "body": 0.0,
+            "close_close": 0.0,
+            "gap": 0.0,
+            "range": 0.0,
+            "volume": 0.0
+          }
+        },
+        "NQ": {
+          "calendar_roll_exact": true,
+          "directional": {
+            "next_sign_given_prior_body_high": 0.0012416119748248319,
+            "next_sign_given_prior_body_low": 2.0765398754491382e-06,
+            "next_sign_given_prior_volume_high": 0.0007426709909826763,
+            "next_sign_given_prior_volume_low": 0.0004497141720502642,
+            "sign_autocorr_1": 0.0003089801175373103,
+            "sign_autocorr_2": 0.0009517616301865195,
+            "sign_autocorr_30": 0.00035212532355249947,
+            "sign_autocorr_5": 0.0005664881912535486,
+            "sign_bias": 0.0007963891878229151
+          },
+          "lag_error": {
+            "body_1": 0.06617963261936899,
+            "body_30": 0.0760534011570948,
+            "body_5": 0.06913916052710178,
+            "volume_1": 0.0,
+            "volume_30": 0.0,
+            "volume_5": 0.0
+          },
+          "median_price_relative_error": 0.0,
+          "quantile_error": {
+            "body": 0.17049648783598373,
+            "close_close": 0.12698083037058577,
+            "gap": 0.021864189999178052,
+            "range": 0.32739307379856497,
+            "volume": 0.0
+          },
+          "zero_fraction_error": {
+            "body": 0.0,
+            "close_close": 0.0,
+            "gap": 0.0,
+            "range": 0.0,
+            "volume": 0.0
+          }
+        }
+      },
+      "joint_nuisance_error": {
+        "body": 0.01376920073272625,
+        "body_non_rth": 0.02278424679697233,
+        "body_rth": 0.015768815899642297,
+        "cc": 0.014554310357472788,
+        "range": 0.006388322451132411,
+        "range_non_rth": 0.022401423721882252,
+        "range_rth": 0.007065371275027932,
+        "volatility_state_30": 0.00037324876047339917,
+        "volume": 0.0,
+        "volume_non_rth": 0.0,
+        "volume_rth": 0.0
+      },
+      "joint_sign_agreement_error": 0.0002957636604145053,
+      "max_zero_edge_diagnostic": 0.001525289527814145,
+      "mode": "paired_sign",
+      "nuisance_pass": false,
+      "pass": false,
+      "seed": 9103,
+      "zero_edge_pass": true
+    }
+  ],
+  "status": "FAIL_NUISANCE_FIDELITY",
+  "strategy_evaluations_on_real_discovery": 0,
+  "v5_1_nuisance_artifact_sha256": "23f1b9f2ec77fb346149a27baf8f4d353edf1fad58b4e71e426ef24bc373b8ea",
+  "v5_1_protocol_freeze_sha256": "cbb10197004ca1c60128ab7a23917e5c454b232a67f40635a5d9c80f0fb8cd64",
+  "v5_1_tape_sha256": "8a93507f1622ee9012552ca00c00bc13ee786828bb7b0af96198be82b05f9e02"
+}
