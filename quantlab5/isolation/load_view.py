@@ -128,9 +128,19 @@ def load_view(instrument, partition, start=None, end=None, columns=None, *, proj
     # research before the executable synthetic calibration is complete.
     from quantlab5.project import ROOT as V5_ROOT
     if project.root.resolve() == V5_ROOT.resolve():
+        from quantlab5.v5_1.access import active as v5_1_calibration_active
         from quantlab5.isolation.calibration_gate import calibration_access_active
         calibration = calibration_access_active()
-        if calibration:
+        if v5_1_calibration_active():
+            expected_columns = ["open", "high", "low", "close", "volume", "symbol"]
+            if (stage != "DISCOVERY" or partition != "DISCOVERY"
+                    or instrument not in ("NQ", "ES")
+                    or str(start) != "2010-06-08" or str(end) != "2018-12-31"
+                    or cols_req != expected_columns
+                    or purpose != "V5_1_CALIBRATION_NUISANCE_ACCESS"):
+                _refuse(project, req, "V5.1 worker may read only full DISCOVERY NQ/ES OHLCV", stage)
+            why = "V5_1_CALIBRATION_NUISANCE_ACCESS"
+        elif calibration:
             expected_columns = ["open", "high", "low", "close", "volume", "symbol"]
             if (stage != "DISCOVERY" or partition != "DISCOVERY"
                     or instrument not in ("NQ", "ES")

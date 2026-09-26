@@ -1,0 +1,19 @@
+{
+  "kind": "V5_1_EXECUTABLE_CALIBRATION_FAILURE",
+  "status": "CALIBRATION_FAILED",
+  "failed_phase": "stage_a_reference_world_generation",
+  "selected_mode": "paired_sign",
+  "reference_seed_market": 999,
+  "reference_seeds_generated_before_failure": [1000, 1001],
+  "failed_reference_seed": 1002,
+  "exception_type": "ValueError",
+  "exception_message": "V5.1 zero-edge price path crossed zero",
+  "completed_stage_a_reference": false,
+  "adaptive_null_reference_worlds": 0,
+  "all_null_test_worlds": 0,
+  "planted_edge_worlds": 0,
+  "real_discovery_strategy_search_authorized": false,
+  "protocol_freeze_sha256": "cbb10197004ca1c60128ab7a23917e5c454b232a67f40635a5d9c80f0fb8cd64",
+  "nuisance_artifact_sha256": "23f1b9f2ec77fb346149a27baf8f4d353edf1fad58b4e71e426ef24bc373b8ea",
+  "nuisance_fit_sha256": "7939a91eef962b50adf77f6d00790d4c2778fc6335f3408f98a02258d1368d22"
+}

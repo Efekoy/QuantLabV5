@@ -1,0 +1,69 @@
+{
+  "created_utc": "2026-09-26T16:23:42.849913+00:00",
+  "destroyed_by_null": [
+    "historical absolute directional sign sequence",
+    "serial and future-conditioned directional predictability"
+  ],
+  "fresh_ledger_open_sequence": 2,
+  "hidden": [
+    "raw OHLCV prices",
+    "absolute return signs",
+    "candidate outcomes and rankings"
+  ],
+  "joint_sign": {
+    "joint_magnitude_quartile_cuts": [
+      1.3862943611198906,
+      1.6094379124341003,
+      2.0794415416798357
+    ],
+    "nonzero_joint_bars": 1474150,
+    "same_sign_by_joint_magnitude_quartile": [
+      0.7124766673580042,
+      0.8514381265795723,
+      0.9453906194418116,
+      0.9869763606251893
+    ],
+    "same_sign_fraction": 0.8877536207305905
+  },
+  "kind": "V5_1_DISCOVERY_NUISANCE_CALIBRATION",
+  "median_price": {
+    "ES": 1941.75,
+    "NQ": 4109.25
+  },
+  "partition_sha256": {
+    "ES": "25b0c9f27dc2b662b1be736eeb8b811d757d0fcb9700290627a1e6f81f9a88f2",
+    "NQ": "fe96495715c37d1fea42c228e0cf9c13f4b5df12682d3ac611701695faa6baa9"
+  },
+  "permitted_output": [
+    "exact calendar and contract-segment masks",
+    "paired unsigned gap, body, wick and volume sequences",
+    "within-bar gap/body sign relation without absolute direction",
+    "contemporaneous NQ/ES sign agreement by unsigned magnitude state",
+    "instrument median price level"
+  ],
+  "protocol_freeze_sha256": "cbb10197004ca1c60128ab7a23917e5c454b232a67f40635a5d9c80f0fb8cd64",
+  "seed_policy": {
+    "adaptive_null_reference": [
+      2000,
+      2499
+    ],
+    "all_null_test": [
+      3000,
+      3199
+    ],
+    "fidelity": [
+      9101,
+      9102,
+      9103
+    ],
+    "plants": "100000 + cell_index*1000 + replication",
+    "stage_a_reference": [
+      1000,
+      1018
+    ]
+  },
+  "status": "COMPLETE",
+  "tape_sha256": "8a93507f1622ee9012552ca00c00bc13ee786828bb7b0af96198be82b05f9e02",
+  "v5_failed_archive_tag": "v5-calibration-failed",
+  "worker_code_sha256": "73df5698389d0431d0a54a42bb4e68283ddd5dc3849dc142a422849ef8c92907"
+}

@@ -1,0 +1,97 @@
+{
+  "body_sha256": "2623bc94ca209434c733c8911c913f29b52b4e8df77ac104962f848e3022a157",
+  "candidate_modes_in_priority_order": [
+    "paired_sign",
+    "paired_day_resample",
+    "state_conditioned_sign"
+  ],
+  "candidate_universe_ids_sha256": "b6f7234ffdde96b26f06ca9a13065e126f1c52f08d5fa06b1b52e56e54b676e2",
+  "created_utc": "2026-09-26T16:23:24.442177+00:00",
+  "fidelity_seeds": [
+    9101,
+    9102,
+    9103
+  ],
+  "files_sha256": {
+    "V5_1_NUISANCE_PROTOCOL.md": "969bbde4bf2e493e27ef8357c92ab41664704bc687021650905d8a7d2879365a",
+    "V5_1_NULL_GENERATOR_DIAGNOSIS.md": "4b3617bd0a04171b0e40f9b953f91f7d627165109b0b45c8381af76bcd5ab4bd",
+    "config/costs.yaml": "d3bdaea53afff688c2b29da42c81e02a22a4f091162ae64bbd968d3bc9173108",
+    "config/execution.yaml": "07d590956b2085849361496c3ad3e3b9913783f8e7094f901a580d69ec3f4bac",
+    "config/nulls.yaml": "20c19878fcf7957ba3f141cc2ded8b7073adc329fbb395539f2e5465092f398e",
+    "config/partitions.json": "0aa62734f94aead898905b6f30a49508b8b2d3a10b427c69f61aa53667244a17",
+    "config/paths.yaml": "5f4b07d6b8bce1d8d6f3a07b84f51c962ecae49aead40909b7000b7fe59f2353",
+    "config/prop_profiles.yaml": "ee1a3327d7d175b0b6381af0fba303518f227163f3d7a1a141a5682ca84809ac",
+    "config/search.yaml": "10e94f9742a29e53ba415cc855c9c0f5bac9478ba7e052b5860f8c1dc25f5f42",
+    "config/sessions.yaml": "c66de75048562a5a5b410237ad3e08a00147568732d94b02e3aea56f5b0e2f23",
+    "config/stage_policy.yaml": "13a5e1c08b8f2b25f50f32924d2906ed8b329a0ba3d417bccb017aff9ba97ba6",
+    "quantlab5/data/schema.py": "b7a43c82c4e6e5e19b2aa29e2b65b0ef48f3fcc2563763896b392db0fc976fe9",
+    "quantlab5/data/sessions.py": "9085e94aadf69658042e7c69c858bc4a5e3017773fdb56ba9bdf7adba3b1a452",
+    "quantlab5/engine/costs.py": "84dec41a1d04d68d984e9201f5b7540d35cff4ed144b79bdee8efb1c1d31159d",
+    "quantlab5/engine/execution.py": "9f6571400400b772fd4b1e86b51d25e77a8e9c5a7ca8b787e7a5c8dfa74b7b0c",
+    "quantlab5/isolation/ledger.py": "18ff4db27ade46ae04180b9a756aa8c96ea3df2c854cd5b992a7910bb8af0911",
+    "quantlab5/isolation/load_view.py": "0c04bf90066f99f9613f7aacba021f5cea7b5b4120b5e24baa4cde1af1b107f1",
+    "quantlab5/isolation/stage_gate.py": "29068829477eb6c7f8175037a304e0f45b14a1e561dbfc2ccd0f4e3ade4037a3",
+    "quantlab5/project.py": "e2d8b4fbdfca94257e0d185da635b1d4f859fadc9df6edce4ec4dd543b29fc32",
+    "quantlab5/v5/candidate_inventory.py": "4233defc05fe0d0e654a1adfd903f75e98e1a639235b50481c00bb82c7bf0a8a",
+    "quantlab5/v5/duplicate_accounting.py": "aa8c97dc99fc28636874d13d25eae84a0bcf0257f2e1437e739ad68fd2a2cbcb",
+    "quantlab5/v5/inference.py": "c397f87052bd445723351378b2195871147df80b9d44a7987cae32e9eb8901f6",
+    "quantlab5/v5/market_plant.py": "2643e988d1013c37d3833fe6020412c6576f3988bd2913acaed512ccb3896313",
+    "quantlab5/v5/market_search.py": "173eb2a5405c99011616c6350eec6db7f1a52e6c40944455774a9acb749837f2",
+    "quantlab5/v5/risk_coverage.py": "8c1f33b6eccc651e398289870bb37d97cf6ccf60d8c2884fdf9ddb88ce896615",
+    "quantlab5/v5/signals.py": "d09cd865a484a21fe359eaf78c19c868e985d580c4983553823acddc4f6b75c6",
+    "quantlab5/v5/validation.py": "c594ecd030ad534c015294d1c3b365b6beb4d97179a6855f94938f442b2b6585",
+    "quantlab5/v5_1/access.py": "b690389268fc09b1f198fef9329c17f2685e97dc6386339a580881ea21820ec4",
+    "quantlab5/v5_1/paired_null.py": "004cea66804d23d382216024117cbfdb24c8a2312ffc7456274f950bfd1ddb5f",
+    "reports/V5_CANDIDATE_INVENTORY.json": "05e59f18dbdece8ba4ed29b47a0bfdc847a175bd0c97c210c5e92c83e5618599",
+    "research/calibrate_v5_1_nuisance.py": "73df5698389d0431d0a54a42bb4e68283ddd5dc3849dc142a422849ef8c92907",
+    "research/check_v5_1_nuisance.py": "46b7e4e0acdbfec0c7a31556c70c4d73a8322d95c5642792771ba997d1310bd9",
+    "research/freeze_v5_1_nuisance.py": "37f8c560e5c64073ba89fb85d83a5b9dd9c53b563b704ace2b007c805a45db2f",
+    "research/run_v5_1_executable_calibration.py": "e278f93bef47c5ca9445b04c7d975a42c6faaf880a1dea25949fbddb4aa6774a"
+  },
+  "kind": "V5_1_NUISANCE_PROTOCOL_FREEZE",
+  "later_partitions_opened": false,
+  "ledger_anchor_before_access": {
+    "record_hash": "f075d93d9407ffb77a39e1b1f773bfb07c2ad14eaf199e039dc7e4bb552c85ac",
+    "seq": 0
+  },
+  "power_gate": {
+    "adaptive_null_reference_worlds": 500,
+    "all_null_worlds": 200,
+    "false_survivor_upper95_max": 0.1,
+    "plateau_0p10_500_lower95_min": 0.7,
+    "plateau_0p15_500_lower95_min": 0.9
+  },
+  "real_strategy_search_authorized": false,
+  "stage_a_ids_sha256": "6b49e09d51f0dbe528b54c3092771088bb9bdac0ad8d40c61e913ceafa2723f0",
+  "status": "FROZEN",
+  "strategy_files_unchanged_from_v5_tag": true,
+  "thresholds": {
+    "clock_quantile_relative_max": 0.25,
+    "clock_zero_fraction_error_max": 0.02,
+    "cross_market_nuisance_error_max": 0.1,
+    "lag_dependence_error_max": 0.1,
+    "median_price_relative_error_max": 0.2,
+    "same_minute_sign_agreement_error_max": 0.05,
+    "zero_edge_directional_diagnostic_max": 0.01
+  },
+  "v5_failed_archive_commit": "73d4cbfba218e55a6f10a22311c0fcc74b858b22",
+  "v5_science_freeze_sha256": "361821f46c322dc9343a647eaa104487aafd222967525932acf218aac580255c",
+  "worker_permissions": {
+    "columns": [
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume",
+      "symbol"
+    ],
+    "end": "2018-12-31",
+    "instruments": [
+      "NQ",
+      "ES"
+    ],
+    "partition": "DISCOVERY",
+    "reason": "V5_1_CALIBRATION_NUISANCE_ACCESS",
+    "start": "2010-06-08"
+  }
+}
