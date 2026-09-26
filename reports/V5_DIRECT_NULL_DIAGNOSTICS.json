@@ -1,0 +1,869 @@
+{
+  "accesses": [
+    {
+      "instrument": "NQ",
+      "main_ledger_sequence": 17,
+      "study_ledger_sequence": 3
+    },
+    {
+      "instrument": "ES",
+      "main_ledger_sequence": 18,
+      "study_ledger_sequence": 4
+    }
+  ],
+  "kind": "V5_DIRECT_NULL_FROZEN_DIAGNOSTICS",
+  "methods": {
+    "joint_bar_reflection": [
+      {
+        "extra_directional": {
+          "cross_market": {
+            "ES_to_NQ_next_cc_sign": 0.14684268483,
+            "NQ_to_ES_next_cc_sign": 0.1547035146317571
+          },
+          "instruments": {
+            "ES": {
+              "cc_sign_autocorr_1": 0.30862797953939564,
+              "cc_sign_autocorr_2": 0.0033504310541519586,
+              "cc_sign_autocorr_30": 0.0002576108593780211,
+              "cc_sign_autocorr_5": 0.0008196548164908802,
+              "cc_sign_bias": 0.002587970359191421,
+              "gap_sign_autocorr_1": 0.08245755267668789,
+              "gap_sign_autocorr_5": 0.0002456832682282771,
+              "next_cc_sign_given_prior_magnitude_high": 0.0007353144526706393,
+              "next_cc_sign_given_prior_magnitude_low": 0.0029564341681404104
+            },
+            "NQ": {
+              "cc_sign_autocorr_1": 0.2565899811379936,
+              "cc_sign_autocorr_2": 0.003034261599108628,
+              "cc_sign_autocorr_30": 0.0001152923784432599,
+              "cc_sign_autocorr_5": 0.0022115508006618884,
+              "cc_sign_bias": 0.0036728640533989286,
+              "gap_sign_autocorr_1": 0.024584384718470995,
+              "gap_sign_autocorr_5": 0.0001400245371558493,
+              "next_cc_sign_given_prior_magnitude_high": 0.0013335818973219293,
+              "next_cc_sign_given_prior_magnitude_low": 0.004885686807160815
+            }
+          },
+          "maximum": 0.30862797953939564
+        },
+        "nuisance": {
+          "cross_lag_directional_error": 0.0003042666756595353,
+          "instruments": {
+            "ES": {
+              "calendar_roll_exact": true,
+              "directional": {
+                "next_sign_given_prior_body_high": 0.0005216973501470561,
+                "next_sign_given_prior_body_low": 0.0007116636947043113,
+                "next_sign_given_prior_volume_high": 0.00024356409103309953,
+                "next_sign_given_prior_volume_low": 0.0010879184719462271,
+                "sign_autocorr_1": 0.00015559869361332713,
+                "sign_autocorr_2": 0.00018602992613230183,
+                "sign_autocorr_30": 0.00030376429645775834,
+                "sign_autocorr_5": 0.0001964762956155253,
+                "sign_bias": 0.0010596157442134878
+              },
+              "lag_error": {
+                "body_1": 0.0,
+                "body_30": 0.0,
+                "body_5": 0.0,
+                "volume_1": 0.0,
+                "volume_30": 0.0,
+                "volume_5": 0.0
+              },
+              "median_price_relative_error": 0.0,
+              "quantile_error": {
+                "body": 0.0,
+                "close_close": 4.0,
+                "gap": 9.0,
+                "range": 0.0,
+                "volume": 0.0
+              },
+              "zero_fraction_error": {
+                "body": 0.0,
+                "close_close": 0.17989417989417994,
+                "gap": 0.28408572731418147,
+                "range": 0.0,
+                "volume": 0.0
+              }
+            },
+            "NQ": {
+              "calendar_roll_exact": true,
+              "directional": {
+                "next_sign_given_prior_body_high": 0.0004895756484621233,
+                "next_sign_given_prior_body_low": 0.0007468621752032067,
+                "next_sign_given_prior_volume_high": 0.00019900698399147443,
+                "next_sign_given_prior_volume_low": 0.0010478916765401989,
+                "sign_autocorr_1": 0.00010810407867292097,
+                "sign_autocorr_2": 0.0004898671067863458,
+                "sign_autocorr_30": 0.0005125238804840465,
+                "sign_autocorr_5": 0.0005907167717161976,
+                "sign_bias": 0.0008262959895461257
+              },
+              "lag_error": {
+                "body_1": 0.0,
+                "body_30": 0.0,
+                "body_5": 0.0,
+                "volume_1": 0.0,
+                "volume_30": 0.0,
+                "volume_5": 0.0
+              },
+              "median_price_relative_error": 0.0,
+              "quantile_error": {
+                "body": 0.0,
+                "close_close": 1.4,
+                "gap": 28.0,
+                "range": 0.0,
+                "volume": 0.0
+              },
+              "zero_fraction_error": {
+                "body": 0.0,
+                "close_close": 0.07692307692307693,
+                "gap": 0.27131782945736427,
+                "range": 0.0,
+                "volume": 0.0
+              }
+            }
+          },
+          "joint_nuisance_error": {
+            "body": 0.0,
+            "body_non_rth": 0.0,
+            "body_rth": 0.0,
+            "cc": 0.000318394964176294,
+            "range": 0.0,
+            "range_non_rth": 0.0,
+            "range_rth": 0.0,
+            "volatility_state_30": 0.0,
+            "volume": 0.0,
+            "volume_non_rth": 0.0,
+            "volume_rth": 0.0
+          },
+          "joint_sign_agreement_error": 0.0,
+          "max_zero_edge_diagnostic": 0.0010879184719462271,
+          "mode": "joint_bar_reflection",
+          "nuisance_pass": false,
+          "pass": false,
+          "seed": 9101,
+          "zero_edge_pass": true
+        },
+        "pass": false,
+        "seed": 9101,
+        "structural": {
+          "ES": true,
+          "NQ": true
+        },
+        "zero_edge_pass": false
+      },
+      {
+        "extra_directional": {
+          "cross_market": {
+            "ES_to_NQ_next_cc_sign": 0.14509296248648793,
+            "NQ_to_ES_next_cc_sign": 0.154745194278855
+          },
+          "instruments": {
+            "ES": {
+              "cc_sign_autocorr_1": 0.30842453338389797,
+              "cc_sign_autocorr_2": 0.003492964335660837,
+              "cc_sign_autocorr_30": 0.0013541942535751884,
+              "cc_sign_autocorr_5": 0.0011782207704789903,
+              "cc_sign_bias": 0.0028341226553870095,
+              "gap_sign_autocorr_1": 0.08190898516376734,
+              "gap_sign_autocorr_5": 0.00018157684782537119,
+              "next_cc_sign_given_prior_magnitude_high": 0.00192409545140581,
+              "next_cc_sign_given_prior_magnitude_low": 0.0024583670235790883
+            },
+            "NQ": {
+              "cc_sign_autocorr_1": 0.256346008579274,
+              "cc_sign_autocorr_2": 0.005175308794929371,
+              "cc_sign_autocorr_30": 0.0003625790710303584,
+              "cc_sign_autocorr_5": 0.0007401168645197087,
+              "cc_sign_bias": 0.003908868157635327,
+              "gap_sign_autocorr_1": 0.02529716840504222,
+              "gap_sign_autocorr_5": 0.0009547037676636845,
+              "next_cc_sign_given_prior_magnitude_high": 0.0029420349615682205,
+              "next_cc_sign_given_prior_magnitude_low": 0.003855585867898868
+            }
+          },
+          "maximum": 0.30842453338389797
+        },
+        "nuisance": {
+          "cross_lag_directional_error": 0.00071666047388661,
+          "instruments": {
+            "ES": {
+              "calendar_roll_exact": true,
+              "directional": {
+                "next_sign_given_prior_body_high": 0.0002373936170968893,
+                "next_sign_given_prior_body_low": 0.0002625208610327071,
+                "next_sign_given_prior_volume_high": 0.0003837154953705814,
+                "next_sign_given_prior_volume_low": 0.000895174338426122,
+                "sign_autocorr_1": 0.0006366395721651364,
+                "sign_autocorr_2": 0.0009445941474538704,
+                "sign_autocorr_30": 0.00030522870709474273,
+                "sign_autocorr_5": 0.0006942067892481205,
+                "sign_bias": 0.0003707580443749019
+              },
+              "lag_error": {
+                "body_1": 0.0,
+                "body_30": 0.0,
+                "body_5": 0.0,
+                "volume_1": 0.0,
+                "volume_30": 0.0,
+                "volume_5": 0.0
+              },
+              "median_price_relative_error": 0.0,
+              "quantile_error": {
+                "body": 0.0,
+                "close_close": 6.0,
+                "gap": 9.0,
+                "range": 0.0,
+                "volume": 0.0
+              },
+              "zero_fraction_error": {
+                "body": 0.0,
+                "close_close": 0.22222222222222227,
+                "gap": 0.27724578203374367,
+                "range": 0.0,
+                "volume": 0.0
+              }
+            },
+            "NQ": {
+              "calendar_roll_exact": true,
+              "directional": {
+                "next_sign_given_prior_body_high": 0.0013438889152101604,
+                "next_sign_given_prior_body_low": 0.0008036209317988165,
+                "next_sign_given_prior_volume_high": 0.0003720565352884087,
+                "next_sign_given_prior_volume_low": 7.92765367396299e-05,
+                "sign_autocorr_1": 0.00029780167568625433,
+                "sign_autocorr_2": 0.0014364267866960392,
+                "sign_autocorr_30": 0.0006991232130094625,
+                "sign_autocorr_5": 0.000432456989071241,
+                "sign_bias": 0.0002860440874494177
+              },
+              "lag_error": {
+                "body_1": 0.0,
+                "body_30": 0.0,
+                "body_5": 0.0,
+                "volume_1": 0.0,
+                "volume_30": 0.0,
+                "volume_5": 0.0
+              },
+              "median_price_relative_error": 0.0,
+              "quantile_error": {
+                "body": 0.0,
+                "close_close": 1.5555555555555556,
+                "gap": 28.0,
+                "range": 0.0,
+                "volume": 0.0
+              },
+              "zero_fraction_error": {
+                "body": 0.0,
+                "close_close": 0.083289124668435,
+                "gap": 0.2762664165103189,
+                "range": 0.0,
+                "volume": 0.0
+              }
+            }
+          },
+          "joint_nuisance_error": {
+            "body": 0.0,
+            "body_non_rth": 0.0,
+            "body_rth": 0.0,
+            "cc": 0.0011261385925718237,
+            "range": 0.0,
+            "range_non_rth": 0.0,
+            "range_rth": 0.0,
+            "volatility_state_30": 0.0,
+            "volume": 0.0,
+            "volume_non_rth": 0.0,
+            "volume_rth": 0.0
+          },
+          "joint_sign_agreement_error": 0.0,
+          "max_zero_edge_diagnostic": 0.0014364267866960392,
+          "mode": "joint_bar_reflection",
+          "nuisance_pass": false,
+          "pass": false,
+          "seed": 9102,
+          "zero_edge_pass": true
+        },
+        "pass": false,
+        "seed": 9102,
+        "structural": {
+          "ES": true,
+          "NQ": true
+        },
+        "zero_edge_pass": false
+      },
+      {
+        "extra_directional": {
+          "cross_market": {
+            "ES_to_NQ_next_cc_sign": 0.14564593745388774,
+            "NQ_to_ES_next_cc_sign": 0.15451011712943497
+          },
+          "instruments": {
+            "ES": {
+              "cc_sign_autocorr_1": 0.308675893175721,
+              "cc_sign_autocorr_2": 0.0032104133292260267,
+              "cc_sign_autocorr_30": 0.00040656484713251723,
+              "cc_sign_autocorr_5": 0.000354165443819918,
+              "cc_sign_bias": 0.0024298973040790444,
+              "gap_sign_autocorr_1": 0.08364223667553751,
+              "gap_sign_autocorr_5": 0.00030401036765571394,
+              "next_cc_sign_given_prior_magnitude_high": 0.0006140256120154091,
+              "next_cc_sign_given_prior_magnitude_low": 0.0028252250484207477
+            },
+            "NQ": {
+              "cc_sign_autocorr_1": 0.2559659522957865,
+              "cc_sign_autocorr_2": 0.004447543370094277,
+              "cc_sign_autocorr_30": 0.0005717166361942352,
+              "cc_sign_autocorr_5": 0.0009526698101179232,
+              "cc_sign_bias": 0.004451789573853139,
+              "gap_sign_autocorr_1": 0.02530376348628733,
+              "gap_sign_autocorr_5": 0.0001264161506248765,
+              "next_cc_sign_given_prior_magnitude_high": 0.0038523817355871582,
+              "next_cc_sign_given_prior_magnitude_low": 0.003909716903780001
+            }
+          },
+          "maximum": 0.308675893175721
+        },
+        "nuisance": {
+          "cross_lag_directional_error": 0.0005084140783123193,
+          "instruments": {
+            "ES": {
+              "calendar_roll_exact": true,
+              "directional": {
+                "next_sign_given_prior_body_high": 0.0011528516375184264,
+                "next_sign_given_prior_body_low": 1.250099338250986e-05,
+                "next_sign_given_prior_volume_high": 0.00023403923831113476,
+                "next_sign_given_prior_volume_low": 0.0002979389951243878,
+                "sign_autocorr_1": 0.0007314705789492501,
+                "sign_autocorr_2": 0.0005086805789206696,
+                "sign_autocorr_30": 0.0016836934543397542,
+                "sign_autocorr_5": 0.0003587449134840764,
+                "sign_bias": 0.00036968338337671383
+              },
+              "lag_error": {
+                "body_1": 0.0,
+                "body_30": 0.0,
+                "body_5": 0.0,
+                "volume_1": 0.0,
+                "volume_30": 0.0,
+                "volume_5": 0.0
+              },
+              "median_price_relative_error": 0.0,
+              "quantile_error": {
+                "body": 0.0,
+                "close_close": 7.0,
+                "gap": 9.0,
+                "range": 0.0,
+                "volume": 0.0
+              },
+              "zero_fraction_error": {
+                "body": 0.0,
+                "close_close": 0.22751322751322756,
+                "gap": 0.2795257637938896,
+                "range": 0.0,
+                "volume": 0.0
+              }
+            },
+            "NQ": {
+              "calendar_roll_exact": true,
+              "directional": {
+                "next_sign_given_prior_body_high": 4.286607060267439e-05,
+                "next_sign_given_prior_body_low": 0.0012396943056431355,
+                "next_sign_given_prior_volume_high": 0.000181702028861781,
+                "next_sign_given_prior_volume_low": 0.0011502304785131758,
+                "sign_autocorr_1": 0.0006120425982023467,
+                "sign_autocorr_2": 0.0005441178089983797,
+                "sign_autocorr_30": 0.0010907553917183983,
+                "sign_autocorr_5": 0.0002722351459353857,
+                "sign_bias": 0.0009121574525579239
+              },
+              "lag_error": {
+                "body_1": 0.0,
+                "body_30": 0.0,
+                "body_5": 0.0,
+                "volume_1": 0.0,
+                "volume_30": 0.0,
+                "volume_5": 0.0
+              },
+              "median_price_relative_error": 0.0,
+              "quantile_error": {
+                "body": 0.0,
+                "close_close": 1.5555555555555556,
+                "gap": 28.0,
+                "range": 0.0,
+                "volume": 0.0
+              },
+              "zero_fraction_error": {
+                "body": 0.0,
+                "close_close": 0.08306709265175719,
+                "gap": 0.26407129455909945,
+                "range": 0.0,
+                "volume": 0.0
+              }
+            }
+          },
+          "joint_nuisance_error": {
+            "body": 0.0,
+            "body_non_rth": 0.0,
+            "body_rth": 0.0,
+            "cc": 0.0005731024410166041,
+            "range": 0.0,
+            "range_non_rth": 0.0,
+            "range_rth": 0.0,
+            "volatility_state_30": 0.0,
+            "volume": 0.0,
+            "volume_non_rth": 0.0,
+            "volume_rth": 0.0
+          },
+          "joint_sign_agreement_error": 0.0,
+          "max_zero_edge_diagnostic": 0.0016836934543397542,
+          "mode": "joint_bar_reflection",
+          "nuisance_pass": false,
+          "pass": false,
+          "seed": 9103,
+          "zero_edge_pass": true
+        },
+        "pass": false,
+        "seed": 9103,
+        "structural": {
+          "ES": true,
+          "NQ": true
+        },
+        "zero_edge_pass": false
+      }
+    ],
+    "joint_session_reflection": [
+      {
+        "extra_directional": {
+          "cross_market": {
+            "ES_to_NQ_next_cc_sign": 0.002891070239466773,
+            "NQ_to_ES_next_cc_sign": 0.015227749651821342
+          },
+          "instruments": {
+            "ES": {
+              "cc_sign_autocorr_1": 0.14908098135551082,
+              "cc_sign_autocorr_2": 0.012325459393978345,
+              "cc_sign_autocorr_30": 0.0028309071393258175,
+              "cc_sign_autocorr_5": 0.003783644543251942,
+              "cc_sign_bias": 8.815761538345172e-05,
+              "gap_sign_autocorr_1": 0.013494775105502467,
+              "gap_sign_autocorr_5": 0.017778423574237597,
+              "next_cc_sign_given_prior_magnitude_high": 0.0012916113672746179,
+              "next_cc_sign_given_prior_magnitude_low": 0.0004989999661005458
+            },
+            "NQ": {
+              "cc_sign_autocorr_1": 0.06516955812931594,
+              "cc_sign_autocorr_2": 0.012201378708764792,
+              "cc_sign_autocorr_30": 0.002404657622897194,
+              "cc_sign_autocorr_5": 0.002960165165534113,
+              "cc_sign_bias": 0.0004802917895031094,
+              "gap_sign_autocorr_1": 0.004086569808801144,
+              "gap_sign_autocorr_5": 0.010001290968389441,
+              "next_cc_sign_given_prior_magnitude_high": 0.0008450526058208053,
+              "next_cc_sign_given_prior_magnitude_low": 0.0009828745572506474
+            }
+          },
+          "maximum": 0.14908098135551082
+        },
+        "nuisance": {
+          "cross_lag_directional_error": 0.014746805363579344,
+          "instruments": {
+            "ES": {
+              "calendar_roll_exact": true,
+              "directional": {
+                "next_sign_given_prior_body_high": 0.0011642237868404331,
+                "next_sign_given_prior_body_low": 0.0008384594847269113,
+                "next_sign_given_prior_volume_high": 3.6738717641864174e-05,
+                "next_sign_given_prior_volume_low": 0.0006820699091116396,
+                "sign_autocorr_1": 0.022359754937880977,
+                "sign_autocorr_2": 0.0033030273757550946,
+                "sign_autocorr_30": 0.004299645383671103,
+                "sign_autocorr_5": 0.002126347555922595,
+                "sign_bias": 0.0005652716850469519
+              },
+              "lag_error": {
+                "body_1": 0.0,
+                "body_30": 0.0,
+                "body_5": 0.0,
+                "volume_1": 0.0,
+                "volume_30": 0.0,
+                "volume_5": 0.0
+              },
+              "median_price_relative_error": 0.0005149993562508047,
+              "quantile_error": {
+                "body": 0.0,
+                "close_close": 11.083333333333334,
+                "gap": 13.3,
+                "range": 0.0,
+                "volume": 0.0
+              },
+              "zero_fraction_error": {
+                "body": 0.0,
+                "close_close": 0.05395518975765889,
+                "gap": 0.06492912665752174,
+                "range": 0.0,
+                "volume": 0.0
+              }
+            },
+            "NQ": {
+              "calendar_roll_exact": true,
+              "directional": {
+                "next_sign_given_prior_body_high": 0.00032563172931505285,
+                "next_sign_given_prior_body_low": 0.00027756416335170147,
+                "next_sign_given_prior_volume_high": 0.0001831441084559221,
+                "next_sign_given_prior_volume_low": 0.000784117017933794,
+                "sign_autocorr_1": 0.02111993706293399,
+                "sign_autocorr_2": 0.0067441584331302575,
+                "sign_autocorr_30": 0.0028943620818153108,
+                "sign_autocorr_5": 0.0015286351028548236,
+                "sign_bias": 0.0004066360298817186
+              },
+              "lag_error": {
+                "body_1": 0.0,
+                "body_30": 0.0,
+                "body_5": 0.0,
+                "volume_1": 0.0,
+                "volume_30": 0.0,
+                "volume_5": 0.0
+              },
+              "median_price_relative_error": 0.00030419176248707184,
+              "quantile_error": {
+                "body": 0.0,
+                "close_close": 12.167883211678795,
+                "gap": 14.626086956521743,
+                "range": 0.0,
+                "volume": 0.0
+              },
+              "zero_fraction_error": {
+                "body": 0.0,
+                "close_close": 0.023426734037666517,
+                "gap": 0.03215434083601287,
+                "range": 0.0,
+                "volume": 0.0
+              }
+            }
+          },
+          "joint_nuisance_error": {
+            "body": 0.0,
+            "body_non_rth": 0.0,
+            "body_rth": 0.0,
+            "cc": 0.0068274969144686,
+            "range": 0.0,
+            "range_non_rth": 0.0,
+            "range_rth": 0.0,
+            "volatility_state_30": 0.0,
+            "volume": 0.0,
+            "volume_non_rth": 0.0,
+            "volume_rth": 0.0
+          },
+          "joint_sign_agreement_error": 0.0,
+          "max_zero_edge_diagnostic": 0.022359754937880977,
+          "mode": "joint_session_reflection",
+          "nuisance_pass": false,
+          "pass": false,
+          "seed": 9101,
+          "zero_edge_pass": false
+        },
+        "pass": false,
+        "seed": 9101,
+        "structural": {
+          "ES": true,
+          "NQ": true
+        },
+        "zero_edge_pass": false
+      },
+      {
+        "extra_directional": {
+          "cross_market": {
+            "ES_to_NQ_next_cc_sign": 0.0028716684421387756,
+            "NQ_to_ES_next_cc_sign": 0.015179251801197887
+          },
+          "instruments": {
+            "ES": {
+              "cc_sign_autocorr_1": 0.1490420937549891,
+              "cc_sign_autocorr_2": 0.01230772556984841,
+              "cc_sign_autocorr_30": 0.002845250584322752,
+              "cc_sign_autocorr_5": 0.003780019763076004,
+              "cc_sign_bias": 0.00029264033042796954,
+              "gap_sign_autocorr_1": 0.01357145848583376,
+              "gap_sign_autocorr_5": 0.01781856758283488,
+              "next_cc_sign_given_prior_magnitude_high": 4.652123762911354e-05,
+              "next_cc_sign_given_prior_magnitude_low": 0.00029469645812824356
+            },
+            "NQ": {
+              "cc_sign_autocorr_1": 0.06515361835756499,
+              "cc_sign_autocorr_2": 0.012211695489061198,
+              "cc_sign_autocorr_30": 0.002425089758991462,
+              "cc_sign_autocorr_5": 0.002984320698179657,
+              "cc_sign_bias": 0.000476731624132502,
+              "gap_sign_autocorr_1": 0.004026584810698908,
+              "gap_sign_autocorr_5": 0.009944876807344426,
+              "next_cc_sign_given_prior_magnitude_high": 0.0008626633694677304,
+              "next_cc_sign_given_prior_magnitude_low": 0.00016353780900220388
+            }
+          },
+          "maximum": 0.1490420937549891
+        },
+        "nuisance": {
+          "cross_lag_directional_error": 0.014733261185324479,
+          "instruments": {
+            "ES": {
+              "calendar_roll_exact": true,
+              "directional": {
+                "next_sign_given_prior_body_high": 0.0003795454836219727,
+                "next_sign_given_prior_body_low": 0.0003348480370315141,
+                "next_sign_given_prior_volume_high": 0.00027077795595299893,
+                "next_sign_given_prior_volume_low": 0.00042010076989065163,
+                "sign_autocorr_1": 0.02235972575830204,
+                "sign_autocorr_2": 0.003303002816625769,
+                "sign_autocorr_30": 0.0042996586319722216,
+                "sign_autocorr_5": 0.00212636628449519,
+                "sign_bias": 0.0005459277870795658
+              },
+              "lag_error": {
+                "body_1": 0.0,
+                "body_30": 0.0,
+                "body_5": 0.0,
+                "volume_1": 0.0,
+                "volume_30": 0.0,
+                "volume_5": 0.0
+              },
+              "median_price_relative_error": 0.0005149993562508047,
+              "quantile_error": {
+                "body": 0.0,
+                "close_close": 11.150000000000015,
+                "gap": 13.6,
+                "range": 0.0,
+                "volume": 0.0
+              },
+              "zero_fraction_error": {
+                "body": 0.0,
+                "close_close": 0.05761316872427983,
+                "gap": 0.06721536351165983,
+                "range": 0.0,
+                "volume": 0.0
+              }
+            },
+            "NQ": {
+              "calendar_roll_exact": true,
+              "directional": {
+                "next_sign_given_prior_body_high": 0.0012325875389084795,
+                "next_sign_given_prior_body_low": 0.0003107888013588877,
+                "next_sign_given_prior_volume_high": 0.00023794313303328465,
+                "next_sign_given_prior_volume_low": 0.0006197983781461975,
+                "sign_autocorr_1": 0.021120059330869623,
+                "sign_autocorr_2": 0.006744273450587715,
+                "sign_autocorr_30": 0.0028941519571972153,
+                "sign_autocorr_5": 0.0015287794909967702,
+                "sign_bias": 0.0005561700384977717
+              },
+              "lag_error": {
+                "body_1": 0.0,
+                "body_30": 0.0,
+                "body_5": 0.0,
+                "volume_1": 0.0,
+                "volume_30": 0.0,
+                "volume_5": 0.0
+              },
+              "median_price_relative_error": 0.0029810792723733042,
+              "quantile_error": {
+                "body": 0.0,
+                "close_close": 12.700729927007258,
+                "gap": 15.321739130434787,
+                "range": 0.0,
+                "volume": 0.0
+              },
+              "zero_fraction_error": {
+                "body": 0.0,
+                "close_close": 0.021589343132751494,
+                "gap": 0.030776297657326604,
+                "range": 0.0,
+                "volume": 0.0
+              }
+            }
+          },
+          "joint_nuisance_error": {
+            "body": 0.0,
+            "body_non_rth": 0.0,
+            "body_rth": 0.0,
+            "cc": 0.006789337522647543,
+            "range": 0.0,
+            "range_non_rth": 0.0,
+            "range_rth": 0.0,
+            "volatility_state_30": 0.0,
+            "volume": 0.0,
+            "volume_non_rth": 0.0,
+            "volume_rth": 0.0
+          },
+          "joint_sign_agreement_error": 0.0,
+          "max_zero_edge_diagnostic": 0.02235972575830204,
+          "mode": "joint_session_reflection",
+          "nuisance_pass": false,
+          "pass": false,
+          "seed": 9102,
+          "zero_edge_pass": false
+        },
+        "pass": false,
+        "seed": 9102,
+        "structural": {
+          "ES": true,
+          "NQ": true
+        },
+        "zero_edge_pass": false
+      },
+      {
+        "extra_directional": {
+          "cross_market": {
+            "ES_to_NQ_next_cc_sign": 0.0028969889392031233,
+            "NQ_to_ES_next_cc_sign": 0.01517301132036037
+          },
+          "instruments": {
+            "ES": {
+              "cc_sign_autocorr_1": 0.1490622801155441,
+              "cc_sign_autocorr_2": 0.012335903698776827,
+              "cc_sign_autocorr_30": 0.002818082736034757,
+              "cc_sign_autocorr_5": 0.0037779011909400075,
+              "cc_sign_bias": 0.0002258698728712547,
+              "gap_sign_autocorr_1": 0.013530471271028093,
+              "gap_sign_autocorr_5": 0.017822077059526906,
+              "next_cc_sign_given_prior_magnitude_high": 0.0009276488616462347,
+              "next_cc_sign_given_prior_magnitude_low": 0.0005297378656355159
+            },
+            "NQ": {
+              "cc_sign_autocorr_1": 0.06518370097914523,
+              "cc_sign_autocorr_2": 0.012200808369925637,
+              "cc_sign_autocorr_30": 0.002412565465701705,
+              "cc_sign_autocorr_5": 0.0029640584641884003,
+              "cc_sign_bias": 0.0001829472671194797,
+              "gap_sign_autocorr_1": 0.004057491384925334,
+              "gap_sign_autocorr_5": 0.0099785107902743,
+              "next_cc_sign_given_prior_magnitude_high": 0.0007133510703376597,
+              "next_cc_sign_given_prior_magnitude_low": 0.000598904292442093
+            }
+          },
+          "maximum": 0.1490622801155441
+        },
+        "nuisance": {
+          "cross_lag_directional_error": 0.014724322773749602,
+          "instruments": {
+            "ES": {
+              "calendar_roll_exact": true,
+              "directional": {
+                "next_sign_given_prior_body_high": 0.00041934800624899606,
+                "next_sign_given_prior_body_low": 0.00026341378913145776,
+                "next_sign_given_prior_volume_high": 0.0004422253049483651,
+                "next_sign_given_prior_volume_low": 0.0002409301669001314,
+                "sign_autocorr_1": 0.022359561329408566,
+                "sign_autocorr_2": 0.003302838350589902,
+                "sign_autocorr_30": 0.004299864887174687,
+                "sign_autocorr_5": 0.0021265243028112985,
+                "sign_bias": 0.00018054304769560443
+              },
+              "lag_error": {
+                "body_1": 0.0,
+                "body_30": 0.0,
+                "body_5": 0.0,
+                "volume_1": 0.0,
+                "volume_30": 0.0,
+                "volume_5": 0.0
+              },
+              "median_price_relative_error": 0.0009012488734389082,
+              "quantile_error": {
+                "body": 0.0,
+                "close_close": 10.666666666666666,
+                "gap": 12.9,
+                "range": 0.0,
+                "volume": 0.0
+              },
+              "zero_fraction_error": {
+                "body": 0.0,
+                "close_close": 0.0594421582075903,
+                "gap": 0.06995884773662553,
+                "range": 0.0,
+                "volume": 0.0
+              }
+            },
+            "NQ": {
+              "calendar_roll_exact": true,
+              "directional": {
+                "next_sign_given_prior_body_high": 5.0386433866301476e-05,
+                "next_sign_given_prior_body_low": 0.0005295176682395303,
+                "next_sign_given_prior_volume_high": 0.00014997627779067638,
+                "next_sign_given_prior_volume_low": 0.0004497141720502642,
+                "sign_autocorr_1": 0.021119942379585192,
+                "sign_autocorr_2": 0.006744155655331014,
+                "sign_autocorr_30": 0.002894338374162128,
+                "sign_autocorr_5": 0.0015286918398777416,
+                "sign_bias": 0.0004413665093022213
+              },
+              "lag_error": {
+                "body_1": 0.0,
+                "body_30": 0.0,
+                "body_5": 0.0,
+                "volume_1": 0.0,
+                "volume_30": 0.0,
+                "volume_5": 0.0
+              },
+              "median_price_relative_error": 0.0024943724523939894,
+              "quantile_error": {
+                "body": 0.0,
+                "close_close": 12.40875912408755,
+                "gap": 14.686956521739159,
+                "range": 0.0,
+                "volume": 0.0
+              },
+              "zero_fraction_error": {
+                "body": 0.0,
+                "close_close": 0.022508038585209007,
+                "gap": 0.033532384014699136,
+                "range": 0.0,
+                "volume": 0.0
+              }
+            }
+          },
+          "joint_nuisance_error": {
+            "body": 0.0,
+            "body_non_rth": 0.0,
+            "body_rth": 0.0,
+            "cc": 0.006658671803267846,
+            "range": 0.0,
+            "range_non_rth": 0.0,
+            "range_rth": 0.0,
+            "volatility_state_30": 0.0,
+            "volume": 0.0,
+            "volume_non_rth": 0.0,
+            "volume_rth": 0.0
+          },
+          "joint_sign_agreement_error": 0.0,
+          "max_zero_edge_diagnostic": 0.022359561329408566,
+          "mode": "joint_session_reflection",
+          "nuisance_pass": false,
+          "pass": false,
+          "seed": 9103,
+          "zero_edge_pass": false
+        },
+        "pass": false,
+        "seed": 9103,
+        "structural": {
+          "ES": true,
+          "NQ": true
+        },
+        "zero_edge_pass": false
+      }
+    ]
+  },
+  "methods_in_frozen_priority": [
+    "joint_bar_reflection",
+    "joint_session_reflection"
+  ],
+  "original_discovery_strategy_outcomes_calculated": 0,
+  "protocol_freeze_sha256": "1af5f48792c99e9b0e9b240f0317adeda76bbbaaf974bdbdc40d805521e5e4d6",
+  "raw_discovery_bars_exported": 0,
+  "seeds": [
+    9101,
+    9102,
+    9103
+  ],
+  "selected_method": null,
+  "status": "FAIL_DIRECT_NULL_DIAGNOSTICS"
+}
