@@ -18,7 +18,7 @@ from quantlab5.v5.candidate_inventory import (MECHANISMS, activated_inventory,
                                               inventory, stage_a_expansion_gate)
 from quantlab5.v5.duplicate_accounting import (PairSimilarity, behavioral_duplicate_map,
                                                 pairwise_duplicate_analysis, signal_fingerprint)
-from quantlab5.v5.inference import hac_t
+from quantlab5.v5.inference import fixed_family_inference, hac_t
 from quantlab5.v5.inference import SequentialDecision, sequential_decision
 from quantlab5.v5.signals import SignalContext, signal_for_spec
 from quantlab5.v5.risk_coverage import evaluate_mnq_budgets
@@ -46,6 +46,10 @@ class CandidateRecord:
     entry_indices: np.ndarray
     trade_sides: np.ndarray
     exit_indices: np.ndarray | None = None
+    net_r: float = 0.0
+    expectancy_r: float = 0.0
+    profit_factor: float | None = None
+    max_drawdown_r: float = 0.0
 
 
 @dataclass(frozen=True)
@@ -161,11 +165,18 @@ def evaluate_spec(market, spec: dict, context: SignalContext, costs,
         excess = float(np.mean(net - shadow_baseline[row, clock]))
     mask_key = signal_fingerprint(lg, sh, "v5_next_open_atr15_stop60_flat1555")
     t = float(hac_t(daily)[0]) if len(daily) >= 3 else float("-inf")
+    gain = float(net[net > 0].sum())
+    loss = float(-net[net < 0].sum())
+    pf = gain/loss if loss > 0 else None
+    path = np.r_[0.0, np.cumsum(net)]
+    drawdown = float(np.max(np.maximum.accumulate(path)-path))
     return CandidateRecord(candidate_id(spec), spec["stage"], spec["family"], spec["side"],
                            spec, t, daily, count, int(tr.n), active,
                            float(stressed.sum()), excess, mask_key,
                            np.asarray(tr.entry_idx, np.int32), np.asarray(tr.side, np.int8),
-                           np.asarray(tr.exit_idx, np.int32))
+                           np.asarray(tr.exit_idx, np.int32),
+                           float(net.sum()), float(net.mean()) if tr.n else 0.0,
+                           pf, drawdown)
 
 
 def _nominate(records: tuple[CandidateRecord, ...]) -> tuple[str, ...]:
@@ -202,12 +213,26 @@ def _qualifying_ids(records: tuple[CandidateRecord, ...]) -> tuple[str, ...]:
                         and r.matched_excess_r > 0))
 
 
-def adaptive_search(market, costs, stage_a_null_family_t: np.ndarray,
+def _stage_a_stream_family_p(records: list[CandidateRecord]) -> dict[str, float]:
+    """Exploratory family max-t from centered, common-day Stage A streams."""
+    if len(records) != 60 or {r.family for r in records} != {m.code for m in MECHANISMS}:
+        raise ValueError("stream reference requires the complete 60-rule Stage A inventory")
+    streams = np.column_stack([r.daily_r for r in records])
+    result = fixed_family_inference(streams, reps=500, block=20, lags=20,
+                                    seed=515001)
+    null_max = result.null_max
+    return {m.code: float((1+np.count_nonzero(null_max >= max(
+        r.statistic for r in records if r.family == m.code)))/(len(null_max)+1))
+            for m in MECHANISMS}
+
+
+def adaptive_search(market, costs, stage_a_null_family_t: np.ndarray | None = None,
                     *, evaluator=evaluate_spec) -> SearchTrace:
     """Replay all transitions in a Market world; no top-N or correlation removal."""
-    reference = np.asarray(stage_a_null_family_t, float)
-    if reference.ndim != 2 or reference.shape[1] != 30 or len(reference) < 19 or not np.isfinite(reference).all():
-        raise ValueError("need independent null-world Stage A family statistics")
+    if stage_a_null_family_t is not None:
+        reference = np.asarray(stage_a_null_family_t, float)
+        if reference.ndim != 2 or reference.shape[1] != 30 or len(reference) < 19 or not np.isfinite(reference).all():
+            raise ValueError("need independent null-world Stage A family statistics")
     inv = inventory()
     context = SignalContext(market)
     shadow = _shadow_clock_baseline(market, context.stop,
@@ -216,9 +241,12 @@ def adaptive_search(market, costs, stage_a_null_family_t: np.ndarray,
                for spec in inv["stage_a"]]
     family_t = {m.code: max(r.statistic for r in records if r.family == m.code)
                 for m in MECHANISMS}
-    reference_max = np.max(reference, axis=1)
-    family_p = {family: float((1+np.count_nonzero(reference_max >= t))/(len(reference)+1))
-                for family, t in family_t.items()}
+    if stage_a_null_family_t is None:
+        family_p = _stage_a_stream_family_p(records)
+    else:
+        reference_max = np.max(reference, axis=1)
+        family_p = {family: float((1+np.count_nonzero(reference_max >= t))/(len(reference)+1))
+                    for family, t in family_t.items()}
     expanded = []
     for m in MECHANISMS:
         family_rows = [r for r in records if r.family == m.code]

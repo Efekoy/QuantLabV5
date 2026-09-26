@@ -8,8 +8,14 @@ from quantlab5.util.hashing import canonical_json, file_sha256, sha256_text
 
 def test_actual_research_data_access_fails_closed_before_final_tag():
     ok, reason = prereg_ready(ROOT)
-    assert not ok
-    assert "FINAL" in reason or "tag" in reason or "missing" in reason
+    import subprocess
+    tag = subprocess.run(["git", "tag", "--list", "v5-prereg"],
+                         cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
+    if tag:
+        assert ok, reason
+    else:
+        assert not ok
+        assert "FINAL" in reason or "tag" in reason or "missing" in reason
 
 
 def test_tag_must_contain_exact_final_freeze_and_pinned_bytes(tmp_path):

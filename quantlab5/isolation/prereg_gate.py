@@ -43,6 +43,12 @@ def prereg_ready(root: Path) -> tuple[bool, str]:
         source = root / relative
         if not source.is_file() or file_sha256(source) != expected:
             return False, f"V5 preregistration pinned file mismatch: {rel}"
+    anchor = doc.get("ledger_anchor_before_discovery")
+    if anchor is not None:
+        from quantlab5.isolation import ledger
+        ok, reason = ledger.verify(root / "ledgers/DATA_ACCESS_LEDGER.jsonl", anchor)
+        if not ok:
+            return False, f"V5 preregistration ledger anchor invalid: {reason}"
     try:
         subprocess.run(["git", "rev-parse", "v5-prereg^{commit}"],
                        cwd=root, capture_output=True, check=True)

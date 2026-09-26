@@ -1,0 +1,47 @@
+........................................................................ [ 21%]
+........................................................................ [ 43%]
+........................................................................ [ 65%]
+........................................................................ [ 87%]
+..........................................                               [100%]
+============================== warnings summary ===============================
+tests/test_search_pipeline.py::test_chunked_computation_equals_full_computation
+  C:\Users\Administrator\Desktop\QuantLabV5\quantlab5\features\library.py:337: RuntimeWarning: divide by zero encountered in divide
+    lrv_cum_rth = B.feat("lrvol_cum_rth", "VOL", np.where(rth, np.log(cum_v / cum_e), np.nan), 390, cols=("v",))
+
+tests/test_search_pipeline.py::test_chunked_computation_equals_full_computation
+  C:\Users\Administrator\Desktop\QuantLabV5\quantlab5\features\library.py:338: RuntimeWarning: divide by zero encountered in divide
+    lrv_cum_sess = B.feat("lrvol_cum_sess", "VOL", np.log(O.cum_in_group(vv, g) / O.cum_in_group(Ev[20], g)), 1380,
+
+tests/test_search_pipeline.py::test_chunked_computation_equals_full_computation
+  C:\Users\Administrator\Desktop\QuantLabV5\quantlab5\features\library.py:351: RuntimeWarning: invalid value encountered in divide
+    clv = np.where(h > l, ((c - l) - (h - c)) / (h - l), 0.0)
+
+tests/test_search_pipeline.py::test_chunked_computation_equals_full_computation
+  C:\Users\Administrator\Desktop\QuantLabV5\quantlab5\features\library.py:441: RuntimeWarning: invalid value encountered in divide
+    er[H] = B.feat(f"er_{H}", "PATH", (c - B.lag(c, H)) / O.rsum(np.abs(dc), H, g), H, params={"H": H})
+
+tests/test_search_pipeline.py::test_chunked_computation_equals_full_computation
+  C:\Users\Administrator\Desktop\QuantLabV5\quantlab5\features\library.py:454: RuntimeWarning: invalid value encountered in divide
+    body30 = B.feat("body_30", "PATH", O.rsum(c - o, 30, g) / (c - B.lag(c, 30)), 30, cols=("o", "c"))
+
+tests/test_search_pipeline.py::test_chunked_computation_equals_full_computation
+  C:\Users\Administrator\Desktop\QuantLabV5\quantlab5\features\library.py:558: RuntimeWarning: divide by zero encountered in log
+    ent -= np.where(pk > 0, pk * np.log(pk), 0.0)
+
+tests/test_search_pipeline.py::test_chunked_computation_equals_full_computation
+  C:\Users\Administrator\Desktop\QuantLabV5\quantlab5\features\library.py:558: RuntimeWarning: invalid value encountered in multiply
+    ent -= np.where(pk > 0, pk * np.log(pk), 0.0)
+
+tests/test_search_pipeline.py::test_chunked_computation_equals_full_computation
+  C:\Users\Administrator\Desktop\QuantLabV5\quantlab5\features\library.py:621: RuntimeWarning: divide by zero encountered in divide
+    pm_lrv_s = np.where(okpm & has_on, np.log(cv_pm[li] / ce_pm[li]), np.nan)
+
+tests/test_search_pipeline.py::test_chunked_computation_equals_full_computation
+  C:\Users\Administrator\Desktop\QuantLabV5\quantlab5\features\library.py:808: RuntimeWarning: invalid value encountered in divide
+    body_frac = np.where(h > l, np.abs(c - o) / (h - l), 0.0)
+
+tests/test_search_pipeline.py::test_chunked_computation_equals_full_computation
+  C:\Users\Administrator\Desktop\QuantLabV5\quantlab5\features\library.py:964: RuntimeWarning: invalid value encountered in divide
+    loc = np.where(hh > ll, (c - ll) / (hh - ll), 0.5)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html

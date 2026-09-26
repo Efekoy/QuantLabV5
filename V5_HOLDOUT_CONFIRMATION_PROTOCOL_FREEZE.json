@@ -1,10 +1,38 @@
 {
-  "body_sha256": "5b72063645b05dc6adbedd5f7709d75e03867258f648f4420d9352b581bb8e4c",
+  "audit_1_period": [
+    "2023-01-03",
+    "2025-12-31"
+  ],
+  "audit_2_start": "2026-01-02",
+  "audit_reveal": "both complete and cohort/hash verified before either public result",
+  "body_sha256": "e00ba44617bae6fde3fcbbbc83bedea7e98fc4ae3157d3fe16983dd6c7abb30c",
   "candidate_universe_ids_sha256": "b6f7234ffdde96b26f06ca9a13065e126f1c52f08d5fa06b1b52e56e54b676e2",
-  "created_utc": "2026-09-26T18:47:48.594151+00:00",
+  "classifications": [
+    "SUPPORTED",
+    "INCONCLUSIVE / UNDERPOWERED",
+    "REJECTED"
+  ],
+  "created_utc": "2026-09-26T18:47:48.520392+00:00",
+  "discovery_period": [
+    "2010-06-08",
+    "2018-12-31"
+  ],
+  "discovery_qualifier": {
+    "active_years_min": 6,
+    "matched_excess_positive": true,
+    "mean_daily_net_r_positive": true,
+    "stress_net_r_positive": true,
+    "trades_min": 120
+  },
+  "failed_null_archive_tags": {
+    "v5-calibration-failed": "73d4cbfba218e55a6f10a22311c0fcc74b858b22",
+    "v5-direct-null-failed": "13236cc14607db2d47690b3bff9eb04a5b185513",
+    "v5.1-calibration-failed": "04ec8b040a3bfb235bc6e7784da657bb756028b8",
+    "v5.2-calibration-failed": "70f9c9f470c5b9cb63b119f7bfce3c17926b0fcb",
+    "v5.3-calibration-failed": "6ed7b44e44c4dcc0fe5c17881c38d215d9230515"
+  },
   "files_sha256": {
     "V5_HOLDOUT_CONFIRMATION_PROTOCOL.md": "518adf391c730406289083c7109571c20cfee14d9cf983e1e9a3ea7fb261257c",
-    "V5_HOLDOUT_CONFIRMATION_PROTOCOL_FREEZE.json": "3c45a2957cb62e58e816e0413b6c7cfb816390a784c7c58a3be75a33108eff68",
     "V5_NULL_METHOD_REPORT.md": "145a060986ac0d525d6170a808d3e8848d187a9e3b73afd151caa464909fac0e",
     "V5_NULL_PROGRAM_CONCLUSION.md": "d7481ec2a2a1f97f739e63e5a4be17dc667796e54dca8587f3277dddbcc0ce9a",
     "V5_POWER_CALIBRATION_REPORT.md": "9811ccb9d45dfa0f8119843d761cf24bec024892a00b4b87c727f51b2c2b1898",
@@ -45,17 +73,51 @@
     "tests/test_v5_holdout_confirmation.py": "c8ea108fbc5782918a86747ee4e652bfb7238d7d1c8e6b7d0a0b7d4e53220760",
     "tests/test_v5_prereg_gate.py": "4e8b93ac7a23ab799603db3907420376d2215da744959a83d6ca56cfae6d2560"
   },
-  "holdout_protocol_sha256": "3c45a2957cb62e58e816e0413b6c7cfb816390a784c7c58a3be75a33108eff68",
-  "kind": "V5_FINAL_PREREGISTRATION",
+  "inventory_counts": {
+    "A": 60,
+    "B_C_max": 271,
+    "B_max": 214,
+    "C_conditional_id_universe": 436,
+    "C_max": 57,
+    "total_id_universe": 710,
+    "total_max": 331
+  },
+  "kind": "V5_HOLDOUT_CONFIRMATION_PROTOCOL_FREEZE",
   "ledger_anchor_before_discovery": {
     "record_hash": "852f21ab706b3c880208896bbef0e89bbda4bc39e28dd058a3094996b233ffc4",
     "seq": 18
   },
   "live_forward_open_authorized": false,
   "no_cap_advancement": true,
-  "null_market_calibration_required": false,
   "portfolio_selection": "none; individual four-budget diagnostics only",
-  "real_discovery_strategy_outcomes_before_freeze": 0,
-  "status": "FINAL",
-  "validation_primary_confirmation": true
+  "stage_a_reference": {
+    "block": 20,
+    "family_expansion_p_max": 0.1,
+    "hac_lags": 20,
+    "reps": 500,
+    "seed": 515001,
+    "type": "common-day centered stationary bootstrap"
+  },
+  "status": "FROZEN",
+  "validation": {
+    "alpha_one_sided": 0.05,
+    "block": 20,
+    "hac_lags": 20,
+    "near_boundary_band": 0.01,
+    "near_boundary_reps": 2000,
+    "reps": 500,
+    "seed": 515005,
+    "type": "exact-candidate Romano-Wolf stepdown"
+  },
+  "validation_period": [
+    "2019-01-02",
+    "2022-12-30"
+  ],
+  "validation_support": {
+    "active_years_min": 2,
+    "adjusted_p_max": 0.05,
+    "matched_excess_positive": true,
+    "stress_net_positive": true,
+    "trades_min": 40
+  }
 }

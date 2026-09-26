@@ -1,6 +1,9 @@
-"""Guard the assumption-only planning report and review-draft byte pin."""
+"""Guard assumption-only planning and superseded review-draft provenance."""
 import importlib.util
+import json
 from pathlib import Path
+
+from quantlab5.util.hashing import canonical_json, sha256_text
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,8 +24,10 @@ def test_planning_power_declines_with_frequency_and_grows_with_design_effect():
     assert 0.089 < p.mde(500, "discovery", 4.0) < 0.091
 
 
-def test_review_draft_freeze_verifies_without_stage_transition():
-    f = _load("freeze_prereg_design", ROOT / "research" / "freeze_prereg_design.py")
-    assert f.verify()
-    assert f.build()["status"] == "REVIEW_REQUIRED"
-    assert f.build()["discovery_search_authorized"] is False
+def test_prereg_freeze_is_self_consistent_during_revision():
+    doc = json.loads((ROOT / "V5_PREREGISTRATION_FREEZE.json").read_text())
+    body = {k: v for k, v in doc.items() if k != "body_sha256"}
+    assert sha256_text(canonical_json(body)) == doc["body_sha256"]
+    assert doc["status"] in ("REVIEW_REQUIRED", "FINAL")
+    if doc["status"] == "REVIEW_REQUIRED":
+        assert doc["discovery_search_authorized"] is False

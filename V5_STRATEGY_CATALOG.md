@@ -1,4 +1,9 @@
-# V5 mechanism catalog — design for review
+# V5 mechanism catalog — frozen strategy universe
+
+The holdout-confirmation revision changes inference only. The 30 families,
+Stage A/B/C signal specifications, deterministic Q5 IDs, causal execution,
+and no-cap grammar described below remain the executable strategy universe.
+`V5_HOLDOUT_CONFIRMATION_PROTOCOL.md` governs statistical decisions.
 
 At the precalibration science freeze, `quantlab5/v5/signals.py` and
 `quantlab5/v5/candidate_inventory.py` are the executable definitions of every

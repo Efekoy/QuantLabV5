@@ -1,4 +1,15 @@
-# V5 null and multiple-testing method
+# V5 null-method history and holdout inference
+
+**Operational status:** market-null generation is abandoned as a V5
+discovery prerequisite. V5/V5.1/V5.2/V5.3 synthetic routes and the
+controlled direct-null study failed their frozen calibration or diagnostic
+gates. Their reports and tags remain preserved. The successful part of
+this work is the tested common-day fixed-stream inference implementation,
+now used for exploratory Stage A allocation and exact-rule 2019–2022
+holdout confirmation under `V5_HOLDOUT_CONFIRMATION_PROTOCOL.md`.
+No failed null market is used as primary evidence or described as an
+adaptive-search calibrated p-value. The earlier proposals below are
+archived methodological context and do not govern the revised protocol.
 
 Status: **precalibration implementation, no final freeze**. Fixed-family daily-stream bootstrap/stepdown and sequential stopping are implemented and tested in `quantlab5/v5/inference.py`; the executable 30-family A/B/C search and market-level replay are connected on synthetic markets. The controlled DISCOVERY nuisance worker, symmetric zero-edge generator, executable calibration grid and family-direction validation rule are specified in `V5_PRECALIBRATION_SCIENCE_PROTOCOL.md`. The fixed-stream and four-neighbor analyses below are historical planning diagnostics; the precalibration protocol governs operational differences. No new real DISCOVERY strategy outcome or sealed partition has been examined, and no calibrated adaptive full-search p-value exists yet.
 

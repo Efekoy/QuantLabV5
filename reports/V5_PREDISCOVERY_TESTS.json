@@ -1,0 +1,18 @@
+{
+  "kind": "V5_PREDISCOVERY_EXECUTABLE_TEST_GATE",
+  "status": "PASS",
+  "command": "python -m pytest -q -x -p no:cacheprovider --basetemp=.pytest_tmp_holdout_final",
+  "environment": {
+    "NUMBA_CACHE_DIR": "workspace/.numba_cache_holdout",
+    "PYTHONPYCACHEPREFIX": "workspace/.pycache_holdout"
+  },
+  "python": "3.12.10",
+  "pytest": "9.1.1",
+  "passed": 330,
+  "failed": 0,
+  "skipped": 0,
+  "exit_code": 0,
+  "log": "reports/V5_PREDISCOVERY_PYTEST.log",
+  "log_sha256": "028a4ccc5316b5d20e39a84fc75ae2b5ee983df3712ab954c9b922bc83bf92ab",
+  "notes": "Complete repository test suite; legacy feature-library runtime warnings were nonfatal."
+}

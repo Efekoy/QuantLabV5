@@ -1,4 +1,14 @@
-# V5 planning power and calibration protocol
+# V5 planning power and archived calibration evidence
+
+**Current role:** planning and historical method evidence only. Fully
+synthetic and direct-null market calibration did not clear frozen gates,
+so none of the market-null size/power conditions below authorizes or
+blocks the revised holdout-confirmation design. No executable adaptive
+market-null power estimate is claimed. The primary V5 inference is the
+frozen independent validation procedure in
+`V5_HOLDOUT_CONFIRMATION_PROTOCOL.md`; limited power yields an honest
+`INCONCLUSIVE / UNDERPOWERED` label, never a relaxed validation threshold.
+The original calculations and failed-route proposal remain below.
 
 Status: **precalibration implementation / no final freeze**. The updated objective treats 0.01–0.03R as diagnostic, not a freeze blocker. The binding executable grid and acceptance gates are in `V5_PRECALIBRATION_SCIENCE_PROTOCOL.md`; the planning calculations and stream-proxy results below do not authorize real research. The original exact-rule pilot and hierarchical decomposition use synthetic dependent strategy streams, never a V5 market partition or real strategy outcome. Reproduce them with `python research/planning_power.py`, `python -m research.pilot_v5_stream_power --replications 100 --bootstrap-reps 99 --frequencies 100 500 --days 1034 --candidates 120`, and `python -m research.decompose_v5_power --frequencies 100 250 500 --worlds 120 --bootstrap-reps 99 --output reports/V5_HIERARCHICAL_POWER.json`.
 

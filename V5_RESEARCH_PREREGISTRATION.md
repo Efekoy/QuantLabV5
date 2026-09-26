@@ -1,4 +1,32 @@
-# QuantLabV5 research preregistration — review draft
+# QuantLabV5 research preregistration — holdout-confirmation revision
+
+**Governing pre-DISCOVERY design:** `V5_HOLDOUT_CONFIRMATION_PROTOCOL.md`
+and its hash freeze govern the exploratory Stage A/B/C search, exact-rule
+validation, classifications, and blind audits. The 30 mechanism definitions,
+Q5 grammar, execution, costs, no-cap advancement, and four-budget
+individual risk diagnostics remain fixed. The old portfolio-selection
+draft in Section 7 is archived and is not an operative V5 selection gate.
+The market-null calibration requirement and
+discovery-wide surrogate p-value claims in the historical review text below
+are superseded. Failed null attempts remain archived in
+`V5_NULL_PROGRAM_CONCLUSION.md` and their original tagged reports.
+
+No V5 strategy outcome on original DISCOVERY has yet been calculated.
+DISCOVERY is exploratory. The primary confirmatory test is exact-candidate
+day-clustered Romano-Wolf stepdown on frozen 2019–2022 validation streams.
+Both later historical audits test the same scientific cohort and reveal
+together. Prior V2/V3/V4 research exposed the program to later historical
+mechanisms; these periods are historical holdouts, and only post-freeze
+future data can be genuinely prospective. LIVE_FORWARD stays sealed.
+
+The operative Stage A p≤0.10 expansion gate uses the centered common-day
+stationary bootstrap of all 60 Stage A daily streams, as specified in the
+holdout protocol. It is exploratory allocation, not a supported-edge
+claim. All discovery economic qualifiers advance to validation without
+rank or correlation cutoff. All validation-supported exact candidates
+enter the scientific cohort.
+
+## Archived review text retained for methodological history
 
 **Status: IMPLEMENTATION HOLD / REVIEW REQUIRED; NO STRATEGY SEARCH AUTHORIZED.** All 30 Stage A signal families and adaptive A/B/C expansion execute on synthetic markets. The independent stream-proxy replication found 77.3% survival for a 0.10R plateau at approximately 500 trades/year (95% CI 72.8–81.3%); this is planning evidence only. The controlled DISCOVERY nuisance-access design and binding executable calibration criteria are in `V5_PRECALIBRATION_SCIENCE_PROTOCOL.md`. That protocol must be frozen before any new real DISCOVERY read. Full market-level calibration and final size/power gates remain incomplete. No validation or historical-audit partition may be opened for this work.
 

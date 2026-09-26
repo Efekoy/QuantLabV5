@@ -1,5 +1,12 @@
 # Prior laboratory coverage and V5 boundaries
 
+The V5 2019–2022 validation and 2023–2026 audits are historical
+holdouts of exact frozen V5 candidates, not perfectly researcher-blind
+or genuinely prospective tests. The strongest future evidence will be
+sessions arriving after the final V5 freeze. The prior-study table is
+context, not a candidate-selection or null-method instruction; V5's
+current inference protocol is `V5_HOLDOUT_CONFIRMATION_PROTOCOL.md`.
+
 This is a literature map, **not** a source of V5 candidate rankings. V2/V3/V4 reports were available to the researcher, including later historical outcomes. Consequently V5 historical audits are software-sealed but not perfectly researcher-blind. Every V5 mechanism, threshold and portfolio decision must be fixed before V5 validation/audits are read; prior survivors cannot be used to choose among V5 variants.
 
 | Prior work | Coverage relevant to V5 | Design consequence |
@@ -13,4 +20,5 @@ This is a literature map, **not** a source of V5 candidate rankings. V2/V3/V4 re
 
 Sources: `docs/prior_labs/V2/STRATEGY_CATALOG.md`, `docs/prior_labs/V3/results/V3_MASTER_RESEARCH_RECORD.md`, `docs/prior_labs/V4/V4_FEATURE_CATALOG.md`, `docs/prior_labs/V4/V4_MASTER_RESEARCH_RECORD.md`, `docs/prior_labs/V4/V4_NULL_VALIDATION_REPORT.md`, and `docs/prior_labs/V4/V4_POSTHOC_RISK_BUDGET_REPORT.md`.
 
-Existing V5 infrastructure is still the V4 engine port with no V5 grammar (`config/search.yaml: grammar: null`). The current stage is DISCOVERY, and no V5 strategy search has started. The proposed catalog is a research specification; no claim is made that its features or grammar are implemented yet.
+V5 now has an executable 30-family A/B/C grammar. The current stage is
+DISCOVERY, and no V5 strategy search on original DISCOVERY has started.
