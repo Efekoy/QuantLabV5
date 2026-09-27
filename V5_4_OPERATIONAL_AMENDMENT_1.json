@@ -1,0 +1,18 @@
+{
+  "amendment_builder_sha256": "72b0efb8891b7b5a14d9ed7d1721f32298985531fda85d2039424a59cb7bc7a5",
+  "body_sha256": "112038f7010bd830ed40a6936dd3be56751b7a54935b3128257cea1d88cb693b",
+  "change": "Retry the identical Path.replace operation; no scientific module or data rule changed",
+  "frozen_runner_sha256": "1b3ed589dcd91d759290bc30388ed649e133e7404fd70a94f421f2fb3071dd1c",
+  "kind": "V5_4_OPERATIONAL_AMENDMENT_1",
+  "last_complete_checkpoint_rows_before_amendment": 7636464,
+  "ledger_anchor_before_amendment": {
+    "record_hash": "aaf8cac80e73d5cce4653b279b6ec8aa2cbf60d15152f43004a0390530c0421e",
+    "seq": 27
+  },
+  "no_change_to_strategy_universe_inference_or_costs": true,
+  "no_outcome_inspection_for_change": true,
+  "preregistration_freeze_sha256": "abc3061fa05c9b4358e4935419c7e978b09a1aba54499a3b6e98a43baf8a8ac0",
+  "reason": "Transient WinError 5 replacing checkpoint progress.json on Windows",
+  "status": "FROZEN",
+  "wrapper_sha256": "8cf91bda9334d28f20e46aa499ca092342e74fe499dda1426933ffff2bcdd9d4"
+}
