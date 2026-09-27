@@ -13,4 +13,6 @@ results/**
 .pytest_cache/
 .pytest_tmp_*/
 reports/v54/
+reports/V5_4_VALIDATION_RESULTS.jsonl
+reports/V5_4_HISTORICAL_AUDIT_RESULTS.json
 .numba_cache_holdout/

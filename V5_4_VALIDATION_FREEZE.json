@@ -1,0 +1,18 @@
+{
+  "body_sha256": "99fb8fb7fb39254ec016d0721e7ce95bc3e5dec451d4858c22b1f00396911380",
+  "class_counts": {
+    "INCONCLUSIVE / UNDERPOWERED": 32194,
+    "REJECTED": 225,
+    "SUPPORTED": 4
+  },
+  "discovery_freeze_sha256": "7867fb096da98bad150fc2ce170a85a65db73b80a89b6ca7f491c060eff02324",
+  "evaluated_count": 32423,
+  "files_sha256": {
+    "V5_4_VALIDATION_REPORT.md": "cd479dc24e18ebda7a73995fb6173dcc325b836b723307eb3d9b3c22909833a9",
+    "reports/V5_4_VALIDATION_RESULTS.jsonl": "9a3193d63f9524ffa80dd8e47069d70a1999461768a5080d85173fd4220785e6"
+  },
+  "kind": "V5_4_VALIDATION_FREEZE",
+  "no_top_n_cap": true,
+  "status": "FROZEN",
+  "supported_count": 4
+}

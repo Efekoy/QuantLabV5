@@ -1,0 +1,108 @@
+{
+  "body_sha256": "e6fe84ec4832d2ffed1c7759ca0dcf1ca4295f09d1da2be3c31271c2028df86c",
+  "candidate_ids": [
+    "Q54-4b3a94d211d0d426fe3e7c15",
+    "Q54-a423e8be601df78f40089a66",
+    "Q54-cdb1d3d22908f8612e91b90f",
+    "Q54-0ec535a5e60ebe848bd47456"
+  ],
+  "kind": "V5_4_SCIENTIFIC_COHORT_FREEZE",
+  "no_top_n_cap": true,
+  "portfolio_selection": "none; individual MNQ coverage only",
+  "specs": {
+    "Q54-0ec535a5e60ebe848bd47456": {
+      "direction": "long",
+      "entry": "delay_one_bar",
+      "family": "E09",
+      "filters": [
+        "eff_high"
+      ],
+      "grammar": "V5_4_G1",
+      "lookback": 45,
+      "management": {
+        "breakeven_r": null,
+        "hold": "eod",
+        "mechanism_exit": false,
+        "partial_fraction": null,
+        "partial_r": null,
+        "stop": "swing_15",
+        "target_r": null,
+        "template": "T3_SESSION_RUNNER",
+        "trail_r": null
+      },
+      "session": "rth_am",
+      "threshold": 0.3
+    },
+    "Q54-4b3a94d211d0d426fe3e7c15": {
+      "direction": "long",
+      "entry": "next_open",
+      "family": "E03",
+      "filters": [
+        "eff_high"
+      ],
+      "grammar": "V5_4_G1",
+      "lookback": 10,
+      "management": {
+        "breakeven_r": null,
+        "hold": "eod",
+        "mechanism_exit": false,
+        "partial_fraction": null,
+        "partial_r": null,
+        "stop": "swing_15",
+        "target_r": null,
+        "template": "T3_SESSION_RUNNER",
+        "trail_r": null
+      },
+      "session": "rth_am",
+      "threshold": 2.5
+    },
+    "Q54-a423e8be601df78f40089a66": {
+      "direction": "long",
+      "entry": "next_open",
+      "family": "E03",
+      "filters": [
+        "eff_high"
+      ],
+      "grammar": "V5_4_G1",
+      "lookback": 10,
+      "management": {
+        "breakeven_r": 1.25,
+        "hold": "eod",
+        "mechanism_exit": false,
+        "partial_fraction": null,
+        "partial_r": null,
+        "stop": "swing_15",
+        "target_r": null,
+        "template": "T8_BE_TRAIL_RUNNER",
+        "trail_r": 1.5
+      },
+      "session": "rth_am",
+      "threshold": 2.5
+    },
+    "Q54-cdb1d3d22908f8612e91b90f": {
+      "direction": "long",
+      "entry": "next_open",
+      "family": "E09",
+      "filters": [
+        "eff_high"
+      ],
+      "grammar": "V5_4_G1",
+      "lookback": 45,
+      "management": {
+        "breakeven_r": null,
+        "hold": "eod",
+        "mechanism_exit": false,
+        "partial_fraction": null,
+        "partial_r": null,
+        "stop": "swing_15",
+        "target_r": null,
+        "template": "T3_SESSION_RUNNER",
+        "trail_r": null
+      },
+      "session": "rth_am",
+      "threshold": 0.3
+    }
+  },
+  "status": "FROZEN",
+  "validation_freeze_sha256": "4e35307d29fb3ce83ffd340ced10750b6608fb5693c03e5f8e1c23d6d081dfce"
+}
