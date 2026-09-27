@@ -16,3 +16,10 @@ reports/v54/
 reports/V5_4_VALIDATION_RESULTS.jsonl
 reports/V5_4_HISTORICAL_AUDIT_RESULTS.json
 .numba_cache_holdout/
+dashboard/.vendor/
+dashboard/frontend/node_modules/
+dashboard/frontend/dist/
+dashboard/frontend/*.tsbuildinfo
+dashboard/database/*.sqlite3*
+dashboard/runtime/current_run.json
+dashboard/runtime/events.jsonl
