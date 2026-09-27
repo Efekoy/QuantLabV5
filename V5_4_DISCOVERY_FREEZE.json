@@ -1,0 +1,19 @@
+{
+  "body_sha256": "e742db4a98d3023ec73a56a583c8f53e2bf201ce24bc2522e8ef1d5bbc1482ca",
+  "descriptive_overlap_no_candidate_deletion": true,
+  "evaluated_specifications": 14220360,
+  "files_sha256": {
+    "V5_4_DISCOVERY_REPORT.md": "e7ab3b1d79c457a7f19eabbaedeee0ec36215f8c343ea212c9dac97a59b0e678",
+    "reports/V5_4_DISCOVERY_OVERLAP.jsonl": "6caaf30fc5685196a658b306c4f1041a20bb8a42b7626599b4925bd692e6874b",
+    "reports/V5_4_DISCOVERY_OVERLAP_SUMMARY.json": "8a6da0324cd362edf493e32ad5c56bec86e43af9096e48f719ae12c23e732237",
+    "reports/v54/first_pass.npy": "ed98f1a0f6e8c16717d7d03101e46b68b75d0dd8f59267a1f9288421820ba83e",
+    "reports/v54/first_pass_complete.json": "ddb1dd332b04627a436de661303c39411e43ef8f0fbc2f47a6a74b9f4022dff6",
+    "reports/v54/qualifier_details.jsonl": "7c09ce0d358f7a3e4b5f998bd02d955c4223b7abcc82c324298f07d976030e2e",
+    "reports/v54/qualifying_rows.npy": "2dbe7d3b731357974ba18f2afdcc354b0a23ba45878e53715dd8330d95c61b75"
+  },
+  "kind": "V5_4_BROAD_DISCOVERY_FREEZE",
+  "no_top_n_cap": true,
+  "prereg_sha256": "abc3061fa05c9b4358e4935419c7e978b09a1aba54499a3b6e98a43baf8a8ac0",
+  "qualifier_count": 32423,
+  "status": "FROZEN"
+}

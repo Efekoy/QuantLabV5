@@ -1,0 +1,9 @@
+{
+  "kind": "V5_4_DISCOVERY_QUALIFIER_OVERLAP_DESCRIPTION",
+  "qualifier_count": 32423,
+  "qualifiers_with_finite_same_entry_trade_pnl_correlation": 23775,
+  "same_entry_duplicate_pairs": 155276,
+  "same_entry_exit_duplicate_pairs": 12401,
+  "same_realized_trade_record_duplicate_pairs": 4960,
+  "trade_pnl_correlation_scope": "only pairs with identical entry indices; descriptive, no candidate deletion"
+}
