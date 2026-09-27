@@ -1,0 +1,26 @@
+{
+  "body_sha256": "f81381e36ebdade04ecb8065098b54caa9db346003b005919d738bd64b338fc8",
+  "discovery_qualifiers": 32423,
+  "dual_audit_supported_ids": [],
+  "files_sha256": {
+    "V5_4_BOTH_HISTORICAL_AUDITS_COMPLETE.json": "d2ca74b3f0aaf473b4cea4ac748c42c894b063cf797d7e66099cca74d8987f69",
+    "V5_4_COMPLETE_RESEARCH_REPORT.md": "7026e326357c3aa05f5f7c11aed5716cd1dd398089b02c2f7e8afcaad2925546",
+    "V5_4_HISTORICAL_AUDITS_REPORT.md": "85cb39ddd5ff53c82f8126120d34ec1c541db6adc4daaf786e60b770e9f8f024",
+    "reports/V5_4_HISTORICAL_AUDIT_RESULTS.json": "4dff20d0e81d3500f83b515049b9a58b38b6184cf72fe16ddd2a76f474b4fc74"
+  },
+  "kind": "V5_4_COMPLETE_HISTORICAL_RESEARCH_FREEZE",
+  "ledger_anchor": {
+    "record_hash": "b2c81eda690ddb41c6356950cef70406d69caffdfd7f6e022ef0db7f37ad3eca",
+    "seq": 35
+  },
+  "live_forward_sealed": true,
+  "scientific_cohort_ids": [
+    "Q54-4b3a94d211d0d426fe3e7c15",
+    "Q54-a423e8be601df78f40089a66",
+    "Q54-cdb1d3d22908f8612e91b90f",
+    "Q54-0ec535a5e60ebe848bd47456"
+  ],
+  "specifications_evaluated": 14220360,
+  "status": "FROZEN",
+  "validation_tested": 32423
+}
