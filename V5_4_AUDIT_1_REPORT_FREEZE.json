@@ -1,0 +1,18 @@
+{
+  "body_sha256": "8bf9d715ac6d036adfd16d2d78338ea9e038a0803c201f63fb87c220db095185",
+  "candidate_ids": [
+    "Q54-4b3a94d211d0d426fe3e7c15",
+    "Q54-a423e8be601df78f40089a66",
+    "Q54-cdb1d3d22908f8612e91b90f",
+    "Q54-0ec535a5e60ebe848bd47456"
+  ],
+  "cohort_sha256": "a9a9a75ede77112f0db7efbeff16a52a3602350ecc1f7f6d914407f9429b7baa",
+  "data_read": true,
+  "evaluated_count": 4,
+  "files_sha256": {
+    "reports/v54/phase1_sealed.jsonl": "4afe8527fbb47071b8ae111573957e7cc461e9fec1d6e664e76f467ea7561bfe"
+  },
+  "kind": "V5_4_PHASE1_SEALED_FREEZE",
+  "manifest_sha256": "c468e1e3f41235afe520eb232f127db852147f108e00d56bff4de1d4104abed8",
+  "status": "FROZEN"
+}
