@@ -1,0 +1,32 @@
+{
+  "audit_1": [
+    "2023-01-03",
+    "2025-12-31"
+  ],
+  "audit_2": [
+    "2026-01-02",
+    "2026-08-10"
+  ],
+  "body_sha256": "a1bef1a0f146af1fe7c940d9458600d638ba728fc55844d6a08e4bb519d2c48f",
+  "candidate_count": 4,
+  "candidate_ids": [
+    "Q54-4b3a94d211d0d426fe3e7c15",
+    "Q54-a423e8be601df78f40089a66",
+    "Q54-cdb1d3d22908f8612e91b90f",
+    "Q54-0ec535a5e60ebe848bd47456"
+  ],
+  "cohort_sha256": "a9a9a75ede77112f0db7efbeff16a52a3602350ecc1f7f6d914407f9429b7baa",
+  "files_sha256": {
+    "config/costs.yaml": "d3bdaea53afff688c2b29da42c81e02a22a4f091162ae64bbd968d3bc9173108",
+    "quantlab5/v54/engine.py": "f4fbe95cfccc4a074dc37435dfe4c64900cfd785b84b54c69ad4860a54c94ae4",
+    "quantlab5/v54/events.py": "73678d0c68709d103bdc3e03664478b2da5b43b31d4cc18be6bdcde014647576",
+    "quantlab5/v54/inference.py": "56786ebf6ced25cb357cc66587cb891f70e0fbf8b59c4fbfe3bc279dd4b983bf",
+    "quantlab5/v54/universe.py": "4967ef8e517873e650d01f697ab9ca7a4b075fbcf740e72e49729e697bb6fa46",
+    "research/run_v54_blind_audits.py": "cb5acb15fc757bbbf4e95f33ebbd52123dc90df8b44afbb527ca1087a51c48bd"
+  },
+  "kind": "V5_4_HISTORICAL_AUDIT_MANIFEST",
+  "portfolio_selection": "none",
+  "same_cohort_both_audits": true,
+  "specs_sha256": "2f34c2e90dbccfb4e3d85228dcbceb8dd75b41b4734f557c6f35c9f71c097dd0",
+  "status": "FROZEN"
+}
